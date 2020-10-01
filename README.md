@@ -11,8 +11,8 @@ To install the latest version of `hugo` you can use `brew install hugo` if you a
 Now you're ready to build locally:
 
 ```bash
-git clone https://github.com/vmware-tanzu-private/tanzu-dev-portal
-cd tanzu-gemfire-dev-portal
+git clone https://github.com/gemfire/tanzu-gemfire-developer-website.git
+cd tanzu-gemfire-developer-website
 git submodule update --init --recursive
 hugo server
 ```
