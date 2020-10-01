@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<section id="hero" class="td-box--gray-dark">
+	<div class="container">
+		<h1 class="h1">Overview</h1>
+		<div class="lead">
+			<p class="col-lg-7 px-0">
+				Tanzu GemFire is an in-memory, key-value, caching layer that is highly-performant and highly-available.
+			</p>
+		</div>
+	</div>
+</section>
+
+<div class="td-main">
+	<div class="row flex-xl-nowrap container mx-auto">
+		<main class="col-12 col-md-9 col-xl-8 pl-md-5" flex="1" role="main">
+	{{ .Content }}
+		</main>
+	</div>
+</div>
+{{ end }}

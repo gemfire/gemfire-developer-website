@@ -1,0 +1,69 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "VMware Tanzu GemFire Developer"
+theme = "docsy"
+
+# Image processing configuration.
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
+#Top Navbar Menu
+[menu]
+
+  [[menu.main]]
+      name ="Documentation"
+      weight = 100
+
+  [[menu.main]]
+        name ="Community"
+        weight = 200
+
+
+  [[menu.main]]
+      parent ="Documentation"
+      name = "Tanzu GemFire Standalone"
+      weight = 1
+      url = "https://gemfire.docs.pivotal.io/gemfire"
+
+  [[menu.main]]
+      parent ="Documentation"
+      name = "Tanzu GemFire for VMs"
+      weight = 100
+      url = "https://docs.pivotal.io/p-cloud-cache"
+
+  [[menu.main]]
+        parent ="Documentation"
+        name = "Tanzu GemFire for Kubernetes"
+        weight = 200
+        url = "https://tgf.docs.pivotal.io/tgf/beta/"
+
+
+  [[menu.main]]
+     parent = "Community"
+     name = "Apache Geode"
+     weight = 1
+     url = "https://geode.apache.org/"
+
+
+
+# Code Highlighting Settings
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.highlight]
+       codeFences = true
+       noClasses = false
+
+disableKinds = ["taxonomy", "term"]
+
+
+# Everything below this are Site Params
+[params]
+
+copyright = "VMware, Inc."
+privacy_policy = "https://www.vmware.com/help/privacy.html"
+terms_of_use = "https://www.vmware.com/help/legal.html"
+california_privacy_rights = "https://www.vmware.com/help/privacy/california-privacy-rights.html"

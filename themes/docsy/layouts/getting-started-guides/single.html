@@ -1,0 +1,30 @@
+<html lang="{{ .Site.Language.Lang }}" class="no-js">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="td-{{ .Kind }} td-{{ .Parent.Params.title | lower }} guide" data-section="{{ .Parent.Params.title | lower }}">
+    {{ partial "required-gtm-no-script.html" . }}
+    <header>
+      {{ partial "navbar.html" . }}
+    </header>
+    <div class="container-fluid td-outer">
+
+      <div class="td-main">
+        <div class="row flex-xl-nowrap container mx-auto">
+          <div class="col-12 col-md-3 col-lg-3 col-xl-3 td-sidebar d-print-none">
+          	    {{ partial "sidebar.html" . }}
+          </div>
+         <main class="col-12 col-md-9 col-xl-8 pl-md-5" flex="1" role="main">
+          	<br/>
+            {{ partial "breadcrumb.html" . }}
+            {{ block "main" . }}{{ end }}
+            {{ .Render "content" }}
+          </main>
+        </div>
+      </div>
+        {{ partial "footer.html" . }}
+    </div>
+
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

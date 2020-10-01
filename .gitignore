@@ -1,0 +1,10 @@
+# Hugo default output directory
+public/
+resources/
+
+#Node
+node_modules/
+
+# Other Files
+.DS_Store
+.idea

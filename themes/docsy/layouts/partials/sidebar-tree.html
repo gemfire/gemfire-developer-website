@@ -1,0 +1,18 @@
+{{/* We cache this partial for bigger sites and set the active class client side. */}}
+{{ $shouldDelayActive := ge (len .Site.Pages) 2000 }}
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner{{ if $shouldDelayActive }} d-none{{ end }}">
+    <nav class="collapse td-sidebar-nav pt-2" id="td-section-nav">
+
+
+
+    <h4> {{ .Title }}</h4>
+    <div class="d-none d-md-block col-md td-toc d-print-none">
+    {{partial "toc.html" . }}
+    </div>
+
+  </nav>
+</div>
+
+

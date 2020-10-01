@@ -1,0 +1,55 @@
+{{ $cover := .HasShortcode "blocks/cover" }}
+<nav id='navbar' class="js-navbar-scroll navbar navbar-expand navbar-dark {{ if $cover}} td-navbar-cover {{ end }}flex-column flex-md-row td-navbar">
+	<div class='container'>
+
+		<a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+			<span class="navbar-logo">{{ with resources.Get "icons/logo.svg" }}{{ .Content | safeHTML }}{{ end }}</span>
+		</a>
+
+		<div class="td-navbar-nav-hamburger" id="main_navbar">
+
+			<ul class="navbar-nav mt-lg-0 align-items-center">
+
+
+				{{ $p := . }}
+				{{ $url := urls.Parse .RelPermalink }}
+				{{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
+				{{ range .Site.Menus.main }}
+				{{ if .HasChildren }}
+				<li class="nav-item dropdown d-lg-block mr-4 mb-0">
+					<a class="nav-link dropdown-toggle" href="{{.URL}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						{{ .Name }}
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						{{ range .Children }}
+						<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+						{{ end }}
+					</div>
+				</li>
+				{{ else }}
+				<li class="nav-item mr-4 mb-0">
+					{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+					{{ with .Page }}
+					{{ $active = or $active ( $.IsDescendant .)  }}
+					{{ end }}
+					<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}><span{{if $active }} class="active"{{end}}>{{ .Name }}</span></a>
+				</li>
+				{{ end }}
+				{{ end }}
+				<li class="nav-item ml-2 mb-0">
+					<a id="toggle-light-dark-mode"><span></span></a>
+				</li>
+
+			</ul>
+
+
+			<div id="menu-toggle">
+			<span>
+        <div id="menu-bars"><div class="menu-bar"></div><div class="menu-bar"></div><div class="menu-bar"></div></div>
+        <svg id="menu-close" viewBox="0 0 18.33 18.33" xmlns="http://www.w3.org/2000/svg"><line class="a" x1="1" x2="17.33" y1="1" y2="17.33"></line><line class="a" x1="17.33" x2="1" y1="1" y2="17.33"></line></svg>
+      </span>
+			</div>
+
+		</div>
+	</div>
+</nav>
