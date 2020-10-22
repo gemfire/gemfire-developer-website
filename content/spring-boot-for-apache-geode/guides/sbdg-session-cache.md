@@ -9,7 +9,7 @@ featured: true
 
 ---
 
-This guide walks you through how to implement a session state cache using Tanzu GemFire in a Spring Boot application.
+This guide walks you through how to implement a session state cache using Tanzu GemFire and [Spring Boot for Apache Geode](https://docs.spring.io/spring-boot-data-geode-build/current/reference/html5/).
 ## When should I use a session state cache?
 
 Session state caching is useful for storing data associated with an HTTP session. Storing this data in a cache allows it to be retrieved quickly and persisted across logins. Some examples where this might be useful include:
@@ -37,6 +37,7 @@ To complete this guide you need:
 * Your favorite text editor or IDE
 * JDK 8 or 11
 * A Spring Boot application (using 2.2 or greater)
+* The Spring Boot for Apache Geode dependency.
 
 ---
 
@@ -48,16 +49,28 @@ The back end (in the `src/main/java/sessionstate/` directory) handles all the se
 The front end (in the `frontend/` directory) is provided to illustrate how a web app can interact with the session data. The example front end is written using the React framework, but clients can use any language or framework capable of interacting with a REST endpoint.
 
 ### Step 1: Add the Spring Boot for Apache Geode Dependency
-To allow the application to work with Tanzu GemFire and utilize the Spring Boot for Apache Geode dependency, add the following dependency information to the `build.gradle` file
+To allow the application to work with Tanzu GemFire and utilize the Spring Boot for Apache Geode dependency, add the following dependency information (the example code uses Gradle)
 
+**Gradle**
 ```groovy
 dependencies {
-    implementation("org.springframework.geode:spring-geode-starter-session:1.3.3")
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
-}
+    implementation("org.springframework.geode:spring-geode-starter-session:1.3.4")
+ }
 ```
-### Step 2: Add Application-Level Annotations
+
+**Maven**
+```xml
+<dependencies>
+    <dependency>
+      <groupId>org.springframework.geode</groupId>
+      <artifactId>spring-geode-starter-session</artifactId>
+      <version>1.3.4.RELEASE</version>
+    </dependency>
+</dependencies>
+
+```
+
+### Step 2: Add Spring Boot for Apache Geode Annotations
 The Spring Boot application will need the following annotations
 
 ```java
@@ -70,9 +83,10 @@ public class SessionStateApplication {
 }
 ```
 [@EnableClusterAware](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware)
-Allows the application to seamlessly switch between local-only (application running on local machine) and client/server (in a managed environment such as Tanzu Application Service). This annotation includes the [@EnableClusterConfiguration](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware) annotation, which dynamically creates regions if they do not exist already. Note that the @EnableClusterConfiguration annotation will only create Regions, it will not delete or update existing regions.````
+Allows the application to seamlessly switch between local-only (application running on local machine) and client/server (in a managed environment such as Tanzu Application Service). This annotation includes the [@EnableClusterConfiguration](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware) annotation, which dynamically creates regions if they do not exist already. Note that the @EnableClusterConfiguration annotation will only create Regions, it will not delete or update existing regions.
 
 The example Spring Boot application uses a `RestController` that allows the front end application to interact with a REST API to read, update, and destroy session data.
+
 ```java
 @RestController
 public class SessionController {
@@ -125,20 +139,37 @@ const destroySession = async () => {
 };
 ```
 
-### Step 4: Build and Run the Application!
+### Step 4: Build and Run the Application Locally
+Navigate to the root of the project  in a command line and run the Spring Boot run command.
+
+**Gradle**
 ```
 ./gradlew bootRun
 ```
 
-**Note:** If you do not have a local Tanzu GemFire instance running, you will see an exception logged of the form: `Could not connect to: localhost:40404`. The application is still running normally using the internal cache implementation.
+ **Maven**
+```
+mvn spring-boot:run
+``` 
 
-The web application will be accessible at [http://localhost:8080] (http://localhost:8080)by default. The "Enter your note:" form can be used to enter notes. The "DESTROY SESSION" button can be used to clear the session data and delete the notes.
+>**Note:** If you do not have Tanzu GemFire running locally, you will see an exception logged of the form: `Could not connect to: localhost:40404`. The application is still able to run normally using the internal cache implementation.
 
-[img]
+The web application will be accessible at (http://localhost:8080) by default. The "Enter your note:" form can be used to enter notes. The "DESTROY SESSION" button can be used to clear the session data and delete the notes.
 
----
+![img](/images/spring-boot-for-apache-geode/guides/sbdg-session-cache/screenshots/session-state-frontend.jpg)
 
-## Testing Strategies
+### Step 5. Deploy your application on the Tanzu Application Service
+
+To deploy the Session State Caching application to Tanzu Application
+ Service (TAS) make sure you have created and a Tanzu GemFire service instance.
+ 
+ In the project root directory, open the `manifest.yml` file and replace  `<your-tanzu-gemfire-service>` with the name of your service instance.
+ 
+ Once the Tanzu GemFire service instance is running (you can check the status by running the `cf services` command), push your app to TAS with `cf push`.
+ 
+ ---
+
+## Testing Tip
 The API is tested using standard Spring Boot techniques, such as `@RunWith(SpringRunner.class`) and `MockMvc`. There are two notable items in the test class:
 It autowires a `CacheManager`, and accesses it to confirm that session data is properly stored in the cache.
 The tests are annotated with `@DirtiesContext` to destroy the test region between test runs and avoid test pollution.
