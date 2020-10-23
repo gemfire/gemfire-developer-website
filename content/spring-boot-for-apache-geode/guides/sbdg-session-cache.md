@@ -48,7 +48,7 @@ The back end (in the `src/main/java/sessionstate/` directory) handles all the se
 
 The front end (in the `frontend/` directory) is provided to illustrate how a web app can interact with the session data. The example front end is written using the React framework, but clients can use any language or framework capable of interacting with a REST endpoint.
 
-### Step 1: Add the Spring Boot for Apache Geode Dependency
+### 1: Add the Spring Boot for Apache Geode Dependency
 To allow the application to work with Tanzu GemFire and utilize the Spring Boot for Apache Geode dependency, add the following dependency information (the example code uses Gradle)
 
 **Gradle**
@@ -70,7 +70,7 @@ dependencies {
 
 ```
 
-### Step 2: Add Spring Boot for Apache Geode Annotations
+### 2: Add Spring Boot for Apache Geode Annotations
 The Spring Boot application will need the following annotations
 
 ```java
@@ -115,7 +115,7 @@ public class SessionController {
 }
 ```
 
-### Step 3: Accessing and Displaying Session Data from the Front End
+### 3: Accessing and Displaying Session Data from the Front End
 The front end web application accesses the back end REST API using standard GET and POST HTTP methods. See `frontend/src/sessionService.js`
 
 ```javascript
@@ -139,7 +139,7 @@ const destroySession = async () => {
 };
 ```
 
-### Step 4: Build and Run the Application Locally
+### 4: Build and Run the Application Locally
 Navigate to the root of the project  in a command line and run the Spring Boot run command.
 
 **Gradle**
@@ -158,10 +158,10 @@ The web application will be accessible at (http://localhost:8080) by default. Th
 
 ![img](/images/spring-boot-for-apache-geode/guides/sbdg-session-cache/screenshots/session-state-frontend.jpg)
 
-### Step 5. Deploy your application on the Tanzu Application Service
+### 5. Deploy your application on the Tanzu Application Service
 
 To deploy the Session State Caching application to Tanzu Application
- Service (TAS) make sure you have created and a Tanzu GemFire service instance.
+ Service (TAS) make sure you have created a Tanzu GemFire service instance.
  
  In the project root directory, open the `manifest.yml` file and replace  `<your-tanzu-gemfire-service>` with the name of your service instance.
  

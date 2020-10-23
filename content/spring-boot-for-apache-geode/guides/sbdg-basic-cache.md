@@ -52,7 +52,7 @@ In your application the external data source may be a call to a database, a diff
 
 You can download the complete application from the [Tanzu GemFire examples](https://github.com/pivotal/cloud-cache-examples) GitHub repository.
 
-### Step 1: Add the Spring Boot for Apache Geode Dependency
+### 1: Add the Spring Boot for Apache Geode Dependency
 To allow the application to work with Tanzu GemFire and utilize the Spring Boot for Apache Geode dependency, add the following dependency information (for this example we have used Gradle)
 
 **Gradle**
@@ -76,7 +76,7 @@ Make sure that the minor version of Spring Boot you are using, matches the Sprin
 {{% /alert %}} 
 
 
-### Step 2: Add Spring Boot for Apache Geode Annotations
+### 2: Add Spring Boot for Apache Geode Annotations
 Add the following annotations to either your application configuration class or your main application class
 
 ```java
@@ -98,7 +98,7 @@ Inspects the Spring application for components annotated with [@Cacheable](https
 [@EnableClusterAware](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware)
 Allows the application to seamlessly switch between local-only (application running on local machine) and client/server (in a managed environment such as Tanzu Application Service). This annotation includes the [@EnableClusterConfiguration](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware) annotation, which dynamically creates regions if they do not exist already. Note that the @EnableClusterConfiguration annotation will only create Regions, it will not delete or update existing regions.
 
-### Step 3: Add the @Cacheable Annotation to Service Method
+### 3: Add the @Cacheable Annotation to Service Method
 Finally, add the `@Cacheable` annotation to the service methods whose results will be cached.
 
 ```java
@@ -129,7 +129,7 @@ Add the name of the region you wish to be created as an argument to the annotati
 
 Remember that with the look-aside caching pattern, the application will first look in the cache and if the value is found, the application will not run the logic in the annotated method.
 
-### Step 4: Build and Run the App Locally.
+### 4: Build and Run the App Locally.
 Navigate to the root of the project  in a command line and run the Spring Boot run command.
 
 **Gradle**
@@ -165,10 +165,10 @@ If you click the search button again with the same ZIP code, you will see that t
 ![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-3.png)
 
 
-### Step 5. Deploy your application on the Tanzu Application Service
+### 5. Deploy your application on the Tanzu Application Service
 
 To deploy the Bike Incident application to Tanzu Application
- Service (TAS) make sure you have created and a Tanzu GemFire service instance.
+ Service (TAS) make sure you have created a Tanzu GemFire service instance.
  
  In the project root directory, open the `manifest.yml` file and replace  `<your-tanzu-gemfire-service>` with the name of your service instance.
  
