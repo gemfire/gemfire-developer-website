@@ -4,7 +4,7 @@ link-title: "Get started with Tanzu GemFire & Node.js"
 
 description: Create a Node.js client side application that can communicate with your Tanzu GemFire Service Instance
 weight: 1
-type: getting-started-guides
+type: guides
 featured: false
 ---
 
