@@ -2,15 +2,21 @@
 {{ $shouldDelayActive := ge (len .Site.Pages) 2000 }}
 
 
+
 <div id="td-sidebar-menu" class="td-sidebar__inner{{ if $shouldDelayActive }} d-none{{ end }}">
     <nav class="collapse td-sidebar-nav pt-2" id="td-section-nav">
 
+        <ul class="d-none d-md-block col-md td-toc d-print-none">
+            <li>
+                <a  href="/{{ .Section | urlize}}" ><clr-icon shape="caret left" size="16" title="Go back to Topic Landing Page" class="td-sidebar-back-to-topic-icon" ></clr-icon>{{$.Parent.Params.Title}}</a>
+            </li>
+        <ul>
 
 
-    <h4> {{ .Title }}</h4>
-    <div class="d-none d-md-block col-md td-toc d-print-none">
-    {{partial "toc.html" . }}
-    </div>
+        <div class="d-none d-md-block col-md td-toc d-print-none">
+         {{ .Title }}
+        {{partial "toc.html" . }}
+        </div>
 
   </nav>
 </div>
