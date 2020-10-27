@@ -25,12 +25,11 @@ Look-aside caching is a great candidate for data that doesn’t change often and
 ## How does a look-aside cache work?
 With a look-aside cache pattern, the application will request data from the cache. If the data **IS NOT** in the cache (**cache miss**), the application will request the data from the data store. Once the application receives the data, it will write that data to the cache (**cache write**).  
 
-![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/diagrams/CacheMiss.svg)
-![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/diagrams/CacheWrite.svg)
+![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/diagrams/CacheMissAndWrite.png)
 
 If the data **IS** in the cache (**cache hit**), your application will receive the requested data without needing to access the data store.  
 
-![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/diagrams/CacheHit.svg)
+![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/diagrams/CacheHit.png)
 
 ---
 
