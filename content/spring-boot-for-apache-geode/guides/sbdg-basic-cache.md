@@ -5,7 +5,7 @@ slug: A Basic Cache
 description: Add a simple Look-Aside Cache to your Spring Boot application. 
 weight: 1
 type: guides
-featured: true
+
 ---
 
 This guide walks you through how to add a simple cache, called a Look-Aside Cache, to your Spring Boot application using VMware Tanzu GemFire and the [Spring Boot for Apache Geode](https://docs.spring.io/spring-boot-data-geode-build/current/reference/html5/) dependency.

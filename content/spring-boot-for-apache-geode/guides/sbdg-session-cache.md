@@ -5,7 +5,7 @@ slug: Session State Caching
 description: Session state cache using Tanzu GemFire in a Spring Boot application.
 weight: 1
 type: guides
-featured: true
+
 
 ---
 
