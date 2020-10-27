@@ -6,9 +6,7 @@ description: >
 date: 2020-10-12
 type: blog
 featured: true
-
-# Author(s)
-team: 
+authors: 
 - Barry Oglesby
 ---
 
