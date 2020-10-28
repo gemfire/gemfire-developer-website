@@ -4,6 +4,6 @@ linkTitle: Tanzu GemFire Developer Blog
 weight: 2
 menu: 
     main:
-        parent: 'Community'
-        name: "Blog"
+       name: "Blog"
+       weight: 200
 ---
