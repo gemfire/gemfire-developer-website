@@ -3,9 +3,9 @@ title: "Geode Write-Behind Event Handling with Spring JPA"
 description: >
         A small project to show how an Apache Geode write-behind event handling can be implemented with Spring Data JPA and Spring Boot Data Geode.
 date: 2020-06-12
-type: blog
 authors: 
 - Juan Jose Ramos
+type: blog
 featured: true
 ---
 
