@@ -159,6 +159,8 @@
 
             .dropdown-item {
                 color: $link;
+                text-align: center;
+
             }
 
             .dropdown-item:hover, .dropdown-item:focus {
@@ -176,6 +178,7 @@
 
                 .nav-link {
                     color: $link;
+
                 }
 
                 a[href*='#'] {
