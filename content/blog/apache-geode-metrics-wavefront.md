@@ -162,7 +162,7 @@ session.removeSubregistry(registry);
 ```
 
 ## What else do we need?
-We create a file called org.apache.geode.metrics.MetricsPublishingService and place it in META-INF/services in the resource directory. The contents of this file is the path to our publisher. For this implementation it will be com.github.jhuynh1.geode.wavefront.GeodeWavefrontPublisher. This allows Geode to discover and use the publisher when the jar is included at start up.
+We create a file called *org.apache.geode.metrics.MetricsPublishingService* and place it in *META-INF/services* in the resource directory. The contents of this file is the path to our publisher. For this implementation it will be *com.github.jhuynh1.geode.wavefront.GeodeWavefrontPublisher*. This allows Geode to discover and use the publisher when the jar is included at start up.
 
 ## Creating an “uber”/shadow jar
 We’ll be using the GFSH command line interface to include our publisher jar when starting up the cluster. To simplify the number of jars needed to be included on the classpath, we can build an “uber” jar which will include the required Micrometer Wavefront dependencies with our jar. The alternative obviously would have been to include all the jars independently on the classpath.
