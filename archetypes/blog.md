@@ -16,3 +16,14 @@ featured:
 [I am a link](https://github.com/apache/geode)
 
 
+`I am one line of code`
+
+```java
+public class MultipleLinesOfJavaCode(){
+
+    public String someMethod(){
+    return "My String";
+    }
+}
+```
+
