@@ -184,13 +184,13 @@ In addition, set the properties below in the application.properties file. The la
 ### Sample Dashboard
 Once the Spring Boot application containing the Micrometer Wavefront registry is running, the values of all the Geode server statistics are published to Wavefront. An example Wavefront dashboard is shown below. The queries used in this dashboard are all pretty basic, although the [Wavefront Query Language](https://docs.wavefront.com/query_language_reference.html) allows for much more complex queries. The JSON file containing this dashboard is available [here](https://github.com/boglesby/convert-statistics-to-gauges/blob/master/wavefront_dashboard.json).
 
-![img](images/blog/screenshots/oglesby_5_12_20_wavefront.png)
+![img](images/blog/screenshots/barry_2020_05_wavefront.png)
 </br>General Metrics (CPU, Old Gen Heap and GC, Client Connections, etc.)
 
-![img](images/blog/screenshots/oglesby_5_12_20_wavefront_2.png)
+![img](images/blog/screenshots/barry_2020_05_wavefront2.png)
 </br>Operations Metrics (Puts, Gets, etc.)
 
-![img](images/blog/screenshots/oglesby_5_12_20_wavefront3.png)
+![img](images/blog/screenshots/barry_2020_05_wavefront3.png)
 </br>Queue Metrics (Queue Size and Messages Processed)
 
 ## Future
