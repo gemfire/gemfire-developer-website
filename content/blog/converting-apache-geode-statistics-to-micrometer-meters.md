@@ -181,6 +181,14 @@ compile 'io.micrometer:micrometer-registry-wavefront:1.3.2'
 
 In addition, set the properties below in the application.properties file. The last two are optional, but I was seeing intermittent timeouts, so I increased the defaults.
 
+| Property          | Description     | Example     |
+| ----------------- | ---------------- | --------------- | 
+| management.metrics.export.wavefront.api-token | API token | Generate in your account |
+| management.metrics.export.wavefront.uri | Wavefront URI | https://vmware.wavefront.com |
+| management.metrics.export.wavefront.source | Application identifier | my.test.application |
+| management.metrics.export.wavefront.connect-timeout | Connection timeout | 10s |
+| management.metrics.export.wavefront.read-timeout | Read timeout | 60s |
+
 ### Sample Dashboard
 Once the Spring Boot application containing the Micrometer Wavefront registry is running, the values of all the Geode server statistics are published to Wavefront. An example Wavefront dashboard is shown below. The queries used in this dashboard are all pretty basic, although the [Wavefront Query Language](https://docs.wavefront.com/query_language_reference.html) allows for much more complex queries. The JSON file containing this dashboard is available [here](https://github.com/boglesby/convert-statistics-to-gauges/blob/master/wavefront_dashboard.json).
 
