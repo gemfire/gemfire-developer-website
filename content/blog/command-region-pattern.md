@@ -39,7 +39,7 @@ The idea is pretty straightforward: a custom *distributedCommand* region will be
 ## Implementation
 * Create a *DistributedCommand* interface.
 
-```
+```java
 public interface DistributedCommand {
 
   void execute();
@@ -50,7 +50,7 @@ public interface DistributedCommand {
 ```
 * Create as many implementations of the DistributedCommand interface as you need. Below is a dummy example, which does nothing but print *“Hello World from ${clientId}!”* in the logs.
 
-```
+```java
 public class HelloWorldCommand implements DistributedCommand, Serializable {
   private final static transient Logger logger = LogService.getLogger();
   private String clientId;
@@ -63,7 +63,7 @@ public class HelloWorldCommand implements DistributedCommand, Serializable {
 
 * Create a DistributedCommandCacheWriter, its only purpose is to execute the received command.
 
-```
+```java
 public class DistributedCommandCacheWriter extends CacheWriterAdapter<Long, DistributedCommand> implements Declarable {
   private final static transient Logger logger = LogService.getLogger();
 

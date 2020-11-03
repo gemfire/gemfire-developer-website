@@ -38,7 +38,7 @@ The **RemoveUnusedPdxTypesFunction**:
 ### Get All PdxTypes
 The PdxTypes are stored in a replicated Region called PdxTypes. EnumInfo instances (which represent Enums in PDX) are also stored in that Region. This method filters those out and returns just the PdxTypes.
 
-```
+```java
 private Map getAllPdxTypes() {
  return this.cache.getRegion("PdxTypes").entrySet()
   .stream()
@@ -50,7 +50,7 @@ private Map getAllPdxTypes() {
 ### Recursively Remove All In-use PdxTypes
 This method iteratively removes all in-use PdxTypes from the input object by getting the PdxType from the object as a PdxInstanceImpl and removing it from the collection. It then iterates each field of the PdxInstanceImpl and recursively calls the method on the field’s value. Collections and Maps are iterated separately, but every object ends up in the first conditional.
 
-```
+```java
 private void removeInUsePdxTypes(Map<Integer,PdxType> allPdxTypesCopy, Object parent, String objFieldName, Object obj) {
  if (obj instanceof PdxInstanceImpl) {
   PdxInstanceImpl pdxInstance = (PdxInstanceImpl) obj;
@@ -74,7 +74,8 @@ private void removeInUsePdxTypes(Map<Integer,PdxType> allPdxTypesCopy, Object pa
 
 ### Delete Remaining PdxTypes
 Any PdxTypes remaining in the collection are removed from the Region using removeAll like:
-```
+
+```java
 this.cache.getRegion("PdxTypes").removeAll(allPdxTypesCopy.keySet());
 ```
 

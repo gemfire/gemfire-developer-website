@@ -55,7 +55,7 @@ The GatewaySenderQueueLogger:
 **Get Queue Regions**
 To get the serial GatewaySender’s Regions, stream its RegionQueues and for each get its Region like:
 
-```
+```java
 private List<Region> getRegions() {
  return ((InternalGatewaySender) this.sender).getQueues()
   .stream()
@@ -68,7 +68,7 @@ private List<Region> getRegions() {
 **Get Queue Region Contents**
 To get the contents, stream the Regions and for each Region get its contents like:
 
-```
+```java
 private String getContents(List<Region> regions, String header) {
  return regions
   .stream()
@@ -83,7 +83,7 @@ private String getRegion(Region region) {
 **Get Queue Entries**
 Finally, to get each entry’s contents, stream the Region’s entries and for each entry, get its contents like below. One thing to note is that the getEntry method deserializes the data value. To avoid that, pass false as the argument to the getValueAsString method. That will show the value as a byte[].
 
-```
+```java
 protected String getContents(Map<Long,GatewayQueueEvent> region, String header) {
  return region.entrySet()
   .stream()
@@ -107,6 +107,7 @@ protected String getEntry(Map.Entry<Long,GatewayQueueEvent> entry) {
 
 **Example Output**
 The primary server’s log file will contain a message like:
+
 ```
 [info 2020/06/01 12:49:11.567 HST <ServerConnection on port 57136 Thread 4> tid=0x87] 
 The queue for serial GatewaySender nyserial contains the following 1000 primary entries grouped by dispatcher:
@@ -163,20 +164,20 @@ Queue for dispatcher nyserial.0 contains the following 200 entries:
 **Get Queue Region**
 The parallel GatewaySender Region is retrieved directly from the Cache like:
 
-```
+```java
 PartitionedRegion region = (PartitionedRegion) this.cache.getRegion(sender.getId() + ParallelGatewaySenderQueue.QSTRING);
 ```
 
 **Get Primary and Secondary LocalDataSets**
 To get the primary LocalDataSet, use the code like:
 
-```
+```java
 Map<Long,GatewayQueueEvent> primaryData = PartitionRegionHelper.getLocalPrimaryData(region);
 ```
 
 There isn’t an existing way to get the secondary LocalDataSet. To get it, use a method like:
 
-```
+```java
 private Map<Long,GatewayQueueEvent> getLocalSecondaryData(PartitionedRegion region) {
  Set<Integer> primaryBucketIds = region.getDataStore().getAllLocalPrimaryBucketIds();
  Set<Integer> allBucketIds = new HashSet<>(region.getDataStore().getAllLocalBucketIds());
@@ -207,12 +208,12 @@ The queue for parallel GatewaySender ny contains the following 331 secondary ent
 **Get Primary and Secondary BucketRegions**
 To get the local primary BucketRegions, use code like:
 
-```
+```java
 Set<BucketRegion> primaryBucketRegions = region.getDataStore().getAllLocalPrimaryBucketRegions();
 ```
 There isn’t an existing way to get the secondary BucketRegions. To get them, use a method like:
 
-```
+```java
 private Set<BucketRegion> getAllLocalSecondaryBucketRegions(PartitionedRegion region) {
  Set<BucketRegion> primaryBucketRegions = region.getDataStore().getAllLocalPrimaryBucketRegions();
  Set<BucketRegion> allBucketRegions = new HashSet<>(region.getDataStore().getAllLocalBucketRegions());
@@ -224,7 +225,7 @@ private Set<BucketRegion> getAllLocalSecondaryBucketRegions(PartitionedRegion re
 **Get Queue Entries by Bucket**
 To get the contents, stream the BucketRegions and for each BucketRegion get its contents like:
 
-```
+```java
 private String getContents(Set<BucketRegion> bucketRegions, String header) {
  return bucketRegions
   .stream()

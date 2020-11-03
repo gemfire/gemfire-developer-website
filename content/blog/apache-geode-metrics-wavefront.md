@@ -65,13 +65,13 @@ We’ll now go into detail to see how this was implemented so you can build your
 ## Implementation
 We create a Java project that uses gradle as it’s build tool. We’ll also include a few imports in the build.gradle, the first being the Wavefront registry.
 
-```
+```groovy
 implementation ‘io.micrometer:micrometer-registry-wavefront:latest.release’
 ```
 
 And we’ll also import Apache Geode and for logging we’ll pull in log4j2
 
-```
+```groovy
 implementation group: ‘org.apache.logging.log4j’, name: ‘log4j’, version: ‘2.13.1’, ext: ‘pom’
 implementation group: ‘org.apache.geode’, name: ‘geode-core’, version: ‘1.1
 ```
@@ -79,7 +79,7 @@ implementation group: ‘org.apache.geode’, name: ‘geode-core’, version: �
 ## Creating a Wavefront registry
 Below is the entire source for the Wavefront Registry. We create a WaveConfigObject, where we could have hard coded our values for api token, prefix and source. However, we tried to build this to be more generic and make it configurable when starting up the Geode Cluster. We end up using system properties that can be supplied via parameters in GFSH. There are other alternatives but this was one of the simplest. This allows anyone to simply get a prebuilt jar and be able to use it for their own deployments.
 
-```
+```java
 private MeterRegistry createWavefrontRegistry() {
     WavefrontConfig config = new WavefrontConfig() {
         private final String prefix = System.getProperty("geode-wavefront-prefix", "wavefront.geode");
@@ -125,7 +125,7 @@ The API Token Key is provided by Wavefront. If you have access to Wavefront, you
 ## Implementing a MetricsServicePublisher
 The MetricsServicePublisher is pretty straightforward for this case. Below is the entire class, omitting the createWavefrontRegistry() method that we already covered.
 
-```
+```java
 public class GeodeWavefrontPublisher implements MetricsPublishingService {
     final static Logger logger = LoggerFactory.getLogger(GeodeWavefrontPublisher.class);
     private volatile MeterRegistry registry;
@@ -150,14 +150,14 @@ public class GeodeWavefrontPublisher implements MetricsPublishingService {
 
 In the start method, we create the wavefront registry and add that as a subregistry to our MetricsSession object
 
-```
+```java
 registry = createWavefrontRegistry();
 session.addSubregistry(registry);
 ```
 
 On stop we will unregister the meter.
 
-```
+```java
 session.removeSubregistry(registry);
 ```
 
@@ -168,13 +168,13 @@ We create a file called *org.apache.geode.metrics.MetricsPublishingService* and 
 We’ll be using the GFSH command line interface to include our publisher jar when starting up the cluster. To simplify the number of jars needed to be included on the classpath, we can build an “uber” jar which will include the required Micrometer Wavefront dependencies with our jar. The alternative obviously would have been to include all the jars independently on the classpath.
 Modify the build to use the shadow plugin and allow it to build an “uber” jar.
 
-```
+```groovy
 id ‘com.github.johnrengelman.shadow’ version ‘5.2.0
 ```
 
 In this particular case, we know we’ll only need to add the micrometer-wavefront-registry along with our code. We don’t need to package up Apache Geode since we will be deploying this jar onto a Geode cluster. There are probably better ways to do this, but I just created a new configuration that we’ll explicitly call out which dependencies to include
 
-```
+```groovy
 configurations {
     uberImplementation
 }
@@ -186,7 +186,7 @@ shadowJar {
 
 And in the dependencies we end up duplicating a dependency to indicate one is for implementation and the other specifically for the uber jar
 
-```
+```groovy
 dependencies {
   ...
   implementation 'io.micrometer:micrometer-registry-wavefront:latest.release'

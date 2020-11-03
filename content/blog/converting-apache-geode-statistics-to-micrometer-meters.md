@@ -43,7 +43,8 @@ The **GetAllMetricsFunction**:
 The Metric is a wrapper on statistic name, value, category and type (e.g. name=entries, value=100, category=CachePerfStats, type=RegionStats-partition-Trades). The value in this case is the cumulative value of the Statistic, not the difference from the previous value. This is why Gauges (as opposed to Counters) are created on the client.
 
 The main part of the **GetAllMetricsFunction** execute method is:
-```
+
+```java
 List<Metric> allMetrics = new ArrayList<>();
 StatisticsManager statisticsManager = system.getStatisticsManager();
 for (Statistics statistics : statisticsManager.getStatsList()) {
@@ -77,7 +78,7 @@ protected void updateServerMetrics() {
 ### Process all Server Metrics
 The processServerMetrics method gets the Metrics from each server by invoking the getAllMetrics function, and for each Metric, invokes the updateServerMetric method.
 
-```
+```java
 public void processServerMetrics(MetricProcessor function) {
  Map<String,List<Metric>> allMetrics = (Map) this.adminFunctions.getAllMetrics();
  for (Map.Entry<String,List<Metric>> metrics : allMetrics.entrySet()) {
@@ -95,7 +96,7 @@ The updateServerMetric method is invoked for each server Metric. It:
 * if no entry exists in the map, creates a Gauge for the Metric
 * updates the current value appropriately
 
-```
+```java
 private void updateServerMetric(String serverName, Metric metric) {
  Map<String,Number> metrics = this.serverMetrics.get(serverName);
  if (metrics == null) {
@@ -131,7 +132,7 @@ The createGauge method creates and registers a Micrometer Gauge from the Metric 
 
 The Tags categorize the Gauge by server name, category (e.g. CachePerfStats) and type (e.g. RegionStats-partition-Trades) and can be used to filter the data in Wavefront. The category and type correspond to vsd’s Type and Name columns, respectively.
 
-```
+```java
 protected void createGauge(String serverName, Metric metric) {
  Tags tags = Tags
   .of(MEMBER, serverName)
@@ -151,7 +152,7 @@ Once the Gauges have been registered in the MeterRegistry, they are available fo
 
 The getServerMetric method gets the current value for the server and metric name and converts the value to a double based on the atomic type.
 
-```
+```java
 protected double getServerMetric(String serverName, Metric metric) {
  double currentValue = 0;
  Map<String,Number> metrics = this.serverMetrics.get(serverName);
@@ -175,7 +176,7 @@ protected double getServerMetric(String serverName, Metric metric) {
 ### Configuration
 To add a Spring Boot Micrometer Wavefront registry, add the appropriate dependency to the configuration file of the Spring Boot client. In the gradle case, add this dependency to the build.gradle file:
 
-```
+```groovy
 compile 'io.micrometer:micrometer-registry-wavefront:1.3.2'
 ```
 

@@ -45,7 +45,7 @@ The getKeySet method:
 
 The getKeySet method is invoked for each site.
 
-```
+```java
 private Set getKeySet(String regionName, String siteName) {
  Region region = createRegion(regionName, siteName);
  Set keySet = region.keySetOnServer();
@@ -56,7 +56,7 @@ private Set getKeySet(String regionName, String siteName) {
 
 The createRegion method creates a proxy Region connected to a specific site.
 
-```
+```java
 private Region createRegion(String regionName, String siteName) {
  return ((ClientCache) this.cache)
   .createClientRegionFactory(ClientRegionShortcut.PROXY)
@@ -69,7 +69,7 @@ Unfortunately, a Region can only be connected to one Pool (and thus one site), a
 
 The closeRegion method is used to close a proxy Region. It also closes the ClientMetadataService which clears its known server-to-bucket layout.
 
-```
+```java
 private void closeRegion(Region region) {
  region.close();
  ((InternalCache) this.cache).getClientMetadataService().close();
@@ -82,7 +82,7 @@ The compareKeySets method:
 * If the keySets are not equal, the differences are determined using removeIf with the contains predicate
 * builds up the StringBuilder with the results
 
-```
+```java
 private boolean compareKeySets(Set site1Keys, Set site2Keys) {
  this.builder
   .append("\n\n==============")
@@ -108,7 +108,7 @@ private boolean compareKeySets(Set site1Keys, Set site2Keys) {
 ### Compare Values in Each Site
 The compareAllValues method iterates the keySet and, for each key, invokes compareSingleValues to compare the value in each site.
 
-```
+```java
 private void compareAllValues(String regionName, ValueComparer valueComparer, Set keys, int fromSite, int toSite) {
  this.builder
   .append("\n\n=============================================")
@@ -137,7 +137,7 @@ To compare the value in each site, the compareSingleValues method:
 * compares the values using the **ValueComparer**
 * builds up the StringBuilder with the results
 
-```
+```java
 private void compareSingleValues(String regionName, ValueComparer valueComparer, Object key) {
  // Get the value in site 1
  Region site1Region = createRegion(regionName, this.site1Pool.getName());

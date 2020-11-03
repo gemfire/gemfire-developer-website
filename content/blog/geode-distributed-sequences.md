@@ -43,7 +43,7 @@ The first step is to download the tool, build it and deploy it to a running Apac
 ### Compute Sequences
 Add the jar file to your application’s class path, initialize the `ClientCache`, initialize the `DistributedSequenceFactory` and start retrieving/computing the distributed counters!.
 
-```
+```java
 public class TestClient {
   public static class Worker {
     private final Long ticketId;

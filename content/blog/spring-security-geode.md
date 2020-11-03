@@ -37,7 +37,7 @@ Apache Geode uses the *[ResourcePermission](https://github.com/apache/geode/blob
 
 To connect both implementations, we’ll define a wrapper class, *GeodeGrantedAuthority*, that simply implements the *[GrantedAuthority](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/GrantedAuthority.html)* interface from [spring-security](https://spring.io/projects/spring-security) and encapsulates a *[ResourcePermission](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/ResourcePermission.java)* instance from [Apache Geode](https://geode.apache.org/).
 
-```
+```java
 public class GeodeGrantedAuthority implements GrantedAuthority {
   private final ResourcePermission resourcePermission;
 
@@ -61,7 +61,7 @@ We don’t want to change our current stored roles and/or authorities, though, n
 
 Instead, and to integrate both representations seamlessly, we’ll implement the *[GrantedAuthoritiesMapper](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/authority/mapping/GrantedAuthoritiesMapper.html)* interface, which can be injected into the authentication layer to convert the authorities loaded from the storage into those which will be stored in the *[Authentication](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/Authentication.html)* object.
 
-```
+```java
 public class GeodeAuthoritiesMapper implements GrantedAuthoritiesMapper {
   public static final String INVALID_AUTHORITY_ERROR = "The authority can not be mapped to a valid Geode ResourcePermission: ";
 
@@ -88,7 +88,7 @@ Even though the *[GrantedAuthoritiesMapper](https://javadoc.io/doc/org.springfra
 
 That said, the whole purpose of the *[GeodeAuthenticationProvider](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/dao/DaoAuthenticationProvider.html)* class is to make that setter method available to users, it simply delegates everything else to the parent DaoAuthenticationProvider class.
 
-```
+```java
 public class GeodeAuthenticationProvider extends DaoAuthenticationProvider {
 
   @Override
@@ -105,7 +105,7 @@ During initialization, we create the application context using the properties pa
 
 We only require a single property to work: *security-spring-security-xml*, which should refer to the spring-security XML configuration. To load the application context, we use the *[FileSystemXmlApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html)* class, so the configuration file itself could be either in the filesystem *(“file:/path/to/file.xml”)* or within the classpath *(“classpath:/path/to/file.xml”)*. The “beauty” of this approach is that we can change the authentication layer entirely by just pointing to another configuration file, **without changing a single line of code**.
 
-```
+```java
 @Override
 public void init(Properties securityProps) {
   if (!securityProps.containsKey(SECURITY_CONFIGURATION_XML)) {
@@ -128,7 +128,7 @@ public void init(Properties securityProps) {
 
 For the authentication part, we just obtain the credentials passed by [Apache Geode](https://geode.apache.org/) and delegate to the already initialized *[AuthenticationManager](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationManager.html)* instance.
 
-```
+```java
 @Override
 public Object authenticate(Properties credentials) throws AuthenticationFailedException {
   String user = credentials.getProperty(USER_NAME);
@@ -145,7 +145,7 @@ public Object authenticate(Properties credentials) throws AuthenticationFailedEx
 
 For the authorization part, we just get the *[GrantedAuthority](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/GrantedAuthority.html)* list (all were transformed by our *GeodeAuthoritiesMapper* already) from the principal passed by [Apache Geode](https://geode.apache.org/) and decide whether it has the required permissions to execute the action or not.
 
-```
+```java
 @Override
 public boolean authorize(Object principal, ResourcePermission context) {
   Authentication authentication = (Authentication) principal;

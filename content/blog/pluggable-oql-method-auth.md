@@ -6,7 +6,7 @@ date: 2020-02-07
 authors: 
 - Juan Jose Ramos
 type: blog
-featured: true
+featured: 
 ---
 
 ## Introduction
