@@ -39,12 +39,18 @@ anchor = "smart"
         weight = 200
         url = "https://tgf.docs.pivotal.io/tgf/beta/"
 
+  [[menu.main]]
+       parent = "Community"
+       name = "What is Apache Geode?"
+       weight = 1
+       url = "https://blogs.vmware.com/opensource/2020/04/14/apache-geode-a-quick-history/"
 
   [[menu.main]]
      parent = "Community"
      name = "Apache Geode"
-     weight = 1
+     weight = 2
      url = "https://geode.apache.org/"
+
 
 
 
