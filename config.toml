@@ -20,6 +20,11 @@ anchor = "smart"
         name ="Community"
         weight = 300
 
+  [[menu.main]]
+        name ="Videos"
+        weight = 201
+
+
 
   [[menu.main]]
       parent ="Documentation"
