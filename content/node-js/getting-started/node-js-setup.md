@@ -30,7 +30,7 @@ This guide uses a Book Service example that allows a user to look up books by IS
 - Node.js, version 10.16.3 or above
 - Tanzu GemFire or [Apache Geode](https://geode.apache.org/docs/guide/113/getting_started/installation/install_standalone.html)
 - The Tanzu GemFire Node.js client
-- A [Tanzu GemFire service instance]((../setting-up-tgf4vms-on-tas).) on the Tanzu Application Service
+- A [Tanzu GemFire service instance](../setting-up-tgf4vms-on-tas) on the Tanzu Application Service
 
 ### 1. Clone the Book Service Example
  
@@ -66,7 +66,7 @@ C:>set VCAP_SERVICES={"p-cloudcache":[{"label":"p-cloudcache","provider":null,"p
 ### 4. Start Tanzu GemFire or Apache Geode on your machine
 
 {{% alert title="Install GemFire or Apache Geode " color="warning" %}}
-Make sure you have Tanzu GemFire or Apache Geode installed prior to doing this step, or the script will fail to run.     
+Make sure you have [Tanzu GemFire](https://gemfire.docs.pivotal.io/910/gemfire/getting_started/installation/install_intro.html) or [Apache Geode](https://geode.apache.org/docs/guide/13/getting_started/installation/install_standalone.html) installed prior to doing this step, or the script will fail to run.     
 {{% /alert %}} 
 
 There are shell scripts in the `book-service/scripts` directory. The `startGemFire` script starts up two locators and two cache servers. The locators allow clients to find the cache servers. To simplify local development, the script also creates the single region that the app uses.
