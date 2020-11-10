@@ -41,6 +41,7 @@ To complete this guide you need:
 * JDK 8 or 11
 * A Spring Boot application (using 2.2 or greater)
 * The Spring Boot for Apache Geode dependency.
+* A [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/setting-up-tgf4vms-on-tas) on the Tanzu Application Service
 
 ---
 
@@ -166,8 +167,14 @@ If you click the search button again with the same ZIP code, you will see that t
 
 ### 5. Deploy your application on the Tanzu Application Service
 
-To deploy the Bike Incident application to Tanzu Application
- Service (TAS) make sure you have created a Tanzu GemFire service instance.
+&nbsp;
+       
+       {{% alert title="Tanzu GemFire Service Instance" color="warning" %}}
+        To deploy the Bike Incident application to Tanzu Application
+         Service (TAS) make sure you have [created a Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/setting-up-tgf4vms-on-tas).
+       {{% /alert %}} 
+       
+      &nbsp;
  
  In the project root directory, open the `manifest.yml` file and replace  `<your-tanzu-gemfire-service>` with the name of your service instance.
  

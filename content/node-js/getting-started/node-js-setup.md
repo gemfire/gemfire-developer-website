@@ -4,7 +4,7 @@ link-title: "Get started with Tanzu GemFire & Node.js"
 
 description: Create a Node.js client side application that can communicate with your Tanzu GemFire Service Instance
 weight: 1
-type: guides
+type: getting-started-guides
 featured: false
 ---
 
@@ -30,6 +30,7 @@ This guide uses a Book Service example that allows a user to look up books by IS
 - Node.js, version 10.16.3 or above
 - Tanzu GemFire or [Apache Geode](https://geode.apache.org/docs/guide/113/getting_started/installation/install_standalone.html)
 - The Tanzu GemFire Node.js client
+- A [Tanzu GemFire service instance]((../setting-up-tgf4vms-on-tas).) on the Tanzu Application Service
 
 ### 1. Clone the Book Service Example
  
@@ -167,10 +168,16 @@ When finished running the example locally, shut down the client and server proce
     `C:>set VCAP_SERVICES=""`
  
  ## Run the application on the Tanzu Application Service
+
+&nbsp;
  
+ {{% alert title="Tanzu GemFire Service Instance" color="warning" %}}
   To deploy the Book Service application to Tanzu Application
-   Service (TAS) make sure you have created a Tanzu GemFire service instance.
-   
+   Service (TAS) make sure you have [created a Tanzu GemFire service instance](../setting-up-tgf4vms-on-tas).
+ {{% /alert %}} 
+ 
+&nbsp;
+
 ### 1. Create a Tanzu GemFire Service Key
 
 In order to connect to your Tanzu GemFire service instance and create the needed regions, you must first create a service key. 
