@@ -1,0 +1,25 @@
+{
+  "name": "tanzu-gemfire-dev-portal",
+  "version": "0.1.0",
+  "description": "Tanzu GemFire Developer Portal",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gemfire/tanzu-gemfire-developer-website.git"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.0"
+  },
+  "license": "Apache-2.0",
+  "browserslist": [
+    "Android 2.3",
+    "Android >= 4",
+    "Chrome >= 20",
+    "Firefox >= 24",
+    "Explorer >= 8",
+    "iOS >= 6",
+    "Opera >= 12",
+    "Safari >= 6"
+  ]
+}
