@@ -21,12 +21,6 @@ anchor = "smart"
         weight = 300
 
   [[menu.main]]
-        name ="Videos"
-        weight = 201
-
-
-
-  [[menu.main]]
       parent ="Documentation"
       name = "Tanzu GemFire Standalone"
       weight = 1
