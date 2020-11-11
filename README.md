@@ -62,28 +62,16 @@ To use the img in your blog post use the following syntax
 `![Some Brief Text To Describe Your Image](/images/blog/diagrams/your-file.png).`
 
 ### Code Examples
-As we know many blog posts will use code examples, Hugo allows you to also define the language to be used for syntax highlighting for the code snippet (intelli J also offers some options to help with this).  While these don't render differently in the README file, they WILL render differently on the website.
-
-Some examples
+As we know many blog posts will use code examples, Hugo allows you to also define the language to be used for syntax highlighting for the code snippet (intelli J also offers some options to help with this).  While these don't render differently in the IDE, they WILL render correctly on the website.
 
 **Java**
-```java
-public String YourJavaCodeGoesHere(){
-return "Awesome";
-}
-```
+Start with ```java at the top of your code block and then close the code block with three ` marks.
 
 **Gradle Build File Example**
-```groovy
-Your gradle example goes here
-```
+Start with ```groovy at the top of your code block and then close the code block with three ` marks.
 
 **Maven POM File Example**
-```xml
-<yourField>
-    Your Maven POM example goes here
-</yourField>
-```
+Start with ```xml at the top of your code block and then close the code block with three ` marks.
 
 ### Markdown Basic Syntax 
 Goldmark is the default library used for Markdown. It's fast and it is CommonMark compliant. This website has some useful Markdown syntax and tricks.
