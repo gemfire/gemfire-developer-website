@@ -67,17 +67,17 @@ To use the img in your blog post use the following syntax
 ### Code Examples
 As many blog posts will use code examples, Hugo also has the ability handle syntax highlighting based on the programming language used (intelliJ offers some options to help with this).  While the syntax highlighting will not render in the IDE, it WILL render correctly on the website.
 
-**Java**
+* **Java**
 
-Start with ` ```java ` at the top of your code block and then close the code block  with ` ``` `.
+    Start with ` ```java ` at the top of your code block and then close the code block  with ` ``` `.
 
-**Gradle Build File Example**
+* **Gradle Build File Example**
 
-Start with ` ```groovy ` at the top of your code block and then close the code block with  ` ``` `.
+    Start with ` ```groovy ` at the top of your code block and then close the code block with  ` ``` `.
 
-**Maven POM File Example**
+* **Maven POM File Example**
 
-Start with ` ```xml ` at the top of your code block and then close the code block with ` ``` `.
+    Start with ` ```xml ` at the top of your code block and then close the code block with ` ``` `.
 
 ### Markdown Basic Syntax 
 Goldmark is the default library used for Markdown. It's fast and it is CommonMark compliant. 
