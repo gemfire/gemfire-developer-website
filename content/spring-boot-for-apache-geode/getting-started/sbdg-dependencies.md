@@ -1,9 +1,9 @@
 ---
-title:  "Spring Boot for Apache Geode Dependencies"
+title:  "Spring Boot for Apache Geode Dependencies - Quick Reference"
 link-title: "Spring Boot for Apache Geode Dependencies"
 
 description: How to add Spring Boot for Apache Geode dependencies to your project.
-weight: 1
+weight: 3
 type: getting-started-guides
 featured: false
 ---
