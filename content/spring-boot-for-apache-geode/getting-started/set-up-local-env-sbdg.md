@@ -66,8 +66,8 @@ Apache Geode is now installed on your machine.
 
 This section will guide you through testing a `Hello, World!` client application on your local machine to confirm that your local environment is set up correctly.
 
-Running the Hello, World! example requires:
 
+### What You'll Need
 * The [Hello, World!](https://github.com/pivotal/cloud-cache-examples/tree/master/hello-world) example.
 * JDK 8 or 11
 * Spring Boot 2.1 or above
@@ -151,7 +151,7 @@ Congratulations! Your local environment is set up and ready to develop with.
  
  Now that you have successfully set up your local development environment, check out some other guides
   
- * Set up your [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/set-up-tgf4vms-on-tas.md) on the Tanzu Application Service. 
+ * Set up your [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/set-up-tgf4vms-on-tas-sbdg) on the Tanzu Application Service. 
   
  * You can get started by implementing a [basic look-aside cache](spring-boot-for-apache-geode/guides/a-basic-cache) that will improve the read performance of your application. 
  

@@ -105,7 +105,7 @@ Starting in a terminal
 
 This section will guide you through testing a `Hello, World!` client application on the Tanzu Application Service to confirm that your Tanzu GemFire service instance is set up correctly.
 
-Running the Hello, World! example requires:
+### What You'll Need
 
 * The [Hello, World!](https://github.com/pivotal/cloud-cache-examples/tree/master/hello-world) example.
 * JDK 8 or 11
