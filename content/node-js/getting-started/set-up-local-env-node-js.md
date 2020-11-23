@@ -192,7 +192,7 @@ $ curl -X GET 'http://localhost:8080/book/get?isbn=0525565329'
 ```
 &nbsp;
 
-### 6. Stop the App and Tear Down the Apache Geode Cluster
+## Stop the App and Tear Down the Apache Geode Cluster
 
 When finished running the example locally, shut down the client and server processes.
  * In the shell running `node`, use `control-C` to stop running the app.
