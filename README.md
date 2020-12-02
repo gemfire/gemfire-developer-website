@@ -25,24 +25,26 @@ You may contribute content by creating a branch (or fork) and submitting a pull 
 ### Blogs
 
 #### Creating a new blog
+
+If you are an existing author, please place your blog in your respective folder.  If you are new contributor, please create a new directory with your name, and put your blog post in that directory.
+
 There are two ways to add a new blog:
 
 1.  You can use the [Archetypes](https://gohugo.io/content-management/archetypes/) feature of Hugo to create a new blog post:
 
-    `hugo new blog/[the-name-of-your-blog-post].md`
+    `hugo new blog/[yourDirectory]/[the-name-of-your-blog-post].md`
 
-    This will create a new blog post in the blogs folder.  
+    This will create a new blog post in your directory.  
 
 2.  You can copy and paste from a previous blog post.  Just remember to update the required information.
 
-If you are an existing author, please place your blog in your respective folder.  If you are new contributor, please create a new folder with your name, and put your blog post in that folder.
 
 #### Metadata / Front Matter 
 
 Blog posts require a title, description, date, and author(s).  This is found in the front matter, which is the top portion of every blog.  Note that if you use a future date for publishing, you will need to use the `-F` flag to see the post when running `hugo` or `hugo server` to build the site on your local machine.
 
 ```
-title: "You're awesome title"
+title: "Your awesome title"
 description: >
         A short description of the blog post
 date: 1970-01-31
