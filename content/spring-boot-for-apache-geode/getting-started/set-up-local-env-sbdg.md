@@ -8,7 +8,7 @@ type: getting-started-guides
 
 ---
 
-This guide walks you through setting up your local development environment using Apache Geode and a `Hello World` example.    
+This guide walks you through setting up your local development environment using Apache Geode and a *Hello, World!* client application.    
 
 ## What is Apache Geode?
 
@@ -17,9 +17,7 @@ Tanzu GemFire, an enterprise offering, is powered by Apache Geode and adds addit
 
 ## Install Apache Geode for Local Development
 
-When developing and testing your application locally, you can use Apache Geode.
-
-There are multiple ways to install Apache Geode for local development.  We will highlight two different ways below (brew or the .zip/.tar file below), however you can find [additional installation options here](https://geode.apache.org/docs/guide/13/getting_started/installation/install_standalone.html).
+There are multiple ways to install Apache Geode for local development.  We will highlight two different ways below (brew or a .zip/.tar file), however you can find [additional installation options here](https://geode.apache.org/docs/guide/13/getting_started/installation/install_standalone.html).
 
  ### Option 1: Using brew
  
@@ -30,7 +28,6 @@ There are multiple ways to install Apache Geode for local development.  We will 
  This will install the most recent version of Apache Geode.
 
 ### Option 2: Download a .zip or .tar file.
-
 
 1. Download the .zip or .tar file from the [Apache Releases page](https://geode.apache.org/releases/).
 2.  Unzip or expand the file.
@@ -64,7 +61,7 @@ Apache Geode is now installed on your machine.
 
 ## Set Up Your Local Environment
 
-This section will guide you through testing a `Hello, World!` client application on your local machine to confirm that your local environment is set up correctly.
+This section will guide you through testing a *Hello, World!* client app on your local machine to confirm that your local environment is set up correctly.
 
 
 ### What You'll Need
@@ -76,7 +73,7 @@ This section will guide you through testing a `Hello, World!` client application
 
 ### 1. Download the Hello, World! Example
 
-Clone the Hello, World! app from the [examples repo](https://github.com/pivotal/cloud-cache-examples). 
+Clone the *Hello, World!* app from the Tanzu GemFire [examples repo](https://github.com/pivotal/cloud-cache-examples). 
 
 ```
 $ git clone git@github.com:pivotal/cloud-cache-examples.git
@@ -88,19 +85,39 @@ $ git clone git@github.com:pivotal/cloud-cache-examples.git
 Make sure that you have installed Apache Geode on your machine before proceeding.
 {{% /alert %}} 
 
-Included in the example is a custom Gradle task that invokes a Geode Shell (gfsh) script `startCluster`.  This script starts a small local cluster and creates a region (analogous to a table in a relational database)  called `Hello`.  
+This will start a small local cluster for the *Hello, World!* app to connect.   
 
-In a terminal, from the working directory of `cloud-cache-examples/hello-world` run the following task:
+* In a terminal start the Geode Shell (gfsh)
+
+    ```
+    gfsh
+    ```
+* Start a **locator**.  Locators provide both discovery and load balancing services. 
+
+    ```
+    start locator --name=hello-world-locator
+    ```
+* Start a server.  Servers are primarily used to store data in **regions** (similar to a table in a relational database. 
+
+    ```
+    start server --name=hello-world-server
+    ```
+
+* Once those commands have finished you can run the `list members` command and you should see something similar to
 
 ```
-$ ./gradlew startCluster
+Member Count : 2
+
+       Name         | Id
+------------------- | ---------------------------------------------------------------------------
+hello-world-locator | 192.168.1.14(hello-world-locator:33323:locator)<ec><v0>:41000 [Coordinator]
+hello-world-server  | 192.168.1.14(hello-world-server:33423)<v1>:41001
 ```
 
-This is a **2 step Gradle task** and may take several minutes to complete.
 
 ### 3. Build and Run the App
 
-In the same working directory as above, build the application
+In a different terminal, navigate to the working directory of `cloud-cache-examples/hello-world`, and build the application
 
 ```
 ./gradlew build
@@ -135,15 +152,58 @@ You should see something similar to the below, which represents an artificial ti
 
 Note that the ***time to look up*** has been significantly reduced. This represents the app getting the information from the cache (Apache Geode), instead of querying the database.
 
+To confirm that your app is connected to your local cluster, in your **gfsh** terminal run the following commands
+
+* List the regions
+    ```
+    list regions
+    ```
+    
+    You should see something similar to this, which shows that a region with the name *Hello* was created.
+    
+    ```
+    List of regions
+    ---------------
+    Hello
+    ```
+
+* Confirm the web page timestamp has the same value as that stored in your *Hello* region. Run the *gfsh* command
+
+    ``
+    get --key hello --region=/Hello
+    ``
+    
+    You should see something similar to this, where the "Value" listed in your terminal should match the "value" shown on the web page. 
+    
+    **Response from the gfsh command**
+    ```
+    Result      : true
+    Key Class   : java.lang.String
+    Key         : hello
+    Value Class : java.lang.String
+    Value       : "2020-12-08T13:46:47.322"
+    ```
+    
+    **Shown on the Webpage**
+    ```
+    key: hello
+    value: 2020-12-08T13:46:47.322
+    time to look up: 2ms
+    ```
+
 ### 4. Stop the App and Tear Down the Apache Geode Cluster
 
-Stop running the app, then with a current working directory of `cloud-cache-examples/hello-world` run the `stopAndCleanUpCluster gradle task
+* Stop the *Hello, World! app. 
+* Then shutdown the Apache Geode cluster - this will stop the locator and server, and delete any data you may have in the cluster. 
 
-```
-./gradlew stopAndCleanUpCluster
-```
+    In your gfsh terminal run the following command 
 
-Congratulations! Your local environment is set up and ready to develop with.
+    ```
+    shutdown --include-locators=true
+    ```
+* Exit gfsh by typing `exit`.
+
+**Congratulations! Your local environment is set up and ready to develop with.**
 
 ---
 
