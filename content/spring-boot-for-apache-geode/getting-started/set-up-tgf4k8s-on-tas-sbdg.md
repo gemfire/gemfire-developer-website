@@ -123,10 +123,11 @@ $ git clone git@github.com:pivotal/cloud-cache-examples.git
 
 * Navigate to the `cloud-cache-examples/hello-world` directory. 
 * Open the `application.properties`. 
-* Replace the value for `spring.data.gemfire.pool.locators:` with your Tanzu GemFire cluster information, for each locator.  The information will follow the form:
+* Uncomment the two listed properties.
+* Replace the value for `spring.data.gemfire.pool.locators:` with your Tanzu GemFire cluster information, for each locator (in this example we only have one locator).  The information will follow the form:
 
    ```
-   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME][10
+   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME][10334]
    ```
     For our example the value looks like this:
 
