@@ -178,7 +178,7 @@ public void getBikeIncidents_ShouldPullFromCache_AfterFirstResult() throws IOExc
 ---
 
 
-## Run the App Locally.
+## Run the App Locally
 
 ### Build the App
 To run the app on your local machine, in a terminal, navigate to the root of the project and build the app  
@@ -381,7 +381,7 @@ In your browser, go to the `EXTERNAL-IP` of the `bike-incidents-deployment` and 
     gfsh> list regions
     ``` 
 
-You should something similar to
+You should see something similar to
 
   ```
     List of regions

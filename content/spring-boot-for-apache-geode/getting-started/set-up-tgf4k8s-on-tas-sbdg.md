@@ -250,7 +250,7 @@ In a terminal
     gfsh> list regions
     ``` 
 
-You should something similar to
+You should see something similar to
 
   ```
     List of regions
