@@ -36,7 +36,7 @@ anchor = "smart"
         parent ="Documentation"
         name = "Tanzu GemFire for Kubernetes"
         weight = 200
-        url = "https://tgf.docs.pivotal.io/tgf/beta/"
+        url = "https://tgf.docs.pivotal.io/tgf/1-0/index.html"
 
   [[menu.main]]
        parent = "Community"

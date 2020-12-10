@@ -149,7 +149,7 @@ $ git clone git@github.com:pivotal/cloud-cache-examples.git
       
 ### 3. Build a Docker Image with Gradle or Maven
 
-Starting with Spring Boot 2.3, you can now run a Gradle or Maven command to [build your docker image](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image).    In this example we're using Gradle.
+Starting with Spring Boot 2.3, you can now customize and create an OCI image using Spring Boot. In this example we're using the [Gradle - packaging OCI images option](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image).  If you are using Maven check out the instructions found [here](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image).
 
 * In a terminal, navigate to the `hello-world` directory.
 * Build the application with `./gradlew clean build`
@@ -161,6 +161,7 @@ Starting with Spring Boot 2.3, you can now run a Gradle or Maven command to [bui
 
 For this example, we're using Docker Hub as our registry. This will create a repository on Docker Hub called `hello-world` and push the image we created into that repository.
 
+In a terminal
 * Login to your Docker account
 * Run the `docker push [IMAGE NAME HERE]`.  For this example it should be similar to this
 
@@ -224,6 +225,64 @@ You should see something similar to this, which represents an artificial time de
 
 Note that the ***time to look up*** has been significantly reduced. This represents the app getting the information from the cache, Tanzu GemFire, instead of querying the database.
 
+
+### 8.  Confirm that the Hello, World! App is connected
+If you would like to confirm that your Bike Incident app is actually connected to your Tanzu GemFire cluster you can connect through the Tanzu GemFire / Apache Geode shell - commonly referred to as *gfsh*
+
+In a terminal
+
+* Start gfsh for kubernetes
+    ```
+    kubectl -n tanzu-gemfire exec -it GEMFIRE-CLUSTER-NAME-locator-0 -- gfsh
+    ```  
+
+  * Replace `tanzu-gemfire` with the name of your namespace, if it's different.
+  * Replace `GEMFIRE-CLUSTER-NAME` with the name of your Tanzu GemFire cluster. 
+
+* Once you see that `GFSH` has started, connect to your cluster with the `connect` command
+
+    ```
+    gfsh> connect
+    ``` 
+* Once connected run the `list regions` command
+
+    ```
+    gfsh> list regions
+    ``` 
+
+You should something similar to
+
+  ```
+    List of regions
+    ------------------
+    Hello
+  ```
+
+* Confirm the web page timestamp has the same value as that stored in your *Hello* region. Run the *gfsh* command
+
+    ``
+    get --key hello --region=/Hello
+    ``
+    
+You should see something similar to this, where the "Value" listed in your terminal should match the "value" shown on the web page. 
+    
+   **Response from the gfsh command**
+   
+   ```
+    Result      : true
+    Key Class   : java.lang.String
+    Key         : hello
+    Value Class : java.lang.String
+    Value       : "2020-12-08T13:46:47.322"
+   ```
+    
+   **Shown on the Webpage**
+   
+   ```
+    key: hello
+    value: 2020-12-08T13:46:47.322
+    time to look up: 2ms
+   ```
 
 **Congratulations! You’re ready to start using Tanzu GemFire.**
 

@@ -39,9 +39,17 @@ To complete this guide you need:
 * The [Look-Aside Cache example](https://github.com/pivotal/cloud-cache-examples/tree/master/look-aside-cache)
 * Your favorite text editor or IDE
 * JDK 8 or 11
-* A Spring Boot application (using 2.2 or greater)
+* A Spring Boot application (using 2.3 or greater)
 * The Spring Boot for Apache Geode dependency.
-* A [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/setting-up-tgf4vms-on-tas) on the Tanzu Application Service
+
+**If running on the Tanzu Application Service for VMs**
+* A [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/setting-up-tgf4vms-on-tas) on the Tanzu Application Service.
+
+**If running on Kubernetes**
+* A [Tanzu GemFire Cluster](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s-on-tas-sbdg) on the Tanzu Application Service.
+* [Docker](https://docs.docker.com/get-docker/) installed. 
+* An image repository for the `Bike Incident` example (we used Docker Hub).
+
 
 ---
 
@@ -129,59 +137,7 @@ Add the name of the region you wish to be created as an argument to the annotati
 
 Remember that with the look-aside caching pattern, the application will first look in the cache and if the value is found, the application will not run the logic in the annotated method.
 
-### 4: Build and Run the App Locally.
-Navigate to the root of the project  in a command line and run the Spring Boot run command.
-
-**Gradle**
-```
-./gradlew bootRun
-```
-
- **Maven**
-```
-mvn spring-boot:run
-``` 
-
-
-We are running a gradle task so you will most likely see the executing progress bar stop around 75% when the app is up and running.
-
-When the app is running open a browser and go to <http://localhost:8080>.  You should see this
-
-![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-1.png)
-
-&nbsp;
-
-Enter a ZIP code to search for bike incidents.
-
-![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-2.png)
-
-&nbsp;
-
-
-Notice the response time on the right side.  The application has now queried the Bikewise API with the entered ZIP code and stored the response in Tanzu GemFire.  
-
-If you click the search button again with the same ZIP code, you will see that the response time is significantly faster, as the application is now retrieving the information from the Tanzu GemFire cache.
-
-![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-3.png)
-
-
-### 5. Deploy your application on the Tanzu Application Service
-
-&nbsp;
-       
-{{% alert title="Tanzu GemFire Service Instance" color="warning" %}}
-To deploy the Bike Incident application to Tanzu Application Service (TAS) make sure you have [created a Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/setting-up-tgf4vms-on-tas).
-{{% /alert %}} 
-       
-&nbsp;
- 
- In the project root directory, open the `manifest.yml` file and replace  `<your-tanzu-gemfire-service>` with the name of your service instance.
- 
- Once the Tanzu GemFire service instance is running (you can check the status by running the `cf services` command), push your app to TAS with `cf push`.
- 
- ---
- 
- ## Testing Tip
+### Testing Tip
  
  When unit testing during development, to verify caching, `@Autowire` a CacheManager and use it to obtain your named region and verify its contents.
  
@@ -218,3 +174,229 @@ public void getBikeIncidents_ShouldPullFromCache_AfterFirstResult() throws IOExc
 }
 
 ```
+
+---
+
+
+## Run the App Locally.
+
+### Build the App
+To run the app on your local machine, in a terminal, navigate to the root of the project and build the app  
+
+**Gradle**
+```
+./gradlew clean build
+```
+
+ **Maven**
+```
+mvn clean package
+``` 
+
+### Start the Spring Boot App
+Then run the Spring Boot command.
+
+**Gradle**
+```
+./gradlew bootRun
+```
+
+ **Maven**
+```
+mvn spring-boot:run
+``` 
+
+When the app is running, open a browser and go to <http://localhost:8080>.  You should see this
+
+![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-1.png)
+
+&nbsp;
+
+Enter a ZIP code to search for bike incidents.
+
+![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-2.png)
+
+&nbsp;
+
+
+Notice the response time on the right side.  The application has now queried the Bikewise API with the entered ZIP code and stored the response in Tanzu GemFire.  
+
+If you click the search button again with the same ZIP code, you will see that the response time is significantly faster, as the application is now retrieving the information from the Tanzu GemFire cache.
+
+![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-3.png)
+
+
+## Run the App on the Tanzu Application Service
+
+&nbsp;
+       
+{{% alert title="Tanzu GemFire Service Instance" color="warning" %}}
+To deploy the Bike Incident application to Tanzu Application Service (TAS) make sure you have [created a Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/setting-up-tgf4vms-on-tas).
+{{% /alert %}} 
+       
+&nbsp;
+ 
+ ### Update the manifest.yaml file
+ In the project root directory, open the `manifest.yml` file and replace  `<your-tanzu-gemfire-service>` with the name of your service instance.
+
+
+### Push the app to your TAS space 
+ Once the Tanzu GemFire service instance is running (you can check the status by running the `cf services` command), push your app to TAS with `cf push`.
+ 
+ After the app has successfully been pushed, in the output find the `route`.  Then open a browser and copy and paste the route into the browser.  
+ 
+ ---
+ 
+ ## Run the App on Kubernetes
+ 
+ &nbsp;
+        
+ {{% alert title="Tanzu GemFire Service Instance" color="warning" %}}
+ To deploy the Bike Incident application on Kubernetes make sure you have [created a Tanzu GemFire cluster on Kubernetes](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s-on-tas-sbdg).
+ 
+ For this example:
+ * Our **namespace** is `tanzu-gemfire`
+ * Our **GemFire cluster** is `look-aside-gemfire-cluster` 
+ {{% /alert %}} 
+         
+ &nbsp;
+  
+### Edit the `application.properties` file
+* Navigate to the `cloud-cache-examples/look-aside-cache` directory. 
+* Open the `application.properties`. 
+* Uncomment the two listed properties.
+* Replace the value for `spring.data.gemfire.pool.locators:` with your Tanzu GemFire cluster information, for each locator (in this example we only have one locator).  The information will follow the form:
+
+   ```
+   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME][10334]
+   ```
+    For our example the value looks like this:
+
+    ```
+    spring.data.gemfire.pool.locators: look-aside-gemfire-cluster-locator-0.look-aside-gemfire-cluster-locator.tanzu-gemfire[10334]
+    ```
+   * Replace `look-aside-gemfire-cluster` with the name of your GemFire cluster if different.
+   * Replace `tanzu-gemfire` with your namespace if different.
+  
+  &nbsp;
+  
+* Replace the value for `spring.data.gemfire.management.http.host:` with your Tanzu GemFire cluster information.  This will allow Spring Boot for Apache Geode to push your [initial cluster configuration](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware) to your Tanzu GemFire cluster.  The information follows a similar form as above:
+
+   ```
+   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME][GEMFIRE LOCATOR PORT]
+   ```
+    For our example the value looks like this:
+    
+     ```
+      spring.data.gemfire.management.http.host: look-aside-gemfire-cluster-locator-0.look-aside-gemfire-cluster-locator.tanzu-gemfire
+     ```
+  
+   * Replace `look-aside-gemfire-cluster` with the name of your GemFire cluster if different.
+   * Replace `tanzu-gemfire` with your namespace if different.
+      
+### Build a Docker Image with Gradle or Maven
+
+Starting with Spring Boot 2.3, you can now customize and create an OCI image using Spring Boot. In this example we're using the [Gradle - packaging OCI images option](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image).  If you are using Maven check out the instructions found [here](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image).
+
+* In a terminal, navigate to the `look-aside` directory.
+* Build the application with ` ./gradlew clean build`
+* Open the `build.gradle` file and update the the `bootBuildImage` section, with your Docker repository information. This will build an image with the name `docker.io/[docker username]/bike-incidents:0.0.1-SNAPSHOT`.  
+* Build the image with `./gradlew bootBuildImage`
+
+
+### Push your Docker Image to Docker Hub
+
+For this example, we're using Docker Hub as our registry. This will create a repository on Docker Hub called `bikr-incidents` and push the image we created into that repository.
+
+In a terminal
+* Login to your Docker account
+* Run the `docker push [IMAGE NAME HERE]`.  For this example it should be similar to this
+
+    ```
+    docker push docker.io/[YOUR DOCKER USERNAME]/bike-incidents:0.0.1-SNAPSHOT
+    ```
+
+### Create a deployment in your Kubernetes cluster
+
+Create a Kubernetes deployment for your *Bike Incidents* app. This will create a deployment, replicaset, and pod using the image we created above.
+
+   ```
+     kubectl --namespace=tanzu-gemfire create deployment bike-incidents-deployment --image=docker.io/[YOUR DOCKER USERNAME]/bike-incidents:0.0.1-SNAPSHOT
+   ```  
+ * Replace `tanzu-gemfire` with your namespace if different.
+ 
+If successful you should see `deployment.apps/bike-incidents-deployment created`
+
+### Create a LoadBalancer to access the app
+In order to access `Bike Incidents` app from a browser, we need to expose the deployment.
+
+```
+kubectl --namespace=tanzu-gemfire expose deployment/bike-incidents-deployment --type="LoadBalancer" --port=80 --target-port=8080
+```
+
+* Replace `tanzu-gemfire` with your namespace if different.
+
+> If you're trying this locally with MiniKube, you will need to replace `LoadBalancer` with `NodePort`.
+
+### Access the Bike Incidents App
+
+Once the Load Balancer has been created, you can now access the *Bike Incidents* app using the `External IP` on the LoadBalancer service.
+
+```
+kubectl -n tanzu-gemfire get services
+``` 
+* Replace `tanzu-gemfire` with your namespace if different.
+
+This should output something similar to (your *locator* and *server* names may be different).
+
+```
+NAME                                  TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)              AGE
+bike-incidents-deployment            LoadBalancer   10.0.227.199   20.62.226.18   80:31350/TCP         57s
+look-aside-gemfire-cluster-locator   ClusterIP      None           <none>         10334/TCP,4321/TCP   132m
+look-aside-gemfire-cluster-server    ClusterIP      None           <none>         40404/TCP,4321/TCP   131m
+```
+
+In your browser, go to the `EXTERNAL-IP` of the `bike-incidents-deployment` and you should see a working *Bike Incidents* app.
+
+If you would like to confirm that your Bike Incident app is connected to your Tanzu GemFire cluster
+
+In a terminal
+
+* Start gfsh for kubernetes
+    ```
+    kubectl -n tanzu-gemfire exec -it GEMFIRE-CLUSTER-NAME-locator-0 -- gfsh
+    ```  
+
+  * Replace `tanzu-gemfire` with the name of your namespace, if it's different.
+  * Replace `GEMFIRE-CLUSTER-NAME` with the name of your Tanzu GemFire cluster. 
+
+* Once you see that `GFSH` has started, connect to your cluster with the `connect` command
+
+    ```
+    gfsh> connect
+    ``` 
+* Once connected run the `list regions` command
+
+    ```
+    gfsh> list regions
+    ``` 
+
+You should something similar to
+
+  ```
+    List of regions
+    ------------------
+    BikeIncidentsByZip
+  ```
+This show that the Spring Boot for Apache Geode app has connected to the Tanzu GemFire cluster and pushed the initial configuration (your region called `BikeIncidentsByZip`) to the cluster.
+
+
+---
+
+**Congratulations! You have now deployed a simple Spring Boot for Apache Geode app that implements the look-aside caching pattern**
+
+## Learn More
+
+* Create an application that utilizes Spring Boot for Apache Geode and Spring Session for [session state caching](spring-boot-for-apache-geode/guides/session-state-caching). 
+ 
+ 
