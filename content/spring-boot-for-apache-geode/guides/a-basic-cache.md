@@ -358,9 +358,9 @@ look-aside-gemfire-cluster-server    ClusterIP      None           <none>       
 
 In your browser, go to the `EXTERNAL-IP` of the `bike-incidents-deployment` and you should see a working *Bike Incidents* app.
 
-If you would like to confirm that your Bike Incident app is connected to your Tanzu GemFire cluster
+### Confirm your app is connected to your Tanzu GemFire cluster
 
-In a terminal
+* Open a terminal
 
 * Start gfsh for kubernetes
     ```
