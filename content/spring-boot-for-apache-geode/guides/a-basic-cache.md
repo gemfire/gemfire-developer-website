@@ -390,6 +390,8 @@ You should something similar to
   ```
 This show that the Spring Boot for Apache Geode app has connected to the Tanzu GemFire cluster and pushed the initial configuration (your region called `BikeIncidentsByZip`) to the cluster.
 
+> If the `BikeIncidentsByZip` region IS NOT listed, the first item to check is the `application.properties` file.  Confirm that the spring data property values are set correctly.  If you need to update them, make sure you also increment your build number of your image.  This will force [Kubernetes to pull the new image](https://kubernetes.io/docs/concepts/containers/images/) (as opposed to using a cached version of the image).
+
 
 ---
 
