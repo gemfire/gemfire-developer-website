@@ -60,7 +60,7 @@ In your application the external data source may be a call to a database, a diff
 
 You can download the complete application from the [Tanzu GemFire examples](https://github.com/pivotal/cloud-cache-examples) GitHub repository.
 
-### 1: Add the Spring Boot for Apache Geode Dependency
+### Add the Spring Boot for Apache Geode Dependency
 To allow the application to work with Tanzu GemFire and utilize the Spring Boot for Apache Geode dependency, add the following dependency information (for this example we have used Gradle)
 
 **Gradle**
@@ -84,7 +84,7 @@ Make sure that the minor version of Spring Boot you are using, matches the Sprin
 {{% /alert %}} 
 
 
-### 2: Add Spring Boot for Apache Geode Annotations
+### Add Spring Boot for Apache Geode Annotations
 Add the following annotations to either your application configuration class or your main application class
 
 ```java
@@ -106,7 +106,7 @@ Inspects the Spring application for components annotated with [@Cacheable](https
 [@EnableClusterAware](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware)
 Allows the application to seamlessly switch between local-only (application running on local machine) and client/server (in a managed environment such as Tanzu Application Service). This annotation includes the [@EnableClusterConfiguration](https://docs.spring.io/autorepo/docs/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware) annotation, which dynamically creates regions if they do not exist already. Note that the @EnableClusterConfiguration annotation will only create Regions, it will not delete or update existing regions.
 
-### 3: Add the @Cacheable Annotation to Service Method
+### Add the @Cacheable Annotation to Service Method
 Finally, add the `@Cacheable` annotation to the service methods whose results will be cached.
 
 ```java
