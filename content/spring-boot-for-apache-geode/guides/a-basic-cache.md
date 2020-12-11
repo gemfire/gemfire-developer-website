@@ -306,7 +306,7 @@ Starting with Spring Boot 2.3, you can now customize and create an OCI image usi
 
 ### Push your Docker Image to Docker Hub
 
-For this example, we're using Docker Hub as our registry. This will create a repository on Docker Hub called `bikr-incidents` and push the image we created into that repository.
+For this example, we're using Docker Hub as our registry. This will create a repository on Docker Hub called `bike-incidents` and push the image we created into that repository.
 
 In a terminal
 * Login to your Docker account
