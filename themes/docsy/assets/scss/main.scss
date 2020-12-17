@@ -35,7 +35,7 @@
 #hero {
     background-repeat: no-repeat;
     background-position: right;
-    min-height: 300px;
+    min-height: 360px;
     padding: 80px 0;
     box-sizing: border-box;
     p {
@@ -47,6 +47,10 @@
     }
     &.guides-hero {
         background-image: url("/images/backgrounds/background-guides.svg");
+    }
+
+    &.landing-page-hero {
+        background-image: url("/images/backgrounds/landing-page-graphic-dark.svg");
     }
 
     @media(max-width: 991px) {

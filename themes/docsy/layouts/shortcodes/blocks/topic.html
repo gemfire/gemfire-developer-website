@@ -1,10 +1,12 @@
 {{ $url_text := .Get "url_text" }}
 {{ $icon_path := .Get "icon_path" }}
-<div class="topic col-lg-6 mb-0 mb-lg-0 ">
+{{ $icon_float_direction := .Get "icon_float_direction" | default ""}}
+
+<div class="topic align-content-center col-lg-4 mb-0 mb-lg-0 ">
   {{ $link := replace (lower $url_text) "/" "-"  }}
   {{ $link := replace $link "&" "and" }}
   {{ $link := replace $link " " "-" }}
   {{ $link := replace $link "." "-" }}
   {{ $link := printf $link | relURL }}
-  {{ with $url_text }}<a class="py-3 px-4 mb-4 text-left h4 text-white" href="{{ $link }}"><img class='icon mr-3' src="{{ $icon_path | relURL }}"/> {{ $url_text }}</a>{{ end }}
+  {{ with $url_text }}<a class="py-3 px-4 mb-4 text-left h4 text-white" href="{{ $link }}"><img class='icon mr-3 {{ $icon_float_direction }}' src="{{ $icon_path | relURL }}"/> {{ $url_text }}</span></a>{{ end }}
 </div>

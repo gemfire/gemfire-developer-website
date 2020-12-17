@@ -17,13 +17,15 @@ $td-enable-google-fonts: true !default;
 
 
 //Clarity Colors
-$primary: #404E60 !default;
-$dark: #1b2a32 !default;
+$primary: #22343C !default;
+$primary-light: #FFFFFF !default;
+$dark: #0F171C !default;
+$dark-for-light-mode: #F4F8FA !default
 $strong-green: #6DB33F !default;
 
 
 // Theme colors
-$primary-light: lighten($primary, 75%) !default;
+
 $secondary: #FFA630 !default;
 $success: #3772FF !default;
 $info: #C0E0DE !default;
@@ -155,9 +157,9 @@ $display4-size: 1.75rem !default;
 
 // Space
 
-$spacer: 1rem;
-$td-block-space-top-base: 4 * $spacer;
-$td-block-space-bottom-base: 4 * $spacer;
+
+$td-block-space-top-base: 3.125rem;
+$td-block-space-bottom-base: 3.125rem;
 
 // Pagination
 

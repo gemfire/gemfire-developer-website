@@ -1,3 +1,6 @@
+@import "variables";
+
+
 .td-outer,
 body {
    background-color: white !important;
@@ -15,12 +18,12 @@ body {
  }
 }
 
- body .td-sidebar, body .td-box--dark, body .topic a , body .td-navbar, body .td-main {
+ body .td-sidebar , body .topic a , body .td-navbar, body .td-main {
    background-color: white !important;
 }
 
 body .td-navbar {
-  border-bottom: 1px solid #d9e4ea;
+  border-bottom: 1px solid #E5E5E5;
 }
 
 body .border-bottom {
@@ -34,7 +37,7 @@ main .highlight pre, main .highlight div,
 pre,
 p code, li > code, table code,
 body .bg-gray-dark, body .td-box--gray-darkest, body .td-box--gray-dark {
-   background-color: #f4f8fa !important;
+   background-color: $dark-for-light-mode !important;
 }
 
 body .bg-gray-dark.border {
@@ -63,8 +66,18 @@ p code, li > code, table code,
 
 .td-box--gray-800,
  body .text-white {
-   background-color: #f4f8fa !important;
+   background-color: $dark-for-light-mode !important;
    color: #1d428a !important;
+}
+
+.td-box--primary,
+body .text-white {
+  background-color: $primary-light !important;
+  color: #1d428a !important;
+}
+
+body .td-box--dark{
+  background-color: $dark-for-light-mode !important;
 }
 
 .person .card:hover, .person .highlight:hover,
@@ -107,7 +120,7 @@ body a.btn {
 }
 pre,
  body p code, body li > code, body table code {
-   border: 1px solid #f4f8fa;
+   border: 1px solid $dark-for-light-mode;
 }
 .light-mode #toggle-light-dark-mode {
   background: #798893 !important;
@@ -131,10 +144,13 @@ footer .mktoForm .mktoButtonWrap.mktoSimple .mktoButton,
    background-image: url("/images/backgrounds/background-guides-light.svg") !important;
  }
 
- #hero.samples-hero {
+#hero.samples-hero {
    background-image: url("/images/backgrounds/background-samples-light.svg") !important;
  }
 
+#hero.landing-page-hero {
+    background-image: url("/images/backgrounds/landing-page-graphic-dark.svg") !important;
+}
 
 @media(max-width: 991px) {
   body #hero.guides-hero,
@@ -151,9 +167,9 @@ footer .mktoForm .mktoButtonWrap.mktoSimple .mktoButton,
 
 /* SYNTAX HIGHLIGHTING */
 
-/* Background */ .chroma, pre, code { color: #0f171c !important; background-color: #f4f8fa !important }
+/* Background */ .chroma, pre, code { color: #0f171c !important; background-color: $dark-for-light-mode !important }
 /* Other .chroma .x {  } */
-/* Error */ .chroma .err { color: #DB2100 !important; background-color: #f4f8fa !important }
+/* Error */ .chroma .err { color: #DB2100 !important; background-color: $dark-for-light-mode !important }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
 /* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
 /* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #ffffcc !important }
