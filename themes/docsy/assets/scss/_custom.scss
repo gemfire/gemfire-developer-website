@@ -477,20 +477,26 @@ body.light-mode #toggle-light-dark-mode span {
   color: $bright-green;
 }
 
-.breadcrumb-item a,
+
 .td-sidebar-nav .td-sidebar-link__page {
   color: $light;
+
 }
 
 .breadcrumb-item {
   font-size: 0.9rem;
-  opacity: 0.5;
+     a {
+       color: $light;
+     }
 }
 
 .td-home .td-default main section:first-of-type {
   padding-bottom: 0;
 }
 
+.toc-guide-title{
+  font-size: 1.2rem;
+}
 
 
 .topic {
@@ -847,7 +853,7 @@ body.tv-episode {
 
 /* SYNTAX HIGHLIGHTING */
 
-/* Background */ .chroma, pre, code { color: #f8f8f2; background-color: #0f171c }
+/* Background */ .chroma, pre, code { color: #f8f8f2; background-color: #22343C }
 /* Other .chroma .x {  } */
 /* Error */ .chroma .err { color: #F59E8F; background-color: #0f171c }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
