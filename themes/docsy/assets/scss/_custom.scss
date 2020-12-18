@@ -136,6 +136,23 @@ a {
   background: $gray-800;
 }
 
+.landing-page-title{
+  font-size: 2rem;
+}
+
+.landing-page-description {
+  font-size: 1.125rem;
+
+  @include media-breakpoint-up(sm) {
+    max-width: 40%;
+  }
+}
+
+.landing-page-title-and-description{
+  padding-top: 4rem;
+
+}
+
 .featured-section {
 
 
@@ -667,7 +684,7 @@ body.light-mode #toggle-light-dark-mode span {
 }
 
 .flex-wrap {
-  flex: flex-wrap;
+  flex-wrap: wrap;
 }
 
 .filters {
