@@ -56,7 +56,7 @@
     }
 
     @media(max-width: 991px) {
-        &.guides-hero, 
+        &.guides-hero,
        {
             background-image: url( {{"/images/backgrounds/header-mobile.svg" | relURL}}) !important;
             background-position: right -50px bottom;
