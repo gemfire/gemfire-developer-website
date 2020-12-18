@@ -1,7 +1,8 @@
-baseURL = "https://example.org/"
+baseURL = "/"
 languageCode = "en-us"
 title = "VMware Tanzu GemFire Developer"
 theme = "docsy"
+#googleAnalytics = "UA-185825065-1"
 
 # Image processing configuration.
 [imaging]
