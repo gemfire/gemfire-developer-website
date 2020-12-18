@@ -19,10 +19,11 @@
             </div>
         </div>
 
+    <div class="td-box--dark">
         <br/>
         {{ $gettingStartedGuides := where (where .Site.RegularPages "Section" .Section) "Params.type" "getting-started-guides" }}
         {{ if gt (len $gettingStartedGuides) 0 }}
-        <div class='container py-5 border-bottom'>
+        <div class='container py-5 border-bottom '>
             <div class='flex align-items-center icon-title mb-4'><clr-icon shape="power" size="32" class="icon mb-3 mr-3" style="fill: #49afd9"/></clr-icon><h3 class="mb-0">Getting Started</h3></div>
             <div class='col px-lg-0'><div class='row'>
                 {{ range $gettingStartedGuides }}
@@ -75,6 +76,7 @@
             </div></div>
         </div>
         {{ end }}
+
     </div>
     {{ partial "footer.html" . }}
 </div>

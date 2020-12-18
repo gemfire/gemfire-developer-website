@@ -8,5 +8,5 @@
   {{ $link := replace $link " " "-" }}
   {{ $link := replace $link "." "-" }}
   {{ $link := printf $link | relURL }}
-  {{ with $url_text }}<a class="py-3 px-4 mb-4 text-left h4 text-white" href="{{ $link }}"><img class='icon mr-3 {{ $icon_float_direction }}' src="{{ $icon_path | relURL }}"/> {{ $url_text }}</span></a>{{ end }}
+  {{ with $url_text }}<a class="py-3 px-4 mb-4 text-left h4" href="{{ $link }}"><img class='landing-page-topic-icon mr-3 {{ $icon_float_direction }}' src="{{ $icon_path | relURL }}"/> {{ $url_text }}</span></a>{{ end }}
 </div>
