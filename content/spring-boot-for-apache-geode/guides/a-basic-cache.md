@@ -46,9 +46,13 @@ To complete this guide you need:
 * A [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/setting-up-tgf4vms-on-tas) on the Tanzu Application Service.
 
 **If running on Kubernetes**
-* A [Tanzu GemFire Cluster](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s-on-tas-sbdg) on the Tanzu Application Service.
+* A [Tanzu GemFire Cluster](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s).
+
+    For this example:
+    * Our **namespace** is `tanzu-gemfire`
+    * Our **GemFire cluster** is `look-aside-gemfire-cluster` 
 * [Docker](https://docs.docker.com/get-docker/) installed. 
-* An image repository for the `Bike Incident` example (we used Docker Hub).
+* An image repository for the Look-Aside Cache Example (we used Docker Hub).
 
 
 ---
@@ -275,7 +279,7 @@ To deploy the Bike Incident application to Tanzu Application Service (TAS) make 
        
 &nbsp;
  
- ### Update the manifest.yaml file
+### Update the manifest.yaml file
  In the project root directory, open the `manifest.yml` file and replace  `<your-tanzu-gemfire-service>` with the name of your service instance.
 
 
@@ -292,8 +296,8 @@ To deploy the Bike Incident application to Tanzu Application Service (TAS) make 
  
  &nbsp;
         
- {{% alert title="Tanzu GemFire Service Instance" color="warning" %}}
- To deploy the Bike Incident application on Kubernetes make sure you have [created a Tanzu GemFire cluster on Kubernetes](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s-on-tas-sbdg).
+ {{% alert title="Tanzu GemFire Kubernetes Cluster" color="warning" %}}
+ To deploy the Bike Incident application on Kubernetes make sure you have [created a Tanzu GemFire cluster on Kubernetes](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s).
  
  For this example:
  * Our **namespace** is `tanzu-gemfire`
@@ -429,7 +433,7 @@ You should see something similar to
     ------------------
     BikeIncidentsByZip
   ```
-This show that the Spring Boot for Apache Geode app has connected to the Tanzu GemFire cluster and pushed the initial configuration (your region called `BikeIncidentsByZip`) to the cluster.
+This shows that the Spring Boot for Apache Geode app has connected to the Tanzu GemFire cluster and pushed the initial configuration (your region called `BikeIncidentsByZip`) to the cluster.
 
 > If the `BikeIncidentsByZip` region IS NOT listed, the first item to check is the `application.properties` file.  Confirm that the spring data property values are set correctly.  If you need to update them, make sure you also increment your build number of your image.  This will force [Kubernetes to pull the new image](https://kubernetes.io/docs/concepts/containers/images/) (as opposed to using a cached version of the image).
 

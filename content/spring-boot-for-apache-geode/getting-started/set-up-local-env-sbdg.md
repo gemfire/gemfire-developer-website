@@ -213,7 +213,7 @@ To confirm that your app is connected to your local cluster, in your **gfsh** te
   
  * Set up your [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/set-up-tgf4vms-on-tas-sbdg) on the Tanzu Application Service. 
 
- * Set up [Tanzu GemFire for Kubernetes](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s-on-tas-sbdg/). 
+ * Set up [Tanzu GemFire for Kubernetes](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s). 
   
  * You can get started by implementing a [basic look-aside cache](spring-boot-for-apache-geode/guides/a-basic-cache) that will improve the read performance of your application. 
  
