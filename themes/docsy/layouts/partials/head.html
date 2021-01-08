@@ -8,6 +8,7 @@
     })(window,document,'script','dataLayer','GTM-PMT66RC');
 </script>
 {{ end }}
+
 <script src="https://unpkg.com/@webcomponents/custom-elements/custom-elements.min.js"></script>
 <script src="https://unpkg.com/clarity-icons/clarity-icons.min.js" ></script>
 
@@ -17,6 +18,7 @@
 {{ if .Site.IsServer }}
 <script src="{{ $jsHead.RelPermalink }}"></script>
 {{ else }}
+
 {{ $jsHead := $jsHead | minify | fingerprint }}
 <script src="{{ $jsHead.RelPermalink }}" integrity="{{ $jsHead.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ end }}
@@ -24,14 +26,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{ hugo.Generator }}
+
 {{ if eq (getenv "HUGO_ENV") "production" }}
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 {{ else }}
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 {{ end }}
+
 {{ range .AlternativeOutputFormats -}}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
+
 {{ partialCached "favicons.html" . }}
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Params.name }}{{ . }} | {{ end }}{{ with .Title }}{{ . }} | {{ end }}{{ if not (.Parent.IsHome) }}{{ with .Section }} | {{ end }}{{ end }}{{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . | chomp }}{{ else }}{{if .IsPage}}{{ .Summary | chomp }}{{ else }}{{ with .Site.Params.description | chomp }}{{ . }}{{ end }}{{ end }}{{ end }}"/>
@@ -46,9 +51,23 @@
 {{- template "_internal/twitter_cards.html" . -}}
 
 {{ if eq (getenv "HUGO_ENV") "production" }}
+
+<!-- Global site tag (gtag.js) - Google Analytics UA-->
 {{ template "_internal/google_analytics.html" . }}
 {{ template "_internal/google_analytics_async.html" . }}
+
+<!-- Global site tag (gtag.js) - Google Analytics 4-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-600VE5PBXT"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-600VE5PBXT');
+</script>
 {{ end }}
+
+
 
 {{ partialCached "head-css.html" . "asdf" }}
 <script
