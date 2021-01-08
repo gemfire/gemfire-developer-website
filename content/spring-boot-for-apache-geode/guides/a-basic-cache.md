@@ -65,19 +65,55 @@ To allow the application to work with Tanzu GemFire and utilize the Spring Boot 
 
 **Gradle**
 ```groovy
+ext {
+  set('springGeodeVersion', "1.4.0")
+}
+
 dependencies {
-    implementation("org.springframework.geode:spring-geode-starter:1.3.4")
+  implementation 'org.springframework.geode:spring-geode-starter'
+  testImplementation 'org.springframework.geode:spring-geode-starter-test'
+  ...
+}
+
+dependencyManagement {
+  imports {
+    mavenBom "org.springframework.geode:spring-geode-bom:${springGeodeVersion}"
+  }
 }
 ```
 
 **Maven**
 ```xml
-<dependency>
-    <groupId>org.springframework.geode</groupId>
-    <artifactId>spring-geode-starter-actuator</artifactId>
-    <version>1.3.4.RELEASE</version>
-</dependency>
 
+<properties>
+    ...
+    <spring-geode.version>1.4.0</spring-geode.version>
+    ...
+</properties>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.geode</groupId>
+        <artifactId>spring-geode-starter</artifactId>
+    </dependency>
+    
+    <dependency>
+            <groupId>org.springframework.geode</groupId>
+            <artifactId>spring-geode-starter-test</artifactId>
+    </dependency>
+</dependencies>
+
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.geode</groupId>
+        <artifactId>spring-geode-bom</artifactId>
+        <version>${spring-geode.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
 {{% alert title="Version" color="warning" %}}
 Make sure that the minor version of Spring Boot you are using, matches the Spring Boot for Apache Geode version you declare in your dependency.
@@ -225,6 +261,9 @@ If you click the search button again with the same ZIP code, you will see that t
 
 ![img](/images/spring-boot-for-apache-geode/guides/sbdg-basic-cache/screenshots/look-aside-cache-app-3.png)
 
+&nbsp;
+
+---
 
 ## Run the App on the Tanzu Application Service
 
@@ -245,7 +284,9 @@ To deploy the Bike Incident application to Tanzu Application Service (TAS) make 
  
  After the app has successfully been pushed, in the output find the `route`.  Then open a browser and copy and paste the route into the browser.  
  
- ---
+&nbsp;
+
+---
  
  ## Run the App on Kubernetes
  

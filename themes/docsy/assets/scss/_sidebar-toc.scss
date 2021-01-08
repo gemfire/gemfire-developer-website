@@ -44,7 +44,7 @@
         > ul > li > ul > li > a {}
 
         a {
-            color: $light;
+            color: $dark-for-light-mode;
 
             &:hover {
                 color: $blue;
