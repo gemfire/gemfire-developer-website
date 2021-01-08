@@ -38,12 +38,7 @@ body .border-bottom {
   border-color: #d9e4ea !important;
 }
 
-body .bg-primary,
-.person .card, .person .highlight,
-main .highlight pre, main .highlight div,
-.highlight,
-pre,
-p code, li > code, table code,
+body .bg-primary, .person .card, .person .highlight, main .highlight div, .highlight, pre, p code, li > code, table code,
 body .bg-gray-dark, body .td-box--gray-darkest, body .td-box--gray-dark {
    background-color: $primary-light !important;
 }
@@ -131,6 +126,7 @@ body a.btn {
 pre,
  body p code, body li > code, body table code {
    border: 1px solid $dark-for-light-mode;
+   background-color: #F4F8FA !important;
 }
 .light-mode #toggle-light-dark-mode {
   background: #798893 !important;
@@ -178,6 +174,7 @@ footer .mktoForm .mktoButtonWrap.mktoSimple .mktoButton,
 /* SYNTAX HIGHLIGHTING */
 
 /* Background */ .chroma, pre, code { color: #0f171c !important; background-color: $dark-for-light-mode !important }
+
 /* Other .chroma .x {  } */
 /* Error */ .chroma .err { color: #DB2100 !important; background-color: $dark-for-light-mode !important }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }

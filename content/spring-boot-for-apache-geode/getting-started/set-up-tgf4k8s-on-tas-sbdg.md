@@ -49,17 +49,21 @@ You will also need permission to use `kubectl`.
 4.  Create your Tanzu GemFire CRD file. 
     
     Below is a simple yaml file that will create a Tanzu GemFire cluster named `hello-world-gemfire-cluster` with 1 [locator](https://geode.apache.org/docs/guide/13/configuring/running/running_the_locator.html) and 2 [servers](https://geode.apache.org/docs/guide/13/configuring/running/running_the_cacheserver.html). Save this as a YAML file in your current working directory.
-            
-       ```yaml
-       apiVersion: gemfire.tanzu.vmware.com/v1
-       kind: GemFireCluster
-       metadata:
-           name: hello-world-gemfire-cluster
-       spec:
-           image: registry.pivotal.io/tanzu-gemfire-for-kubernetes/gemfire-k8s:1.0.0
-       ```    
+    
+    ```yaml
+    apiVersion: gemfire.tanzu.vmware.com/v1
+    kind: GemFireCluster
+    metadata:
+        name: hello-world-gemfire-cluster
+    spec:
+        image: registry.pivotal.io/tanzu-gemfire-for-kubernetes/gemfire-k8s:1.0.0
+    ```
+           
+           
+                    
+   
         
-    > For the full list of GemFire CRD configuration options and explanations check out the Tanzu GemFire [Customer Resource Definition template](http://docs-tgf-staging.cfapps.io/tgf/1-0/crd.html).
+> For the full list of GemFire CRD configuration options and explanations check out the Tanzu GemFire [Customer Resource Definition template](http://docs-tgf-staging.cfapps.io/tgf/1-0/crd.html).
     
    
 5. Apply your Tanzu GemFire CRD YAML from *Step 4* to create the Tanzu GemFire cluster

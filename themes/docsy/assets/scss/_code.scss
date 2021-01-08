@@ -7,23 +7,24 @@
 
     margin: 2rem 0;
     padding: 0;
-    background-color: $gray-900;
+    background-color: #22343c;
 
     pre {
         margin: 0;
         border: none;
         padding: 1rem;
+
     }
 }
 
 // Inline code
 p code, li > code, table code {
-    color: inherit;
+    color: #f8f8f2;
     padding: 0.2em 0.4em;
     margin: 0;
     font-size: 85%;
     word-break: normal;
-    background-color: $gray-900;
+    background-color: #22343c;
     border-radius: $border-radius;
     word-break: break-word;
 
@@ -37,6 +38,7 @@ p code, li > code, table code {
 pre, .chroma {
     word-wrap: normal;
     padding: $spacer;
+
 
     > code {
         padding: 0;

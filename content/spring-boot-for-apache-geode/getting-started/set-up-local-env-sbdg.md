@@ -131,7 +131,7 @@ then run the application
 
 *We are running a gradle task so you will most likely see the executing progress bar stop around 75% when the app is up and running.*
 
-Now that the application has started, open a browser and go to http://localhost:8080/hello.
+Now that the application has started, open a browser and go to **(http://localhost:8080)**.
 
 You should see something similar to the below, which represents an artificial time delay simulating a database query.
 
@@ -212,6 +212,8 @@ To confirm that your app is connected to your local cluster, in your **gfsh** te
  Now that you have successfully set up your local development environment, check out some other guides
   
  * Set up your [Tanzu GemFire service instance](spring-boot-for-apache-geode/getting-started/set-up-tgf4vms-on-tas-sbdg) on the Tanzu Application Service. 
+
+ * Set up [Tanzu GemFire for Kubernetes](spring-boot-for-apache-geode/getting-started/set-up-tgf4k8s-on-tas-sbdg/). 
   
  * You can get started by implementing a [basic look-aside cache](spring-boot-for-apache-geode/guides/a-basic-cache) that will improve the read performance of your application. 
  
