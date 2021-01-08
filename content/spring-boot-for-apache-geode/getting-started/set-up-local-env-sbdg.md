@@ -65,7 +65,7 @@ This section will guide you through testing a *Hello, World!* client app on your
 
 
 ### What You'll Need
-* The [Hello, World!](https://github.com/pivotal/cloud-cache-examples/tree/master/hello-world) example.
+* The [Hello, World!](https://github.com/gemfire/spring-for-apache-geode-examples/tree/main/hello-world) example.
 * JDK 8 or 11
 * Spring Boot 2.1 or above
 * Spring Boot for Apache Geode 
@@ -73,10 +73,10 @@ This section will guide you through testing a *Hello, World!* client app on your
 
 ### 1. Download the Hello, World! Example
 
-Clone the *Hello, World!* app from the Tanzu GemFire [examples repo](https://github.com/pivotal/cloud-cache-examples). 
+Clone the *Hello, World!* app from the Tanzu GemFire [examples repo](https://github.com/gemfire/spring-for-apache-geode-examples). 
 
 ```
-$ git clone git@github.com:pivotal/cloud-cache-examples.git
+$ git clone https://github.com/gemfire/spring-for-apache-geode-examples.git
 ```
 
 ### 2. Start an Apache Geode Cluster
@@ -117,7 +117,7 @@ hello-world-server  | 192.168.1.14(hello-world-server:33423)<v1>:41001
 
 ### 3. Build and Run the App
 
-In a different terminal, navigate to the working directory of `cloud-cache-examples/hello-world`, and build the application
+In a different terminal, navigate to the working directory of `spring-for-apache-geode-examples/hello-world`, and build the application
 
 ```
 ./gradlew build

@@ -3,7 +3,7 @@ title:  "Convert Redis HTTP Session State to Tanzu GemFire"
 description: >
     Three examples that show how to convert your Spring Session Data Redis app to use Spring Boot for Apache Geode.
 
-repo: https://github.com/pivotal/cloud-cache-examples/tree/master/redis-to-cloud-cache/session-state
+repo: https://github.com/gemfire/spring-for-apache-geode-examples/tree/main/convert-redis-to-gemfire/session-state
 type: examples
 ---
 

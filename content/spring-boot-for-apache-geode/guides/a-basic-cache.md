@@ -36,7 +36,7 @@ If the data **IS** in the cache (**cache hit**), your application will receive t
 ## What you'll need
 To complete this guide you need:
 
-* The [Look-Aside Cache example](https://github.com/pivotal/cloud-cache-examples/tree/master/look-aside-cache)
+* The [Look-Aside Cache example](https://github.com/gemfire/spring-for-apache-geode-examples/tree/main/look-aside-cache)
 * Your favorite text editor or IDE
 * JDK 8 or 11
 * A Spring Boot application (using 2.3 or greater)
@@ -62,7 +62,11 @@ This example begins with a Spring Boot application that is making a call to an e
 
 In your application the external data source may be a call to a database, a different API, or another microservice.
 
-You can download the complete application from the [Tanzu GemFire examples](https://github.com/pivotal/cloud-cache-examples) GitHub repository.
+You can download the complete application from the [Tanzu GemFire examples](https://github.com/gemfire/spring-for-apache-geode-examples) GitHub repository.
+
+```
+$ git clone https://github.com/gemfire/spring-for-apache-geode-examples.git
+```
 
 ### Add the Spring Boot for Apache Geode Dependency
 To allow the application to work with Tanzu GemFire and utilize the Spring Boot for Apache Geode dependency, add the following dependency information (for this example we have used Gradle)
@@ -307,7 +311,7 @@ To deploy the Bike Incident application to Tanzu Application Service (TAS) make 
  &nbsp;
   
 ### Edit the `application.properties` file
-* Navigate to the `cloud-cache-examples/look-aside-cache` directory. 
+* Navigate to the `spring-for-apache-geode-examples/look-aside-cache` directory. 
 * Open the `application.properties`. 
 * Uncomment the two listed properties.
 * Replace the value for `spring.data.gemfire.pool.locators:` with your Tanzu GemFire cluster information, for each locator (in this example we only have one locator).  The information will follow the form:

@@ -106,7 +106,7 @@ This section will guide you through testing a *Hello, World!* client application
 
 ### What You'll Need
 
-* The [Hello, World!](https://github.com/pivotal/cloud-cache-examples/tree/master/hello-world) example.
+* The [Hello, World!](https://github.com/gemfire/spring-for-apache-geode-examples/tree/main/hello-world) example.
 * JDK 8 or 11
 * Spring Boot 2.3 or above
 * Spring Boot for Apache Geode 1.3 or above
@@ -117,15 +117,15 @@ This section will guide you through testing a *Hello, World!* client application
 
 ###  1. Download the Hello, World! Example
 
-Clone the Hello, World! app from the [examples repo](https://github.com/pivotal/cloud-cache-examples). 
+Clone the Hello, World! app from the [examples repo](https://github.com/gemfire/spring-for-apache-geode-examples). 
 
 ```
-$ git clone git@github.com:pivotal/cloud-cache-examples.git
+$ git clone https://github.com/gemfire/spring-for-apache-geode-examples.git
 ```
 
 ### 2. Edit the `application.properties` File 
 
-* Navigate to the `cloud-cache-examples/hello-world` directory. 
+* Navigate to the `spring-for-apache-geode-examples/hello-world` directory. 
 * Open the `application.properties`. 
 * Uncomment the two listed properties.
 * Replace the value for `spring.data.gemfire.pool.locators:` with your Tanzu GemFire cluster information, for each locator (in this example we only have one locator).  The information will follow the form:

@@ -107,7 +107,7 @@ This section will guide you through testing a `Hello, World!` client application
 
 ### What You'll Need
 
-* The [Hello, World!](https://github.com/pivotal/cloud-cache-examples/tree/master/hello-world) example.
+* The [Hello, World!](https://github.com/gemfire/spring-for-apache-geode-examples/tree/main/hello-world) example.
 * JDK 8 or 11
 * Spring Boot 2.1 or above
 * Spring Boot for Apache Geode
@@ -115,15 +115,15 @@ This section will guide you through testing a `Hello, World!` client application
 
 ###  1. Download the Hello, World! Example
 
-Clone the Hello, World! app from the [examples repo](https://github.com/pivotal/cloud-cache-examples). 
+Clone the Hello, World! app from the [examples repo](https://github.com/gemfire/spring-for-apache-geode-examples). 
 
 ```
-$ git clone git@github.com:pivotal/cloud-cache-examples.git
+$ git clone https://github.com/gemfire/spring-for-apache-geode-examples.git
 ```
 
 ### 2. Edit the `manifest.yaml` File
 
-* Navigate to the `cloud-cache-examples/hello-world` directory. 
+* Navigate to the `spring-for-apache-geode-examples/hello-world` directory. 
 * Open the `manifest.yml file`. 
 * Replace the string `<your-tanzu-gemfire-service>` with the name of your Tanzu GemFire service instance. If you're not sure of the instance name, run the `cf services` command.
 

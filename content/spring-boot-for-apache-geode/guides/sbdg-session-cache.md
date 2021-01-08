@@ -33,7 +33,7 @@ The session UUID is used as a key in a data store holding information associated
 ## What you'll need
 To complete this guide you need:
 
-* The [Session State example](https://github.com/pivotal/cloud-cache-examples/tree/master/session-state)
+* The [Session State example](https://github.com/gemfire/spring-for-apache-geode-examples/tree/main/session-state)
 * Your favorite text editor or IDE
 * JDK 8 or 11
 * A Spring Boot application (using 2.3 or greater)
@@ -59,6 +59,13 @@ This example consists of a simple Spring Boot back end application and a React f
 The back end (in the `src/main/java/sessionstate/` directory) handles all the session management and storage, and is the main focus of the example.
 
 The front end (in the `frontend/` directory) is provided to illustrate how a web app can interact with the session data. The example front end is written using the React framework, but clients can use any language or framework capable of interacting with a REST endpoint.
+
+You can download the complete application from the [Tanzu GemFire examples](https://github.com/gemfire/spring-for-apache-geode-examples) GitHub repository.
+
+```
+$ git clone https://github.com/gemfire/spring-for-apache-geode-examples.git
+```
+
 
 ### Add the Spring Boot for Apache Geode Dependency
 To allow the application to work with Tanzu GemFire and utilize the Spring Boot for Apache Geode dependency, add the following dependency information (the example code uses Gradle)
