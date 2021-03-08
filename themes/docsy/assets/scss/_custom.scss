@@ -182,15 +182,15 @@ a {
 }
 
 .gradient-edge-left {
-  background-image: -moz-linear-gradient( 90deg, rgb(0,193,213) 0%, $bright-green 100%);
-  background-image: -webkit-linear-gradient( 90deg, rgb(0,193,213) 0%, $bright-green 100%);
-  background-image: -ms-linear-gradient( 90deg, rgb(0,193,213) 0%, $bright-green 100%);
-  position: absolute;
-  width: 4px;
-  height: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  border: 2px solid transparent;
+  -moz-border-image: -moz-linear-gradient(top right, #00C0D5 0%, #0092DA 100%);
+  -webkit-border-image: -webkit-linear-gradient(top right, #00C0D5 0%, #0092DA 100%);
+  border-image: linear-gradient(to bottom left, #00C0D5 0%, #0092DA 100%);
+  border-image-slice: 1;
+
 }
 
 .gradient-edge-top {
