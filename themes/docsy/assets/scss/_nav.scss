@@ -26,29 +26,20 @@
 
 .td-navbar {
     background: $primary;
-    border-bottom: 1px solid #404E60;
+    min-height: 4rem;
     margin: 0;
     z-index: 32;
-    //position: fixed;
-
-
-    width: 100%;
-    min-height: 5rem;
 
     @include media-breakpoint-up(md) {
         position: fixed;
         top: 0;
         width: 100%;
-        ;
-    }
-
-    @media(max-width: 991px) {
-        min-height: 3rem;
     }
 
 
     .navbar-brand {
         text-transform: none;
+        text-align: middle;
 
         .nav-link {
             display: inline-block;
@@ -56,15 +47,15 @@
         }
 
         svg {
-            display: inherit;
+            display: inline-block;
             margin: 0 10px;
-            height: 50px;
+            height: 30px;
         }
     }
 
     .nav-link {
         text-transform: none;
-        font-weight: $font-weight-normal;
+        font-weight: $font-weight-bold;
     }
 
     .td-search-input {
@@ -76,18 +67,12 @@
     }
 
     .dropdown {
-        /*        min-width: 100px; */
-    }
-
-    #menu-toggle {
-        display: none;
+        min-width: 100px;
     }
 
     @include media-breakpoint-down(md) {
-
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 0;
+        padding-right: .5rem;
+        padding-left: .75rem;
 
         .td-navbar-nav-scroll {
             max-width: 100%;
@@ -109,127 +94,125 @@
 
             }
         }
+    }
+}
 
-        &.navbar-expand > .container {
-            flex-direction: column;
-            align-items: unset !important;
+// Icons
+#main_navbar {
+    li i {
+    padding-right: 0.5em;
+
+        &:before {
+            display: inline-block;
+            text-align: center;
+            min-width: 1em;
+        }
+    }
+  .alert {
+    background-color: inherit;
+    padding:0;
+    color: $secondary;
+    border: 0;
+    font-weight: inherit;
+
+        &:before {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900; 
+            content: "\f0d9";
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+        }
+    }  
+}
+
+// Foldable sidebar menu
+nav.foldable-nav {
+
+    &#td-section-nav {
+        position: relative;
+    }
+    
+    &#td-section-nav label {
+        margin-bottom: 0;
+        width: 100%;
+    }
+    
+    .td-sidebar-nav__section, .with-child ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .ul-1 > li {
+        padding-left: 1.5em;
+    }
+
+    ul.foldable {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    }
+
+    input:checked ~ ul.foldable {
+        max-height: 100000vmax;
+        transition: max-height 1s ease-in-out;
+    }
+
+    input[type=checkbox] { display: none; }
+
+    .with-child, .without-child { 
+        position: relative; 
+        padding-left: 1.5em;
+    }
+
+    .ul-1 .with-child > label:before {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f0da";
+        position: absolute;
+        left: 0.1em;
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+        font-size: 1em;
+        color: $gray-900;
+        transition: all 0.5s;
+        &:hover{
+        transform: rotate(90deg);
+        }
+    }
+
+    .ul-1 .with-child > input:checked ~ label:before { 
+        color: $primary;
+        transform: rotate(90deg);
+        transition: transform 0.5s; 
+    }
+
+    .with-child ul { margin-top: 0.1em; }
+    
+}    
+
+@media (hover: hover) and (pointer: fine) {
+    
+    nav.foldable-nav {
+
+        .ul-1 .with-child > label:hover:before { 
+            color: $primary;
+            transform: rotate(30deg);
+            transition: transform 0.5s; 
         }
 
-        .navbar-brand {
-            padding-left: 5px;
-            svg {
-                height: 38px;
-
-            }
-        }
-
-        .td-navbar-nav-hamburger {
-            margin-top: 6px;
-            padding: 0 10px;
-
-
-
-
-            &.open {
-                padding: 10px 0 20px;
-                box-shadow: 0 1rem 0.5rem -0.5rem rgba(0, 0, 0, 0.175);
-                text-align: center;
-                border-top: 1px solid $dark;
-
-
-
-                #menu-toggle #menu-close {
-                    display: block;
-                }
-                #menu-bars {
-                    display: none;
-
-                }
-            }
-
-            .dropdown-menu {
-                background-color: transparent;
-                display: block;
-                position: relative;
-                border: none;
-                box-shadow: none;
-                padding: 0;
-                margin: 0;
-
-            }
-
-            .dropdown-item {
-                color: $link;
-                text-align: center;
-
-            }
-
-            .dropdown-item:hover, .dropdown-item:focus {
-                background: transparent;
-            }
-
-            .navbar-nav {
-                flex-direction: column;
-                align-items: unset !important;
-                padding: 0 10px;
-
-                .nav-item {
-                    display: none;
-                }
-
-                .nav-link {
-                    color: $link;
-
-                }
-
-                a[href*='#'] {
-                    color: white;
-                    cursor: auto;
-                }
-            }
-            #menu-toggle {
-                position: absolute;
-                margin: 0;
-                right: 20px;
-                top: 17px;
-                cursor: pointer;
-                display: block;
-
-
-                @-moz-document url-prefix() {
-                    top: 30px;
-                }
-
-
-                span {
-                    position: relative;
-                }
-                #menu-bars,
-                #menu-close {
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-
-                }
-                .menu-bar {
-                    width: 25px;
-                    height: 2px;
-                    margin: 0 0 5px;
-                    background: white;
-                    display: block;
-
-                }
-                #menu-close {
-                    display: none;
-                    height: 21px;
-                    width: 21px;
-                    margin-top: -2px;
-                    .a {
-                        stroke: white;
-                        stroke-width: 2px;
-                    }
-                }
-            }
+        .ul-1 .with-child > input:checked ~ label:hover:before { 
+            color: $primary;
+            transform: rotate(60deg) !important;
+            transition: transform 0.5s; 
         }
     }
 }

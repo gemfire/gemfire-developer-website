@@ -1,13 +1,13 @@
 //
-// toc produced from content
+// Right side toc
 //
-.td-toc {
-
+.td-sidebar-toc {
+    border-left: 1px solid $border-color;
 
     @supports (position: sticky) {
         position: sticky;
-        top: 7rem;
-        //height: calc(100vh - 10rem);
+        top: 4rem;
+        height: calc(100vh - 10rem);
         overflow-y: auto;
     }
 
@@ -16,11 +16,21 @@
     padding-bottom: 1.5rem;
     vertical-align: top;
 
+}
+
+.td-page-meta {
+    a {
+        display: block;
+        font-weight: $font-weight-medium;
+    }
+}
+
+.td-toc {
+
     a {
         display: block;
         font-weight: $font-weight-light;
         padding-bottom: .25rem;
-        font-size: 0.9rem;
     }
 
     li {
@@ -29,14 +39,7 @@
     }
 
     li li {
-        margin-left: 1.0rem;
-        margin-bottom: 0;
-    }
-
-    .td-page-meta {
-        a {
-            font-weight: $font-weight-medium;
-        }
+        margin-left: 0.5rem;
     }
 
     #TableOfContents {
@@ -44,7 +47,7 @@
         > ul > li > ul > li > a {}
 
         a {
-            color: $dark-for-light-mode;
+            color: $gray-600;
 
             &:hover {
                 color: $blue;

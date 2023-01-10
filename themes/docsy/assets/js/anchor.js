@@ -27,44 +27,21 @@ limitations under the License.
         var headings = article.querySelectorAll('h1, h2, h3, h4, h5, h6');
         headings.forEach(function (heading) {
             if (heading.id) {
-                // var a = document.createElement('a');
-                // // set visibility: hidden, not display: none to avoid layout change
-                // a.style.visibility = 'hidden';
-                //
-                // // [a11y] hide this from screen readers, etc..
-                // a.setAttribute('aria-hidden', 'true');
-                // // material insert_link icon in svg format
-                // a.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>';
-                // a.href = '#' + heading.id;
-               // heading.insertAdjacentElement('beforeend', a);
-                // heading.addEventListener('mouseenter', function () {
-                //    a.style.visibility = 'visible';
-                // });
-
-                // //Handle in-page anchor links with fixed header
-                // $('a[href^="#"]').click(function(e) {
-                //     if (this.hash.length > 1) { // don't do this for empty # links
-                //         window.location.href = this.href;
-                //         e.preventDefault();
-                //         scrollToTarget(this.hash);
-                //     }
-                // });
-                //
-                // // Scroll To Beneath The Fixed Navbar Header
-                // function scrollToTarget(target) {
-                //     var navbarHeight = $('#navbar').outerHeight();
-                //     var targetId = target.replace(":", "\\:");
-                //     $('html, body').animate(
-                //         {scrollTop: $(targetId).offset().top - navbarHeight},
-                //         0,
-                //         'linear'
-                //     );
-                // }
-
-
-                // heading.addEventListener('mouseleave', function () {
-                //     //a.style.visibility = 'hidden';
-                // });
+                var a = document.createElement('a');
+                // set visibility: hidden, not display: none to avoid layout change
+                a.style.visibility = 'hidden';
+                // [a11y] hide this from screen readers, etc..
+                a.setAttribute('aria-hidden', 'true');
+                // material insert_link icon in svg format
+                a.innerHTML = ' <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>';
+                a.href = '#' + heading.id;
+                heading.insertAdjacentElement('beforeend', a);
+                heading.addEventListener('mouseenter', function () {
+                    a.style.visibility = 'initial';
+                });
+                heading.addEventListener('mouseleave', function () {
+                    a.style.visibility = 'hidden';
+                });
             }
         });
     });

@@ -2,17 +2,15 @@
 .td-outer {
     display: flex;
     flex-direction: column;
-    // height: 100vh;
-    background-color: $dark;
+    height: 100vh;
 }
 
 // The outer page container for the default base template.
 .td-default {
     main {
-        section:first-of-type {
+        > section:first-of-type {
             @include media-breakpoint-up(md) {
-                //padding-top: 5rem;
-                // padding-bottom: 0;
+                padding-top: 8rem;
             }
         }
 
@@ -23,14 +21,11 @@
 }
 
 .td-main {
-    // flex-grow: 1;
-
-    background-color: $dark;
+    flex-grow: 1;
 
     main {
         @include media-breakpoint-up(md) {
-            margin-top: 5rem;
-            padding-top: 0;
+            padding-top: 5.5rem;
         }
 
 

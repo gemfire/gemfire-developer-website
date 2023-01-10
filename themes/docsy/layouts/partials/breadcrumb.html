@@ -1,4 +1,4 @@
-<nav aria-label="breadcrumb" class="d-block d-md-block d-print-none">
+<nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	<ol class="breadcrumb spb-1">
 		{{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
 	</ol>
@@ -13,6 +13,6 @@
 {{ end }}
 {{ $isActive :=  eq .p1 .p2  }}
 <li class="breadcrumb-item{{ if $isActive }} active{{ end }}" {{ if $isActive }}aria-current="page"{{ end }}>
-	<a href="{{ .p1.RelPermalink }}">{{ .p1.LinkTitle }}</a>
+	<a href="{{ .p1.Permalink }}">{{ .p1.LinkTitle }}</a>
 </li>
 {{ end }}

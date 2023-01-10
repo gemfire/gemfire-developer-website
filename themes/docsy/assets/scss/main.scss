@@ -8,7 +8,6 @@
 @import "../vendor/Font-Awesome/scss/fontawesome.scss";
 @import "../vendor/Font-Awesome/scss/solid.scss";
 @import "../vendor/Font-Awesome/scss/brands.scss";
-@import "../vendor/Font-Awesome/scss/regular.scss";
 
 @import "support/utilities";
 @import "colors";
@@ -27,50 +26,14 @@
 @import "blocks/blocks";
 @import "section-index";
 @import "pageinfo";
+@import "taxonomy";
 
 @if $td-enable-google-fonts {
     @import url($web-font-path);
 }
 
-#hero {
-    background-repeat: no-repeat;
-    background-position: right;
-    min-height: 360px;
-    padding: 70px 0;
-    box-sizing: border-box;
-
-
-    p {
-        color: $primary-light;
-    }
-    &.no-bg {
-        background-image: none;
-        min-height: auto;
-    }
-
-    &.landing-page-hero {
-        background-image: url("/images/backgrounds/landing-page-graphic-dark.svg");
-    }
-
-    @media(max-width: 390px) {
-        padding-top: 60px;
-        padding-bottom: 100px;
-
-    }
-    @media(max-width: 390px) {
-        .flex {
-            flex-direction: column;
-            align-items: start !important;
-            .icon {
-                margin-bottom: 20px;
-            }
-        }
-    }
-}
-
 footer {
     min-height: 150px;
-
 
     @include media-breakpoint-down(md) {
         min-height: 200px;
@@ -86,16 +49,17 @@ footer {
         visibility: hidden;
     }
 
-    h2[id]:before, h3[id]:before, h4[id]:before, h5[id]:before {
+    h2[id]:before,
+    h3[id]:before,
+    h4[id]:before,
+    h5[id]:before {
         display: block;
         content: " ";
-        //margin-top: -5rem;
-        //height: 5rem;
+        margin-top: -5rem;
+        height: 5rem;
         visibility: hidden;
     }
-
 }
 
+@import "rtl/main";
 @import "styles_project";
-@import "fancybox";
-@import "custom";

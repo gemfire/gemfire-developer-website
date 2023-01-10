@@ -1,9 +1,12 @@
 ---
-title: Tanzu GemFire Developer Blog
-linkTitle: Tanzu GemFire Developer Blog
-weight: 2
-menu: 
-    main:
-       name: "Blog"
-       weight: 200
+title: Blog
+linkTitle: Blog
+menu:
+  main:
+    parent: sections
+    params:
+      split: right
+      section: type
+    weight: 6
+tags: []
 ---

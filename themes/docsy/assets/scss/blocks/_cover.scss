@@ -9,7 +9,6 @@
 .td-cover-block {
     position: relative;
     padding-top: 5rem;
-
     padding-bottom: 5rem;
     background: {
         repeat: no-repeat;
@@ -17,4 +16,9 @@
         size: cover;
     };
 
+    & > .byline {
+        position: absolute;
+        bottom: 2px;
+        right: 4px;
+    }
 }
