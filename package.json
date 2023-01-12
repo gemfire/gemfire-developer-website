@@ -1,7 +1,7 @@
 {
-  "name": "tanzu-dev-portal",
+  "name": "tanzu-gemfire-developer-website",
   "version": "0.1.0",
-  "description": "Tanzu Developer Center",
+  "description": "VMware Gemfire",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vmware-tanzu/tanzu-dev-portal.git"
+    "url": "git+https://github.com/gemfire/gemfire-developer-website.git"
   },
   "author": "VMware, Inc.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vmware-tanzu/tanzu-dev-portal/issues"
+    "url": "https://github.com/gemfire/gemfire-developer-website/issues"
   },
-  "homepage": "https://github.com/vmware-tanzu/tanzu-dev-portal#readme",
+  "homepage": "https://github.com/gemfire/gemfire-developer-website#readme",
   "engines": {
     "node": ">=16 <17"
   },
