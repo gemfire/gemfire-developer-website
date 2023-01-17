@@ -136,9 +136,10 @@ archived_version = false
     weight = 3
 
   [[menu.main]]
-    identifier = "community"
-    name = "Community"
+    identifier = "install"
+    name = "Install"
     weight = 50
+#    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html"
 
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.

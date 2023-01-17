@@ -38,34 +38,40 @@ limitations under the License.
 
   // Hover nav w/ scope
   function removeNavClasses () {
-    $('#scope').removeClass('learn-scope topics-scope tanzutv-scope community-scope');
+    $('#scope').removeClass('learn-scope topics-scope tanzutv-scope install-scope');
     $('.dropdown').removeClass('show');
     $("header + .container-fluid").removeClass("dim");
     $("#navbar").removeClass("dropShadow");
+    console.log("removeNavClasses end")
   }
   $('#learn-target').mouseenter(function(){
+    console.log("enter learn-target");
     removeNavClasses();
     $('#scope').addClass('learn-scope');
     $('#learn').addClass('show');
     dimBody();
   });
   $('#tanzutv-target').mouseenter(function(){
+    console.log("enter tanzutv-target");
     removeNavClasses();
     $('#scope').addClass('tanzutv-scope');
     $('#tanzutv').addClass('show');
     dimBody();
   });
-  $('#community-target').mouseenter(function(){
+  $('#install-target').mouseenter(function(){
+    console.log("enter install-target");
     removeNavClasses();
-    $('#scope').addClass('community-scope');
-    $('#community').addClass('show');
+    $('#scope').addClass('install-scope');
+    $('#install').addClass('show');
     dimBody();
   });
   $('.drop-menu').mouseenter(function () {
+    console.log("enter drop-menu");
     $('this').addClass('show');
     dimBody();
   });
   $('#main_navbar, #main_navbar .drop-menu').mouseleave(function () {
+    console.log("leave navbar/drop-menu");
     removeNavClasses();
   });
 
@@ -73,6 +79,7 @@ limitations under the License.
     $(".dropdown").removeClass("show");
     var parentDropdown = $(this).closest(".dropdown")
     parentDropdown.addClass("show");
+    console.log("closest is:" + parentDropdown);
     $("#scope").addClass(parentDropdown.attr("id") + "-scope");
   });
 

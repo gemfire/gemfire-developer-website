@@ -1,7 +1,7 @@
 {
   "name": "tanzu-gemfire-developer-website",
   "version": "0.1.0",
-  "description": "VMware Gemfire",
+  "description": "VMware Gemfire Developer Site",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
