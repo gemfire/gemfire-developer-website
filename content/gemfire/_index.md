@@ -8,3 +8,4 @@ menu:
         weight: 1
         url: "https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html"
 ---
+To install VMware GemFire, click <a href="https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html">here</a>.

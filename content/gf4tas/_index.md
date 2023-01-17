@@ -7,4 +7,4 @@ menu:
         parent: "install"
         weight: 2
 ---
-This is my handle.
+To install GemFire for Tanzu Application Service, click <a href="https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/1.14/tgf-vms/GUID-content-operator.html">here</a>.
