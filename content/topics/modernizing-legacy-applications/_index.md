@@ -2,7 +2,7 @@
 title: Modernizing Legacy Applications
 linktitle: Modernizing Legacy Applications
 topic: Modernizing Legacy Applications
-topicgroups: "Modern Applications"
+topicgroups: "Products"
 grouptitle: "Modernize"
 layout: topic
 weight: 2

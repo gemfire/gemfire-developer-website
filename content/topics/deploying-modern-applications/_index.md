@@ -2,7 +2,7 @@
 title: Deploying Modern Applications
 linktitle: Deploying Modern Applications
 topic: Deploying Modern Applications
-topicgroups: "Application Development"
+topicgroups: "Clients"
 grouptitle: "Deploy"
 layout: topic
 weight: 2

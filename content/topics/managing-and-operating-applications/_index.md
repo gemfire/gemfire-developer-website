@@ -2,7 +2,7 @@
 title: Managing and Operating Applications
 linktitle: Managing and Operating Applications
 topic: Managing and Operating Applications
-topicgroups: "Application Development"
+topicgroups: "Clients"
 grouptitle: "Manage"
 layout: topic
 weight: 3

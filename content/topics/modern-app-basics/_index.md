@@ -2,7 +2,7 @@
 title: Modern App Basics
 linktitle: Modern App Basics
 topic: Modern App Basics
-topicgroups: "Modern Applications"
+topicgroups: "Products"
 grouptitle: "Learn the Basics"
 layout: topic
 weight: 1

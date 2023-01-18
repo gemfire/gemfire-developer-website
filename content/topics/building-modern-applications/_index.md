@@ -2,7 +2,7 @@
 title: Building Modern Applications
 linktitle: Building Modern Applications
 topic: Building Modern Applications
-topicgroups: "Application Development"
+topicgroups: "Clients"
 grouptitle: "Build"
 layout: topic
 weight: 1

@@ -2,7 +2,7 @@
 title: Agile Transformation and Practices
 linktitle: Agile Transformation and Practices
 topic: Agile Transformation and Practices
-topicgroups: "Modern Applications"
+topicgroups: "Products"
 grouptitle: "Transform"
 layout: topic
 weight: 3

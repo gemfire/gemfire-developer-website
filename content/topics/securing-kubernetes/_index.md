@@ -2,7 +2,7 @@
 title: Securing Kubernetes
 linkTitle: Securing Kubernetes
 topic: Securing Kubernetes
-topicgroups: "Kubernetes Platform"
+topicgroups: "Extensions"
 grouptitle: "Secure"
 layout: topic
 weight: 3

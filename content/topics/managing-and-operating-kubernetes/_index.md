@@ -2,7 +2,7 @@
 title: Managing and Operating Kubernetes
 linktitle: Managing and Operating Kubernetes
 topic: Managing and Operating Kubernetes
-topicgroups: "Kubernetes Platform"
+topicgroups: "Extensions"
 grouptitle: "Manage"
 layout: topic
 weight: 2
