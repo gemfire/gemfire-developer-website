@@ -176,6 +176,18 @@ archived_version = false
     weight = 3
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/index.html"
 
+  [[menu.main]]
+    name = "Spring Boot for GemFire"
+    parent = "documentation"
+    weight = 4
+    url = "https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html"
+
+  [[menu.main]]
+    name = "Spring Data for GemFire"
+    parent = "documentation"
+    weight = 5
+    url = "https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/index.html"
+
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 #version_menu = "Get Started"
