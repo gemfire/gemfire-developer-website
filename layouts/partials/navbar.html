@@ -102,7 +102,7 @@
 									</div>
 								{{ else }}
 									{{ range .Children }}
-										<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+										<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
 									{{ end }}
 								{{ end }}
 							</div>
@@ -168,7 +168,7 @@
 				{{ else }}
 					<li class="mobile-nav-title font-weight-bold mt-4">{{ .Name }}</li>
 					{{ range .Children }}
-						<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
+						<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
 					{{ end }}
 				{{ end }}
 				{{ else }}

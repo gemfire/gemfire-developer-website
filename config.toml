@@ -139,7 +139,24 @@ archived_version = false
     identifier = "install"
     name = "Install"
     weight = 50
+
+  [[menu.main]]
+    name = "VMware GemFire"
+    parent = "install"
+    weight = 1
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html"
+
+  [[menu.main]]
+    name = "GemFire for Tanzu Application Service"
+    parent = "install"
+    weight = 2
+    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/1.14/tgf-vms/GUID-content-operator.html"
+
+  [[menu.main]]
+    name = "GemFire for Kubernetes"
+    parent = "install"
+    weight = 3
+    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.1/gf-k8s/GUID-supported-configurations.html"
 
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
