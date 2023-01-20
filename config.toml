@@ -193,6 +193,13 @@ archived_version = false
     parent = "documentation"
     weight = 6
     url = "https://docs.vmware.com/en/Native-Client-for-VMware-Tanzu-GemFire/index.html"
+
+  [[menu.main]]
+    name = "Node.js for Gemfire"
+    parent = "documentation"
+    weight = 6
+    url = "https://docs.vmware.com/en/Node.js-Client-for-VMware-Tanzu-GemFire/2.0/tgf-nodeclient/GUID-about-client-users-guide.html"
+
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 #version_menu = "Get Started"
