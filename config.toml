@@ -188,6 +188,11 @@ archived_version = false
     weight = 5
     url = "https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/index.html"
 
+  [[menu.main]]
+    name = "Native Client"
+    parent = "documentation"
+    weight = 6
+    url = "https://docs.vmware.com/en/Native-Client-for-VMware-Tanzu-GemFire/index.html"
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 #version_menu = "Get Started"
