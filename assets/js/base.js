@@ -38,7 +38,7 @@ limitations under the License.
 
   // Hover nav w/ scope
   function removeNavClasses () {
-    $('#scope').removeClass('learn-scope topics-scope tanzutv-scope install-scope');
+    $('#scope').removeClass('learn-scope topics-scope documentation-scope install-scope');
     $('.dropdown').removeClass('show');
     $("header + .container-fluid").removeClass("dim");
     $("#navbar").removeClass("dropShadow");
@@ -51,11 +51,11 @@ limitations under the License.
     $('#learn').addClass('show');
     dimBody();
   });
-  $('#tanzutv-target').mouseenter(function(){
-    console.log("enter tanzutv-target");
+  $('#documentation-target').mouseenter(function(){
+    console.log("enter documentation-target");
     removeNavClasses();
-    $('#scope').addClass('tanzutv-scope');
-    $('#tanzutv').addClass('show');
+    $('#scope').addClass('documentation-scope');
+    $('#documentation').addClass('show');
     dimBody();
   });
   $('#install-target').mouseenter(function(){

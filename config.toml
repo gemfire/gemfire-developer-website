@@ -131,8 +131,8 @@ archived_version = false
     weight = 1
 
   [[menu.main]]
-    identifier = "tv"
-    name = "Tanzu.TV"
+    identifier = "documentation"
+    name = "Documentation"
     weight = 3
 
   [[menu.main]]
@@ -157,6 +157,24 @@ archived_version = false
     parent = "install"
     weight = 3
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.1/gf-k8s/GUID-supported-configurations.html"
+
+  [[menu.main]]
+    name = "VMware Gemfire"
+    parent = "documentation"
+    weight = 1
+    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html"
+
+  [[menu.main]]
+    name = "GemFire for Tanzu Application Service"
+    parent = "documentation"
+    weight = 2
+    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/index.html"
+
+  [[menu.main]]
+    name = "GemFire for Kubernetes"
+    parent = "documentation"
+    weight = 3
+    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/index.html"
 
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
