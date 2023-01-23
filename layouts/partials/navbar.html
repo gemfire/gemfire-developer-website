@@ -71,7 +71,7 @@
 								{{ if $split }}
 									<div class="row justify-content-between">
 									<div>
-										<p class="h5 cursor-intial fs-75">By Category</p>
+<!--										<p class="h5 cursor-intial fs-75">By Category</p>-->
 										{{ $menuitems := where .Children ".Params.split" "left" }}
 										<!-- Group topic by topic group -->
 										{{ $topicgroups := (slice) }}
@@ -89,16 +89,16 @@
 											{{ end }}
 										{{ end }}
 									</div>
-									<div>
-										<p id="by-type" class="h5 cursor-intial fs-75">By Type</p>
-										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}
-											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-										{{ end }}
-										<p id="by-type" class="h5 cursor-intial fs-75">By Language</p>
-										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}
-											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-										{{ end }}
-									</div>
+<!--									<div>-->
+<!--										<p id="by-type" class="h5 cursor-intial fs-75">By Type</p>-->
+<!--										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}-->
+<!--											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>-->
+<!--										{{ end }}-->
+<!--										<p id="by-type" class="h5 cursor-intial fs-75">By Language</p>-->
+<!--										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}-->
+<!--											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>-->
+<!--										{{ end }}-->
+<!--									</div>-->
 									</div>
 								{{ else }}
 									{{ range .Children }}
@@ -157,14 +157,14 @@
 								{{ end }}
 							{{ end }}
 						{{ end }}
-						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Type</p>
-						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}
-							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
-						{{ end }}
-						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Language</p>
-						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}
-							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
-						{{ end }}
+<!--						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Type</p>-->
+<!--						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}-->
+<!--							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>-->
+<!--						{{ end }}-->
+<!--						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Language</p>-->
+<!--						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}-->
+<!--							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>-->
+<!--						{{ end }}-->
 				{{ else }}
 					<li class="mobile-nav-title font-weight-bold mt-4">{{ .Name }}</li>
 					{{ range .Children }}

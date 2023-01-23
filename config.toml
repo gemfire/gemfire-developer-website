@@ -127,7 +127,7 @@ archived_version = false
 [menu]
   [[menu.main]]
     identifier = "sections"
-    name = "Learn"
+    name = "Downloads"
     weight = 1
 
   [[menu.main]]

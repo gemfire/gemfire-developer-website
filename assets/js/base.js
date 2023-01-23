@@ -38,17 +38,17 @@ limitations under the License.
 
   // Hover nav w/ scope
   function removeNavClasses () {
-    $('#scope').removeClass('learn-scope topics-scope documentation-scope install-scope');
+    $('#scope').removeClass('downloads-scope topics-scope documentation-scope install-scope');
     $('.dropdown').removeClass('show');
     $("header + .container-fluid").removeClass("dim");
     $("#navbar").removeClass("dropShadow");
     console.log("removeNavClasses end")
   }
-  $('#learn-target').mouseenter(function(){
-    console.log("enter learn-target");
+  $('#downloads-target').mouseenter(function(){
+    console.log("enter downloads-target");
     removeNavClasses();
-    $('#scope').addClass('learn-scope');
-    $('#learn').addClass('show');
+    $('#scope').addClass('downloads-scope');
+    $('#downloads').addClass('show');
     dimBody();
   });
   $('#documentation-target').mouseenter(function(){
@@ -79,7 +79,7 @@ limitations under the License.
     $(".dropdown").removeClass("show");
     var parentDropdown = $(this).closest(".dropdown")
     parentDropdown.addClass("show");
-    console.log("closest is:" + parentDropdown);
+    console.log("closest is:" + parentDropdown + " with id:" + parentDropdown.attr("id"));
     $("#scope").addClass(parentDropdown.attr("id") + "-scope");
   });
 
