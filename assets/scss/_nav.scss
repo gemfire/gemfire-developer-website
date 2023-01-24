@@ -271,14 +271,11 @@ nav {
         width: 130px;
 
         .drop-menu {
-            width: 530px;
-            left: -170px;
+            width: 400px;
+            left: -10px;
             
             .menu-split-left {
-                width: 320px;
-            }
-            .menu-split-right {
-                width: 180px;
+                width: 0px;
             }
         }
     }
@@ -335,25 +332,25 @@ nav {
         position: absolute;
         
         &.downloads-scope {
-            left: -227px;
-            width: 550px;
-            height: 485px;
+            left: 322px;
+            width: 317px;
+            height: 325px;
         }
         &.documentation-scope {
             left: 125px;
             width: 310px;
-            height: 350px;
+            height: 275px;
         }
         &.install-scope {
             left: 0px;
             width: 308px;
-            height: 120px;
+            height: 110px;
         }
     }
 
     .dropdown-item:hover, .dropdown-item:focus {
         background: $dark;
-        border-radius: 2px;
+        border-radius: 12px;
     }
     #by-type {
         padding: 0.25rem 1.5rem;
