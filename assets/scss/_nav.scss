@@ -267,7 +267,7 @@ nav {
             
     }
     #downloads {
-        right: 456px;
+        right: 140px;
         width: 130px;
 
         .drop-menu {
@@ -287,11 +287,11 @@ nav {
         width: 135px;
     }
     #documentation {
-        right: 300px;
+        right: 340px;
         width: 149px;
     }
     #install {
-        right: 139px;
+        right: 460px;
         width: 156px; 
     }
     .drop-target {
@@ -340,13 +340,13 @@ nav {
             height: 485px;
         }
         &.documentation-scope {
-            left: 87px;
-            width: 296px;
+            left: 125px;
+            width: 310px;
             height: 350px;
         }
         &.install-scope {
-            left: 247px;            
-            width: 156px;
+            left: 0px;
+            width: 308px;
             height: 120px;
         }
     }

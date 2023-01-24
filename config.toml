@@ -126,19 +126,19 @@ archived_version = false
 
 [menu]
   [[menu.main]]
-    identifier = "sections"
-    name = "Downloads"
-    weight = 1
+    identifier = "install"
+    name = "Install"
+    weight = 10
 
   [[menu.main]]
     identifier = "documentation"
     name = "Documentation"
-    weight = 3
+    weight = 20
 
   [[menu.main]]
-    identifier = "install"
-    name = "Install"
-    weight = 50
+    identifier = "sections"
+    name = "Downloads"
+    weight = 30
 
   [[menu.main]]
     id = "gfinstall"
