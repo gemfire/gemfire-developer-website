@@ -162,7 +162,7 @@ archived_version = false
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.1/gf-k8s/GUID-supported-configurations.html"
 
   [[menu.main]]
-    name = "VMware Gemfire"
+    name = "VMware GemFire"
     parent = "documentation"
     weight = 1
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html"
@@ -199,16 +199,26 @@ archived_version = false
     url = "https://docs.vmware.com/en/Native-Client-for-VMware-Tanzu-GemFire/index.html"
 
   [[menu.main]]
-    name = "Node.js for Gemfire"
+    name = "Node.js for GemFire"
     parent = "documentation"
     weight = 7
     url = "https://docs.vmware.com/en/Node.js-Client-for-VMware-Tanzu-GemFire/2.0/tgf-nodeclient/GUID-about-client-users-guide.html"
 
   [[menu.main]]
-    name = "Gemfire for Redis Apps"
+    name = "GemFire for Redis Apps"
     parent = "documentation"
     weight = 8
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Redis-Apps/index.html"
+
+  [[menu.main]]
+    identifier = "gfdl"
+    Name = "GemFire"
+    parent = "sections"
+    weight = 1
+    url = "https://network.pivotal.io/products/pivotal-gemfire/"
+    [menu.main.params]
+      topicgroups = "Products"
+      split = "left"
 
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.

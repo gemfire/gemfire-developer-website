@@ -71,20 +71,27 @@
 								{{ if $split }}
 									<div class="row justify-content-between">
 									<div>
-<!--										<p class="h5 cursor-intial fs-75">By Category</p>-->
 										{{ $menuitems := where .Children ".Params.split" "left" }}
 										<!-- Group topic by topic group -->
 										{{ $topicgroups := (slice) }}
 										{{ range $menuitems }}
-											{{ $topicgroups = union $topicgroups (slice .Page.Params.topicgroups) }}
+											{{ with .Page }}
+												{{ $topicgroups = union $topicgroups (slice .Params.topicgroups) }}
+											{{ end }}
 										{{ end }}
 										{{ $topicgroups := uniq $topicgroups }}
 										{{ range $topicgroups }}
 											{{ $topicgroup := . }}
 											<div class="topic-title"><b class="cursor-intial">{{ $topicgroup }}</b></div>
 											{{ range $menuitems }}
-												{{ if eq .Page.Params.topicgroups $topicgroup }}
-													<a class="dropdown-item menu-split-left" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+												{{ with .Page }}
+													{{ if eq .Params.topicgroups $topicgroup }}
+														<a class="dropdown-item menu-split-left" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+													{{ end }}
+												{{ else }}
+													{{ if eq .Params.topicgroups $topicgroup }}
+														<a class="dropdown-item menu-split-left" href="{{ .URL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+													{{ end }}
 												{{ end }}
 											{{ end }}
 										{{ end }}
@@ -145,15 +152,23 @@
 						<!-- Group topic by topic group -->
 						{{ $topicgroups := (slice) }}
 						{{ range $menuitems }}
-							{{ $topicgroups = union $topicgroups (slice .Page.Params.topicgroups) }}
+							{{ with .Page }}
+								{{ $topicgroups = union $topicgroups (slice .Page.Params.topicgroups) }}
+							{{ end }}
 						{{ end }}
 						{{ $topicgroups := uniq $topicgroups }}
 						{{ range $topicgroups }}
 							{{ $topicgroup := . }}
 							<li class="font-weight-bold">{{ $topicgroup }}</li>
 							{{ range $menuitems }}
-								{{ if eq .Page.Params.topicgroups $topicgroup }}
-									<li class="pl-2"><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
+								{{ with .Page }}
+									{{ if eq .Params.topicgroups $topicgroup }}
+										<li class="pl-2"><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
+									{{ end }}
+								{{ else }}
+									{{ if eq .Params.topicgroups $topicgroup }}
+										<li class="pl-2"><a href="{{ .URL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
+									{{ end }}
 								{{ end }}
 							{{ end }}
 						{{ end }}
