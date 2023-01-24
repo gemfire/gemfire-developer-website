@@ -240,6 +240,26 @@ archived_version = false
       topicgroups = "Products"
       split = "left"
 
+  [[menu.main]]
+    identifier = "nativeclientdl"
+    Name = "Native Client"
+    parent = "sections"
+    weight = 10
+    url = "https://network.pivotal.io/products/pivotal-gemfire/#/releases/1157686"
+    [menu.main.params]
+      topicgroups = "Clients"
+      split = "left"
+
+  [[menu.main]]
+    identifier = "nodejsdl"
+    Name = "Node.js for Gemfire"
+    parent = "sections"
+    weight = 20
+    url = "https://network.pivotal.io/products/pivotal-gemfire/#/releases/765264"
+    [menu.main.params]
+      topicgroups = "Clients"
+      split = "left"
+
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 #version_menu = "Get Started"
