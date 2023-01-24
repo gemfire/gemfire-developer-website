@@ -260,6 +260,16 @@ archived_version = false
       topicgroups = "Clients"
       split = "left"
 
+  [[menu.main]]
+    identifier = "redisext"
+    Name = "GemFire for Redis Apps"
+    parent = "sections"
+    weight = 10
+    url = "https://network.pivotal.io/products/tanzu-gemfire-for-redis-apps/"
+    [menu.main.params]
+      topicgroups = "Extensions"
+      split = "left"
+
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 #version_menu = "Get Started"
