@@ -77,6 +77,8 @@
 										{{ range $menuitems }}
 											{{ with .Page }}
 												{{ $topicgroups = union $topicgroups (slice .Params.topicgroups) }}
+											{{ else }}
+												{{ $topicgroups = union (slice .Params.topicgroups) $topicgroups  }}
 											{{ end }}
 										{{ end }}
 										{{ $topicgroups := uniq $topicgroups }}

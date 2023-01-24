@@ -214,8 +214,28 @@ archived_version = false
     identifier = "gfdl"
     Name = "GemFire"
     parent = "sections"
-    weight = 1
+    weight = 10
     url = "https://network.pivotal.io/products/pivotal-gemfire/"
+    [menu.main.params]
+      topicgroups = "Products"
+      split = "left"
+
+  [[menu.main]]
+    identifier = "gf4tasdl"
+    Name = "GemFire for Tanzu Application Service"
+    parent = "sections"
+    weight = 20
+    url = "https://network.pivotal.io/products/tanzu-gemfire-for-vms/"
+    [menu.main.params]
+      topicgroups = "Products"
+      split = "left"
+
+  [[menu.main]]
+    identifier = "gf4k8sdl"
+    Name = "GemFire for Kubernetes"
+    parent = "sections"
+    weight = 30
+    url = "https://network.pivotal.io/products/tanzu-gemfire-for-kubernetes/"
     [menu.main.params]
       topicgroups = "Products"
       split = "left"
