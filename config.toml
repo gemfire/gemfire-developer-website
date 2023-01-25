@@ -141,22 +141,22 @@ archived_version = false
     weight = 30
 
   [[menu.main]]
-    id = "gfinstall"
-    name = "VMware GemFire "
+    identifier = "gfinstall"
+    name = "VMware GemFire"
     parent = "install"
     weight = 1
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html"
 
   [[menu.main]]
-    id = "gf4tasinstall"
-    name = "GemFire for Tanzu Application Service "
+    identifier = "gf4tasinstall"
+    name = "GemFire for Tanzu Application Service"
     parent = "install"
     weight = 2
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/1.14/tgf-vms/GUID-content-operator.html"
 
   [[menu.main]]
-    id = "gf4k8sinstall"
-    name = "GemFire for Kubernetes "
+    identifier = "gf4k8sinstall"
+    name = "GemFire for Kubernetes"
     parent = "install"
     weight = 3
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.1/gf-k8s/GUID-supported-configurations.html"
