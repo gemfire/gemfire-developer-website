@@ -88,6 +88,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="mobile-nav" class="bg-dark">
 		<ul class="list-unstyled">
 			{{ range .Site.Menus.main }}
@@ -138,9 +139,13 @@
 					{{ end }}
 				{{ end }}
 				{{ else }}
+					<li class="mobile-nav-title font-weight-bold mt-4">{{ .Name }}</li>
+					<a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+
 				{{ end }}
 			{{ end }}
 			<br>
+			<li class="mobile-nav-title font-weight-bold mt-4">Search</li>
 			<li><a tabindex=-1 href="/developer/search/">Search</a></li>
 		</ul>
 	</div>
