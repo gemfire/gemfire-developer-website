@@ -44,34 +44,36 @@ limitations under the License.
     $("#navbar").removeClass("dropShadow");
     console.log("removeNavClasses end")
   }
-  $('#downloads-target').mouseenter(function(){
-    console.log("enter downloads-target");
-    removeNavClasses();
-    $('#scope').addClass('downloads-scope');
-    $('#downloads').addClass('show');
+
+  $('#install-navBarItem').mouseenter(function () {
+    $("#install-navBarItem").addClass("show");
+    $("#documentation-navBarItem").removeClass("show");
+    $("#download-navBarItem").removeClass("show");
     dimBody();
   });
-  $('#documentation-target').mouseenter(function(){
-    console.log("enter documentation-target");
-    removeNavClasses();
-    $('#scope').addClass('documentation-scope');
-    $('#documentation').addClass('show');
+
+  $('#documentation-navBarItem').mouseenter(function () {
+    $("#documentation-navBarItem").addClass("show");
+    $("#install-navBarItem").removeClass("show");
+    $("#download-navBarItem").removeClass("show");
     dimBody();
   });
-  $('#install-target').mouseenter(function(){
-    console.log("enter install-target");
-    removeNavClasses();
-    $('#scope').addClass('install-scope');
-    $('#install').addClass('show');
+
+  $('#blog-navBarItem').mouseenter(function () {
+    $("#documentation-navBarItem").removeClass("show");
+    $("#install-navBarItem").removeClass("show");
+    $("#download-navBarItem").removeClass("show");
     dimBody();
   });
-  $('.drop-menu').mouseenter(function () {
-    console.log("enter drop-menu");
-    $('this').addClass('show');
+
+  $('#download-navBarItem').mouseenter(function () {
+    $("#download-navBarItem").addClass("show");
+    $("#documentation-navBarItem").removeClass("show");
+    $("#install-navBarItem").removeClass("show");
     dimBody();
   });
-  $('#main_navbar, #main_navbar .drop-menu').mouseleave(function () {
-    console.log("leave navbar/drop-menu");
+
+  $('#navbar, .drop-menu').mouseleave(function () {
     removeNavClasses();
   });
 

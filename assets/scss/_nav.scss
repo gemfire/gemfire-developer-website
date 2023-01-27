@@ -262,6 +262,11 @@ nav {
                 }
                 padding: 30px 0 20px;
                 height: auto;
+                background: $primary;
+                transition: all .2s ease-out;
+                top: 60px;
+                box-shadow: 0px 6px 15px -3px rgba(0,0,0,0.2);
+                position: absolute;
             }
         } 
             
@@ -320,31 +325,6 @@ nav {
         }
         .h5, b {
             padding: 0.25rem 1rem;
-        }
-    }
-    #scope {
-        background: $primary;
-        height: 500px;
-        transition: all .2s ease-out;
-        height: 400px;
-        top: 60px;
-        box-shadow: 0px 6px 15px -3px rgba(0,0,0,0.2);
-        position: absolute;
-        
-        &.downloads-scope {
-            left: 322px;
-            width: 317px;
-            height: 325px;
-        }
-        &.documentation-scope {
-            left: 110px;
-            width: 342px;
-            height: 275px;
-        }
-        &.install-scope {
-            left: -18px;
-            width: 343px;
-            height: 110px;
         }
     }
 

@@ -25,17 +25,34 @@
 				{{ $url := urls.Parse .RelPermalink }}
 				{{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
 				{{ range .Site.Menus.main }}
-				<li class="mb-0 mr-5 nav-link">
-					{{ .Name }}
-					<div class="nav-arrow"></div>
+				{{ if .HasChildren }}
+
+				<div id={{ lower (replace .Name "." "") }}-navBarItem class="nav-item dropdown d-lg-block mr-4 mb-0">
+					<a class="nav-link dropdown-toggle" href="{{.URL}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						{{ .Name }}<span class="nav-arrow" ></span>
+					</a>
+					<div class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
+						{{ range .Children }}
+						<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
+						{{ end }}
+					</div>
+				</div>
 				</li>
-				
-				{{ end }}
+				{{ else }}
+				<li id={{ lower (replace .Name "." "") }}-navBarItem class="nav-item mr-4 mb-0">
+					{{ $active := or ($p.IsMenuCurrent "main" .) ($p.HasMenuCurrent "main" .) }}
+					{{ with .Page }}
+					{{ $active = or $active ( $.IsDescendant .)  }}
+					{{ end }}
+					<a class="nav-link{{if $active }} active{{end}}" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}><span{{if $active }} class="active"{{end}}>{{ .Name }}</span></a>
+				</li>
+				{{end}}
+				{{end}}
 
 				<li class="nav-item mr-xl-4 mr-2 mb-0 mobile-search-link" style="display: none;">
 					<a class="nav-link" href="{{ "search" | relURL }}"><span>Search</span></a>
 				</li>
-				
+
 				<li class="search remove-menu search_icon">
 					<div class="search-icon d-flex align-items-center relative z-1" tabindex="2">
 						<svg id="search-svg" width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,81 +73,13 @@
 				</li>
 			</ul>
 
-			<div id="dropdown-menus" class="position-absolute">
-				<div id='scope'></div>
-				<ul class="mb-0 p-0 position-relative w-100">
-					{{ range .Site.Menus.main }}
-						{{ if .HasChildren }}
-						<li id={{ lower (replace .Name "." "") }} class="nav-item dropdown d-lg-block mb-0 position-absolute">
-							<div id="{{ lower (replace .Name "." "") }}-target" class="drop-target"></div>
-							<div class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
-								{{ $split := false }}
-								{{ if ne (len (where .Children ".Params.split" "right")) 0 }}
-									{{ $split = true }}
-								{{ end }}
-								{{ if $split }}
-									<div class="row justify-content-between">
-									<div>
-										{{ $menuitems := where .Children ".Params.split" "left" }}
-										<!-- Group topic by topic group -->
-										{{ $topicgroups := (slice) }}
-										{{ range $menuitems }}
-											{{ with .Page }}
-												{{ $topicgroups = union $topicgroups (slice .Params.topicgroups) }}
-											{{ else }}
-												{{ $topicgroups = union (slice .Params.topicgroups) $topicgroups  }}
-											{{ end }}
-										{{ end }}
-										{{ $topicgroups := uniq $topicgroups }}
-										{{ range $topicgroups }}
-											{{ $topicgroup := . }}
-											<div class="topic-title"><b class="cursor-intial">{{ $topicgroup }}</b></div>
-											{{ range $menuitems }}
-												{{ with .Page }}
-													{{ if eq .Params.topicgroups $topicgroup }}
-														<a class="dropdown-item menu-split-left" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-													{{ end }}
-												{{ else }}
-													{{ if eq .Params.topicgroups $topicgroup }}
-														<a class="dropdown-item menu-split-left" href="{{ .URL }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-													{{ end }}
-												{{ end }}
-											{{ end }}
-										{{ end }}
-									</div>
-<!--									<div>-->
-<!--										<p id="by-type" class="h5 cursor-intial fs-75">By Type</p>-->
-<!--										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}-->
-<!--											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>-->
-<!--										{{ end }}-->
-<!--										<p id="by-type" class="h5 cursor-intial fs-75">By Language</p>-->
-<!--										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}-->
-<!--											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>-->
-<!--										{{ end }}-->
-<!--									</div>-->
-									</div>
-								{{ else }}
-									{{ range .Children }}
-										<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-									{{ end }}
-								{{ end }}
-							</div>
-						</li>
-						{{ else }}
-
-						{{ end }}
-					{{ end }}
-				</ul>
-			</div>
-		</div>
-
 		<div id="search-nav" role="search">
 			<div class="container relative">
 			<form id="searchheaderform" action='{{ "search" | relURL }}' accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
 			<input type="text" name="q" id=" " autocomplete="off" placeholder="Search for guides, videos, code samples, posts, and more...">
 			<input type="submit" value="" id="searchheadersubmit" data-disable-with="">
 			</form>
-			
+
 			<div class="search-icon search-hide">
 			<svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
 			<path class="b" d="M19.41,18l7.29-7.29a1,1,0,0,0-1.41-1.41L18,16.59,10.71,9.29a1,1,0,0,0-1.41,1.41L16.59,18,9.29,25.29a1,1,0,1,0,1.41,1.41L18,19.41l7.29,7.29a1,1,0,0,0,1.41-1.41Z"></path>
