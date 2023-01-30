@@ -124,6 +124,7 @@ archived_version = false
 # Specify a value here if your content directory is not in your repo's root directory
 # github_subdir = ""
 
+#Main Nav Bar Menu Items
 [menu]
   [[menu.main]]
     identifier = "install"
@@ -136,139 +137,149 @@ archived_version = false
     weight = 20
 
   [[menu.main]]
-    identifier = "sections"
-    name = "Downloads"
-    weight = 30
+    identifier = "blog"
+    name = "Blog"
+    Title = 'blog section'
+    weight = 25
+    url = '/blog/'
 
   [[menu.main]]
+    identifier = "download"
+    name = "Download"
+    weight = 30
+
+#Install Menu Items
+  [[menu.main]]
     identifier = "gfinstall"
-    name = "VMware GemFire"
+    name = "GemFire"
     parent = "install"
-    weight = 1
+    weight = 10
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html"
 
   [[menu.main]]
     identifier = "gf4tasinstall"
-    name = "GemFire for Tanzu Application Service"
+    name = "GemFire for TAS"
     parent = "install"
-    weight = 2
+    weight = 20
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/1.14/tgf-vms/GUID-content-operator.html"
 
   [[menu.main]]
     identifier = "gf4k8sinstall"
     name = "GemFire for Kubernetes"
     parent = "install"
-    weight = 3
+    weight = 30
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.1/gf-k8s/GUID-supported-configurations.html"
 
+
+#Documentation Menu Items
   [[menu.main]]
-    name = "VMware GemFire"
+    id = "gfdoc"
+    name = "GemFire"
     parent = "documentation"
-    weight = 1
+    weight = 10
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html"
 
   [[menu.main]]
-    name = "GemFire for Tanzu Application Service"
+    id = "gf4tasdoc"
+    name = "GemFire for TAS"
     parent = "documentation"
-    weight = 2
+    weight = 20
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/index.html"
 
   [[menu.main]]
     id = "gf4k8sdoc"
     name = "GemFire for Kubernetes"
     parent = "documentation"
-    weight = 3
+    weight = 30
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/index.html"
 
   [[menu.main]]
     name = "Spring Boot for GemFire"
     parent = "documentation"
-    weight = 4
+    weight = 40
     url = "https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html"
 
   [[menu.main]]
     name = "Spring Data for GemFire"
     parent = "documentation"
-    weight = 5
+    weight = 50
     url = "https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/index.html"
 
   [[menu.main]]
     name = "Native Client"
     parent = "documentation"
-    weight = 6
+    weight = 60
     url = "https://docs.vmware.com/en/Native-Client-for-VMware-Tanzu-GemFire/index.html"
 
   [[menu.main]]
     name = "Node.js for GemFire"
     parent = "documentation"
-    weight = 7
+    weight = 70
     url = "https://docs.vmware.com/en/Node.js-Client-for-VMware-Tanzu-GemFire/2.0/tgf-nodeclient/GUID-about-client-users-guide.html"
 
   [[menu.main]]
     name = "GemFire for Redis Apps"
     parent = "documentation"
-    weight = 8
+    weight = 80
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Redis-Apps/index.html"
 
+
+#Download Menu Items
   [[menu.main]]
-    identifier = "gfdl"
+    identifier = "gfdownload"
     Name = "GemFire"
-    parent = "sections"
+    parent = "download"
     weight = 10
     url = "https://network.pivotal.io/products/pivotal-gemfire/"
     [menu.main.params]
       topicgroups = "Products"
-      split = "left"
 
   [[menu.main]]
-    identifier = "gf4tasdl"
-    Name = "GemFire for Tanzu Application Service"
-    parent = "sections"
+    identifier = "gf4tasdownload"
+    Name = "GemFire for TAS"
+    parent = "download"
     weight = 20
     url = "https://network.pivotal.io/products/tanzu-gemfire-for-vms/"
     [menu.main.params]
       topicgroups = "Products"
-      split = "left"
+
 
   [[menu.main]]
-    identifier = "gf4k8sdl"
+    identifier = "gf4k8sdownload"
     Name = "GemFire for Kubernetes"
-    parent = "sections"
+    parent = "download"
     weight = 30
     url = "https://network.pivotal.io/products/tanzu-gemfire-for-kubernetes/"
     [menu.main.params]
       topicgroups = "Products"
-      split = "left"
 
   [[menu.main]]
     identifier = "nativeclientdl"
     Name = "Native Client"
-    parent = "sections"
-    weight = 10
+    parent = "download"
+    weight = 40
     url = "https://network.pivotal.io/products/pivotal-gemfire/#/releases/1157686"
     [menu.main.params]
       topicgroups = "Clients"
-      split = "left"
 
   [[menu.main]]
     identifier = "nodejsdl"
     Name = "Node.js for Gemfire"
-    parent = "sections"
-    weight = 20
+    parent = "download"
+    weight = 50
     url = "https://network.pivotal.io/products/pivotal-gemfire/#/releases/765264"
     [menu.main.params]
       topicgroups = "Clients"
-      split = "left"
 
   [[menu.main]]
-    identifier = "redisext"
+    identifier = "gf4radl"
     Name = "GemFire for Redis Apps"
-    parent = "sections"
-    weight = 10
+    parent = "download"
+    weight = 60
     url = "https://network.pivotal.io/products/tanzu-gemfire-for-redis-apps/"
     [menu.main.params]
       topicgroups = "Extensions"
-      split = "left"
+
 
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
