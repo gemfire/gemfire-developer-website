@@ -137,23 +137,23 @@ archived_version = false
     weight = 20
 
   [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    Title = 'blog section'
-    weight = 25
-    url = '/blog/'
-
-  [[menu.main]]
     identifier = "examples"
     name = "Examples"
     Title = 'examples section'
-    weight = 30
+    weight = 25
     url = '/samples/'
+
+  [[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    Title = 'blog section'
+    weight = 30
+    url = '/blog/'
 
   [[menu.main]]
     identifier = "download"
     name = "Download"
-    weight = 30
+    weight = 35
 
 #Install Menu Items
   [[menu.main]]
