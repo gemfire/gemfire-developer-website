@@ -5,6 +5,8 @@ description: Three examples that show how to convert your Spring Session Data Re
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/spring-for-apache-geode-examples
 title: Spring - Convert Redis HTTP Session State to VMware GemFire
+tags:
+  - Redis
 type: samples
 weight: 2
 ---

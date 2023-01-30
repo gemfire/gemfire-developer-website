@@ -5,6 +5,8 @@ description: 'Demonstrates the basic authentication and authorization mechanism 
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Node.js - Authentication
+tags:
+ - Node.js
 type: samples
 ---
 

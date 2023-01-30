@@ -5,6 +5,8 @@ description: 'Provides a simple JavaScript application that demonstrates basic C
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Node.js - CRUD-ops
+tags:
+  - Node.js
 type: samples
 weight: 1
 ---

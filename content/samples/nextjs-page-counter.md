@@ -5,6 +5,8 @@ description: This example demonstrates use of the Node.js client with a simple N
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Next.js Page Counter
+tags:
+  - Node.js
 type: samples
 ---
 

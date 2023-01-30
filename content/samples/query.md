@@ -5,6 +5,8 @@ description: A simple JavaScript application that demonstrates executing a query
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Node.js - Query
+tags:
+  - Node.js
 type: samples
 ---
 

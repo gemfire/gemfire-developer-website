@@ -5,6 +5,8 @@ description: This is a sample code that stores a session state for an ASP.NET ap
 lastmod: '2021-05-24'
 repo: https://github.com/dkhopade/gemfire-dotnet-nc
 title: VMware GemFire .NET Client - Session State
+tags:
+  - .Net Client
 type: samples
 weight: 
 ---

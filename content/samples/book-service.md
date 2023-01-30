@@ -5,6 +5,8 @@ description: 'Provides a simple book-serving app which uses the data service as 
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Node.js - Book Service
+tags:
+- Node.js
 type: samples
 ---
 

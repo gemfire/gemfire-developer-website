@@ -6,6 +6,8 @@ description: Demonstrates basic SSL connection of a client with a GemFire Cache 
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Node.js - SSL
+tags:
+  - Node.js
 type: samples
 weight: 3
 ---

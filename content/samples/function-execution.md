@@ -5,6 +5,8 @@ description: A simple JavaScript application that demonstrates calling a server-
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Node.js - Function Execution
+tags:
+  - Node.js
 type: samples
 ---
 

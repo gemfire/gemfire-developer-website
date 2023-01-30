@@ -144,6 +144,13 @@ archived_version = false
     url = '/blog/'
 
   [[menu.main]]
+    identifier = "examples"
+    name = "Examples"
+    Title = 'examples section'
+    weight = 30
+    url = '/samples/'
+
+  [[menu.main]]
     identifier = "download"
     name = "Download"
     weight = 30

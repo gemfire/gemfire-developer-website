@@ -6,6 +6,8 @@ description: A simple JavaScript application that demonstrates basic putAll and 
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/node-examples
 title: Node.js - Put All
+tags:
+  - Node.js
 type: samples
 weight: 2
 ---

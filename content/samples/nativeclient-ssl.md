@@ -5,6 +5,8 @@ description: Demonstrates basic SSL connection of a VMware GemFire .NET client w
 lastmod: '2021-05-24'
 repo: https://github.com/dkhopade/gemfire-dotnet-nc
 title: VMware GemFire .NET Client - SSL
+tags:
+  - .Net Client
 type: samples
 weight:
 ---
