@@ -7,6 +7,7 @@ repo: https://github.com/gemfire/spring-for-apache-geode-examples
 title: Spring - Convert Redis HTTP Session State to VMware GemFire
 tags:
   - Redis
+  - Spring
 type: samples
 weight: 2
 ---

@@ -6,7 +6,8 @@ lastmod: '2021-05-28'
 repo: https://github.com/gemfire/spring-for-apache-geode-examples
 title: Spring - Convert Spring Data Redis Pub-Sub to VMware GemFire
 tags:
-- Redis
+  - Redis
+  - Spring
 type: samples
 weight: 5
 ---
