@@ -1,4 +1,4 @@
-baseURL = "https://ringles.github.io/"
+baseURL = "https://gemfire.github.io/"
 title = "VMware Gemfire"
 publishDir = "public/developer"
 contentDir = "content"
