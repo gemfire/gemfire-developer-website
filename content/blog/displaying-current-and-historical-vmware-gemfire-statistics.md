@@ -1,22 +1,22 @@
 ---
 date: 2021-08-09
-description: This article describes how to display historical and current statistics for Apache Geode.
+description: This article describes how to display historical and current statistics for VMware GemFire.
 lastmod: '2021-08-09'
 team:
 - Barry Oglesby
-title: Displaying Current and Historical Apache Geode Statistics
+title: Displaying Current and Historical VMware GemFire Statistics
 type: blog
 ---
 
 ## Introduction
-Apache Geode produces a variety of statistics in each member of the DistributedSystem. See my article [here](/data/gemfire/blog/most-useful-statistics) for the most useful ones.
+VMware GemFire produces a variety of statistics in each member of the DistributedSystem. See my article [here](/data/gemfire/blog/most-useful-statistics) for the most useful ones.
 
 There are several ways to display these statistics. The main way to display historical statistics (contained in a gfs archive file) is to use the [Visual Statistics Display](https://gemtalksystems.com/products/vsd/) (vsd) tool. See the documentation [here](https://gemfire.docs.pivotal.io/910/gemfire/tools_modules/vsd/chapter_overview.html) for additional details on vsd.
 
-The main way to display current statistics (from the members in a running DistributedSystem) is to access the JMX MBeans, although not all statistics are available via JMX. See the documentation [here](https://gemfire.docs.pivotal.io/910/geode/managing/management/mbean_architecture.html) for additional details on JMX. Any JMX tool (e.g. JConsole or VisualVM) can be used to access the MBeans.
+The main way to display current statistics (from the members in a running DistributedSystem) is to access the JMX MBeans, although not all statistics are available via JMX. See the documentation [here](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/managing-management-mbean_architecture.html) for additional details on JMX. Any JMX tool (e.g. JConsole or VisualVM) can be used to access the MBeans.
 
 Other ways to display both current and historical statistics include:
-- The [`SystemAdmin`](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/SystemAdmin.java) class for historical statistics
+- The `SystemAdmin` class for historical statistics
 - A custom Function for current statistics
 
 This article describes both of these ways to display the statistics.

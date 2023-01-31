@@ -5,16 +5,16 @@ description: This article provides an example of a compact view of the primary a
 lastmod: '2021-09-12'
 team:
 - Barry Oglesby
-title: Logging Apache Geode PartitionedRegion Primary and Secondary Bucket Locations
+title: Logging VMware GemFire PartitionedRegion Primary and Secondary Bucket Locations
 type: blog
 ---
 
 ## Introduction
-An Apache Geode [PartitionedRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/PartitionedRegion.java) partitions its entries into buckets among all the servers where it is defined. Properties that affect the number and location of the buckets include [`total-num-buckets`](https://geode.apache.org/docs/guide/114/developing/partitioned_regions/configuring_bucket_for_pr.html) and [`redundant-copies`](https://geode.apache.org/docs/guide/114/developing/partitioned_regions/set_pr_redundancy.html). The `total-num-buckets` configures the number of buckets across all the members of the DistributedSystem. The `redundant-copies` configures the number of copies of each bucket. The primary bucket is hosted on one server, and if `redundant-copies` is greater than zero, the secondary buckets are hosted on other servers.
+An VMware GemFire [PartitionedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-chapter_overview.html) partitions its entries into buckets among all the servers where it is defined. Properties that affect the number and location of the buckets include [`total-num-buckets`](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-configuring_bucket_for_pr.html) and [`redundant-copies`](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-set_pr_redundancy.html). The `total-num-buckets` configures the number of buckets across all the members of the DistributedSystem. The `redundant-copies` configures the number of copies of each bucket. The primary bucket is hosted on one server, and if `redundant-copies` is greater than zero, the secondary buckets are hosted on other servers.
 
-In addition, the [`redundancy-zone`](https://geode.apache.org/docs/guide/114/developing/partitioned_regions/set_redundancy_zones.html) property helps determine where buckets are located. If two redundancy zones are defined and `redundant-copies` is one (meaning 2 copies of each bucket), then the primary bucket will be in a member in one zone, and the secondary bucket will be in a member in the other zone.
+In addition, the [`redundancy-zone`](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-set_redundancy_zones.html) property helps determine where buckets are located. If two redundancy zones are defined and `redundant-copies` is one (meaning 2 copies of each bucket), then the primary bucket will be in a member in one zone, and the secondary bucket will be in a member in the other zone.
 
-This article is a companion to my [Logging Apache Geode PartitionedRegion Entry Details Per Bucket](/data/gemfire/blog/logging-partitionedregion-entry-details-per-bucket) article. It provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone.
+This article is a companion to my [Logging VMware GemFire PartitionedRegion Entry Details Per Bucket](/data/gemfire/blog/logging-partitionedregion-entry-details-per-bucket) article. It provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone.
 
 ## Implementation
 
@@ -43,7 +43,7 @@ The `AllBucketIds` object contains:
 
 
 ### Execute the `GetBucketIdsFunction`
-The `GetBucketIdsFunction` `execute` method first gets the PartitionedRegion. The PartitionedRegion provides the configured number of buckets. Its [`PartitionedRegionDataStore`](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/PartitionedRegionDataStore.java) provides the local bucket ids and the local primary bucket ids. The redundancy zone is retrieved from the [`DistributionConfig`](https://github.com/apache/geode/blob/723429f291f48f309acc3407f1405339ddbcfc20/geode-core/src/main/java/org/apache/geode/distributed/internal/DistributionConfig.java#L2793). Finally, the Function creates and returns the `ServerBucketIds` object.
+The `GetBucketIdsFunction` `execute` method first gets the PartitionedRegion. The PartitionedRegion provides the configured number of buckets. Its `PartitionedRegionDataStore` provides the local bucket ids and the local primary bucket ids. The redundancy zone is retrieved from the `DistributionConfig`. Finally, the Function creates and returns the `ServerBucketIds` object.
 
 ```java
 public void execute(FunctionContext<Object[]> context) {
@@ -196,7 +196,7 @@ The 2 redundancy zones contain the following extra bucket ids:
 ```
 
 ## Future
-A [gfsh](https://geode.apache.org/docs/guide/114/tools_modules/gfsh/chapter_overview.html) command and Function that provides PartitionedRegion primary and secondary bucket locations per server and redundancy zone like this example would be a useful addition to Apache Geode.
+A [gfsh](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-tools_modules-gfsh-chapter_overview.html) command and Function that provides PartitionedRegion primary and secondary bucket locations per server and redundancy zone like this example would be a useful addition to VMware GemFire.
 
 
 
