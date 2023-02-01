@@ -8,7 +8,7 @@ title: Spring - Convert Redis HTTP Session State to VMware GemFire
 tags:
   - Redis
   - Spring
-type: samples
+type: examples
 weight: 2
 ---
 

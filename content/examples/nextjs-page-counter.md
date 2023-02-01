@@ -7,7 +7,7 @@ repo: https://github.com/gemfire/node-examples
 title: Next.js Page Counter
 tags:
   - Node.js
-type: samples
+type: examples
 ---
 
 This example demonstrates use of the Node.js client with a simple Next.js web app.

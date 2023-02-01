@@ -84,9 +84,9 @@ guide.gs.%:
 blog.%:
 	hugo new blog/$(call word-dot,$*,1).md -k blog-post
 
-#sample: @ creates a sample. example: make sample.example-makefile
+#sample: @ creates an example. example: make sample.example-makefile
 sample.%:
-	hugo new samples/$(call word-dot,$*,1).md -k sample
+	hugo new examples/$(call word-dot,$*,1).md -k example
 
 #video: @ creates a video. example: make video.demo-writing-makefiles
 video.%:

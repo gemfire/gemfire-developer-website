@@ -7,7 +7,7 @@ repo: https://github.com/gemfire/node-examples
 title: Node.js - CRUD-ops
 tags:
   - Node.js
-type: samples
+type: examples
 weight: 1
 ---
 

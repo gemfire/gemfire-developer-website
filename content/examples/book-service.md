@@ -7,7 +7,7 @@ repo: https://github.com/gemfire/node-examples
 title: Node.js - Book Service
 tags:
 - Node.js
-type: samples
+type: examples
 ---
 
 This Node.js example provides a simple book-serving app which uses the data service as a system of record. REST endpoints allow an app user to look up books by ISBN or put new books into the service.

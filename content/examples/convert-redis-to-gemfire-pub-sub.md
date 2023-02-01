@@ -8,7 +8,7 @@ title: Spring - Convert Spring Data Redis Pub-Sub to VMware GemFire
 tags:
   - Redis
   - Spring
-type: samples
+type: examples
 weight: 5
 ---
 
