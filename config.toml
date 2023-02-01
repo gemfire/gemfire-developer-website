@@ -1,8 +1,8 @@
-baseURL = "https://gemfire.github.io/"
+baseURL = "/gemfire-developer-website"
 title = "VMware Gemfire"
-publishDir = "gh-pages"
+publishDir = "public"
 contentDir = "content"
-canonifyURLs = false
+canonifyURLs = true
 enableRobotsTXT = true
 removePathAccents = true
 
