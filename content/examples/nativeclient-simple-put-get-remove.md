@@ -7,7 +7,7 @@ repo: https://github.com/dkhopade/gemfire-dotnet-nc
 title: VMware GemFire .NET Client - Put, Get, Remove
 tags:
   - .Net Client
-type: samples
+type: examples
 weight: 
 ---
 

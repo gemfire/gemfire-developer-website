@@ -7,7 +7,7 @@ repo: https://github.com/gemfire/node-examples
 title: Node.js - Object Put
 tags:
   - Node.js
-type: samples
+type: examples
 ---
 
 This Node.js example provides a simple JavaScript application that demonstrates basic object usage with a local VMware GemFire cluster. This app also can be run with a local Apache Geode cluster.

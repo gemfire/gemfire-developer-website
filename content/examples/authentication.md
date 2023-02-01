@@ -7,7 +7,7 @@ repo: https://github.com/gemfire/node-examples
 title: Node.js - Authentication
 tags:
  - Node.js
-type: samples
+type: examples
 ---
 
 This Node.js example demonstrates the basic authentication and authorization mechanism used when an app interacts with a VMware GemFire cluster. The app does a put, a get, and a remove operation to show authorization.

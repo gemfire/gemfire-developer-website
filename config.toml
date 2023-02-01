@@ -141,7 +141,7 @@ archived_version = false
     name = "Examples"
     Title = 'examples section'
     weight = 25
-    url = '/samples/'
+    url = '/examples/'
 
   [[menu.main]]
     identifier = "blog"

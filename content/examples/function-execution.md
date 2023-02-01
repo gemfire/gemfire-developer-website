@@ -7,7 +7,7 @@ repo: https://github.com/gemfire/node-examples
 title: Node.js - Function Execution
 tags:
   - Node.js
-type: samples
+type: examples
 ---
 
 This Node.js example provides a simple JavaScript application that demonstrates calling a server-side function on a VMware GemFire cluster. This app can be run with either a local Apache Geode cluster or with a VMware GemFire cluster.

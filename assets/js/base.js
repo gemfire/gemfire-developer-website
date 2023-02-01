@@ -59,6 +59,14 @@ limitations under the License.
     dimBody();
   });
 
+  $('#examples-navBarItem').mouseenter(function () {
+    $("#documentation-navBarItem").removeClass("show");
+    $("#install-navBarItem").removeClass("show");
+    $("#download-navBarItem").removeClass("show");
+    dimBody();
+  });
+
+
   $('#blog-navBarItem').mouseenter(function () {
     $("#documentation-navBarItem").removeClass("show");
     $("#install-navBarItem").removeClass("show");

@@ -8,7 +8,7 @@ repo: https://github.com/gemfire/node-examples
 title: Node.js - Put All
 tags:
   - Node.js
-type: samples
+type: examples
 weight: 2
 ---
 
