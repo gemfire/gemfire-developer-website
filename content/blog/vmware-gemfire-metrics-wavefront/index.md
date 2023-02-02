@@ -2,22 +2,22 @@
 date: 2020-03-24
 description: In this particular case, Micrometer provides a simple way to create a
   Micrometer registry for Wavefront and we’ll plug this registry into an implementation
-  of Apache Geode’s MetricsPublishingService. This will allow our Apache Geode Cluster
+  of VMware GemFire’s MetricsPublishingService. This will allow our VMware GemFire Cluster
   to publish metrics to Wavefront.
 lastmod: '2021-04-22'
 team:
 - Jason Huynh
-title: Publishing Apache Geode Metrics to Wavefront
+title: Publishing VMware GemFire Metrics to Wavefront
 type: blog
 ---
 
 ## Overview
-Micrometer support was added to Apache Geode in version 1.10. Micrometer is a popular metrics gathering library and has integrations with numerous monitoring products. In this particular case, Micrometer provides a simple way to create a Micrometer registry for [Wavefront](https://www.wavefront.com/) and we’ll plug this registry into an implementation of Apache Geode’s MetricsPublishingService. This will allow our Apache Geode Cluster to publish metrics to Wavefront.
+Micrometer support was added to Apache Geode in version 1.10. Micrometer is a popular metrics gathering library and has integrations with numerous monitoring products. In this particular case, Micrometer provides a simple way to create a Micrometer registry for [Wavefront](https://www.wavefront.com/) and we’ll plug this registry into an implementation of VMware GemFire’s MetricsPublishingService. This will allow our VMware GemFire Cluster to publish metrics to Wavefront.
 
 ## Download the jar
 Download the [geode-wavefront-publisher](https://bintray.com/jasonhuynh/jhuynh1-maven/download_file?file_path=com%2Fgithub%2Fjhuynh1%2Fgeode%2Fwavefront%2Fgeode-wavefront-publisher%2F1.0%2Fgeode-wavefront-publisher-1.0-all.jar) jar into a known location.
 
-## Start up the Apache Geode Cluster
+## Start up the VMware GemFire Cluster
 Now we are ready to start a locator, we will supply the configurable values with our GFSH command. For the wavefront-source parameter, we will use “apache.geode” so we can identify the stats when searching for them in Wavefront.
 The default for the geode-wavefront-prefix is “wavefront” but we can configure this to whatever we choose. In this case I’ll use “wavefront.geode.jhuynh” to further distinguish my stats from others.
 
@@ -32,11 +32,11 @@ Start the server, again we will supply the configurable values with our GFSH com
 start server --name=server --classpath=/User/jhuynh/geode-wavefront-publisher-1.0-all.jar --J=-Dgeode-wavefront-api-token=fa954bae-69e4–4925–9a1b-2d001a306166 --J=-Dgeode-wavefront-prefix=wavefront.geode.jhuynh --J=-Dgeode-wavefront-source=apache.geode
 ```
 
-Everything is up and running and pushing Apache Geode specific metrics into Wavefront!
+Everything is up and running and pushing VMware GemFire specific metrics into Wavefront!
 
-![img](content/blog/apache-geode-metrics-wavefront/images/apache-geode-metrics-log.png)
+![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-log.png)
 
-Log output from Apache Geode server log
+Log output from VMware GemFire server log
 
 
 Let’s create a region, do a put and check the metrics in the Wavefront UI.
@@ -55,12 +55,12 @@ Value Class : java.lang.String
 Old Value   : null
 ```
 
-Now we can go to Wavefront and see some of the Apache Geode provided metrics!
+Now we can go to Wavefront and see some of the VMware GemFire provided metrics!
 
-![img](content/blog/apache-geode-metrics-wavefront/images/apache-geode-metrics-wavefront.png)
-</br>Apache Geode Metrics showing up in Wavefront!
+![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-wavefront.png)
+</br>VMware GemFire Metrics showing up in Wavefront!
 
-![img](content/blog/apache-geode-metrics-wavefront/images/apache-geode-metrics-region.png)
+![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-region.png)
 We see the metric for the entry we put into SomeRegion
 
 We’ll now go into detail to see how this was implemented so you can build your own or build a new MetricsPublishingService that connects to a different Micrometer supported platform.
@@ -72,7 +72,7 @@ We create a Java project that uses gradle as it’s build tool. We’ll also inc
 implementation ‘io.micrometer:micrometer-registry-wavefront:latest.release’
 ```
 
-And we’ll also import Apache Geode and for logging we’ll pull in log4j2
+And we’ll also import VMware GemFire and for logging we’ll pull in log4j2
 
 ```groovy
 implementation group: ‘org.apache.logging.log4j’, name: ‘log4j’, version: ‘2.13.1’, ext: ‘pom’
@@ -122,7 +122,7 @@ private MeterRegistry createWavefrontRegistry() {
 ## Wait, what’s my API token Key?
 The API Token Key is provided by Wavefront. If you have access to Wavefront, you can generate your token key from your account.
 
-![img](content/blog/apache-geode-metrics-wavefront/images/apache-geode-metrics-api-token.png)
+![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-api-token.png)
 </br> Generating an api token key
 
 ## Implementing a MetricsServicePublisher
@@ -175,7 +175,7 @@ Modify the build to use the shadow plugin and allow it to build an “uber” ja
 id ‘com.github.johnrengelman.shadow’ version ‘5.2.0
 ```
 
-In this particular case, we know we’ll only need to add the micrometer-wavefront-registry along with our code. We don’t need to package up Apache Geode since we will be deploying this jar onto a Geode cluster. There are probably better ways to do this, but I just created a new configuration that we’ll explicitly call out which dependencies to include
+In this particular case, we know we’ll only need to add the micrometer-wavefront-registry along with our code. We don’t need to package up VMware GemFire since we will be deploying this jar onto a Geode cluster. There are probably better ways to do this, but I just created a new configuration that we’ll explicitly call out which dependencies to include
 
 ```groovy
 configurations {
@@ -203,7 +203,7 @@ To build the “uber” jar use the following command
 ./gradlew shadowJar
 ```
 
-![img](content/blog/apache-geode-metrics-wavefront/images/apache-geode-metrics-directory.png)
+![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire -metrics-directory.png)
 </br>The contents will be in the build/libs directory
 
 That’s all there is to it. If you haven’t already, just follow the instructions on Build and Deploy and you’ll be able to deploy your own implementation the same way.
@@ -217,10 +217,6 @@ git clone https://github.com/jhuynh1/geode-wavefront-publisher.git
 ## What Else?
 Also available is a [video walkthrough](https://www.youtube.com/watch?v=BDZh-FLkDTg)
 
-Join the [Apache Geode Community](https://geode.apache.org/community/)!
+[How to add more metrics to a VMware GemFire implementation](https://cwiki.apache.org/confluence/display/GEODE/How+to+add+a+Meter)
 
-[How to add more metrics to Apache Geodes implementation](https://cwiki.apache.org/confluence/display/GEODE/How+to+add+a+Meter)
-
-Create and share your own MetricsPublishingService on the [user list](https://geode.apache.org/community/)
-
-[Ingest, Store and Search JSON data with Apache Kafka and Apache Geode](/data/gemfire/blog/apache-geode-apache-kafka)
+[Ingest, Store and Search JSON data with Apache Kafka and VMware GemFire](/data/gemfire/blog/gemfire-apache-kafka)
