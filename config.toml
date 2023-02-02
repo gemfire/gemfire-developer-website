@@ -320,6 +320,7 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
 	url = "https://tanzu.vmware.com/newsletter-subscription"
 	icon = "fa fa-envelope"
         desc = "Discussion and help from your fellow users"
+
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
 [[params.links.developer]]
 	name ="Twitter"
@@ -346,16 +347,7 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
 	url = "https://twitch.com/vmwaretanzu"
 	icon = "fab fa-twitch"
         desc = "Watch our modern app development live stream."
-#[[params.links.developer]]
-#	name = "Slack"
-#	url = "https://slack.com/vmware-tanzu"
-#	icon = "fab fa-slack"
-#        desc = "Chat with other project developers"
-#[[params.links.developer]]
-#	name = "Developer mailing list"
-#	url = "https://tanzu.vmware.com/newsletter-subscription"
-#	icon = "fa fa-envelope"
-#       desc = "Discuss development issues around the project"
+
 
 [frontmatter]
   lastmod = ["lastmod", ":git", "date"]
