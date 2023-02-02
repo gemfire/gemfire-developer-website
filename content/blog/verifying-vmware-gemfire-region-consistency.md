@@ -1,6 +1,6 @@
 ---
 date: 2020-06-11
-description: 'Apache Geode provides a mechanism to asynchronously distribute batches
+description: 'VMware GemFire provides a mechanism to asynchronously distribute batches
   of events between two disparate DistributedSystems called a WAN topology. The events
   are stored in queues in the local DistributedSystem before being batched and distributed.
   The default behavior can be changed with the gemfire.GatewaySender.REMOVE_FROM_QUEUE_ON_EXCEPTION
@@ -11,12 +11,12 @@ description: 'Apache Geode provides a mechanism to asynchronously distribute bat
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Verifying Apache Geode Region Consistency in Different Distributed Systems
+title: Verifying VMware GemFire Region Consistency in Different Distributed Systems
 type: blog
 ---
 
 ## Introduction
-Apache Geode provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://geode.apache.org/docs/guide/12/topologies_and_comm/multi_site_configuration/chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed.
+VMware GemFire provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-topologies_and_comm-multi_site_configuration-chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed.
 
 If a connection cannot be made to the remote WAN site, the events remain in the GatewaySender’s queue until such time as a connection can be made. At that time, events are batched and sent to the remote site. Once an acknowledgement has been received by the GatewaySender for those events, they are removed from the queue. Whether the events are successfully applied in the remote site is not taken into account. Any exceptions that occur in the remote site are logged in both sites, but once the acknowledgement is received, the events are removed from the queue. This decision was made mainly to prevent issues in the remote site (e.g. memory pressure, partitions offline, etc.) from cascading back to and affecting the local site.
 
@@ -231,11 +231,11 @@ The **WanVerificationService** calls the Region get method on each key in each s
 
 
 ## Future
-A service like this built into Apache Geode would be useful.
+A service like this built into VMware GemFire would be useful.
 
 The service should also provide a callback for unequal values so that the application can take some action to repair the sites (e.g. applying the value in one site to the other).
 
-There are a number of Apache Geode enhancements that would be helpful in this scenario including the ability to:
+There are a number of VMware GemFire enhancements that would be helpful in this scenario including the ability to:
 * change a client Region’s Pool so that it can easily switch between sites
 * connect a client Region to two Pools simultaneously and to choose on which to invoke an operation
 * connect a client Region to two Pools simultaneously in a primary / secondary arrangement
