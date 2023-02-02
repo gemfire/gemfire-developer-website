@@ -6,17 +6,17 @@ description: Spring Security is an extremely powerful and highly customizable fr
 lastmod: '2021-04-22'
 team:
 - Juan Jose Ramos
-title: Spring Security & Geode
+title: Spring Security & GemFire
 type: blog
 ---
 
 ## Introduction
-[Apache Geode](https://geode.apache.org/) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Starting with Geode 1.0.0, the *[SecurityManager](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* interface was introduced to manage the authentication and authorization mechanisms in a single place, simplifying the implementation and interactions with all components in a consistent manner.
+[VMware GemFire](https://tanzu.vmware.com/gemfire) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Starting with Geode 1.0.0, the *SecurityManager* interface was introduced to manage the authentication and authorization mechanisms in a single place, simplifying the implementation and interactions with all components in a consistent manner.
 
 [Spring Security](https://spring.io/projects/spring-security) is an extremely powerful and highly customizable framework that provides authentication, authorization, and protection against common attacks, it is the de-facto standard for securing Spring-based applications.
 
 ## Why?
-To secure an [Apache Geode](https://geode.apache.org/) cluster, the user needs to provide a custom implementation for the *[SecurityManager](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* interface, so that the authentication and authorization logic is entirely encapsulated within the implementation itself.
+To secure a [VMware GemFire](https://tanzu.vmware.com/gemfire) cluster, the user needs to provide a custom implementation for the *SecurityManager* interface, so that the authentication and authorization logic is entirely encapsulated within the implementation itself.
 
 The above is, generally speaking, a pretty straightforward task: connect to the external data source (database, LDAP server, text file, etc.) where users and roles are loaded from, validate the user and password, and load into the user object the required roles. I’m oversimplifying things here but, in general, it’s certainly pretty straightforward.
 
@@ -24,19 +24,19 @@ The problem, though, is the huge amount of boilerplate code we need to write and
 
 How would we feel if, once that everything’s up and running, a customer requests to change the datastore where the credentials are loaded from? (remember: no matter what the context is, ***the customer is always right!)***… ugh! we’ll have to start from scratch!!.
 
-Why would we want to develop a tool to authenticate users against a database, if *[spring-security](https://spring.io/projects/spring-security)* already provides those implementations, fully tested and supported by the community, out of the box?. On the same page, why would we want to deal with the low-level code required to access and search an LDAP server, if *[spring-security](https://spring.io/projects/spring-security)* also does that for us?. The answer is easy: we don’t want to deal with all that low-level stuff and boilerplate code anymore, we just want to focus on our use case and business needs, that’s it.
+Why would we want to develop a tool to authenticate users against a database, if *[spring-security](https://spring.io/projects/spring-security)* already provides those implementations, fully tested and supported by the community, out of the box?. On the same page, why would we want to deal with the low-level code required to access and search an LDAP server, if *[spring-security](https://spring.io/projects/spring-security)* also does that for us? The answer is easy: we don’t want to deal with all that low-level stuff and boilerplate code anymore, we just want to focus on our use case and business needs, that’s it.
 
-So why reinvent the wheel and implement the *[SecurityManager](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* to do the same things *[spring-security](https://spring.io/projects/spring-security)* already does for us?, it’s way easier (and more secure) to just choose an existing *[AuthenticationProvider](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationProvider.html)* and integrate it with our *[SecurityManager](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* instead.
+So why reinvent the wheel and implement the *SecurityManager* to do the same things *[spring-security](https://spring.io/projects/spring-security)* already does for us?, it’s way easier (and more secure) to just choose an existing *[AuthenticationProvider](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationProvider.html)* and integrate it with our *SecurityManager* instead.
 
 ## How?
-   We will implement a *[SecurityManager](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* that, for authentication purposes, simply delegates to an already configured *[AuthenticationManager](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationManager.html)*, provided (and previously initialized) by *[spring-security](https://spring.io/projects/spring-security)*. For the authorization part, we’ll just verify whether or not the principal has granted permission to carry out the operation.
+   We will implement a *SecurityManager* that, for authentication purposes, simply delegates to an already configured *[AuthenticationManager](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationManager.html)*, provided (and previously initialized) by *[spring-security](https://spring.io/projects/spring-security)*. For the authorization part, we’ll just verify whether or not the principal has granted permission to carry out the operation.
    
 ### GeodeGrantedAuthority
-Apache Geode uses the *[ResourcePermission](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/ResourcePermission.java)* class to define the resource, operation, region, and the key involved in the action to be authorized. Instances of this class are passed into the *[SecurityManager.authorize](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java#L78)* method to determine whether to allow or deny the operation.
+VMware GemFire uses the *ResourcePermission* class to define the resource, operation, region, and the key involved in the action to be authorized. Instances of this class are passed into the *SecurityManager.authorize* method to determine whether to allow or deny the operation.
 
 [Spring-Security](https://spring.io/projects/spring-security), instead, uses the *[GrantedAuthority](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/GrantedAuthority.html)* class to represent an authority granted to a principal.
 
-To connect both implementations, we’ll define a wrapper class, *GeodeGrantedAuthority*, that simply implements the *[GrantedAuthority](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/GrantedAuthority.html)* interface from [spring-security](https://spring.io/projects/spring-security) and encapsulates a *[ResourcePermission](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/ResourcePermission.java)* instance from [Apache Geode](https://geode.apache.org/).
+To connect both implementations, we’ll define a wrapper class, *GeodeGrantedAuthority*, that simply implements the *[GrantedAuthority](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/GrantedAuthority.html)* interface from [spring-security](https://spring.io/projects/spring-security) and encapsulates a *ResourcePermission* instance from [VMware GemFire](https://tanzu.vmware.com/gemfire).
 
 ```java
 public class GeodeGrantedAuthority implements GrantedAuthority {
@@ -58,7 +58,7 @@ public class GeodeGrantedAuthority implements GrantedAuthority {
 ```
 
 ### GeodeAuthoritiesMapper
-We don’t want to change our current stored roles and/or authorities, though, no matter what they are or how they are represented, to match the ones used by [Apache Geode](https://geode.apache.org/).
+We don’t want to change our current stored roles and/or authorities, though, no matter what they are or how they are represented, to match the ones used by [VMware GemFire](https://tanzu.vmware.com/gemfire).
 
 Instead, and to integrate both representations seamlessly, we’ll implement the *[GrantedAuthoritiesMapper](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/authority/mapping/GrantedAuthoritiesMapper.html)* interface, which can be injected into the authentication layer to convert the authorities loaded from the storage into those which will be stored in the *[Authentication](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/Authentication.html)* object.
 
@@ -100,9 +100,9 @@ public class GeodeAuthenticationProvider extends DaoAuthenticationProvider {
 ```
 
 ### SpringSecurityManager
-This is the main class, which implements the [SecurityManager](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java) interface from [Apache Geode](https://geode.apache.org/) and encapsulates both the authentication and authorization logic.
+This is the main class, which implements the SecurityManager interface from [VMware GemFire](https://tanzu.vmware.com/gemfire) and encapsulates both the authentication and authorization logic.
 
-During initialization, we create the application context using the properties passed by [Apache Geode](https://geode.apache.org/) to the *[SecurityManager.init](http://more%20easily%20and%20quickly%2C/)* method, and obtain the single configured *[AuthenticationManager](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationManager.html)* instance.
+During initialization, we create the application context using the properties passed by [VMware GemFire](https://tanzu.vmware.com/gemfire) to the *[SecurityManager.init](http://more%20easily%20and%20quickly%2C/)* method, and obtain the single configured *[AuthenticationManager](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationManager.html)* instance.
 
 We only require a single property to work: *security-spring-security-xml*, which should refer to the spring-security XML configuration. To load the application context, we use the *[FileSystemXmlApplicationContext](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/support/FileSystemXmlApplicationContext.html)* class, so the configuration file itself could be either in the filesystem *(“file:/path/to/file.xml”)* or within the classpath *(“classpath:/path/to/file.xml”)*. The “beauty” of this approach is that we can change the authentication layer entirely by just pointing to another configuration file, **without changing a single line of code**.
 
@@ -127,7 +127,7 @@ public void init(Properties securityProps) {
 }
 ```
 
-For the authentication part, we just obtain the credentials passed by [Apache Geode](https://geode.apache.org/) and delegate to the already initialized *[AuthenticationManager](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationManager.html)* instance.
+For the authentication part, we just obtain the credentials passed by [VMware GemFire](https://tanzu.vmware.com/gemfire) and delegate to the already initialized *[AuthenticationManager](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/authentication/AuthenticationManager.html)* instance.
 
 ```java
 @Override
@@ -144,7 +144,7 @@ public Object authenticate(Properties credentials) throws AuthenticationFailedEx
 }
 ```
 
-For the authorization part, we just get the *[GrantedAuthority](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/GrantedAuthority.html)* list (all were transformed by our *GeodeAuthoritiesMapper* already) from the principal passed by [Apache Geode](https://geode.apache.org/) and decide whether it has the required permissions to execute the action or not.
+For the authorization part, we just get the *[GrantedAuthority](https://javadoc.io/doc/org.springframework.security/spring-security-core/latest/org/springframework/security/core/GrantedAuthority.html)* list (all were transformed by our *GeodeAuthoritiesMapper* already) from the principal passed by [VMware GemFire](https://tanzu.vmware.com/gemfire) and decide whether it has the required permissions to execute the action or not.
 
 ```java
 @Override
@@ -170,7 +170,7 @@ public boolean authorize(Object principal, ResourcePermission context) {
 The code itself is simple and self-explanatory, the only “hard part” is configuring *[spring-security](https://spring.io/projects/spring-security)* using the “old-school” XML approach instead of the new annotation or java configuration options (sorry about that, I still prefer to configure things step by step using XML, which in this case also has the benefit of not shipping the configuration with the actual implementation).
 
 ### Compile and Deploy
-The first step is to download the project and build it, we’ll also need to add some dependencies to the [Apache Geode](https://geode.apache.org/) member’s classpath later on, so it’s a good time to get the dependencies generated now.
+The first step is to download the project and build it, we’ll also need to add some dependencies to the [VMware GemFire](https://tanzu.vmware.com/gemfire) member’s classpath later on, so it’s a good time to get the dependencies generated now.
 
 ```
 geode-spring-security (master): ./gradlew build copyDependencies
@@ -180,7 +180,7 @@ BUILD SUCCESSFUL in 2m 20s
 ```
 
 ### Update Member Configuration
-There are some extra libraries required for the integration to work as they’re not included in the member’s classpath by default. We have to carefully chose the spring version to match the one used by [Apache Geode](https://geode.apache.org/), having different versions of the same library within the class path can cause several headaches…
+There are some extra libraries required for the integration to work as they’re not included in the member’s classpath by default. We have to carefully chose the spring version to match the one used by [VMware GemFire](https://tanzu.vmware.com/gemfire), having different versions of the same library within the class path can cause several headaches…
 
 Below is the list of extra libraries that need to be added, all can be found under the directory build/dependencies (copied by the *copyDependencies* [gradle](https://gradle.org/) task):
 
@@ -195,7 +195,7 @@ spring-security-config-5.2.1.RELEASE.jar
 spring-security-core-5.2.1.RELEASE.jar
 ```
 
-Aside from that, we’ll also need to define some extra properties for Apache Geode to pick up our *[SecurityManager](https://github.com/apache/geode/blob/support/1.13/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* implementation (see [here](https://geode.apache.org/docs/guide/112/managing/security/enable_security.html)), and to allow our servers to authenticate against the running locator.
+Aside from that, we’ll also need to define some extra properties for VMware GemFire to pick up our *SecurityManager* implementation (see [here](https://geode.apache.org/docs/guide/112/managing/security/enable_security.html)), and to allow our servers to authenticate against the running locator.
 
 ```
 /workspace/config/locator.properties
@@ -232,7 +232,7 @@ security-spring-security-xml=file:/workspace/config/inMemory-security-config.xml
 ```
 
 ### Start The Cluster
-Now that all configuration steps are done, it’s time to start our secured Apache Geode cluster!.
+Now that all configuration steps are done, it’s time to start our secured VMware GemFire cluster!.
 
 ```
 gfsh>set variable --name=CURRENT_DIRECTORY --value=/workspace
@@ -295,7 +295,7 @@ No longer connected to 192.168.8.102[1099].
 ## What next?
 Check out the [geode-spring-security](https://github.com/jujoramos/geode-spring-security) project and play around with it, the *SpringSecurityManagerDistributedTest* it’s a great starting point as it shows how to set different authentication mechanisms and stores (dataBase, in-Memory, and LDAP) ***without changing a single line of code***.
 
-Check out [Spring Data for Apache Geode](https://spring.io/projects/spring-data-geode), you can do way more things (including what we’ve done here) more easily and quickly, with just some extra annotations!.
+Check out [Spring Data for VMware GemFire](https://spring.io/projects/spring-data-gemfire), you can do way more things (including what we’ve done here) more easily and quickly, with just some extra annotations!.
 
 Looking for other interesting use cases? check the following articles:
 * [Geode Distributed Sequences](https://medium.com/@jujoramos/geode-distributed-sequences-12626251d5e3)
@@ -308,7 +308,7 @@ Looking for other interesting use cases? check the following articles:
 Need help with a complex problem or want to validate your solution? share some details with the [user](https://markmail.org/search/?q=list%3Aorg.apache.geode.user+order%3Adate-backward) list.
 
 ## References
-* [Apache Geode Repository](https://github.com/apache/geode)
+* [VMware GemFire Documentation](https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html)
 * [Spring Security Repository](https://github.com/spring-projects/spring-security)
-* [Spring Data Geode Repository](https://github.com/spring-projects/spring-data-geode)
+* [Spring Data GemFire Repository](https://github.com/spring-projects/spring-data-gemfire)
 * [Geode Spring Security Repository](https://github.com/jujoramos/geode-spring-security)

@@ -4,20 +4,20 @@ description: This article describes a Spring Boot JMX Notification listener appl
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Implementing a Spring Boot JMX Notification Listener for Apache Geode
+title: Implementing a Spring Boot JMX Notification Listener for VMware GemFire
 type: blog
 ---
 
 ## Introduction
-Apache Geode issues JMX Notifications for specific [system events](https://geode.apache.org/docs/guide/14/managing/management/list_of_mbean_notifications.html) and system alerts (e.g. warning and severe messages).
+VMware GemFire issues JMX Notifications for specific [system events](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-management-list_of_mbean_notifications.html) and system alerts (e.g. warning and severe messages).
 
 JMX Notifications include but are not limited to:
  * when members join and leave the DistributedSystem
  * when Regions are created and destroyed
  * when GatewaySenders are created, started and stopped
- * when warning or above messages are logged (depending on the DistributedSystemMXBean [alert level](https://github.com/apache/geode/blob/c78dddd28f5dd18861668a83327b54bac8c7050b/geode-core/src/main/java/org/apache/geode/management/DistributedSystemMXBean.java#L157))
+ * when warning or above messages are logged (depending on the DistributedSystemMXBean alert level)
  
- This article describes a Spring Boot JMX Notification listener application that connects to and listens for JMX Notifications from Apache Geode members.
+ This article describes a Spring Boot JMX Notification listener application that connects to and listens for JMX Notifications from VMware GemFire members.
  
  ## Implementation
  
@@ -305,7 +305,7 @@ Region created:
 
 
 #### **Clearing the JMX Notifications**
-The list of JMX Notifications can be cleared using the clearnotifications request method like:
+The list of JMX Notifications can be cleared using the `clearnotifications` request method like:
 
 ```
 curl -X POST http://localhost:8080/clearnotifications
@@ -314,4 +314,4 @@ curl -X POST http://localhost:8080/clearnotifications
 Note: the list of JMX Notifications is cleared automatically every 24 hours by default (controlled by the `jmx.listener.clear.notifications.delay` property) using the scheduled `clearNotifications` method.
 
 ## Future
-An out-of-the-box Spring Boot JMX Notification client with various supported `JmxNotificationHandler` plugins would be a useful addition to Apache Geode.
+An out-of-the-box Spring Boot JMX Notification client with various supported `JmxNotificationHandler` plugins would be a useful addition to VMware GemFire.
