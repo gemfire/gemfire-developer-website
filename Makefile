@@ -92,13 +92,6 @@ sample.%:
 video.%:
 	hugo new videos/$(call word-dot,$*,1).md -k video
 
-#practice: @ creates a new agile practice. example: make practice.makefile-workshop
-practice.%:
-	hugo new practices/$(call word-dot,$*,1)/index.md -k practices
-
-#team: @ creates a new team page. example: make team.firstname-lastname
-team.%:
-	hugo new team/$(call word-dot,$*,1)/_index.md -k team-member
 
 #audit: @ runs a content audit on all guides and blogs. example: make audit
 audit:
