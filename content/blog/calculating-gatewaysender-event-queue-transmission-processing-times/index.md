@@ -1,28 +1,28 @@
 ---
 date: 2020-12-01
-description: Calculating queue, transmission and total processing times for Apache
-  Geode GatewaySender events can be helpful for WAN resource capacity planning like
+description: Calculating queue, transmission and total processing times for VMware
+  GemFire GatewaySender events can be helpful for WAN resource capacity planning like
   the amount of queue memory to allocate and the number of dispatcher threads to configure.
   This article describes how to implement a GatewayEventFilter to calculate these
-  times using a custom Apache Geode Statistics object.
+  times using a custom VMware GemFire Statistics object.
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: 'Calculating Apache Geode GatewaySender Event Queue, Transmission and Processing
+title: 'Calculating VMware GemFire GatewaySender Event Queue, Transmission and Processing
   Times '
 type: blog
 ---
 
 ## Introduction
-Calculating queue, transmission and total processing times for Apache Geode [GatewaySender](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/cache/wan/GatewaySender.java) events can be helpful for WAN resource capacity planning like the amount of queue memory to allocate and the number of dispatcher threads to configure. Unfortunately, this data is not readily available in Apache Geode out-of-the-box.
+Calculating queue, transmission and total processing times for VMware GemFire `GatewaySender` events can be helpful for WAN resource capacity planning like the amount of queue memory to allocate and the number of dispatcher threads to configure. Unfortunately, this data is not readily available in VMware GemFire out-of-the-box.
 
-This article describes how to implement a [GatewayEventFilter](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/cache/wan/GatewayEventFilter.java) to calculate these times using a custom Apache Geode [Statistics](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/Statistics.java) object readable via [vsd](https://gemtalksystems.com/products/vsd/).
+This article describes how to implement a `GatewayEventFilter` to calculate these times using a custom VMware GemFire `Statistics` object readable via [vsd](https://gemtalksystems.com/products/vsd/).
 ## Implementation
 All source code described in this article is available [here](https://github.com/boglesby/calculate-gateway-sender-event-times).
 
 The [TimingGatewayEventFilter](https://github.com/boglesby/calculate-gateway-sender-event-times/blob/master/server/src/main/java/example/server/filter/TimingGatewayEventFilter.java) implements the GatewayEventFilter interface to calculate queue, transmission and total processing times for GatewaySender events. The interface defines three methods:
 
-- **beforeEnqueue** is invoked before the [GatewayQueueEvent](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/cache/wan/GatewayQueueEvent.java) is added to the queue
+- **beforeEnqueue** is invoked before the `GatewayQueueEvent` is added to the queue
 - **beforeTransmit** is invoked after the GatewayQueueEvent is removed from the queue but before it is transmitted to the remote site
 - **afterAcknowledgement** is invoked after the GatewayQueueEvent acknowledgement is received from the remote site
 
@@ -41,7 +41,7 @@ The [GatewaySenderQueueStatistics](https://github.com/boglesby/calculate-gateway
 - **maximumProcessingTime** — the maximum time an event spent being processed including queue time on the local site, transmission time between sites and processing time on the remote site
 - **totalProcessingTime** — the total time events spent being processed including queue time on the local site, transmission time between sites and processing time on the remote site
 
-Note: The **queuedEvents** statistic is the same as [GatewaySenderStatistics](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/wan/GatewaySenderStats.java) eventsQueued, and the **transmittedEvents** statistic is the same as GatewaySenderStatistics eventsDistributed. They are included here for completeness.
+Note: The **queuedEvents** statistic is the same as `GatewaySenderStatistics` eventsQueued, and the **transmittedEvents** statistic is the same as GatewaySenderStatistics eventsDistributed. They are included here for completeness.
 ### Before Enqueueing the GatewayQueueEvent
 The **TimingGatewayEventFilter** beforeEnqueue method is invoked for each GatewayQueueEvent before it is added to the queue. It tracks the queue start time and invokes the **GatewaySenderQueueStatistics** beforeEnqueue method.
 
@@ -164,4 +164,4 @@ This chart shows total queue, transmission and processing times for all of the G
 
 ![This vsd chart shows the GatewayenderQueueStatistics totalQueueTime (selected), totalTransmissionTime and totalProcessingTime](content/blog/calculating-gatewaysender-event-queue-transmission-processing-times/images/barry_2020_12_01_vsd_times.gif)
 ## Future
-GatewaySender event queue, transmission and processing time statistics like these available out-of-the-box would be a useful addition to Apache Geode.
+GatewaySender event queue, transmission and processing time statistics like these available out-of-the-box would be a useful addition to VMware GemFire.
