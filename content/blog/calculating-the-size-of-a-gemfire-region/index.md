@@ -5,7 +5,7 @@ description: This article describes how to use ObjectGraphSizer to calculate the
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Calculating the Size of an VMware GemFire Region
+title: Calculating the Size of a VMware GemFire Region
 type: blog
 ---
 
@@ -27,7 +27,7 @@ A replicated Region is implemented by a [DistributedRegion](https://docs.vmware.
 
 A simplified architecture is shown below:
 
-![Class Diagram For Distributed Region](/images/barry_06_24_diagram1.png#diagram)
+![Class Diagram For Distributed Region](images/barry_06_24_diagram1.png#diagram)
 
 ## Partitioned Region
 
@@ -35,7 +35,7 @@ A partitioned Region is implemented by a [PartitionedRegion](https://docs.vmware
 
 A simplified architecture is shown below:
 
-![class diagram for PartitionedRegion](/images/barry_06_24_diagram2.png#diagram)
+![class diagram for PartitionedRegion](images/barry_06_24_diagram2.png#diagram)
 
 ## Implementation
 All source code described in this article as well as an example usage is available [here](https://github.com/boglesby/calculate-region-size).
