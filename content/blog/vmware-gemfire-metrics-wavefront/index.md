@@ -34,7 +34,7 @@ start server --name=server --classpath=/User/jhuynh/geode-wavefront-publisher-1.
 
 Everything is up and running and pushing VMware GemFire specific metrics into Wavefront!
 
-![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-log.png)
+![img](images/vmware-gemfire-metrics-log.png)
 
 Log output from VMware GemFire server log
 
@@ -57,10 +57,10 @@ Old Value   : null
 
 Now we can go to Wavefront and see some of the VMware GemFire provided metrics!
 
-![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-wavefront.png)
+![img](images/vmware-gemfire-metrics-wavefront.png)
 </br>VMware GemFire Metrics showing up in Wavefront!
 
-![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-region.png)
+![img](images/vmware-gemfire-metrics-region.png)
 We see the metric for the entry we put into SomeRegion
 
 We’ll now go into detail to see how this was implemented so you can build your own or build a new MetricsPublishingService that connects to a different Micrometer supported platform.
@@ -122,7 +122,7 @@ private MeterRegistry createWavefrontRegistry() {
 ## Wait, what’s my API token Key?
 The API Token Key is provided by Wavefront. If you have access to Wavefront, you can generate your token key from your account.
 
-![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire-metrics-api-token.png)
+![img](images/vmware-gemfire-metrics-api-token.png)
 </br> Generating an api token key
 
 ## Implementing a MetricsServicePublisher
@@ -203,7 +203,7 @@ To build the “uber” jar use the following command
 ./gradlew shadowJar
 ```
 
-![img](content/blog/vmware-gemfire-metrics-wavefront/images/vmware-gemfire -metrics-directory.png)
+![img](images/vmware-gemfire -metrics-directory.png)
 </br>The contents will be in the build/libs directory
 
 That’s all there is to it. If you haven’t already, just follow the instructions on Build and Deploy and you’ll be able to deploy your own implementation the same way.

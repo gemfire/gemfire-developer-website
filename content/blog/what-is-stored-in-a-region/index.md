@@ -24,14 +24,14 @@ A replicated Region is implemented by [DistributedRegion](https://github.com/apa
 
 The architecture diagram below shows the relationship between DistributedRegions and RegionEntries.
 
-![DistributedRegion Architecture Diagram](content/blog/what-is-stored-in-a-region/images/barry_05_27_2021_distributedregion_architecture.png#diagram)
+![DistributedRegion Architecture Diagram](images/barry_05_27_2021_distributedregion_architecture.png#diagram)
 
 ### Partitioned Region
 A partitioned Region is implemented by [PartitionedRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/PartitionedRegion.java) which contains a collection of BucketRegions. A [BucketRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/BucketRegion.java) is an extension of DistributedRegion.
 
 The architecture diagram below shows the relationship between `PartitionedRegions` and RegionEntries.
 
-![PartitionedRegion Architecture Diagram](content/blog/what-is-stored-in-a-region/images/barry_05_27_2021_partitionedregion_architecture.png#diagram)
+![PartitionedRegion Architecture Diagram](images/barry_05_27_2021_partitionedregion_architecture.png#diagram)
 
 ## RegionEntry Creation
 When a Region is created, it creates a subclass of [AbstractRegionMap](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/AbstractRegionMap.java) to hold its entries. The `AbstractRegionMap` uses a [RegionEntryFactory](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/RegionEntryFactory.java) to determine the type of RegionEntry to create when requested.

@@ -21,12 +21,12 @@ This article shows how to route events directly to a parallel AsyncEventQueue us
 
 Normally, events get delivered to AsyncEventsQueues as a result of Region operations like create, update and destroy. Here is a simplified diagram of that architecture:
 
-![img](content/blog/routing-events-directly-to-a-parallel-geode-asynceventqueue/images/barry_08_29_arch_diagram1.png#diagram)
+![img](images/barry_08_29_arch_diagram1.png#diagram)
 
 ### Usage With Function Invocations
 An alternate architecture bypasses the Region operation and replication in the diagram above and instead uses Function invocations to route the data between the primary and redundant servers. Here is a simplified diagram of that architecture:
 
-![img](content/blog/routing-events-directly-to-a-parallel-geode-asynceventqueue/images/barry_08_29_arch_diagram2.png#diagram)
+![img](images/barry_08_29_arch_diagram2.png#diagram)
 
 ## Implementation
 

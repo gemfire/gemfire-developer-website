@@ -47,15 +47,15 @@ A DiskRegionStatistics object is defined for each persistent or overflowed Parti
 
 This vsd chart shows the PartitionedRegionStats bucketCount (selected) and primaryBucketCount:
 
-![This vsd chart shows the PartitionedRegionStats bucketCount (selected) and primaryBucketCount](content/blog/logging-partitionedregion-entry-details-per-bucket/images/barry_2020_09_vsd_1.gif)
+![This vsd chart shows the PartitionedRegionStats bucketCount (selected) and primaryBucketCount](images/barry_2020_09_vsd_1.gif)
 
 This vsd chart shows PartitionedRegionStats dataStoreBytesInUse (selected) and dataStoreEntryCount:
 
-![This vsd chart shows PartitionedRegionStats dataStoreBytesInUse (selected) and dataStoreEntryCount](content/blog/logging-partitionedregion-entry-details-per-bucket/images/barry_2020_09_vsd_2.gif)
+![This vsd chart shows PartitionedRegionStats dataStoreBytesInUse (selected) and dataStoreEntryCount](images/barry_2020_09_vsd_2.gif)
 
 This vsd chart shows the DiskRegionStatistics bytesOnlyOnDisk (selected), entriesInVM and entriesOnlyOnDisk:
 
-![This vsd chart shows the DiskRegionStatistics bytesOnlyOnDisk (selected), entriesInVM and entriesOnlyOnDisk](content/blog/logging-partitionedregion-entry-details-per-bucket/images/barry_2020_09_vsd_3.gif)
+![This vsd chart shows the DiskRegionStatistics bytesOnlyOnDisk (selected), entriesInVM and entriesOnlyOnDisk](images/barry_2020_09_vsd_3.gif)
 
 ### Via gfsh
 
