@@ -2,7 +2,7 @@
 .PHONY: test preview build theme spell node_modules
 
 word-dot = $(word $2,$(subst ., ,$1))
-hugo_prod := 0.109.0
+hugo_prod := 0.110.0
 hugo_local := $(shell hugo version | awk -F v '{print substr($$2,1,7)}')
 
 #help: @ List available tasks on this project
