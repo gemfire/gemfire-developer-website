@@ -29,7 +29,7 @@ I’ve seen this pattern successfully and widely applied in a lot of projects ov
 
 ## How?
 The idea is pretty straightforward: a custom *distributedCommand* region will be used for distribution purposes, which will have a *DistributedCommandCacheWriter* attached so we can execute the commands locally. The *DistributedCommand Region* itself will exist on all clusters and the commands will be sent across the wire through Geode gateway-senders so remote clusters can receive them through Geode gateway-receivers and execute the unit of work as well.
-![img](content/blog/command-region-pattern/images/command-region-pattern-diagram.jpeg#diagram)
+![img](images/command-region-pattern-diagram.jpeg#diagram)
 
 1. The client application creates a DistributedCommand instance and executes a put operation through the PROXY region.
 2. The CacheWriter is invoked and the DistributedCommand is executed locally.
@@ -145,8 +145,6 @@ It’s easy to see in the logs from both servers (*cluster1-server* and *cluster
 ```
 
 ## What’s Next?
-Check out [geode-command-region-pattern](https://github.com/jujoramos/geode-command-region-pattern) and play around with it, it allows you to test your commands in a distributed fashion using the [geode-dunit](https://www.cwiki.us/pages/viewpage.action?pageId=57934900) module.
-
 There are several other really useful things that can be done through the usage of this pattern, like distributing a *Region.destroy()* or *Region.clear()* operation, execute a transaction on the remote cluster, the possibilities are endless, give it a try!
 
 Looking for other interesting use cases?, check the following articles:
