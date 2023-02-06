@@ -34,7 +34,7 @@ The fastest and easiest way to set up a *Spring Application* from scratch is to 
 
 This example needs the *H2 Database*, *Spring Data JPA*, and *Spring for Apache Geode dependencies*. The following image shows the *Initializr* set up for the sample project:
 
-![img](content/blog/geode-write-behind-event-handling-with-spring-jpa/images/initializr-screenshot.png)
+![img](images/initializr-screenshot.png)
 
 ### Defining the Entity
 
