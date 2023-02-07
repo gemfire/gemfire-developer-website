@@ -5,12 +5,12 @@ description: This is a how-to article that describes a way to log all the events
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Logging Apache Geode GatewaySender Queue Events
+title: Logging VMware GemFire GatewaySender Queue Events
 type: blog
 ---
 
 ## Introduction
- Apache Geode provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://geode.apache.org/docs/guide/12/topologies_and_comm/multi_site_configuration/chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed. For troubleshooting purposes, it is sometimes necessary to see the events in the queue, but there is no OOTB way to do this.
+ VMware GemFire provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-topologies_and_comm-multi_site_configuration-chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed. For troubleshooting purposes, it is sometimes necessary to see the events in the queue, but there is no OOTB way to do this.
  
  This is a how-to article that describes a way to log all the events in a GatewaySender queue.
  
@@ -30,7 +30,7 @@ A simplified architecture is shown below:
 ![img](images/barry_06_03_diagram1.png#diagram)
 
 ### Queue Region Entries
-The queue Region entries are keyed by continuously-increasing longs and valued by instances of [GatewaySenderEventImpl](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/wan/GatewaySenderEventImpl.java), each of which defines several fields including:
+The queue Region entries are keyed by continuously-increasing longs and valued by instances of `GatewaySenderEventImpl`, each of which defines several fields including:
 * region: the name of the Region on which the event occurs
 * operation: the operation (e.g. Create)
 * key: the modified key
@@ -285,4 +285,4 @@ Bucket 3 contains the following 9 entries:
 ```
 
 ## Future
-A function like this as part of a larger feature that also can clear a GatewaySender queue and remove individual events from it would be a very useful addition to Apache Geode.
+A function like this as part of a larger feature that also can clear a GatewaySender queue and remove individual events from it would be a very useful addition to VMware GemFire.
