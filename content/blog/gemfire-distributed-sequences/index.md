@@ -3,24 +3,24 @@ date: 2020-03-09
 description: A sequence, also known as a counter, is a feature supported by some database
   systems to produce unique values on demand, generally increasing the current value
   by 1 and returning the resulting value to the caller. Instead of embedding the sequence
-  generation within the real-time processing, use the Geode Sequence Generator and
+  generation within the real-time processing, use the Gemfire Sequence Generator and
   invoke the service occasionally to retrieve a big enough set of counters to work
   on.
 lastmod: '2021-04-22'
 team:
 - Juan Jose Ramos
-title: Geode Distributed Sequences
+title: GemFire Distributed Sequences
 type: blog
 ---
 
 ## Introduction
-[Apache Geode](https://geode.apache.org/) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Its many features include fault-tolerance, high-availability, distributed locks and function execution (implement your business logic where the data is stored instead of moving the data to your application!).
+[VMware GemFire](https://tanzu.vmware.com/gemfire) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Its many features include fault-tolerance, high-availability, distributed locks and function execution (implement your business logic where the data is stored instead of moving the data to your application!).
 A sequence, also known as a counter, is a feature supported by some database systems to produce unique values on demand, generally increasing the current value by 1 and returning the resulting value to the caller. These sequences are widely known and used, especially in legacy applications.
 
 A sequence, also known as a counter, is a feature supported by some database systems to produce unique values on demand, generally increasing the current value by 1 and returning the resulting value to the caller. These sequences are widely known and used, especially in legacy applications.
 
 ## Why?
-In order to move a step closer to cloud-native applications and a little away from legacy RDBMS, it would be nice to have distributed sequences/counters directly managed by [Apache Geode](https://geode.apache.org/).
+In order to move a step closer to cloud-native applications and a little away from legacy RDBMS, it would be nice to have distributed sequences/counters directly managed by [VMware GemFire](https://tanzu.vmware.com/gemfire).
 
 ## How?
 The first thing we have to keep in mind is that, even though we can generate unique sequential distributed sequences with Geode, **we have to loosen the restriction about having no-gaps between the sequences.** If we don’t, there will always be a potential contention point (either while computing sequences or while sequentially executing the application work using the sequences) and, thus, fully parallel processing can not be truly achieved.
@@ -40,7 +40,7 @@ To generate or retrieve a batch of sequences, the tool executes a `Function` thr
 All right, time to write some code, finally!.
 
 ### Compile and Deploy
-The first step is to download the tool, build it and deploy it to a running Apache Geode cluster. We list the functions at the very end just to verify that they have been correctly registered through the gfsh deploy command.
+The first step is to download the tool, build it and deploy it to a running VMware GemFire cluster. We list the functions at the very end just to verify that they have been correctly registered through the gfsh deploy command.
 
 ![img](images/geode-distributed-sequences-gfsh-deploy.png)
 
@@ -86,9 +86,9 @@ public class TestClient {
 
 ## What next?
 Currently the tool must be downloaded and installed separately, the region is manually created and can be manually modified by client applications, which is a potential risk.
-Write an [RFC](https://cwiki.apache.org/confluence/display/GEODE/Lightweight+RFC+Process) and discuss with the community to see whether it makes sense to have Distributed Sequences available in [Apache Geode](https://geode.apache.org/) out of the box.
+Write an [RFC](https://cwiki.apache.org/confluence/display/GEODE/Lightweight+RFC+Process) and discuss with the community to see whether it makes sense to have Distributed Sequences available in [VMware GemFire](https://tanzu.vmware.com/gemfire) out of the box.
 
 ## References
-[Apache Geode Repository](https://github.com/apache/geode)
+[VMware GemFire Repository](https://github.com/apache/geode)
 
 [Geode Sequence Generator Repository](https://github.com/jujoramos/geode-sequence-generator)
