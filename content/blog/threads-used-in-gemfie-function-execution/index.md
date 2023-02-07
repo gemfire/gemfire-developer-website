@@ -5,14 +5,14 @@ description: This article describes several common Function execution use cases 
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Threads Used in Apache Geode Function Execution
+title: Threads Used in VMware GemFire Function Execution
 type: blog
 ---
 
 ## Introduction
-When a client executes an Apache Geode Function, the type and attributes of the Function request dictate the threads that processes it on the server.
+When a client executes a VMware GemFire Function, the type and attributes of the Function request dictate the threads that processes it on the server.
 
-Apache Geode defines a number of thread pools and threads to process different kinds of messages. The ones involved in Function execution are:
+VMware GemFire defines a number of thread pools and threads to process different kinds of messages. The ones involved in Function execution are:
 
 * the Acceptor thread pool which creates **ServerConnection** threads to handle all requests from the client
 * the Function Execution thread pool which creates **Function Execution Processor** threads to process Function execution requests
@@ -24,7 +24,7 @@ When a client executes a Function, a **ServerConnection** will initially handle 
 
 ### P2P Message Reader Threads
 
-One reason the thread processing the Function execution request is important is that it determines the type of **P2P message reader** in the remote server that handles data replications resulting from the Function execution. When a server is started, it creates two shared **P2P message readers** for each other server. One handles ordered messages like UpdateMessage; the other handles unordered messages like CreateRegionMessage. Depending on the message type, the **P2P message reader** either processes the message itself or hands it off to one of several internal thread pools for processing. With the [conserve-sockets](https://geode.apache.org/docs/guide/12/managing/monitor_tune/performance_controls_controlling_socket_use.html) property set to true (the default), these are the only **P2P message readers** receiving messages from remote servers. Having only two **P2P message readers** for each remote server can be a performance bottleneck. Setting *conserve-sockets* to false addresses this by allowing multiple **P2P message readers** for each remote server. Each one receives and processes a specific remote server’s thread’s requests. This provides better throughput.
+One reason the thread processing the Function execution request is important is that it determines the type of **P2P message reader** in the remote server that handles data replications resulting from the Function execution. When a server is started, it creates two shared **P2P message readers** for each other server. One handles ordered messages like UpdateMessage; the other handles unordered messages like CreateRegionMessage. Depending on the message type, the **P2P message reader** either processes the message itself or hands it off to one of several internal thread pools for processing. With the [conserve-sockets](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/managing-monitor_tune-performance_controls_controlling_socket_use.html) property set to true (the default), these are the only **P2P message readers** receiving messages from remote servers. Having only two **P2P message readers** for each remote server can be a performance bottleneck. Setting *conserve-sockets* to false addresses this by allowing multiple **P2P message readers** for each remote server. Each one receives and processes a specific remote server’s thread’s requests. This provides better throughput.
 
 A replication from a **ServerConnection** honors the conserve-sockets setting so an unshared **P2P message reader** is used in the remote server. By default, a replication from a **Function Execution Processor** does not honor the conserve-sockets setting so a shared **P2P message reader** is used in the remote server. The default behavior can be changed by setting the socket policy like this in the Function execute method:
 
@@ -66,7 +66,7 @@ This article describes several common Function execution use cases and which thr
 
 ## Thread Examples
 
-A thread dump of an Apache Geode server will show many threads. The ones relevant to this article are shown below.
+A thread dump of a VMware GemFire server will show many threads. The ones relevant to this article are shown below.
 
 A **ServerConnection** looks like:
 
@@ -129,7 +129,7 @@ A simplified sequence diagram of this use case is:
 
 ![Image for post](images/barry_07_31_arch_diagram1.png#diagram)
 
-Below is logging (mainly from a [DistributionMessageObserver](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/distributed/internal/DistributionMessageObserver.java)) on each server that shows the behavior.
+Below is logging (mainly from a `DistributionMessageObserver`) on each server that shows the behavior.
 
 A **ServerConnection** on server-1 receives and processes the Function execution request:
 
