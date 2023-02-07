@@ -5,15 +5,15 @@ description: This article describes how to use ObjectGraphSizer to calculate the
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Calculating the Size of an Apache Geode Region
+title: Calculating the Size of a VMware GemFire Region
 type: blog
 ---
 
 ## Introduction
 
-Calculating the size of an Apache Geode [Region](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/cache/Region.java) can be useful for capacity planning. While certain statistics like PartitionedRegionStats dataStoreBytesInUse are helpful in this regard, they are limited. For example, this statistic does not exist for replicated Regions. [ObjectGraphSizer](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/size/ObjectGraphSizer.java) can be used to calculate the size of any object in bytes and to create a histogram of the object being sized. It does this by recursively traversing each field of the object.
+Calculating the size of an VMware Gem Fire [Region](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-basic_config-data_regions-chapter_overview.html) can be useful for capacity planning. While certain statistics like PartitionedRegionStats dataStoreBytesInUse are helpful in this regard, they are limited. For example, this statistic does not exist for replicated Regions. `ObjectGraphSizer` can be used to calculate the size of any object in bytes and to create a histogram of the object being sized. It does this by recursively traversing each field of the object.
 
-An [ObjectFilter](https://github.com/apache/geode/blob/210dc4fe9b1657d8d7cb5c197c6b0153389be3ea/geode-core/src/main/java/org/apache/geode/internal/size/ObjectGraphSizer.java#L242) can be used in conjunction with ObjectGraphSizer to accept or reject each object as it is traversed. Its basic use is to reject objects that shouldn’t be included in the size. Without the appropriate ObjectFilter, ObjectGraphSizer would traverse practically every object in the JVM while sizing a Region since it has a reference to its Cache and DistributedSystem.
+An `ObjectFilter` can be used in conjunction with ObjectGraphSizer to accept or reject each object as it is traversed. Its basic use is to reject objects that shouldn’t be included in the size. Without the appropriate ObjectFilter, ObjectGraphSizer would traverse practically every object in the JVM while sizing a Region since it has a reference to its Cache and DistributedSystem.
 
 This article describes how to use ObjectGraphSizer to calculate the size of a Region.
 
@@ -23,19 +23,19 @@ There are mainly two different kinds of Regions, namely replicated and partition
 
 ### Replicated Region
 
-A replicated Region is implemented by a [DistributedRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/DistributedRegion.java) which contains a map of RegionEntries. Each [RegionEntry](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/RegionEntry.java) contains the key and data value.
+A replicated Region is implemented by a [DistributedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-region_options-region_types.html) which contains a map of RegionEntries. Each `RegionEntry` contains the key and data value.
 
 A simplified architecture is shown below:
 
-![Class Diagram For Distributed Region](content/blog/calculating-the-size-of-a-geode-region/images/barry_06_24_diagram1.png#diagram)
+![Class Diagram For Distributed Region](images/barry_06_24_diagram1.png#diagram)
 
 ## Partitioned Region
 
-A partitioned Region is implemented by a [PartitionedRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/PartitionedRegion.java) which contains a collection of BucketRegions. A [BucketRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/BucketRegion.java) is an extension of DistributedRegion.
+A partitioned Region is implemented by a [PartitionedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-region_options-region_types.html) which contains a collection of BucketRegions. A `BucketRegion` is an extension of DistributedRegion.
 
 A simplified architecture is shown below:
 
-![class diagram for PartitionedRegion](content/blog/calculating-the-size-of-a-geode-region/images/barry_06_24_diagram2.png#diagram)
+![class diagram for PartitionedRegion](images/barry_06_24_diagram2.png#diagram)
 
 ## Implementation
 All source code described in this article as well as an example usage is available [here](https://github.com/boglesby/calculate-region-size).
@@ -197,7 +197,7 @@ member=xxx.xxx.x.xx(server-3:37323)<v3>:41003(version:UNKNOWN[ordinal=115])
 ```
 
 ## Future
-Region APIs that use ObjectGraphSizer like these would be very useful additions to Apache Geode:
+Region APIs that use ObjectGraphSizer like these would be very useful additions to VMware GemFire:
 
 * getSizeInBytes to calculate the Region’s size in bytes
 * getHistogram to create a histogram

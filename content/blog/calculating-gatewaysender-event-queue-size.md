@@ -6,7 +6,7 @@ description: This article describes how to use the ObjectGraphSizer to calculate
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Calculating the Size of an GemFire GatewaySender Queue
+title: Calculating the Size of a GemFire GatewaySender Queue
 type: blog
 ---
 
