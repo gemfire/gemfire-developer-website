@@ -11,7 +11,7 @@ type: blog
 ---
 
 ## Introduction
-[Apache Geode](https://geode.apache.org/) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Its many features include fault-tolerance, high-availability, and WAN replication.
+[VMware GemFire](https://tanzu.vmware.com/gemfire) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Its many features include fault-tolerance, high-availability, and WAN replication.
 
 The multi-site or WAN topology is used to connect distinct clusters, they act as one distributed system when they are coupled, and they act as independent systems when communication between sites fails.
 
@@ -145,8 +145,6 @@ It’s easy to see in the logs from both servers (*cluster1-server* and *cluster
 ```
 
 ## What’s Next?
-Check out [geode-command-region-pattern](https://github.com/jujoramos/geode-command-region-pattern) and play around with it, it allows you to test your commands in a distributed fashion using the [geode-dunit](https://cwiki.apache.org/confluence/display/GEODE/About+Distributed+Testing) module.
-
 There are several other really useful things that can be done through the usage of this pattern, like distributing a *Region.destroy()* or *Region.clear()* operation, execute a transaction on the remote cluster, the possibilities are endless, give it a try!
 
 Looking for other interesting use cases?, check the following articles:
@@ -157,6 +155,4 @@ Looking for other interesting use cases?, check the following articles:
 Need help with a complex problem or want to validate your solution?, share some details with the [users](https://markmail.org/search/?q=list%3Aorg.apache.geode.user+order%3Adate-backward) lists.
 
 ## References
-* [Apache Geode Repository](https://github.com/apache/geode)
-* [Join the Apache Geode Community](https://geode.apache.org/community/)
 * [Asynchronous Event Distribution Internals](https://cwiki.apache.org/confluence/display/GEODE/Asynchronous+Event+Distribution+Internals)
