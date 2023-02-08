@@ -12,7 +12,7 @@ team:
 ---
 
 ## Introduction
-The Region is the data structure that stores entries in a Cache. Its entries are [RegionEntry](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/RegionEntry.java) instances and are stored in a customized `ConcurrentHashMap` called [CustomEntryConcurrentHashMap](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/util/concurrent/CustomEntryConcurrentHashMap.java). A RegionEntry contains the key which may or may not be kept in deserialized form depending on the key type and the value which is a byte array wrapped by a [CachedDeserializable](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/CachedDeserializable.java) instance in most cases.
+The Region is the data structure that stores entries in a Cache. Its entries are `RegionEntry` instances and are stored in a customized `ConcurrentHashMap` called `CustomEntryConcurrentHashMap`. A RegionEntry contains the key which may or may not be kept in deserialized form depending on the key type and the value which is a byte array wrapped by a `CachedDeserializable` instance in most cases.
 
 This article describes the different RegionEntry and `CachedDeserializable` types and when they are used.
 
@@ -20,21 +20,21 @@ This article describes the different RegionEntry and `CachedDeserializable` type
 There are mainly two different kinds of Regions, namely replicated and partitioned.
 
 ### Replicated Region
-A replicated Region is implemented by [DistributedRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/DistributedRegion.java).
+A replicated Region is implemented by [DistributedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-distributed_regions-chapter_overview.html).
 
 The architecture diagram below shows the relationship between DistributedRegions and RegionEntries.
 
 ![DistributedRegion Architecture Diagram](images/barry_05_27_2021_distributedregion_architecture.png#diagram)
 
 ### Partitioned Region
-A partitioned Region is implemented by [PartitionedRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/PartitionedRegion.java) which contains a collection of BucketRegions. A [BucketRegion](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/BucketRegion.java) is an extension of DistributedRegion.
+A partitioned Region is implemented by [PartitionedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-partitioned_regions-chapter_overview.html) which contains a collection of BucketRegions. A `BucketRegion` is an extension of DistributedRegion.
 
 The architecture diagram below shows the relationship between `PartitionedRegions` and RegionEntries.
 
 ![PartitionedRegion Architecture Diagram](images/barry_05_27_2021_partitionedregion_architecture.png#diagram)
 
 ## RegionEntry Creation
-When a Region is created, it creates a subclass of [AbstractRegionMap](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/AbstractRegionMap.java) to hold its entries. The `AbstractRegionMap` uses a [RegionEntryFactory](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/RegionEntryFactory.java) to determine the type of RegionEntry to create when requested.
+When a Region is created, it creates a subclass of `AbstractRegionMap` to hold its entries. The `AbstractRegionMap` uses a `RegionEntryFactory` to determine the type of RegionEntry to create when requested.
 
 ### RegionEntryFactory
 The type of `RegionEntryFactory` created by a Region depends on several factors including:
@@ -54,15 +54,15 @@ There are several groupings of `RegionEntryFactory` types including:
 
 Each of these groupings includes several different `RegionEntryFactory` types. For example, the `VersionedThin` grouping includes:
 
-- `VersionedThinRegionEntryHeapFactory` — creates `VersionedThinRegionEntryHeap`* instances for Regions with basic configuration. See [createEntry](https://github.com/apache/geode/blob/681b5edb87f2a30593135145d6801a44c062b181/geode-core/src/main/java/org/apache/geode/internal/cache/entries/VersionedThinRegionEntryHeap.java#L41) for the RegionEntry types created by this `RegionEntryFactory`.
-- `VersionedThinLRURegionEntryHeapFactory` — creates `VersionedThinLRURegionEntryHeap`* instances for Regions with LRU destroy eviction configured. See [createEntry](https://github.com/apache/geode/blob/681b5edb87f2a30593135145d6801a44c062b181/geode-core/src/main/java/org/apache/geode/internal/cache/entries/VersionedThinLRURegionEntryHeap.java#L41) for the RegionEntry types created by this `RegionEntryFactory`.
-- `VersionedThinDiskRegionEntryHeapFactory` — creates `VersionedThinDiskRegionEntryHeap`* instances for Regions with persistence configured. See [createEntry](https://github.com/apache/geode/blob/681b5edb87f2a30593135145d6801a44c062b181/geode-core/src/main/java/org/apache/geode/internal/cache/entries/VersionedThinDiskRegionEntryHeap.java#L41) for the RegionEntry types created by this `RegionEntryFactory`.
-- `VersionedThinDiskLRURegionEntryHeapFactory` — creates `VersionedThinDiskLRURegionEntryHeap`* instances for Regions with LRU overflow eviction configured. See [createEntry](https://github.com/apache/geode/blob/681b5edb87f2a30593135145d6801a44c062b181/geode-core/src/main/java/org/apache/geode/internal/cache/entries/VersionedThinDiskLRURegionEntryHeap.java#L41) for the RegionEntry types created by this `RegionEntryFactory`.
+- `VersionedThinRegionEntryHeapFactory` — creates `VersionedThinRegionEntryHeap`* instances for Regions with basic configuration.
+- `VersionedThinLRURegionEntryHeapFactory` — creates `VersionedThinLRURegionEntryHeap`* instances for Regions with LRU destroy eviction configured.
+- `VersionedThinDiskRegionEntryHeapFactory` — creates `VersionedThinDiskRegionEntryHeap`* instances for Regions with persistence configured.
+- `VersionedThinDiskLRURegionEntryHeapFactory` — creates `VersionedThinDiskLRURegionEntryHeap`* instances for Regions with LRU overflow eviction configured.
 
-Off-heap versions of each of these `VersionedThin` factories also exist. In addition, each of these is duplicated for the `VMStats`, `VMThin` and `VersionedStats` `RegionEntryFactory` types. See [RegionEntryFactoryBuilder](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/region/entry/RegionEntryFactoryBuilder.java) for a complete list of the 32 different `RegionEntryFactory` types.
+Off-heap versions of each of these `VersionedThin` factories also exist. In addition, each of these is duplicated for the `VMStats`, `VMThin` and `VersionedStats` `RegionEntryFactory` types.
 
 ### RegionEntry
-The base implementation of RegionEntry is called [AbstractRegionEntry](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/entries/AbstractRegionEntry.java). It has several direct abstract subclasses including:
+The base implementation of RegionEntry is called `AbstractRegionEntry`. It has several direct abstract subclasses including:
 
 - `VMThinRegionEntry` — is a RegionEntry that has statistics deactivated
 - `VMStatsRegionEntry` — is a RegionEntry that provides extra statistics including hit, miss and lastAccessedTime
@@ -80,8 +80,6 @@ The type of RegionEntry created by a `RegionEntryFactory` depends on the type of
 - Object keys
 
 Each of these key types causes a different RegionEntry type to be created. Combined with `RegionEntryFactory` factors listed above, there are 192 different RegionEntry types that can be created.
-
-All concrete RegionEntry types are auto-generated using the *[generateRegionEntryClasses.sh](https://github.com/apache/geode/blob/develop/dev-tools/generateRegionEntryClasses.sh)* script and [LeafRegionEntry](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/entries/LeafRegionEntry.cpp) class.
 
 ### Examples
 Shown below are examples of RegionEntry types for common Region shortcuts. The code I used to create and log different kinds of RegionEntry instances is [here](https://github.com/boglesby/log-region-entries).
@@ -162,19 +160,19 @@ The RegionEntry instances in a Region defined with the PARTITION_REDUNDANT_PERSI
 | UUID                | VersionedThinDiskLRURegionEntryHeapUUIDKey    |
 ```
 ## CachedDeserializable
-When a key and value are stored in a Region, the key is first deserialized into its object instance, and the value is serialized into a byte array. The value is then wrapped by a `CachedDeserializable` using [CachedDeserializableFactory](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/CachedDeserializableFactory.java). The RegionEntry is created with the key and `CachedDeserializable` value. The RegionEntry converts UUID and String keys of length 1–15 into long fields. It stores Long keys in a long field, and Integer keys in an int field.
+When a key and value are stored in a Region, the key is first deserialized into its object instance, and the value is serialized into a byte array. The value is then wrapped by a `CachedDeserializable` using `CachedDeserializableFactory`. The RegionEntry is created with the key and `CachedDeserializable` value. The RegionEntry converts UUID and String keys of length 1–15 into long fields. It stores Long keys in a long field, and Integer keys in an int field.
 
 There are several implementations of `CachedDeserializable` including:
 
-- [VMCachedDeserializable](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/VMCachedDeserializable.java)
-- [PreferBytesCachedDeserializable](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/PreferBytesCachedDeserializable.java)
-- [StoreAllCachedDeserializable](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/internal/cache/StoreAllCachedDeserializable.java)
+- `VMCachedDeserializable`
+- `PreferBytesCachedDeserializable`
+- `StoreAllCachedDeserializable`
 
 The `CachedDeserializableFactory` decides which of these to instantiate for a specific value based on several factors including:
 
 - the value of the PDX read-serialized boolean
-- the value of the [gemfire.PREFER_SERIALIZED](https://github.com/apache/geode/blob/e52217ff06f5d1643ede4c3494718fc8bab80f33/geode-core/src/main/java/org/apache/geode/internal/cache/CachedDeserializableFactory.java#L36) java system property
-- the value of the [gemfire.STORE_ALL_VALUE_FORMS](https://github.com/apache/geode/blob/e52217ff06f5d1643ede4c3494718fc8bab80f33/geode-core/src/main/java/org/apache/geode/internal/cache/CachedDeserializableFactory.java#L41) java system property
+- the value of the `gemfire.PREFER_SERIALIZED` java system property
+- the value of the `gemfire.STORE_ALL_VALUE_FORMS` java system property
 
 ### VMCachedDeserializable
 A `VMCachedDeserializable` is the default value stored in the RegionEntry. It can store either the byte array or deserialized value. It is initially created with the byte array. The byte array value is replaced by the deserialized value if a server-side operation is done on that entry (e.g. `CacheListener getNewValue` is invoked or a get is done in a Function).
