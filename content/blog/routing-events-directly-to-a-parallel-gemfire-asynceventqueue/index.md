@@ -5,13 +5,13 @@ description: This article shows how to route events directly to a parallel Async
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Routing Events Directly to a Parallel Apache Geode AsyncEventQueue
+title: Routing Events Directly to a Parallel VMware GemFire AsyncEventQueue
 type: blog
 ---
 
 ## Introduction
 
-An Apache Geode [AsyncEventQueue](https://geode.apache.org/docs/guide/112/developing/events/implementing_write_behind_event_handler.html) is used to asynchronously process events after they have been applied to a Region. They are normally used to replay Region events into a relational database or other remote data store. Other use cases want to take advantage of asynchronously processing events in parallel without actually storing entries in a Region. In these cases, each event just needs to be routed directly to the AsyncEventQueue. This behavior is effectively possible with serial AsyncEventQueues and replicated Regions. All servers can define a Region as a [REPLICATE_PROXY](https://geode.apache.org/docs/guide/11/reference/topics/region_shortcuts_reference.html#reference_n1q_jpy_lk) and operations are allowed on that Region. Events go through the Region without being applied to it and are delivered to the serial AsyncEventQueue. The same cannot be done with parallel AsyncEventQueues and partitioned Regions. If all servers define a Region as [PARTITION_PROXY](https://geode.apache.org/docs/guide/11/reference/topics/region_shortcuts_reference.html#reference_v4m_jpy_lk), an operation on that Region will fail with a [PartitionedRegionStorageException](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/PartitionedRegionStorageException.html).
+A VMware GemFire `AsyncEventQueue` is used to asynchronously process events after they have been applied to a Region. They are normally used to replay Region events into a relational database or other remote data store. Other use cases want to take advantage of asynchronously processing events in parallel without actually storing entries in a Region. In these cases, each event just needs to be routed directly to the AsyncEventQueue. This behavior is effectively possible with serial AsyncEventQueues and replicated Regions. All servers can define a Region as a [REPLICATE_PROXY](https://docs.vmware.com/en/VMware-GemFire/9.10/gf/reference-topics-region_shortcuts_table.html) and operations are allowed on that Region. Events go through the Region without being applied to it and are delivered to the serial AsyncEventQueue. The same cannot be done with parallel AsyncEventQueues and partitioned Regions. If all servers define a Region as [PARTITION_PROXY](https://docs.vmware.com/en/VMware-GemFire/9.10/gf/reference-topics-region_shortcuts_table.html), an operation on that Region will fail with a [PartitionedRegionStorageException](https://docs.vmware.com/en/VMware-GemFire/9.10/gf/managing-troubleshooting-diagnosing_system_probs.html#diagnosing_system_probs__section_7DE15A6C99974821B6CA418BC2AF98F1).
 
 This article shows how to route events directly to a parallel AsyncEventQueue using Functions.
 
@@ -55,7 +55,7 @@ The **SecondaryRoutingFunction**:
 
 The [BaseFunction](https://github.com/boglesby/route-to-async-event-queue/blob/master/server/src/main/java/example/server/function/BaseFunction.java) provides methods common to both functions.
 
-The [RoutingAsyncEventListener](https://github.com/boglesby/route-to-async-event-queue/blob/master/server/src/main/java/example/server/aeq/RoutingAsyncEventListener.java) is an [AsyncEventListener](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/asyncqueue/AsyncEventListener.html) that processes AsyncEvents by logging and counting them.
+The [RoutingAsyncEventListener](https://github.com/boglesby/route-to-async-event-queue/blob/master/server/src/main/java/example/server/aeq/RoutingAsyncEventListener.java) is an [AsyncEventListener](https://docs.vmware.com/en/VMware-GemFire/9.10/gf/developing-events-implementing_write_behind_event_handler.html) that processes AsyncEvents by logging and counting them.
 
 ### Create EntryEventImpl
 An EntryEventImpl is created by both functions. It represents the Region operation and is delivered to the AsyncEventQueue.
@@ -230,6 +230,6 @@ The other redundant server processed the other three events in the same way:
 
 ## Future
 
-Two useful additions to Apache Geode would be:
+Two useful additions to VMware GemFire would be:
 * Allowing configuration of a PARTITION_PROXY Region on all members into which operations can be done
 * An API to deliver events directly to AsyncEventQueues
