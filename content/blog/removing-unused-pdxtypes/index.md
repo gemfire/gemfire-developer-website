@@ -4,18 +4,18 @@ description: A short description of the blog post
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Removing Unused PdxTypes from an Apache Geode Distributed System
+title: Removing Unused PdxTypes from a VMware GemFire Distributed System
 type: blog
 ---
 
 ## Introduction
-   Portable Data Exchange (PDX) is Apache Geode’s data serialization protocol for cross-language objects and JSON data. When a PDX-serializable object is serialized for the first time, a PdxType is generated for it. The PdxType represents the data structure of that object and is used to serialize and deserialize it.
+   Portable Data Exchange (PDX) is VMware GemFire’s data serialization protocol for cross-language objects and JSON data. When a PDX-serializable object is serialized for the first time, a PdxType is generated for it. The PdxType represents the data structure of that object and is used to serialize and deserialize it.
    
    PdxTypes can proliferate in the TypeRegistry especially with unstructured JSON data. The structure of a class is the same for every instance of that class. The same is not necessarily true of JSON data. If uniquely-structured JSON data is added to a Region, it generates a PdxType specific to it. If that data is then deleted, its PdxType remains in the TypeRegistry and becomes an unused orphan.
    
    This article describes a way to remove unused PdxTypes from the Distributed System.
    
-   For additional information regarding PDX serialization, see the Apache Geode documentation [here](https://geode.apache.org/docs/guide/112/developing/data_serialization/gemfire_pdx_serialization.html).
+   For additional information regarding PDX serialization, see the VMware GemFire documentation [here](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-data_serialization-gemfire_pdx_serialization.html).
 
 
 ## PdxType Examples
@@ -85,7 +85,7 @@ Here are a few caveats and comments:
 * The Function assumes each data Region’s values are PdxInstances which is always the case with JSON data.
 * If the Cache contains Java objects, PDX read-serialized must be true so that only PdxInstances are being checked.
 * The Function has a simulate parameter so that a dry run can be made.
-* Based on the cases supported by Apache Geode’s JSONFormatter, the Function handles PdxInstances, Collections and primitives. It also has been modified to handle Maps. It currently does not handle arrays, but support for those could be added fairly easily.
+* Based on the cases supported by VMware GemFire’s JSONFormatter, the Function handles PdxInstances, Collections and primitives. It also has been modified to handle Maps. It currently does not handle arrays, but support for those could be added fairly easily.
 * The Function must be executed on only one server so that unused PdxTypes only in one primary PartitionedRegion bucket are aren’t removed accidentally.
 * The in-memory TypeRegistry is invalid after the Function runs, so the Distributed System needs to be restarted.
 
