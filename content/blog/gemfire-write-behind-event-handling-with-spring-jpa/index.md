@@ -1,38 +1,38 @@
 ---
 date: 2020-06-12
-description: A small project to show how an Apache Geode write-behind event handling
+description: A small project to show how VMware GemFire write-behind event handling
   can be implemented with Spring Data JPA and Spring Boot Data Geode.
 lastmod: '2021-04-22'
 team:
 - Juan Jose Ramos
-title: Geode Write-Behind Event Handling with Spring JPA
+title: GemFire Write-Behind Event Handling with Spring JPA
 type: blog
 ---
 
 ## Introduction
-[Apache Geode](https://geode.apache.org/) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. One of the most used features of Apache Geode is the *Write-Behind Cache Event Handling* which allows the user to keep external databases in sync with the data stored within an Apache Geode region(s).
+[VMware GemFire](https://tanzu.vmware.com/gemfire) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. One of the most used features of VMware GemFire is the *Write-Behind Cache Event Handling* which allows the user to keep external databases in sync with the data stored within a VMware GemFire region(s).
 
 [Spring Data JPA](https://spring.io/projects/spring-data-jpa), part of the larger [Spring Data](https://spring.io/projects/spring-data) family, allows the user to easily implement JPA based repositories. The module itself deals with enhanced support for JPA based data access layers and makes it easier to build Spring-powered applications that use data access technologies.
 
-[Spring Boot Data Geode](https://docs.spring.io/spring-boot-data-geode-build/1.2.7.RELEASE/reference/html5/) provides the convenience of [Spring Boot’s](https://spring.io/projects/spring-boot) convention over configuration approach using auto-configuration with the Spring Framework’s powerful abstractions and highly consistent programming model to truly simplify the development of Apache Geode applications in a Spring context.
+[Spring Boot Data GemFire](https://docs.spring.io/spring-boot-data-geode-build/1.3.x/reference/html5/) provides the convenience of [Spring Boot’s](https://spring.io/projects/spring-boot) convention over configuration approach using auto-configuration with the Spring Framework’s powerful abstractions and highly consistent programming model to truly simplify the development of VMware GemFire applications in a Spring context.
 
 ## Why?
 
 Implementing a data access layer of an application is a cumbersome task, a lot of boilerplate code needs to be written and tested to execute simple queries, perform pagination, auditing, etc. Spring Data JPA allows the user to significantly improve the implementation of data access layers by reducing the effort to the amount that’s actually needed.
 
-An [AsyncEventListener](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/cache/asyncqueue/AsyncEventListener.java) is a simple Apache Geode callback that asynchronously processes batches of events after they have been applied to an Apache Geode *Region*. It’s widely used to implement a write-behind cache event handler to synchronize region updates with an external database. It’s, however, cumbersome to configure the *asynchronous-event-queue* and the region itself using plain Apache Geode configuration files or Java API. Spring Boot Data Geode makes the process easier, faster, and less error-prone, simplifying the configuration, development, testing, and deployment of the application.
+An `AsyncEventListener` is a simple VMware GemFire callback that asynchronously processes batches of events after they have been applied to a VMware GemFire *Region*. It’s widely used to implement a write-behind cache event handler to synchronize region updates with an external database. It’s, however, cumbersome to configure the *asynchronous-event-queue* and the region itself using plain VMware GemFire configuration files or Java API. Spring Boot Data Geode makes the process easier, faster, and less error-prone, simplifying the configuration, development, testing, and deployment of the application.
 
-Having those technologies out there in the open, why would we want to spend hours and resources in developing and testing the parts on our own?… Guess what, we don’t!; instead, we’re gonna build a small and simple project to show how an Apache Geode write-behind event handling can be easily implemented with the help of Spring Data JPA and Spring Boot Data Geode.
+Having those technologies out there in the open, why would we want to spend hours and resources in developing and testing the parts on our own?… Guess what, we don’t!; instead, we’re gonna build a small and simple project to show how a VMware GemFire write-behind event handling can be easily implemented with the help of Spring Data JPA and Spring Boot Data Geode.
 
 ## How?
 
-We will build an application that stores *Employee* POJOs (Plain Old Java Objects) within an in-memory-based database. We won’t store those objects manually, though, our application will only use an Apache Geode *Region* as the datastore, and we’ll leverage an *Asynchronous Event Queue* to synchronize our *Region* with the external database.
+We will build an application that stores *Employee* POJOs (Plain Old Java Objects) within an in-memory-based database. We won’t store those objects manually, though, our application will only use a VMware GemFire *Region* as the datastore, and we’ll leverage an *Asynchronous Event Queue* to synchronize our *Region* with the external database.
 
 ### Setting Things Up
 
 The fastest and easiest way to set up a *Spring Application* from scratch is to use [Spring Initializr](https://start.spring.io/), which offers a fast way to pull in all the dependencies we need for an application and does a lot of the set up automatically.
 
-This example needs the *H2 Database*, *Spring Data JPA*, and *Spring for Apache Geode dependencies*. The following image shows the *Initializr* set up for the sample project:
+This example needs the *H2 Database*, *Spring Data JPA*, and *Spring for VMware GemFire dependencies*. The following image shows the *Initializr* set up for the sample project:
 
 ![img](images/initializr-screenshot.png)
 
@@ -187,7 +187,7 @@ In our case, the *Region* contains `Employee` instances, and we just need to del
 
 The `Component` annotation indicates that the class should be considered by *Spring* as candidates for auto-detection when using annotation-based configuration and classpath scanning.
 
-### Configuring the Apache Geode Region
+### Configuring the VMware GemFire Region
 
 At this point we just need to wire things up, that is, define a `GeodeConfiguration` class and annotate it with the `Configuration` annotation to tag it as a source of bean definitions for the application context.
 
@@ -227,9 +227,9 @@ public class GeodeConfiguration {
 }
 ```
 
-The `employeeAsyncEventQueue()` method simply defines the Apache Geode *AsyncEventQueue* that we are going to use as the container for our `EmployeeAsyncEventListener`. The listener instance itself will be auto-magically instantiated and passed to our method by *Spring*.
+The `employeeAsyncEventQueue()` method simply defines the VMware GemFire *AsyncEventQueue* that we are going to use as the container for our `EmployeeAsyncEventListener`. The listener instance itself will be auto-magically instantiated and passed to our method by *Spring*.
 
-The `employeesRegion()` method just defines and configures the Apache Geode *Region*, it attaches the *AsyncEventQueue* and sets the *Region* as non-persistent *Replicate*.
+The `employeesRegion()` method just defines and configures the VMware GemFire *Region*, it attaches the *AsyncEventQueue* and sets the *Region* as non-persistent *Replicate*.
 
 ### Creating The Application Class
 
@@ -260,11 +260,11 @@ The `SpringBootApplication` annotation is for convenience, it adds all of the fo
    
    - *EnableAutoConfiguration:* Tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
    
-We also added some Spring Boot Data Geode annotations to customize the behavior of our Apache Geode *Cache*.
+We also added some Spring Boot Data Geode annotations to customize the behavior of our VMware GemFire *Cache*.
    
-   - *EnableLogging:* Tells Spring Boot Data Geode to configure and enable Apache Geode system logging.
+   - *EnableLogging:* Tells Spring Boot Data Geode to configure and enable VMware GemFire system logging.
    
-   - *CacheServerApplication:* Tells Spring Boot Data Geode to enable an embedded Apache Geode *CacheServer* instance. Moreover, this also implies an embedded peer *Cache* must exist and, therefore, will be configured, constructed, and initialized as a Spring bean in the application context.
+   - *CacheServerApplication:* Tells Spring Boot Data Geode to enable an embedded VMware GemFire *CacheServer* instance. Moreover, this also implies an embedded peer *Cache* must exist and, therefore, will be configured, constructed, and initialized as a Spring bean in the application context.
    
 ### Running the Application
 
@@ -344,10 +344,8 @@ public class JPAAsyncListenerApplicationTest {
 }
 ```
 
-The test is straightforward and simple: we check that the database is empty, insert some `Employee` instances into the Apache Geode *Region*, wait for the actual *Asynchronous Event Queue* to be empty (the `AsyncEventListener` processed all the events) and, at the very end, verify that the database contains exactly the `Employe` instances we inserted into the *Region*.
+The test is straightforward and simple: we check that the database is empty, insert some `Employee` instances into the VMware GemFire *Region*, wait for the actual *Asynchronous Event Queue* to be empty (the `AsyncEventListener` processed all the events) and, at the very end, verify that the database contains exactly the `Employee` instances we inserted into the *Region*.
 
 ## What's next?
 
-Check out the [geode-async-listener-spring-jpa](https://github.com/jujoramos/geode-async-listener-spring-jpa) project and play around with it, you can add Transaction Management and Error Handling to the AsyncEventListener, build a cluster, etc.
-
-Check out [Spring Boot for Apache Geode](https://docs.spring.io/spring-boot-data-geode-build/current/reference/html5/), you can do way more things more easily and quickly, with just some extra annotations!.
+Check out [Spring Boot for VMware GemFire](https://docs.spring.io/spring-boot-data-geode-build/1.3.x/reference/html5/), you can do way more things more easily and quickly, with just some extra annotations!
