@@ -2,13 +2,12 @@
 title: Spring
 weight: -1
 featured: true
-featuredspot: 2
+featuredspot: 3
 level1: Spring Boot GemFire Client
 layout: intro
 icon: spring
 topics:
-  - Spring
-
+- Spring
 description: GemFire Clients using Spring Boot
 
 ---
