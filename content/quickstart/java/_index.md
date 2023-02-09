@@ -2,10 +2,10 @@
 title: Java
 weight: -2
 featured: true
-featuredspot: 2
+featuredspot: 1
 level1: Java GemFire Client
 layout: intro
-icon: containers
+icon: java
 topics:
  - Java
 description: GemFire Clients using Java

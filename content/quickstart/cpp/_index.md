@@ -1,8 +1,8 @@
 ---
 title: C++
-weight: -2
+weight: 10
 featured: true
-featuredspot: 4
+featuredspot: 5
 level1: C++ GemFire Client
 layout: intro
 icon: cpp
