@@ -1,8 +1,8 @@
 ---
 title: Spring
-weight: -1
+weight: 1
 featured: true
-featuredspot: 3
+featuredspot: 2
 level1: Spring Boot GemFire Client
 layout: intro
 icon: spring

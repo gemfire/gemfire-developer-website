@@ -56,6 +56,10 @@ body .bg-gray-dark, body .td-box--gray-darkest, body .td-box--gray-dark {
    background-color: #f4f8fa !important;
    transition: all .2s;
 }
+.td-box--quickstart {
+  background-color: #207490;
+  transition: all .2s;
+}
 body .bg-gray-dark.border {
   border: none !important;
 }
@@ -264,7 +268,7 @@ body.blog #contact .mktoForm select {
   body #hero.patterns-hero,
   body #hero.samples-hero,
   body #hero.videos-hero,
-  body #hero.isntall-hero,
+  body #hero.install-hero,
   body #hero.practices-hero {
    background-image: url({{ "images/backgrounds/header-mobile-light.svg" | relURL }}) !important;
   }

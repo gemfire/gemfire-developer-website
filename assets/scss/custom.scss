@@ -87,6 +87,9 @@
   .lead p > a:hover {
     color: #5ACFFF !important;
   }
+  .td-box--quickstart {
+    background-color: #225A78;
+  }
 
   #hero {
       background-repeat: no-repeat;
@@ -115,7 +118,7 @@
         background-image: url('{{ "images/backgrounds/background-video.svg" | relURL }}');
       }
       &.data-hero,
-      &.isntall-hero {
+      &.install-hero {
         background-image: url('{{ "images/backgrounds/background-community.svg" | relURL }}');
       }
       &.tanzupractices-hero {
@@ -153,7 +156,7 @@
         &.samples-hero,
         &.videos-hero,
         &.practices-hero,
-        &.isntall-hero {
+        &.install-hero {
           background-image: url('{{ "images/backgrounds/header-mobile.svg" | relURL }}') !important;
           background-position: right -50px bottom;
           padding-bottom: 160px;
@@ -165,7 +168,7 @@
         &.samples-hero,
         &.videos-hero,
         &.practices-hero,
-        &.isntall-hero {
+        &.install-hero {
           background-size: 130%;
         }
       }
@@ -177,7 +180,7 @@
         &.samples-hero,
         &.videos-hero,
         &.practices-hero,
-        &.isntall-hero {
+        &.install-hero {
           background-size: 170%;
         }
       }
