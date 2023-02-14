@@ -33,7 +33,7 @@ endif
 
 #preview: @ preview hugo
 preview: hugo-check npm
-	ulimit -n 65535; hugo server -b http://localhost:1313/developer
+	ulimit -n 65535; hugo server -b http://localhost:1313/
 
 #preview-ip: @ preview hugo with IP
 preview-ip: npm
@@ -58,7 +58,7 @@ spell: npm
 
 #local: @ used for running local netlify dev server
 local: function-config
-	hugo server -w -b http://localhost:1313/developer
+	hugo server -w -b http://localhost:1313/
 
 #function-config: @ sets the function config variables during build
 function-config: npm
