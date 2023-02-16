@@ -185,6 +185,8 @@ archived_version = false
     parent = "documentation"
     weight = 10
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html"
+    [menu.main.params]
+      topicgroups = "Products"
 
   [[menu.main]]
     id = "gf4tasdoc"
@@ -192,6 +194,8 @@ archived_version = false
     parent = "documentation"
     weight = 20
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/index.html"
+    [menu.main.params]
+      topicgroups = "Products"
 
   [[menu.main]]
     id = "gf4k8sdoc"
@@ -199,36 +203,48 @@ archived_version = false
     parent = "documentation"
     weight = 30
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/index.html"
+    [menu.main.params]
+      topicgroups = "Products"
 
   [[menu.main]]
     name = "Spring Boot for GemFire"
     parent = "documentation"
     weight = 40
     url = "https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html"
+    [menu.main.params]
+      topicgroups = "Clients"
 
   [[menu.main]]
     name = "Spring Data for GemFire"
     parent = "documentation"
     weight = 50
     url = "https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/index.html"
+    [menu.main.params]
+      topicgroups = "Clients"
 
   [[menu.main]]
     name = "Native Client"
     parent = "documentation"
     weight = 60
     url = "https://docs.vmware.com/en/Native-Client-for-VMware-Tanzu-GemFire/index.html"
+    [menu.main.params]
+      topicgroups = "Clients"
 
   [[menu.main]]
     name = "Node.js for GemFire"
     parent = "documentation"
     weight = 70
     url = "https://docs.vmware.com/en/Node.js-Client-for-VMware-Tanzu-GemFire/2.0/tgf-nodeclient/GUID-about-client-users-guide.html"
+    [menu.main.params]
+      topicgroups = "Clients"
 
   [[menu.main]]
     name = "GemFire for Redis Apps"
     parent = "documentation"
     weight = 80
     url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Redis-Apps/index.html"
+    [menu.main.params]
+      topicgroups = "Extensions"
 
 
 #Download Menu Items

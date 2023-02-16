@@ -26,6 +26,7 @@
 				{{ $baseurl := urls.Parse $.Site.Params.Baseurl }}
 				{{ range .Site.Menus.main }}
 				{{ if .HasChildren }}
+				{{ $curtopic := "invalid" }}
 
 				<div id={{ lower (replace .Name "." "") }}-navBarItem class="nav-item dropdown d-lg-block mr-4 mb-0">
 					<a class="nav-link dropdown-toggle" href="{{.URL}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,6 +34,10 @@
 					</a>
 					<div class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
 						{{ range .Children }}
+						{{ if ne .Params.topicgroups $curtopic }}
+							{{ $curtopic = .Params.topicgroups }}
+						    {{ $curtopic }}
+						{{ end }}
 						<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
 						{{ end }}
 					</div>
