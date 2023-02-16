@@ -2,7 +2,7 @@ baseURL = "/gemfire-developer-website"
 title = "VMware Gemfire"
 publishDir = "public"
 contentDir = "content"
-canonifyURLs = true
+canonifyURLs = false
 enableRobotsTXT = true
 removePathAccents = true
 
