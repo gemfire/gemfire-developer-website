@@ -139,16 +139,20 @@
 <!--						{{ end }}-->
 				{{ else }}
 					<li class="mobile-nav-title font-weight-bold mt-4">{{ .Name }}</li>
+					{{ $curtopic := "invalid" }}
 					{{ range .Children }}
+			            {{ if ne .Params.topicgroups $curtopic }}
+							{{ $curtopic = .Params.topicgroups }}
+						    {{ $curtopic }}
+						{{ end }}
 						<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .URL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
 					{{ end }}
 				{{ end }}
-				{{ else }}
+			{{ else }}
 					<li class="mobile-nav-title font-weight-bold mt-4">{{ .Name }}</li>
 					<a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-
-				{{ end }}
 			{{ end }}
+		{{ end }}
 			<br>
 <!--			<li class="mobile-nav-title font-weight-bold mt-4">Search</li>-->
 <!--			<li><a tabindex=-1 href="/developer/search/">Search</a></li>-->
