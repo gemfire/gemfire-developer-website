@@ -1,7 +1,12 @@
 ---
 date: 2022-02-03
-description: This a basic implementation of the GemFire security manager for an authentication-only system.   
+description: This is a basic implementation of the GemFire security manager for an authentication-only system.   
 lastmod: '2022-02-03'
+topic: Security Manager Basics
+topicgroups: "Products"
+grouptitle: "GemFire Security Manager Basics: Authentication-Only"
+icon: guides
+layout: topic
 team:
 - John Martin 
 title: "GemFire Security Manager Basics: Authentication-Only"

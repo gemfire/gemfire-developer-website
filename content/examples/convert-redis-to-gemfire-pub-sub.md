@@ -5,6 +5,10 @@ description: This example highlights the changes necessary for switching to SBDG
 lastmod: '2021-05-28'
 repo: https://github.com/gemfire/spring-for-apache-geode-examples
 title: Spring - Convert Spring Data Redis Pub-Sub to VMware GemFire
+topic: Spring - Convert Spring Data Redis Pub-Sub to VMware GemFire
+topicgroups: "Extensions"
+grouptitle: "Data"
+layout: topic
 tags:
   - Redis
   - Spring

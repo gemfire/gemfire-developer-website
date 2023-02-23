@@ -2,6 +2,11 @@
 date: 2020-10-12
 description: This article describes a Spring Boot JMX Notification listener application.
 lastmod: '2021-04-22'
+topic: Spring Boot JMX Notifications
+topicgroups: "Clients"
+grouptitle: "Spring Boot JMX Notifications"
+layout: topic
+icon: spring
 team:
 - Barry Oglesby
 title: Implementing a Spring Boot JMX Notification Listener for VMware GemFire
