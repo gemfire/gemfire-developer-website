@@ -161,21 +161,21 @@ archived_version = false
     name = "GemFire"
     parent = "install"
     weight = 10
-    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire/9.15/gf/getting_started-installation-install_intro.html"
 
   [[menu.main]]
     identifier = "gf4tasinstall"
     name = "GemFire for TAS"
     parent = "install"
     weight = 20
-    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/1.14/tgf-vms/GUID-content-operator.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/1.14/gf-tas/content-operator.html"
 
   [[menu.main]]
     identifier = "gf4k8sinstall"
     name = "GemFire for Kubernetes"
     parent = "install"
     weight = 30
-    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.1/gf-k8s/GUID-supported-configurations.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.1/gf-k8s/supported-configurations.html"
 
 
 #Documentation Menu Items
@@ -184,7 +184,7 @@ archived_version = false
     name = "GemFire"
     parent = "documentation"
     weight = 10
-    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire/index.html"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -193,7 +193,7 @@ archived_version = false
     name = "GemFire for TAS"
     parent = "documentation"
     weight = 20
-    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/index.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/index.html"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -202,7 +202,7 @@ archived_version = false
     name = "GemFire for Kubernetes"
     parent = "documentation"
     weight = 30
-    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/index.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/index.html"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -226,7 +226,7 @@ archived_version = false
     name = "Native Client"
     parent = "documentation"
     weight = 60
-    url = "https://docs.vmware.com/en/Native-Client-for-VMware-Tanzu-GemFire/index.html"
+    url = "https://docs.vmware.com/en/Native-Client-for-VMware-GemFire/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -234,7 +234,7 @@ archived_version = false
     name = "Node.js for GemFire"
     parent = "documentation"
     weight = 70
-    url = "https://docs.vmware.com/en/Node.js-Client-for-VMware-Tanzu-GemFire/2.0/tgf-nodeclient/GUID-about-client-users-guide.html"
+    url = "https://docs.vmware.com/en/Node.js-Client-for-VMware-GemFire/2.0/gf-nodeclient/about-client-users-guide.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -242,7 +242,7 @@ archived_version = false
     name = "GemFire for Redis Apps"
     parent = "documentation"
     weight = 80
-    url = "https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Redis-Apps/index.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire-for-Redis-Apps/index.html"
     [menu.main.params]
       topicgroups = "Extensions"
 
