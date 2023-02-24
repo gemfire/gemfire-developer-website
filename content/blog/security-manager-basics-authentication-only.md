@@ -4,6 +4,7 @@ description: This is a basic implementation of the GemFire security manager for 
 lastmod: '2022-02-03'
 topic: Security Manager Basics
 topicgroups: "Products"
+title: "GemFire Security Manager Basics: Authentication-Only"
 grouptitle: "GemFire Security Manager Basics: Authentication-Only"
 icon: guides
 layout: topic
