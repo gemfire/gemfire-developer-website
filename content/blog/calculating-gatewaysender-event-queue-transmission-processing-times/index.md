@@ -3,9 +3,9 @@ date: 2020-12-01
 description: This article describes how to implement a GatewayEventFilter to calculate WAN
   statistics using a custom VMware GemFire Statistics object.
 lastmod: '2021-04-22'
-title: Calculating VMware GemFire GatewaySender Event Queue, Transmission and Processing Times
+title: Calculating GatewaySender Times
 topicgroups: "Products"
-grouptitle: "Calculating VMware GemFire GatewaySender Event Queue, Transmission and Processing Times"
+grouptitle: "Calculating GatewaySender Times"
 layout: topic
 icon: messaging
 team:

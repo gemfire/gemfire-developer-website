@@ -5,6 +5,7 @@ lastmod: '2022-01-21'
 team:
 - John Martin
 title: "GemFire Security Manager Basics: Authentication/Authorization"
+grouptitle: "GemFire Security Manager Basics: Authentication/Authorization"
 type: blog
 ---
 

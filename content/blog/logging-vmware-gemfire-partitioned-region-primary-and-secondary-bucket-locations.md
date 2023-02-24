@@ -6,6 +6,8 @@ lastmod: '2021-09-12'
 team:
 - Barry Oglesby
 title: Logging VMware GemFire PartitionedRegion Primary and Secondary Bucket Locations
+grouptitle: "Logging VMware GemFire PartitionedRegion Primary and Secondary Bucket Locations"
+
 type: blog
 ---
 
