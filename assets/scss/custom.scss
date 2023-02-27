@@ -19,6 +19,10 @@
   }
 }
 
+.quickstart-card{
+  background-color: #22343c;
+}
+
 .antialiased {
   -webkit-font-smoothing: antialiased;
 }
@@ -58,17 +62,6 @@
     position: relative;
   }
 
-  .steeltoe-banner {
-    height: 65px;
-    color: white;
-    background-color: #324f61;
-    transition: all .2s ease-out;
-  }
-  .steeltoe-banner:hover {
-    background-color: #446a82;
-    transition: all .2s ease-out;
-  }
-
   .homepage-banner {
     height: 50px;
     color: white;
@@ -86,9 +79,6 @@
   }
   .lead p > a:hover {
     color: #5ACFFF !important;
-  }
-  .td-box--quickstart {
-    background-color: #225A78;
   }
 
   #hero {
