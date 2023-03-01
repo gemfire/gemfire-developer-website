@@ -1,11 +1,12 @@
 --- 
+data-featured: false
 date: 2022-01-21
 description: This a basic example of the GemFire security manager for an authentication and authorization system.
 lastmod: '2022-01-21'
-team:
-- John Martin
 title: "GemFire Security Manager Basics: Authentication/Authorization"
 grouptitle: "GemFire Security Manager Basics: Authentication/Authorization"
+team:
+- John Martin
 type: blog
 ---
 
@@ -13,11 +14,7 @@ type: blog
 
 In this example you will go through a very basic implementation of a custom security manager implementation for an authentication and authorization system.
 
-{{% callout %}}
-It’s important to note that I am not a security expert. The purpose of this article is to introduce the GemFire `SecurityManager`.
-
-This example is not meant for use in a production environment.
-{{% /callout %}}
+>It’s important to note that I am not a security expert. The purpose of this article is to introduce the GemFire `SecurityManager`. This example is not meant for use in a production environment.
 
 ## The Security Manager
 To secure a GemFire cluster, the user needs to deploy a custom implementation of the `SecurityManager` interface, so that the authentication logic is entirely encapsulated within the implementation itself.

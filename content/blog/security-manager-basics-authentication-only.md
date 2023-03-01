@@ -6,7 +6,6 @@ topic: Security Manager Basics
 topicgroups: "Products"
 title: "GemFire Security Manager Basics: Authentication-Only"
 grouptitle: "GemFire Security Manager Basics: Authentication-Only"
-icon: guides
 layout: topic
 team:
 - John Martin 
@@ -18,11 +17,7 @@ type: blog
 
 In this example, you will go through a basic implementation of a custom `SecurityManager` for an authentication-only system.
 
-{{% callout %}}
-It’s important to note that I am not a security expert. The purpose of this article is to introduce the GemFire `SecurityManager`.
-
-This example is not meant for use in a production environment.
-{{% /callout %}}
+> It’s important to note that I am not a security expert. The purpose of this article is to introduce the GemFire `SecurityManager`. This example is not meant for use in a production environment.
 
 ## The Security Manager
 To secure a GemFire cluster, the user needs to deploy a custom implementation of the *[SecurityManager](https://github.com/apache/geode/blob/support/1.14/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* interface, so that the authentication logic is entirely encapsulated within the implementation itself.
