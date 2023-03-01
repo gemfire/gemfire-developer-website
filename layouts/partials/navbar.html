@@ -36,7 +36,7 @@
 						{{ range .Children }}
 						{{ if ne .Params.topicgroups $curtopic }}
 							{{ $curtopic = .Params.topicgroups }}
-						    {{ $curtopic }}
+						    <p class="pl-2">{{ $curtopic }}</p>
 						{{ end }}
 						<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
 						{{ end }}
