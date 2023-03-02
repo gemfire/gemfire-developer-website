@@ -21,12 +21,13 @@
 <a id="td-block" class="td-offset-anchor"></a>
 <section id="home-quickstart" class="row pt-0 pb-4 td-box td-box--height-auto pb-0">
     <div class="row justify-content-center w-100">
-        <div class="col-sm-12 pt-0 pb-4 mb-lg-5 mb-3">
+        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
             <h2 class="text-center">Quick Start</h2>
         </div>
     </div>
     <div class="row justify-content-center flex-lg-nowrap w-100 mw-100 overflow-hidden px-2 px-lg-0">
         {{ $quickstarts := where .Site.Pages "Section" "quickstart" }}
+        <div id="quickstart-icons" class="row justify-content-between">
         {{ range first 5 $quickstarts }}
                     <a href="{{ .RelPermalink }}" class="h-100 d-flex py-4 py-lg-5 px-3 quickstart-card">
                         <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}'>
@@ -34,7 +35,8 @@
                             {{ .Params.grouptitle }}
                         </h3>
                     </a>
-            {{ end }}
+        {{ end }}
+        </div>
     </div>
 </section>
 
@@ -46,13 +48,13 @@
 
 <!-- Tutorials -->
 <a id="td-block" class="td-offset-anchor"></a>
-<section id="home-topics" class="pt-0 pb-4 td-box">
+<section id="home-topics" class="pt-4 pb-0 td-box">
     <div class="row justify-content-center w-100">
         <div class="col-sm-12 pt-0 pb-4 mb-lg-5 mb-3">
             <h2 class="text-center">Tutorials</h2>
         </div>
     </div>
-    <div id="topics-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 position-relative transition-all">
+    <div id="topics-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 position-relative transition-all">
         {{ range first 1 $topicgroups }}
         <div class="row mb-5 justify-content-center transition-all">
             <div class="col-xl-9 col-12 mb-xl-0 mb-lg-4 mb-2">
@@ -86,14 +88,14 @@
 <a id="td-block-blogs" class="td-offset-anchor"></a>
 <section id="home-blogs" class="pt-0 td-box--gray-dark">
     <div class="row justify-content-center w-100">
-        <div class="col-sm-12 pt-0 pb-4 mb-lg-5 mb-3">
+        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
             <h2 class="text-center">Blogs</h2>
         </div>
     </div>
-    <div id="blogs-row-outer" class="row td-box--gray-dark td-box--gradient td-box--height-auto pt-0 position-relative transition-all">
+    <div id="blogs-row-outer" class="row td-box--gray-dark td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
         <div class="row mb-5 justify-content-center transition-all">
             <div class="col-xl-9 col-12 mb-xl-0 mb-lg-4 mb-2">
-                <div id="the-blogs-row" class="row justify-content-between w-100 td-box blogs-row">
+                <div id="the-blogs-row" class="row justify-content-between justify-content-center w-100 td-box blogs-row">
                     {{ range first 3 $blogs }}
                         <div class="blogs-card flex-315 td-box td-box--gray-850 mb-lg-0 mb-3">
                             <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
