@@ -61,10 +61,10 @@
                         <div class="topic-card flex-315 td-box td-box-dark mb-lg-0 mb-3">
                             <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                                 <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}'>
-                                <h3 class="h3 pt-0 link mt-3 text-white mb-0">
+                                <h3 class="h4 pt-0 link mt-3 text-white text-center mb-0">
                                     {{ .Params.grouptitle | truncate 70 }}
                                 </h3>
-                                <p class="mb-2 mb-lg-4 text-left text-center py-0 px-2" >
+                                <p class="mb-2 mb-lg-4 text-left py-0 px-2" >
                                     {{ .Description | truncate 70 }}
                                 </p>
                             </a>
@@ -97,10 +97,10 @@
                     {{ range first 3 $blogs }}
                         <div class="blogs-card flex-315 td-box td-box--gray-850 mb-lg-0 mb-3">
                             <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
-                                <h3 class="h3 pt-0 link mt-3 text-white mb-0">
+                                <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
                                     {{ .Params.grouptitle | truncate 70 }}
                                 </h3>
-                                <p class="mb-2 mb-lg-4 text-left text-center py-0 px-2" >
+                                <p class="mb-2 mb-lg-4 text-left py-0 px-2" >
                                     {{ .Description | truncate 70 }}
                                 </p>
                             </a>
