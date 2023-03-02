@@ -114,7 +114,40 @@
     </div>
 </section>
 
+{{ $videos := (slice) }}
+{{ range (.Site.GetPage "taxonomyTerm" "videos").Pages }}
+{{ $videos = union $videos ( slice . )}}
+{{ end }}
 
+<!-- Blogs -->
+<a id="td-block-videos" class="td-offset-anchor"></a>
+<section id="home-videos" class="pt-0 td-bo">
+    <div class="row justify-content-center w-100">
+        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
+            <h2 class="text-center">Videos</h2>
+        </div>
+    </div>
+    <div id="videos-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
+        <div class="row mb-5 justify-content-center transition-all">
+            <div class="col-xl-9 col-12 mb-xl-0 mb-lg-4 mb-2">
+                <div id="the-videos-row" class="row justify-content-between justify-content-center w-100 td-box videos-row">
+                    {{ range first 3 $videos }}
+                    <div class="episode-card flex-315 td-box--gray-dark mb-lg-0 mb-3">
+                        <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
+                            <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
+                                {{ .Params.title | truncate 70 }}
+                            </h3>
+                            <p class="mb-2 mb-lg-4 text-left py-0 px-2" >
+                                {{ .Description | truncate 70 }}
+                            </p>
+                        </a>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Featured Learning Paths -->
 <!--<a id="td-block" class="td-offset-anchor"></a>-->
 <!--<section id="featured-paths" class="row mx-0 td-box td-box&#45;&#45;gray-dark td-box&#45;&#45;gradient td-box&#45;&#45;height-auto pb-0">-->
