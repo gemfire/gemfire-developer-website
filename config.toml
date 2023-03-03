@@ -207,6 +207,22 @@ archived_version = false
       topicgroups = "Products"
 
   [[menu.main]]
+    Name = "GemFire Management Console"
+    parent = "documentation"
+    weight = 35
+    url = "https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/index.html"
+    [menu.main.params]
+      topicgroups = "Products"
+
+  [[menu.main]]
+    Name = "GemFire Search"
+    parent = "documentation"
+    weight = 38
+    url = "https://docs.vmware.com/en/VMware-GemFire-Search/1.0/gemfire-search/search_landing.html"
+    [menu.main.params]
+      topicgroups = "Products"
+
+  [[menu.main]]
     name = "Spring Boot for GemFire"
     parent = "documentation"
     weight = 40
@@ -266,13 +282,30 @@ archived_version = false
     [menu.main.params]
       topicgroups = "Products"
 
-
   [[menu.main]]
     identifier = "gf4k8sdownload"
     Name = "GemFire for Kubernetes"
     parent = "download"
     weight = 30
     url = "https://network.pivotal.io/products/tanzu-gemfire-for-kubernetes/"
+    [menu.main.params]
+      topicgroups = "Products"
+
+  [[menu.main]]
+    identifier = "mgmtconsoledownload"
+    Name = "GemFire Management Console"
+    parent = "download"
+    weight = 35
+    url = "https://network.pivotal.io/products/gemfire-management-console/"
+    [menu.main.params]
+      topicgroups = "Products"
+
+  [[menu.main]]
+    identifier = "gfsearchdownload"
+    Name = "GemFire Search"
+    parent = "download"
+    weight = 38
+    url = "https://network.pivotal.io/products/gemfire-search/"
     [menu.main.params]
       topicgroups = "Products"
 
