@@ -53,7 +53,7 @@
 <section id="home-topics" class="pt-2 pb-2 td-box--gray-dark">
     <div class="row justify-content-center w-100">
         <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="/guides/" class="h2 text-center">Tutorials</a>
+            <a href="{{ "guides" | relURL }}" class="h2 text-center">Tutorials</a>
         </div>
     </div>
     <div id="topics-row-outer" class="row td-box--gray-dark td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all">
@@ -92,7 +92,7 @@
 <section id="home-blogs" class="pt-4 pb-4 td-box">
     <div class="row justify-content-center w-100">
         <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="/blog/" class="h2 text-center">Blogs</a>
+            <a href="{{ "blog" | relURL }}" class="h2 text-center">Blogs</a>
         </div>
     </div>
     <div id="blogs-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
@@ -129,7 +129,7 @@
 <section id="home-videos" class="pt-4 pb-4 td-box--gray-dark">
     <div class="row justify-content-center w-100">
         <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="/videos/" class="h2 text-center">Videos</a>
+            <a href="{{ "videos" | relURL }}" class="h2 text-center">Videos</a>
         </div>
     </div>
     <div id="videos-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
@@ -166,7 +166,7 @@
 <section id="home-examples" class="pt-4 pb-4 td-box td-box">
     <div class="row justify-content-center w-100">
         <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="/examples/" class="h2 text-center">Code Samples</a>
+            <a href="{{ "examples" | relURL }}" class="h2 text-center">Code Samples</a>
         </div>
     </div>
     <div id="examples-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
@@ -190,25 +190,6 @@
         </div>
     </div>
 </section>
-
-<!-- Featured Learning Paths -->
-<!--<a id="td-block" class="td-offset-anchor"></a>-->
-<!--<section id="featured-paths" class="row mx-0 td-box td-box&#45;&#45;gray-dark td-box&#45;&#45;gradient td-box&#45;&#45;height-auto pb-0">-->
-<!--	-->
-<!--    <div class="row justify-content-center w-100">-->
-<!--        <div class="col-sm-12 pb-4 mb-lg-5 mb-3">-->
-<!--            <h2 class="text-center">Featured Learning Paths</h2>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="row justify-content-center flex-lg-nowrap w-100 mw-100 overflow-hidden px-2 px-lg-0">-->
-<!--        {{ $learningpaths := where (where .Site.Pages "Section" "learningpaths") ".Params.featured" true }}-->
-<!--        {{ range first 5 $learningpaths }} &lt;!&ndash; TODO: Get featured learning paths &ndash;&gt;-->
-<!--            {{ partial "learningpaths-card-home.html" . }}-->
-<!--        {{ end }}-->
-
-<!--    </div>-->
-<!--</section>-->
 
 <script>sendAmplitudeEventOnLoad('home viewed', {'url path': window.location.pathname});</script>
 
