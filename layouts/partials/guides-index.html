@@ -1,42 +1,24 @@
+<div class="section-index">
+    <!-- Gather topic groups -->
+    {{ $topicgroups := (slice) }}
+    {{ range (.Site.GetPage "taxonomyTerm" "topicgroups").Pages }}
+        {{ $topicgroups = union $topicgroups ( slice .Title )}}
+    {{ end }}
 
-<div class="section-index guides-index-list">
-    {{ $pages := ((where .Site.Pages "Section" .Section).ByDate.Reverse) }}
-    {{ $parent := .Page }}
-    {{ if $parent.Params.no_list }}
-    {{/* If no_list is true we don't show a list of subpages */}}
-    {{ else if $parent.Params.simple_list }}
-    {{/* If simple_list is true we show a bulleted list of subpages */}}
-    <ul>
-        {{ range $pages }}
-        {{ if eq .Parent $parent }}
-        <li><a href="{{ .RelPermalink }}">{{- .Title -}}</a></li>
-        {{ end }}
-        {{ end }}
-    </ul>
-    {{ else }}
-    {{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
-    <!-- <hr class="panel-line"> -->
-    <!-- <div class="col"> --><!-- <div class="row"> -->
-    <div class="d-flex justify-content-between">
-        <div class="col-lg-9 px-0 ">
+    {{ $guides := where .Site.Pages "Section" "guides" }}
+
+    {{ range $topicgroups }}
+        <h2>{{ . }}</h2>
+        <div class="row mb-5">
+            {{ $pages := where $guides ".Params.topicgroups" . }}
             {{ range $pages }}
-            {{ if eq .Parent $parent }}
-            <div class="item mb-3 position-relative" >
-                <div class='gradient-edge-top'></div>
-                <div class='border p-4 bg-gray-dark '>
-                    <h2 class="pt-0"><a class="h3" href="{{ .RelPermalink }}">{{- .Title -}}</a></h2>
-                    {{ partial "byline" (dict "context" . "withdate" true) }}
-
-                    <p>{{ .Content | markdownify | truncate 1400 }}</p>
-                    <p><a href="{{ .RelPermalink }}">Read more</a></p>
-                </div>
-            </div>
+                    <div class="flex-315 mr-3 mb-3">
+                        <a class="linked-box td-box--gray-dark px-4 py-2" href="{{ .RelPermalink }}">
+                            <h2 class="link mt-3 h4 pt-0">{{- .Title -}}</h2>
+                            <p>{{ .Description | markdownify }}</p>
+                        </a>
+                    </div>
             {{ end }}
-            {{ end }}
-            <div class="topic col-lg-2 d-none d-lg-block px-0">
-                <p><a id="rss" class="td-box--gray-dark py-2 px-3 mb-4 text-left" href='{{ "guides/index.xml" | relURL }}'><i class="fas fa-rss mr-1"></i>RSS</a></p>
-            </div>
         </div>
-        <!--  </div> --><!-- </div> -->
-        {{ end }}
-    </div>
+    {{ end }}
+</div>

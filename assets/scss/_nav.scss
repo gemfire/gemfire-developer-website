@@ -248,6 +248,7 @@ nav {
         top: 0;
         width: 100%;
         cursor: pointer;
+        background: $primary;
     }
     .dropdown {
         height: 40px;
@@ -262,7 +263,6 @@ nav {
                 }
                 padding: 30px 0 20px;
                 height: auto;
-                background: $primary;
                 transition: all .2s ease-out;
                 top: 60px;
                 box-shadow: 0px 6px 15px -3px rgba(0,0,0,0.2);
