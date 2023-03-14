@@ -261,7 +261,7 @@ nav {
                     opacity: 1;
                     transition: opacity .2s ease-out .1s;
                 }
-                padding: 30px 0 20px;
+                padding: 0px 0 20px;
                 height: auto;
                 transition: all .2s ease-out;
                 top: 60px;
@@ -311,6 +311,7 @@ nav {
         overflow: hidden;
         box-sizing: border-box;
         padding: 0;
+        background-color: $primary ;
         
         .h5,
         .topic-title {
