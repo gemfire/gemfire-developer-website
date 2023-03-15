@@ -261,7 +261,7 @@ nav {
                     opacity: 1;
                     transition: opacity .2s ease-out .1s;
                 }
-                padding: 0px 0 20px;
+                padding: 0 1.25rem 1.25rem 1rem ;
                 height: auto;
                 transition: all .2s ease-out;
                 top: 60px;
@@ -318,20 +318,29 @@ nav {
             opacity: 0;
             transition: opacity .5s;
             margin-top: 1rem;
+            margin-bottom: 0.25rem;
+            font-weight: bold;
+            color: white;
         }
         .dropdown-item {
             color: $link;
             opacity: 0;
             transition: opacity .5s;
+            padding-left: 0.75rem;
+            padding-bottom: 0.25rem;
+            padding-top: 0.25rem
         }
         .h5, b {
             padding: 0.25rem 1rem;
         }
+
     }
 
     .dropdown-item:hover, .dropdown-item:focus {
         background: $dark;
-        border-radius: 12px;
+        width: auto;
+        border-radius: 2px;
+
     }
     #by-type {
         padding: 0.25rem 1.5rem;
@@ -399,5 +408,12 @@ nav {
         position: static;
         width: 100%;
         padding: 0 !important;
+    }
+}
+
+@media(max-width: 1599px){
+    #download-drop-menu{
+        right:0;
+        left:initial;
     }
 }

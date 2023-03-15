@@ -215,14 +215,6 @@ archived_version = false
       topicgroups = "Products"
 
   [[menu.main]]
-    Name = "GemFire Search"
-    parent = "documentation"
-    weight = 38
-    url = "https://docs.vmware.com/en/VMware-GemFire-Search/1.0/gemfire-search/search_landing.html"
-    [menu.main.params]
-      topicgroups = "Products"
-
-  [[menu.main]]
     name = "Spring Boot for GemFire"
     parent = "documentation"
     weight = 40
@@ -235,6 +227,14 @@ archived_version = false
     parent = "documentation"
     weight = 50
     url = "https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/index.html"
+    [menu.main.params]
+      topicgroups = "Clients"
+
+  [[menu.main]]
+    name = "Spring Session for GemFire"
+    parent = "documentation"
+    weight = 50
+    url = "https://docs.vmware.com/en/Spring-Session-for-VMware-GemFire/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -259,6 +259,14 @@ archived_version = false
     parent = "documentation"
     weight = 80
     url = "https://docs.vmware.com/en/VMware-GemFire-for-Redis-Apps/index.html"
+    [menu.main.params]
+      topicgroups = "Extensions"
+
+  [[menu.main]]
+    Name = "GemFire Search"
+    parent = "documentation"
+    weight = 81
+    url = "https://docs.vmware.com/en/VMware-GemFire-Search/1.0/gemfire-search/search_landing.html"
     [menu.main.params]
       topicgroups = "Extensions"
 
@@ -301,15 +309,6 @@ archived_version = false
       topicgroups = "Products"
 
   [[menu.main]]
-    identifier = "gfsearchdownload"
-    Name = "GemFire Search"
-    parent = "download"
-    weight = 38
-    url = "https://network.pivotal.io/products/gemfire-search/"
-    [menu.main.params]
-      topicgroups = "Products"
-
-  [[menu.main]]
     identifier = "nativeclientdl"
     Name = "Native Client"
     parent = "download"
@@ -333,6 +332,15 @@ archived_version = false
     parent = "download"
     weight = 60
     url = "https://network.pivotal.io/products/tanzu-gemfire-for-redis-apps/"
+    [menu.main.params]
+      topicgroups = "Extensions"
+
+  [[menu.main]]
+    identifier = "gfsearchdownload"
+    Name = "GemFire Search"
+    parent = "download"
+    weight = 61
+    url = "https://network.pivotal.io/products/gemfire-search/"
     [menu.main.params]
       topicgroups = "Extensions"
 

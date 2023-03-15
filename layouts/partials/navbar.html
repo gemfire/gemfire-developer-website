@@ -32,11 +32,11 @@
 					<a class="nav-link dropdown-toggle" href="{{.URL}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						{{ .Name }}<span class="nav-arrow" ></span>
 					</a>
-					<div class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
+					<div id={{ lower (replace .Name "." "") }}-drop-menu class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
 						{{ range .Children }}
 						{{ if ne .Params.topicgroups $curtopic }}
 							{{ $curtopic = .Params.topicgroups }}
-						    <p class="pl-2">{{ $curtopic }}</p>
+						    <p class="topic-title">{{ $curtopic }}</p>
 						{{ end }}
 						<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{.URL}}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
 						{{ end }}
