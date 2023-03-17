@@ -18,7 +18,6 @@
 </section>
 
 <!-- Quick Start -->
-<a id="td-block" class="td-offset-anchor"></a>
 <section id="home-quickstart" class="row pt-0 pb-4 td-box td-box--height-auto pb-0">
     <div class="row justify-content-center w-100">
         <div class="col-sm-12 pt-4 pb-0 mb-3 text-center">
@@ -49,20 +48,20 @@
 {{ end }}
 
 <!-- Tutorials -->
-<a id="td-block" class="td-offset-anchor"></a>
-<section id="home-topics" class="pt-2 pb-2 td-box--gray-dark">
-    <div class="row justify-content-center w-100">
-        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="{{ "guides" | relURL }}" class="h2 text-center">Tutorials</a>
+<section id="home-topics" class="pt-2 pb-2 td-box">
+    <div class="w-75 mx-sm-auto">
+    <div class="row w-100 m-0">
+        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
+            <a href="{{ "guides" | relURL }}" class="h2 text-left">Tutorials</a>
         </div>
     </div>
-    <div id="topics-row-outer" class="row td-box--gray-dark td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all">
+    <div id="topics-row-outer" class="row td-box lightbox td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
         {{ range first 1 $topicgroups }}
-        <div class="row mb-5 justify-content-center transition-all">
-            <div class="col-xl-9 col-12 mb-xl-0 mb-lg-4 mb-2">
+        <div class="row justify-content-center transition-all w-100">
+            <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
                 <div id="{{ lower (replace . " " "-")}}-row" class="row justify-content-between w-100 td-box topics-row">
                     {{ range first 3 (where (($.Site.GetPage "taxonomyTerm" "guides").Pages) ".Params.topicgroups" .) }}
-                        <div class="topic-card--dark flex-315 td-box--dark mb-lg-0 mb-3">
+                        <div class="td-box--gray-850 flex-315 mb-lg-0 mb-3">
                             <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                                 <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}'>
                                 <h3 class="h4 pt-0 link mt-3 text-white text-center mb-0">
@@ -79,6 +78,7 @@
         </div>
         {{ end }}
     </div>
+    </div>
 </section>
 
 {{ $blogs := (slice) }}
@@ -88,19 +88,18 @@
 {{ $blogs := sort $blogs ".Params.lastmod" }}
 
 <!-- Blogs -->
-<a id="td-block-blogs" class="td-offset-anchor"></a>
-<section id="home-blogs" class="pt-4 pb-4 td-box">
-    <div class="row justify-content-center w-100">
-        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="{{ "blog" | relURL }}" class="h2 text-center">Blogs</a>
+<section id="home-blogs" class="pt-2 pb-2 td-box">
+    <div class="w-75 mx-sm-auto">
+    <div class="row w-100 m-0">
+        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 w-100">
+            <a href="{{ "blog" | relURL }}" class="h2 text-left">Blogs</a>
         </div>
     </div>
-    <div id="blogs-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
-        <div class="row justify-content-center transition-all">
-            <div class="col-xl-9 col-12 mb-xl-0 mb-lg-4 mb-2">
+        <div id="blogs-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
+            <div class="col-xl-12 w-100">
                 <div id="the-blogs-row" class="row justify-content-between justify-content-center w-100 td-box blogs-row">
                     {{ range first 3 $blogs }}
-                        <div class="episode-card flex-315 td-box td-box--gray-dark mb-lg-0 mb-3">
+                        <div class="topic-card flex-315 td-box td-box--gray-dark mb-lg-0 mb-3">
                             <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                                 <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
                                     {{ .Params.title | truncate 70 }}
@@ -125,19 +124,18 @@
 {{ $videos := sort $videos ".Params.lastmod" }}
 
 <!-- Videos -->
-<a id="td-block-videos" class="td-offset-anchor"></a>
-<section id="home-videos" class="pt-4 pb-4 td-box--gray-dark">
-    <div class="row justify-content-center w-100">
-        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="{{ "videos" | relURL }}" class="h2 text-center">Videos</a>
+<section id="home-videos" class="pt-4 pb-2 td-box">
+    <div class="w-75 mx-sm-auto">
+    <div class="row w-100 m-0">
+        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
+            <a href="{{ "videos" | relURL }}" class="h2 text-left">Videos</a>
         </div>
     </div>
-    <div id="videos-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
-        <div class="row justify-content-center transition-all">
-            <div class="col-xl-9 col-12 mb-xl-0 mb-lg-4 mb-2">
-                <div id="the-videos-row" class="row justify-content-between justify-content-center w-100 mb-0 td-box videos-row">
+    <div id="videoss-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
+            <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
+                <div id="the-videos-row" class="row justify-content-between justify-content-center w-100 td-box videos-row m-0">
                     {{ range first 3 $videos }}
-                    <div class="episode-card flex-315 td-box--gray-850 mb-lg-0 mb-3">
+                    <div class="topic-card flex-315 td-box--gray-850 mb-lg-0 mb-3">
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                             <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
                                 {{ .Params.title | truncate 70 }}
@@ -150,7 +148,7 @@
                     {{ end }}
                 </div>
             </div>
-        </div>
+    </div>
     </div>
 </section>
 
@@ -162,19 +160,18 @@
 {{ $examples := sort $examples ".Params.lastmod" }}
 
 <!-- Examples -->
-<a id="td-block-examples" class="td-offset-anchor"></a>
-<section id="home-examples" class="pt-4 pb-4 td-box td-box">
-    <div class="row justify-content-center w-100">
-        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 text-center">
-            <a href="{{ "examples" | relURL }}" class="h2 text-center">Code Samples</a>
+<section id="home-examples" class="pt-2 pb-2 td-box">
+    <div class="w-75 mx-sm-auto">
+        <div class="row w-100 m-0">
+            <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
+                <a href="{{ "examples" | relURL }}" class="h2 text-left">Code Samples</a>
+            </div>
         </div>
-    </div>
-    <div id="examples-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all">
-        <div class="row justify-content-center transition-all">
-            <div class="col-xl-9 col-12 mb-xl-0 mb-lg-4 mb-2">
-                <div id="the-examples-row" class="row justify-content-between justify-content-center w-100 td-box examples-row pb-0">
+        <div id="examples-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all m-0">
+            <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
+                <div id="the-examples-row" class="row justify-content-between justify-content-center w-100 td-box examples-row m-0">
                     {{ range first 3 $examples }}
-                    <div class="episode-card flex-315 td-box--gray-dark mb-lg-0 mb-3">
+                    <div class="topic-card flex-315 td-box--gray-dark mb-lg-0 mb-3">
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                             <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
                                 {{ .Params.title | truncate 70 }}
