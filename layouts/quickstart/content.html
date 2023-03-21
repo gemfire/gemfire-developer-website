@@ -1,0 +1,7 @@
+
+	<h1>{{ .Title | markdownify }}</h1>
+	{{ partial "byline" (dict "context" . "withdate" false) }}
+	{{ with .Params.description }}<div class="lead">{{ . | markdownify }}</div>{{ end }}
+	{{ .Content }}
+	<div class="text-muted mt-5 pt-3">{{ partial "page-meta-lastmod.html" . }}</div>
+
