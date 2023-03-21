@@ -5,7 +5,7 @@
         {{ $topicgroups = union $topicgroups ( slice .Title )}}
     {{ end }}
 
-    {{ $guides := where .Site.Pages "Section" "guides" }}
+    {{ $guides := where .Site.Pages "Section" "tutorials" }}
 
     {{ range $topicgroups }}
         <h2>{{ . }}</h2>

@@ -315,7 +315,7 @@ When the app is running, open a browser and go to <http://localhost:8080>.
 - The "Enter your note:" form can be used to enter notes. 
 - The "DESTROY SESSION" button can be used to clear the session data and delete the notes.
 
-    ![img](content/guides/session-state-cache-sbgf/images/session-state-frontend.jpg)
+    ![img](content/tutorials/session-state-cache-sbgf/images/session-state-frontend.jpg)
 
 ---
 
@@ -452,7 +452,7 @@ notes-app-deployment        LoadBalancer   10.0.113.16   52.170.169.174   80:301
 
 In your browser, go to the `EXTERNAL-IP` of the `notes-app-deployment` and you should see a working *Notes* app.
 
-![img](content/guides/session-state-cache-sbgf/images/session-state-frontend.jpg)
+![img](content/tutorials/session-state-cache-sbgf/images/session-state-frontend.jpg)
 
 ### Confirm your app is connected to your VMware GemFire cluster
 

@@ -44,7 +44,7 @@ For this getting started locally guide, we will walk through the quickest way to
 
 6. You should see the GemFire Shell start with a version similar to the following image
 
-   ![GFSH Starting Up](content/guides/get-started-locally-sbgf/images/gfsh_start_up.png)
+   ![GFSH Starting Up](content/tutorials/get-started-locally-sbgf/images/gfsh_start_up.png)
 
 ---
 
