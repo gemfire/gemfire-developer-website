@@ -95,7 +95,7 @@
       &.guides-hero {
         background-image: url('{{ "images/backgrounds/background-guides.svg" | relURL }}');
       }
-      &.learningpaths-hero {
+      &.tutorials-hero {
         background-image: url('{{ "images/backgrounds/background-patterns.svg" | relURL }}');
       }
       &.samples-hero {
@@ -127,7 +127,7 @@
       }
       @media(max-width: 1200px) {
         &.data-hero,
-        &.learningpaths-hero {
+        &.tutorials-hero {
           .lead {
             max-width: 620px;
           }
@@ -277,7 +277,7 @@
     .h3, h3 {
       font-size: 1.4rem !important;
     }
-    #home-topics {
+    #home-tutorials {
       padding-top: 4rem;
       padding-bottom: 4rem;
     }
@@ -297,14 +297,14 @@
   background-color: #22343c;
 }
 
-#home-topics {
+#home-tutorials {
   background-color: #22343c;
   padding-top: 8rem;
   padding-bottom: 10rem;
   opacity: 0;
   animation: fadeIn 1s ease-out .3s forwards;
 
-  #topics-row-outer > .row:last-child {
+  #tutorials-row-outer > .row:last-child {
     margin-bottom: 0px !important;
   }
   .topic-card {
@@ -400,13 +400,11 @@
   opacity: 0;
   animation: fadeIn 1s ease-out .3s forwards;
 
-  .learning-path-card {
+  .quickstart-card {
     height: 320px;
     transition: all .2s ease-out;
 
-    .learning-path-description {
-      color: #adbbc4!important;
-    }
+
     .vw-33 {
       width: 33.333vw;
     }

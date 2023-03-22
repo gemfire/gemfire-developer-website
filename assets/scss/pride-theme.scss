@@ -144,7 +144,7 @@ a.h4 {
 #team-index .person .card .h4 a {
   color: white !important;
 }
-.learning-path-card,
+.quickstart-card,
 .topic-card,
 #team-index .person .card,
 .topic a,
@@ -363,12 +363,9 @@ nav #theme-select #theme-square {
 .td-section.springone-tour .td-main {
   background-color: transparent !important;
 }
-.learningpaths .learningpaths-pager a,
-.learningpaths .learningpaths-pager-sticky a {
-  border: 1px solid #17242C !important;
-}
+
 .callout .col-11 p > a,
-.learning-path-card.active .h3 {
+.quickstart-card.active .h3 {
   background: linear-gradient(-45deg, #EC7700, #7932A9, #0091DA, #78BE20);
   -webkit-background-clip: text;
   filter: brightness(1.25);
