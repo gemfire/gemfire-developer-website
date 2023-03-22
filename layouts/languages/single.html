@@ -10,7 +10,7 @@
     </header>
     
     <div class="container-fluid td-outer">
-        {{ partial "live-notify.html" . }}
+
         <div class="td-main ">
             {{ $class := replace .Params.linkTitle "." "-" | lower }}
             {{ $class := replace $class " " "" }}
