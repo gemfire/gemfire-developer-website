@@ -46,6 +46,7 @@
         {{ $videos := where .Pages  "Params.type" "videos" }}
         {{ if gt (len $videos) 0 }}
         <div class='container py-5'>
+            <h1>gleep</h1>
             <div class='d-flex align-items-center icon-title mb-5'><img alt="" class="icon mr-3" src='{{ "images/icons/icon-videos.svg" | relURL }}'/><h3 class="mb-0">Videos</h3></div>
             <div class="col px-lg-0"><div class='row'>
                 {{ range $videos }}

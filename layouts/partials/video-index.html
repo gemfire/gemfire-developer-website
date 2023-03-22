@@ -1,14 +1,5 @@
 <div class='d-flex container flex-wrap'>
 
-    <div class='sidebar col-lg-3 col-0 pl-0 pr-3'>
-        <h3>Filter</h3>
-        <br/>
-        <ul class='filters'>
-            <li class="filter active" filter="all">View all</li>
-            {{ partial "section-tags.html" . }}
-        </ul>
-    </div>
-
     <div class="section-index flex-1">
         {{ $pages := (where .Site.Pages "Section" .Section).ByWeight }}
         {{ $parent := .Page }}
@@ -25,17 +16,33 @@
             </ul>
         {{ else }}
         {{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
-        <!-- <hr class="panel-line"> -->
-            <!-- <div class="col"> --><div class="row">
+        <h1>Videos</h1><br>
+        <div class="row">
             {{ range $pages }}
                 {{ if eq .Parent $parent }}
-                <div class="filter-item flex-315 mr-0 mr-lg-3 mb-lg-3 mb-2 {{ range .Params.tags }}{{ . | lower | urlize }} {{ end }} ">
-                    <a class='youtube-container'><div class="youtube-overlay"></div><iframe class="youtube-small" type="text/html" src="https://www.youtube.com/embed/{{ .Params.youtube_id }}?wmode=transparent&amp;rel=0&amp;modestbranding=1" wmode="Opaque" frameborder="0" allowfullscreen="true"></iframe></a>
-                    <h2 class="fs-p"><a href="{{ .RelPermalink }}">{{- .Title -}}</a></h2>
-                </div>
+                    {{ if isset .Params "youtube_id" }}
+                        <div class="filter-item flex-315 mr-0 mr-lg-3 mb-lg-3 mb-2 {{ range .Params.tags }}{{ . | lower | urlize }} {{ end }} ">
+                            <h2 class="fs-p"><a href="{{ .RelPermalink }}">{{- .Title -}}</a></h2>
+                            <a class='youtube-container'><div class="youtube-overlay"></div><iframe class="youtube-small" type="text/html" src="https://www.youtube.com/embed/{{ .Params.youtube_id }}?wmode=transparent&amp;rel=0&amp;modestbranding=1" wmode="Opaque" frameborder="0" allowfullscreen="true"></iframe></a>
+                        </div>
+                    {{ end }}
                 {{ end }}
             {{ end }}
-           <!--  </div> --></div>
+        </div>
+        <h1>Webinars</h1><br>
+        <div class="row">
+            {{ range $pages }}
+                {{ if eq .Parent $parent }}
+                    {{ if isset .Params "brighttalk_commid" }}
+                        <div class="filter-item flex-315 mr-0 mr-lg-3 mb-lg-3 mb-2 {{ range .Params.tags }}{{ . | lower | urlize }} {{ end }} ">
+                            <h2 class="fs-p"><a href="{{ .RelPermalink }}">{{- .Title -}}</a></h2>
+                            <a class="youtube-container"><div></div><script src="https://www.brighttalk.com/clients/js/player-embed/player-embed.js" class="jsBrightTALKEmbed"> { "channelId" : 14883, "commid" : {{ .Params.brighttalk_commid }},
+                                "height" : "234", "width" : "100%", "displayMode" : "standalone" }</script></div></a>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </div>
         {{ end }}
     </div>
 </div>
