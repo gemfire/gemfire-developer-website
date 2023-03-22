@@ -49,18 +49,18 @@
 {{ end }}
 
 <!-- Tutorials -->
-<section id="home-topics" class="pt-2 pb-2 td-box">
+<section id="home-tutorials" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
         <div class="row w-100 m-0">
             <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
                 <a href="{{ "tutorials" | relURL }}" class="h2 text-left">Tutorials</a>
             </div>
         </div>
-        <div id="topics-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
+        <div id="tutorials-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
             {{ range first 1 $topicgroups }}
             <div class="row justify-content-center transition-all w-100">
                 <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
-                    <div id="{{ lower (replace . " " "-")}}-row" class="row justify-content-between w-100 td-box topics-row">
+                    <div id="{{ lower (replace . " " "-")}}-row" class="row justify-content-between w-100 td-box tutorials-row">
                         {{ range first 3 (where (($.Site.GetPage "taxonomyTerm" "tutorials").Pages) ".Params.topicgroups" .) }}
                             <div class="td-box--gray-850 flex-315 mb-lg-0 mb-3">
                                 <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">

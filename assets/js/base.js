@@ -107,7 +107,7 @@ limitations under the License.
       trigger: "focus",
     });
 
-    //Samples and Workshop page filters
+    //Samples page filters
     $(".filters .filter").click(function () {
       if (this.classList.contains("active")) {
         this.classList.remove("active");
@@ -472,9 +472,9 @@ limitations under the License.
     $("#searchheaderform input").focus();
   });
 
-  // Featured Learning paths
-  $( ".learning-path-card" ).mouseenter(function() {
-    $(".learning-path-card").removeClass("active");
+  // Featured Quickstarts
+  $( ".quickstart-card" ).mouseenter(function() {
+    $(".quickstart-card").removeClass("active");
     $(this).addClass("active");
   });
 
