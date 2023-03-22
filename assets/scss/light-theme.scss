@@ -35,7 +35,7 @@ body .border-bottom {
   border-color: #d9e4ea !important;
 }
 
-#home-topics {
+#home-tutorials {
   background-color: #f4f8fa;
 }
 
@@ -48,8 +48,6 @@ nav .dropdown-item:hover, nav .dropdown-item:focus,
 #hero:not(.workshops-hero),
 .topic-card,
 .col-4-thumbnail,
-.workshop-box,
-.workshop-box .description,
 .video-description,
 .outcomes-index .td-box--gray-850,
 body .bg-primary,
@@ -75,7 +73,6 @@ body .td-sidebar-nav a.td-sidebar-link__page.active {
 .guide .td-sidebar-nav__section-title a.active, .guide .td-sidebar-nav__section-title a:hover {
   color: #78be20 !important;
 }
-.workshop-box .description h4,
 .person .card, .person .highlight,
 pre, .highlight,
 body p code, body li > code, body table code,
@@ -144,22 +141,11 @@ body p.link {
 .featured-section .featured-link:focus .link{
   color: #0E2B65 !important;
 }
-.workshop-box .cta-btn-wrapper .cta-btn {
-color: #49afd9 !important;
-}
-.workshop-box:hover .cta-btn,
-.cta-btn-wrapper:hover .cta-btn {
-  color: white !important;
-}
+
 .cta-btn-wrapper .cta-btn {
   color: rgb(97, 113, 125) !important;
 }
-.steeltoe-banner .h4,
-#beyond-hero p,
-#live-notify,
-body a.btn {
-  color: white !important;
-}
+
 
 @media (max-width: 991.98px) {
    body .td-navbar .td-navbar-nav-hamburger .navbar-nav a[href*='/'] {
@@ -221,19 +207,6 @@ body.blog #contact .mktoForm select {
   color: rgb(97, 113, 125) !important;
 }
 
-.episodes .teaser {
-  color: #78be20!important;
-}
-.workshop-box .workshop-hero {
-
-  .thumbnail-gradient {
-    display: none;
-  }
-}
-.workshop-box:hover .description .btn.btn-small {
-  background: #0E2B65 !important;
-}
-.steeltoe-banner,
 .mktoForm .mktoButtonRow .mktoButtonWrap.mktoSimple .mktoButton,
 .btn:not(.countdown) {
    background: #1d428a !important;
@@ -245,22 +218,17 @@ body.blog #contact .mktoForm select {
 #hero.guides-hero {
    background-image: url({{ "images/backgrounds/background-guides-light.svg" | relURL }}) !important;
  }
- #hero.outcomes-hero {
-   background-image: url({{ "images/backgrounds/background-patterns-light.svg" | relURL }}) !important;
- }
+
  #hero.samples-hero {
    background-image: url({{ "images/backgrounds/background-samples-light.svg" | relURL }}) !important;
  }
  #hero.videos-hero {
    background-image: url({{ "images/backgrounds/background-video-light.svg" | relURL }}) !important;
  }
- #hero.data-hero,
- #hero.community-hero {
+ #hero.data-hero{
    background-image: url({{ "images/backgrounds/background-community-light.svg" | relURL }}) !important;
  }
- #hero.practices-hero {
-   background-image: url({{ "images/backgrounds/background-practices-light.svg" | relURL }}) !important;
- }
+
  @media(max-width: 1300px) {
   body #hero.data-hero {
     background-image: url({{ "images/backgrounds/header-mobile-light.svg" | relURL }}) !important;
@@ -268,11 +236,9 @@ body.blog #contact .mktoForm select {
  }
 @media(max-width: 991px) {
   body #hero.guides-hero,
-  body #hero.patterns-hero,
   body #hero.samples-hero,
   body #hero.videos-hero,
-  body #hero.install-hero,
-  body #hero.practices-hero {
+  body #hero.install-hero{
    background-image: url({{ "images/backgrounds/header-mobile-light.svg" | relURL }}) !important;
   }
 }
@@ -417,10 +383,8 @@ div.aside div.aside-content {
   background: #D9E4EA !important;
 }
 
-#featured-paths .row .learning-path-card {
-  .learning-path-description {
-    color: black !important;
-  }
+#featured-paths .row .quickstart-card {
+
   &:nth-child(1) {
     background: #f4f8fa;
   }
