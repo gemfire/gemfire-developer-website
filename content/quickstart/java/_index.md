@@ -1,5 +1,5 @@
 ---
-title: Java
+title: Java Quick Start
 weight: -2
 featured: true
 featuredspot: 1
@@ -12,30 +12,27 @@ topics:
 description: GemFire Clients using Java
 
 ---
-<!--
-  ~ Copyright (c) VMware, Inc. 2023. All rights reserved.
-  ~ SPDX-License-Identifier: Apache-2.0
-  -->
 
-# Quickstart Tutorial - Introduction To VMware GemFire
+
+# Introduction To VMware GemFire
 
 VMware GemFire is an in-memory distributed Key-Value datastore.  As a datastore, GemFire provides a real-time, consistent and distributed service for modern applications with data-intensive needs and low latency response requirements. Because of GemFire's distributed peer-to-peer nature it can take advantage of multiples servers to pool memory, cpu and disk storage for improved performance, scalability and fault tolerance to build applications needing caching, management of in-flight data or the key-value database of record.
 
 ## Goal
 
-The goal of this quickstart tutorial is to introduce GemFire basics, including starting a GemFire development environment, building and connecting a Java based GemFire client application to a cluster and performing basic CRUD operations.
+The goal of this quick start tutorial is to introduce GemFire basics, including starting a GemFire development environment, building and connecting a Java based GemFire client application to a cluster and performing basic CRUD operations.
 
 ## Download Examples and Configure Environment
 
-Download and install VMware GemFire from [Tanzu Network](https://network.pivotal.io). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/index.html).
+Download and install VMware GemFire from [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
 
-Clone the GemFire examples repository from GitHub.
+Clone the [GemFire examples repository](https://github.com/gemfire/gemfire-examples) from GitHub.
 
 ```text
 $ git clone git@github.com:gemfire/gemfire-examples.git
 ```
 
-Set GEMFIRE_HOME environment variable to top of GemFire install directory. Note for this example Gemfire is installed in the home directory of the user - adjust as necessary for local environment and install directory location.
+Set GEMFIRE_HOME environment variable to the top of GemFire install directory. Note for this example Gemfire is installed in the home directory of the user - adjust as necessary for local environment and install directory location.
 
 ```text
 $ export GEMFIRE_HOME=${HOME}/gemfire
@@ -69,10 +66,9 @@ In some environments it may be helpful to configure the JAVA_HOME environmental 
 
 ## Configure Access to GemFire Maven Repository
 
-The quickstart tutorial requires access to the VMware Commercial Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://commercial-repo.pivotal.io/register>.
+The quick start tutorial requires access to the VMware Commercial Maven Repository for the GemFire product jars. Create and account for access to repo at <https://commercial-repo.pivotal.io/register>.
 
-Once sign-up is completed, add the following to the settings.xml file in .m2 directory within the home directory. Make sure to replace the email and
-password with those used during sign-up.
+Once an account has been created, add the following to the `settings.xml` file in .m2 directory within the home directory. Make sure to replace the email and password with those used during account creation.
 
 ```xml
 <settings>
@@ -86,7 +82,25 @@ password with those used during sign-up.
 </settings>
 ```
 
-The pom.xml file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.0.0-beta.1 version of the product.
+The `pom.xml` file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.0.0-beta.1 version of the product.
+
+## Introduction to GFSH
+
+VMware GemFire provides the command line tool "gfsh" for managing Gemfire clusters.  Gfsh can be used to start and stop members of the cluster along with configure additional features of the product.
+
+Start interactive gfsh shell in a terminal or console window.
+
+```text
+$ gfsh
+    _________________________     __
+   / _____/ ______/ ______/ /____/ /
+  / /  __/ /___  /_____  / _____  /
+ / /__/ / ____/  _____/ / /    / /
+/______/_/      /______/_/    /_/    10.0.0-beta.1
+
+Monitor and Manage VMware GemFire
+gfsh>
+```
 
 ## What is a GemFire Cluster, Locators and Servers?
 
@@ -94,11 +108,11 @@ VMware GemFire is a distributed set of services which is generally referred to a
 
 ## Start a Developer GemFire Cluster
 
-For this tutorial we will will start a basic GemFire cluster for development with one locator and server.
+For this tutorial we will start a basic GemFire cluster for development with one locator and server.
 
 Now start the development cluster with one locator and one server. This command will map the locator port to 10334 and the server port to 40404.  Keep this in mind as this is only a minimal cluster useful for local development. A production ready cluster configuration would typically have 2 locators and 3-5 servers to provide redundancy.
 
-Start GemFire Locator on default port 10334, locator artifacts such as logs stored in ${HOME}/locator.
+Start a GemFire Locator on default port 10334. The locator artifacts, such as log files, are stored in ${HOME}/locator.
 
 ```text
 $ gfsh start locator --name=locator --dir=${HOME}/locator
@@ -119,7 +133,7 @@ Cluster configuration service is up and running.
 
 ```
 
-Start a GemFire Server with default cacheserver port of 40404.
+Start a GemFire Server with default a cache-server port of 40404.
 
 ```text
 $ gfsh -e "connect" -e "start server --dir=${HOME}/server --name=server"
@@ -149,23 +163,6 @@ Class-Path: /home/<username>/vmware-gemfire-10.0.0-beta.1/lib/gemfire-core-10.0.
 
 A minimal GemFire cluster should now be available to use.
 
-## Introduction to GFSH
-
-VMware GemFire provides the command line tool "gfsh" for managing Gemfire clusters.  Gfsh can be used to start and stop members of the cluster along with configure additional features of the product.
-
-Start interactive gfsh shell.
-
-```text
-$ gfsh
-    _________________________     __
-   / _____/ ______/ ______/ /____/ /
-  / /  __/ /___  /_____  / _____  /
- / /__/ / ____/  _____/ / /    / /
-/______/_/      /______/_/    /_/    10.0.0-beta.1
-
-Monitor and Manage VMware GemFire
-gfsh>
-```
 
 Next use the *connect* command to access the default locator at localhost and port 10334 for performing management tasks on the running GemFire cluster.
 
@@ -181,7 +178,7 @@ You are connected to a cluster of version 10.0.0-beta.1.
 ```
 
 The above response is an affirmative connection to the locator at localhost and port 10334
-and should now be connected for doing management of the GemFire cluster.
+and should now be ready to manage the GemFire cluster.
 
 Now use the gfsh interactive shell to issue a basic management command to list the members in the cluster.
 
@@ -197,12 +194,12 @@ server | test-javaclient(server:534075)<v1>:41001
 
 ```
 
-The above response of the "list members" command should show two members in the cluster.
+The above response of the `list members` command should show two members in the cluster.
 
 There are multiple useful commands provided by gfsh to configure and manage GemFire clusters,
 the *help* command will list them and the gfsh interactive shell has tab completion to help with determining options for each command. For additional information checkout the [GFSH documation](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-chapter_overview.html) .
 
-## Create a server Region
+## Create a Region
 
 A [Region](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-region_options-chapter_overview.html) is the core structure in the server for holding and managing key-value data in GemFire, it is similar to a hashmap but is distributed across the server members.
 

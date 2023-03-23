@@ -91,33 +91,11 @@ To add Spring Boot for VMware GemFire to a project:
 
 1. After you have set up the repository and credentials, add the Spring Boot for VMware GemFire dependency to your application.
 
-   For version 1.0.0:
-
-    * **Maven**: Add the following to your `pom.xml` file. Replace `VERSION` with the current version of Spring Boot for VMware GemFire available.
-
-        ```
-        <dependencies>
-            <dependency>
-                <groupId>com.vmware.gemfire</groupId>
-                <artifactId>spring-boot-2.7-gemfire-9.15</artifactId>
-                <version>VERSION</version>
-            </dependency>
-        </dependencies>
-        ```
-
-    * **Gradle**: Add the following to your `build.gradle` file. Replace `VERSION` with the current version of Spring Boot for VMware GemFire available.
-
-        ```
-        dependencies {
-            implementation "com.vmware.gemfire:spring-boot-2.7-gemfire-9.15:VERSION"
-        }
-        ```
-
-   For version 1.1.0 and later:
+   ### For version 1.1.0+
 
    Starting in version 1.1.0, you will be required to "Bring Your Own GemFire," which will allow for improved flexibility with GemFire patch versions. In addition to the Spring Boot for VMware GemFire dependency, you must add an explicit dependency on the desired version of GemFire. The required dependencies will differ for clients and servers.
 
-   For clients:
+   #### For clients
 
     * **Maven**: Add the following to your `pom.xml` file. Replace `VERSION` with the current version of Spring Boot for VMware GemFire available and `GEMFIRE_VERSION` with the version of VMware GemFire being used for the project.
 
@@ -153,11 +131,11 @@ To add Spring Boot for VMware GemFire to a project:
         }
         ```
 
-   For servers:
 
-   NOTE: The server dependencies are only required if the user is starting an embedded GemFire server using Spring.
+   #### For servers
+   > NOTE: The server dependencies are only required if the user is starting an embedded GemFire server using Spring.
 
-    * **Maven**: Add the following to your `pom.xml` file. Replace `VERSION` with the current version of Spring Boot for VMware GemFire available and `GEMFIRE_VERSION` with the version of VMware GemFire being used for the project.
+   * **Maven**: Add the following to your `pom.xml` file. Replace `VERSION` with the current version of Spring Boot for VMware GemFire available and `GEMFIRE_VERSION` with the version of VMware GemFire being used for the project.
 
         ```
         <dependency>
@@ -189,7 +167,29 @@ To add Spring Boot for VMware GemFire to a project:
         }
         ```
 
-1. Your application is now ready to connect with your GemFire instance.
+### For version 1.0.0
+
+   * **Maven**: Add the following to your `pom.xml` file. Replace `VERSION` with the current version of Spring Boot for VMware GemFire available.
+
+        ```
+        <dependencies>
+            <dependency>
+                <groupId>com.vmware.gemfire</groupId>
+                <artifactId>spring-boot-2.7-gemfire-9.15</artifactId>
+                <version>VERSION</version>
+            </dependency>
+        </dependencies>
+        ```
+
+   * **Gradle**: Add the following to your `build.gradle` file. Replace `VERSION` with the current version of Spring Boot for VMware GemFire available.
+
+        ```
+        dependencies {
+            implementation "com.vmware.gemfire:spring-boot-2.7-gemfire-9.15:VERSION"
+        }
+        ```
+
+Your application is now ready to connect with your GemFire instance.
 
 ## Modules
 
