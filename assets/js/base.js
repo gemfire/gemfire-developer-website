@@ -275,18 +275,6 @@ limitations under the License.
     });
   });
 
-  var check = isTvShowLive();
-  if (check) {
-    document.getElementsByClassName("td-main")[0].style.marginTop = 40;
-    var liveShowElement = document.getElementById("live-show-name");
-    if (liveShowElement != null) liveShowElement.innerHTML = liveShowName;
-    var liveNotify = document.getElementById("live-notify");
-    if (liveNotify != null) {
-      liveNotify.href = liveShowLink;
-      liveNotify.style.display = "block";
-    }
-  }
-
   function bottomPos(element) {
     return element.offset().top + element.outerHeight();
   }
