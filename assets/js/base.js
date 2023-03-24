@@ -98,6 +98,32 @@ limitations under the License.
     $("#scope").removeClass();
   });
 
+  //Header search
+  $("header li .search-icon").click(function () {
+    console.log("cliickee");
+    $("#search-nav").slideToggle();
+    //$(this).toggleClass('close');
+    $("#searchheaderform input").focus();
+  });
+
+  $("header li .search-icon").keypress(function (e) {
+    if (e.which == 13) {
+      $("#search-nav").slideToggle();
+      $("#searchheaderform input").focus();
+    }
+  });
+
+  $("#search-nav").on('keydown', function(event) {
+    if (event.key == "Escape") {
+      $("#search-nav").slideToggle();
+    }
+  });
+
+  $(".search-hide").click(function () {
+    $("#search-nav").slideToggle();
+    $(this).toggleClass("close");
+    $("#searchheaderform input").focus();
+  });
 
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
@@ -444,32 +470,6 @@ limitations under the License.
         });
       }
     });
-  });
-
-  //Header search
-  $("header li .search-icon").click(function () {
-    $("#search-nav").slideToggle();
-    //$(this).toggleClass('close');
-    $("#searchheaderform input").focus();
-  });
-
-  $("header li .search-icon").keypress(function (e) {
-    if (e.which == 13) {
-      $("#search-nav").slideToggle();
-      $("#searchheaderform input").focus();
-    }
-  });
-
-  $("#search-nav").on('keydown', function(event) {
-    if (event.key == "Escape") {
-      $("#search-nav").slideToggle();
-    }
-  });
-
-  $(".search-hide").click(function () {
-    $("#search-nav").slideToggle();
-    $(this).toggleClass("close");
-    $("#searchheaderform input").focus();
   });
 
   // Featured Quickstarts
