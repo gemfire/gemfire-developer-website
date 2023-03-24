@@ -42,7 +42,6 @@ limitations under the License.
     $('.dropdown').removeClass('show');
     $("header + .container-fluid").removeClass("dim");
     $("#navbar").removeClass("dropShadow");
-    console.log("removeNavClasses end")
   }
 
   $('#install-navBarItem').mouseenter(function () {
@@ -89,7 +88,6 @@ limitations under the License.
     $(".dropdown").removeClass("show");
     var parentDropdown = $(this).closest(".dropdown")
     parentDropdown.addClass("show");
-    console.log("closest is:" + parentDropdown + " with id:" + parentDropdown.attr("id"));
     $("#scope").addClass(parentDropdown.attr("id") + "-scope");
   });
 
@@ -100,7 +98,6 @@ limitations under the License.
 
   //Header search
   $("header li .search-icon").click(function () {
-    console.log("cliickee");
     $("#search-nav").slideToggle();
     //$(this).toggleClass('close');
     $("#searchheaderform input").focus();
