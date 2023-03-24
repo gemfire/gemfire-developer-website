@@ -62,6 +62,8 @@
     .nav-link {
         text-transform: none;
         font-weight: $font-weight-normal;
+        -webkit-font-smoothing: antialiased;
+
     }
 
     @include media-breakpoint-down(md) {

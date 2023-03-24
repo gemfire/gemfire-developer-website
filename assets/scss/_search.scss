@@ -10,6 +10,7 @@
     position: relative;
     cursor: pointer;
     z-index: 100;
+    margin-left: 15px;
 }
   
 .search .search-icon svg:nth-child(2) {
@@ -65,7 +66,7 @@
   
 #search-nav {
     background: #31424F;
-    position: absolute;
+    position: fixed;
     top: 79px;
     width: 100%;
     padding: 18px 0 18px 18px;
