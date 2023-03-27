@@ -36,8 +36,7 @@
                     {{ if isset .Params "brighttalk_commid" }}
                         <div class="filter-item flex-315 mr-0 mr-lg-3 mb-lg-3 mb-2 {{ range .Params.tags }}{{ . | lower | urlize }} {{ end }} ">
                             <h2 class="fs-p"><a href="{{ .RelPermalink }}">{{- .Title -}}</a></h2>
-                            <a class="youtube-container"><div></div><script src="https://www.brighttalk.com/clients/js/player-embed/player-embed.js" class="jsBrightTALKEmbed"> { "channelId" : 14883, "commid" : {{ .Params.brighttalk_commid }},
-                                "height" : "234", "width" : "100%", "displayMode" : "standalone" }</script></div></a>
+                            <a href="{{ .RelPermalink }}" ><img src="{{ .Params.brighttalk_thumbnail }}"></a>
                         </div>
                     {{ end }}
                 {{ end }}

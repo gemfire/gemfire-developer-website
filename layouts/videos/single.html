@@ -16,7 +16,12 @@
         <div class="col-lg-9 col-12 px-0">
             <h2 class="mb-4"> {{- .Title -}}</h2>
             <div class="youtube-video-shortcode">
+            {{ if isset .Params "youtube_id" }}
                 <iframe src="https://www.youtube.com/embed/{{ .Params.youtube_id }}" frameborder="0" allowfullscreen></iframe>
+            {{ else }}
+                <script src="https://www.brighttalk.com/clients/js/player-embed/player-embed.js" class="jsBrightTALKEmbed"> { "channelId" : 14883, "commid" : {{ .Params.brighttalk_commid }},
+                    "height" : "100%", "width" : "100%", "displayMode" : "standalone" }</script>
+            {{ end }}
             </div>
         </div>
     </div>
