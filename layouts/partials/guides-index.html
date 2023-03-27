@@ -7,10 +7,17 @@
 
     {{ $guides := where .Site.Pages "Section" "tutorials" }}
 
-    {{ range $topicgroups }}
+    {{ $parents := (slice) }}
+    {{ range $guides  }}
+        {{ $parents = union $parents ( slice .Params.parent )}}
+    {{ end }}
+
+    {{ $parents := sort $parents "value" "desc" }}
+
+    {{ range  $parents }}
         <h2>{{ . }}</h2>
         <div class="row mb-5">
-            {{ $pages := where $guides ".Params.topicgroups" . }}
+            {{ $pages := where $guides ".Params.parent" . }}
             {{ range $pages }}
                     <div class="flex-315 mr-3 mb-3">
                         <a class="linked-box td-box--gray-dark px-4 py-2" href="{{ .RelPermalink }}">
