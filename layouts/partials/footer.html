@@ -1,10 +1,11 @@
 {{ $links := .Site.Params.links }}
+{{$icon_path := "images/icons/icon-gemfire" }}
 <footer class="td-box--gray-dark py-5 pb-3 d-print-none">
 <div class='container'>
   <div class="container-fluid px-3 px-lg-0">
     <div class="row justify-content-between">
       <div class="col-12 col-sm-6 col-lg-8 pl-0">
-
+        <img alt="" class="icon mr-3" src="{{ $icon_path | relURL }}.svg"/>
         <div class='copyright-legal-links mt-3'>
           {{ with .Site.Params.copyright }}<small class="text-white">&copy; {{ now.Year}} VMware, Inc </small>{{ end }}
           {{ with .Site.Params.terms_of_use }}<small class="ml-1"><a href="{{ . }}" target="_blank">{{ T "footer_terms_of_use" }}</a></small>{{ end }}
