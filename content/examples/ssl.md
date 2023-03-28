@@ -4,7 +4,7 @@ description: Demonstrates basic SSL connection of a client with a GemFire Cache 
   This application leverages the CRUD-ops example, which should be reviewed prior
   starting.
 lastmod: '2021-05-28'
-repo: https://github.com/gemfire/node-examples
+repo: https://github.com/gemfire/node-examples/tree/develop/ssl
 title: Node.js - SSL
 tags:
   - Node.js

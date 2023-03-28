@@ -3,7 +3,7 @@ date: '2021-05-28'
 description: 'Provides a simple book-serving app which uses the data service as a
   system of record. '
 lastmod: '2021-05-28'
-repo: https://github.com/gemfire/node-examples
+repo: https://github.com/gemfire/node-examples/tree/develop/book-service
 title: Node.js - Book Service
 tags:
 - Node.js

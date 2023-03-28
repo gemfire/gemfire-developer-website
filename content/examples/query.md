@@ -3,7 +3,7 @@ date: '2021-05-28'
 description: A simple JavaScript application that demonstrates executing a query on
   a VMware GemFire cluster.
 lastmod: '2021-05-28'
-repo: https://github.com/gemfire/node-examples
+repo: https://github.com/gemfire/node-examples/tree/develop/query
 title: Node.js - Query
 tags:
   - Node.js

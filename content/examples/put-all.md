@@ -4,7 +4,7 @@ description: A simple JavaScript application that demonstrates basic putAll and 
   operations on VMware GemFire cluster. This application leverages the CRUD-ops example,
   which you should review prior starting.
 lastmod: '2021-05-28'
-repo: https://github.com/gemfire/node-examples/tree/master/put-all
+repo: https://github.com/gemfire/node-examples/tree/develop/put-all
 title: Node.js - Put All
 tags:
   - Node.js
