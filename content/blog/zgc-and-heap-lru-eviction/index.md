@@ -60,7 +60,7 @@ The _Heap Usage_ graph shows the minimum and maximum heap usage during the "barr
 #### Collection Headroom
 ZGC tries to keep heap usage below `SoftMaxHeapSize`. As the _Heap Usage_ graph shows, ZGC can meet this goal only if it has sufficient _collection headroom:_ the difference between `SoftMaxHeapSize` and long-lived heap usage.
 
-The orange zone on the left side of the graph shows what happens if the collection headroom is too low, given the rate of garbage production: ZGC cannot collect garbage fast enough to keep heap usage below `SoftMaxHeapSize`.
+The orange zone on the left side of the graph shows what happens if the collection headroom is too low: Given the rate of garbage production, ZGC cannot collect garbage fast enough to keep heap usage below `SoftMaxHeapSize`.
 
 Note that the first scenario sets `SoftMaxHeapSize` to 40% of max heap size. This is _below_ the long-lived heap usage (40.5% of max heap size). Having _negative_ collection headroom makes it impossible for ZGC to keep heap usage below `SoftMaxHeapSize`. Even in this impossible scenario, heap usage exceeded `SoftMaxHeapSize` by at most about 8% of max heap size.
 
@@ -81,11 +81,17 @@ If `SoftMaxHeapUsage` is set too high (above or too close to the eviction thresh
 Here's what heap usage looks like during "negative collection headroom" scenario:
 ![Insufficient Collection Headroom](images/long-lived-40-smhs-40-heap-usage.gif)
 
-The red line shows current heap usage as collected by GemFire's statistics sampler. The blue line shows "collection usage," the amount of heap in use at the end of the most recent garbage collection cycle. The straight brown line at the top of the graph shows the eviction threshold.
+The red line shows current heap usage as sampled by GemFire's statistics sampler. "Collection used memory" is the amount of heap that was in use at the end of the most recent garbage collection cycle.
 
+Note that heap usage never strays far from collection usage. This is a sign of insufficient collection headroom. As we will see below, this results in very frequent collections, which impacts operation throughput.
 
-**Insufficient Eviction Headroom**
+**Insufficient Eviction Headroom.**
+Here's a graph of heap usage during the scenario where `SoftMaxHeapSize` is set above the eviction threshold, at 70% of max heap size:
 ![Over-Eviction](images/long-lived-40-smhs-70-heap-usage.gif)
+
+Heap usage (red) shows frequent excursions above the eviction threshold (the horizontal brown line). The collection usage (blue) shows the effect of evicting entries. As entries are evicted from the cache, the long-lived heap usage drops.
+
+Collections are far less frequent in this scenario compared to the "insufficient collection headroom" scenario of the previous graph. But the cost is that many entries are evicted, increasing the likelihood of cache misses.
 
 **Sufficient Collection Headroom and Eviction Headroom**
 ![Sufficient Collection Headroom](images/long-lived-40-smhs-56-heap-usage.gif)
@@ -103,14 +109,13 @@ The throughput curve is subtly S-shaped, with a slightly higher slope in the mid
 ### Collections
 
 **NOTE:**
-- These collection times are clock time, not CPU time. So they do not take the number of workers into account.
-- Everything I say about CPU time below is incorrect.
+These collection times are clock time, not CPU time.
 
 ![Total Collection Time](images/long-lived-40-total-collection-time.png)
 
-When `SoftMaxHeapSize` is too low, and ZGC does not have enough collection headroom, ZGC triggers garbage collections at the rate of 2 per second. The total CPU time used by these collections is 2 minutes, which means that the scenario keeps 1 of the instance's 16 CPUs busy for the entire 2 minutes.
+When `SoftMaxHeapSize` is too low, and ZGC does not have enough collection headroom, ZGC triggers garbage collections at the rate of 2 per second.
 
-As `SoftMaxHeapSize` rises, each collection takes more time, but the frequency of collections falls faster than mean collection time rises. As a result, total collection time drops to about 60 seconds, consuming about half of a CPU on average over the 2 minutes.
+As `SoftMaxHeapSize` rises, each collection takes more time, but the frequency of collections falls faster than mean collection time rises.
 
 ![Collections](images/long-lived-40-collections.png)
 
