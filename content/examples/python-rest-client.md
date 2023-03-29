@@ -1,3 +1,19 @@
+---
+data-featured: false
+date: '2023-03-29'
+description: A guide to using the GemFire REST API from a Python client.
+lastmod: '2023-03-29'
+link-title: REST Client in Python
+parent: REST API
+title: REST Client in Python
+topic: REST Client in Python
+grouptitle: "REST Client in Python"
+tags:
+- python
+- rest
+type: examples
+repo: https://github.com/gemfire/gemfire-examples/blob/main/use-cases/restClient.py
+---
 ## GemFire REST Client in Python
 
 At the end of this article is an example Python script that accesses a GemFire client using the REST API.
@@ -32,7 +48,7 @@ gfsh> create region --name=demoRegion --type=REPLICATE
 ```
 gfsh> exit
 ```
-8. Using python3, run the python example. Here is the code:
+8. Using python3, run the python example. The code is available Here is the code:
 
 ```python
 #!/usr/bin/env python3
