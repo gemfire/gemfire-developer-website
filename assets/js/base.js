@@ -44,9 +44,38 @@ limitations under the License.
     $("#navbar").removeClass("dropShadow");
   }
 
+  $('#download-navBarItem').mouseenter(function () {
+    $("#download-navBarItem").addClass("show");
+    $("#documentation-navBarItem").removeClass("show");
+    $("#quickstart-navBarItem").removeClass("show");
+    $("#learn-navBarItem").removeClass("show");
+    $("#install-navBarItem").removeClass("show");
+    dimBody();
+  });
+
   $('#install-navBarItem').mouseenter(function () {
     $("#install-navBarItem").addClass("show");
     $("#documentation-navBarItem").removeClass("show");
+    $("#quickstart-navBarItem").removeClass("show");
+    $("#learn-navBarItem").removeClass("show");
+    $("#download-navBarItem").removeClass("show");
+    dimBody();
+  });
+
+  $("#quickstart-navBarItem").mouseenter(function () {
+    $("#quickstart-navBarItem").addClass("show");
+    $("#documentation-navBarItem").removeClass("show");
+    $("#install-navBarItem").removeClass("show");
+    $("#learn-navBarItem").removeClass("show");
+    $("#download-navBarItem").removeClass("show");
+    dimBody();
+  });
+
+  $('#learn-navBarItem').mouseenter(function () {
+    $("#learn-navBarItem").addClass("show");
+    $("#documentation-navBarItem").removeClass("show");
+    $("#install-navBarItem").removeClass("show");
+    $("#quickstart-navBarItem").removeClass("show");
     $("#download-navBarItem").removeClass("show");
     dimBody();
   });
@@ -54,29 +83,9 @@ limitations under the License.
   $('#documentation-navBarItem').mouseenter(function () {
     $("#documentation-navBarItem").addClass("show");
     $("#install-navBarItem").removeClass("show");
+    $("#quickstart-navBarItem").removeClass("show");
+    $("#learn-navBarItem").removeClass("show");
     $("#download-navBarItem").removeClass("show");
-    dimBody();
-  });
-
-  $('#examples-navBarItem').mouseenter(function () {
-    $("#documentation-navBarItem").removeClass("show");
-    $("#install-navBarItem").removeClass("show");
-    $("#download-navBarItem").removeClass("show");
-    dimBody();
-  });
-
-
-  $('#blog-navBarItem').mouseenter(function () {
-    $("#documentation-navBarItem").removeClass("show");
-    $("#install-navBarItem").removeClass("show");
-    $("#download-navBarItem").removeClass("show");
-    dimBody();
-  });
-
-  $('#download-navBarItem').mouseenter(function () {
-    $("#download-navBarItem").addClass("show");
-    $("#documentation-navBarItem").removeClass("show");
-    $("#install-navBarItem").removeClass("show");
     dimBody();
   });
 

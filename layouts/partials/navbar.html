@@ -28,11 +28,11 @@
 				{{ if .HasChildren }}
 				{{ $curtopic := "invalid" }}
 
-				<div id={{ lower (replace .Name "." "") }}-navBarItem class="nav-item dropdown d-lg-block mr-4 mb-0">
+				<div id={{ lower (replace (replace .Name "." "") " " "") }}-navBarItem class="nav-item dropdown d-lg-block mr-4 mb-0">
 					<a class="nav-link dropdown-toggle" href="{{.URL}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						{{ .Name }}<span class="nav-arrow" ></span>
 					</a>
-					<div id={{ lower (replace .Name "." "") }}-drop-menu class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
+					<div id={{ lower (replace (replace .Name "." "") " " "") }}-drop-menu class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
 						{{ range .Children }}
 						{{ if ne .Params.topicgroups $curtopic }}
 							{{ $curtopic = .Params.topicgroups }}
