@@ -350,4 +350,4 @@ To delete all the persistent volume claim listed, run the following command
  
  Now that you have successfully created a running VMware GemFire cluster on Kubernetes, check out some other guides.
   
- * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/data/gemfire/guides/session-state-cache-sbgf).
+ * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/session-state-cache-sbgf).

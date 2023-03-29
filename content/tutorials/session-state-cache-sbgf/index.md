@@ -44,10 +44,10 @@ To complete this guide you need:
 
 
 **If running on Tanzu Application Service**
-* A [VMware GemFire for TAS service instance](/data/gemfire/guides/get-started-gf4tas-sbgf/) on the Tanzu Application Service.
+* A [VMware GemFire for TAS service instance](/tutorials/get-started-gf4tas-sbgf/) on the Tanzu Application Service.
 
 **If running on Kubernetes**
-* A [VMware GemFire for Kubernetes Cluster](/data/gemfire/guides/get-started-gf4k8s-sbgf/).
+* A [VMware GemFire for Kubernetes Cluster](/tutorials/get-started-gf4k8s-sbgf/).
 
     For this example:
      * Our **namespace** is `notes-app`
@@ -279,7 +279,7 @@ public class SessionControllerTest {
 Navigate to the root of the project  in a command line and run the Spring Boot run command.
 
 ### Start a VMware GemFire cluster
-Follow the instructions in the [Getting Started Locally](/data/gemfire/guides/get-started-locally-sbgf/) guide to start a small GemFire cluster on your local machine.
+Follow the instructions in the [Getting Started Locally](/tutorials/get-started-locally-sbgf/) guide to start a small GemFire cluster on your local machine.
 
 ### Build the App
 Once you have a cluster running, in a new terminal, navigate to the root of the project and build the app.  
@@ -325,7 +325,7 @@ When the app is running, open a browser and go to <http://localhost:8080>.
  
  {{% alert title="VMware GemFire Service Instance" color="warning" %}}
   To deploy the application to the Tanzu Application
-   Service (TAS) make sure you have [created a VMware GemFire service instance](/data/gemfire/guides/get-started-gf4tas-sbgf/).
+   Service (TAS) make sure you have [created a VMware GemFire service instance](/tutorials/get-started-gf4tas-sbgf/).
  {{% /alert %}} 
  
 
@@ -347,7 +347,7 @@ When the app is running, open a browser and go to <http://localhost:8080>.
  
         
  {{% alert title="VMware GemFire for Kubernetes Cluster" color="warning" %}}
- To deploy the Session State Example application on Kubernetes make sure you have [created a VMware GemFire cluster on Kubernetes](/data/gemfire/guides/get-started-gf4k8s-sbgf/) using the **namespace** and **GemFire cluster** names below.
+ To deploy the Session State Example application on Kubernetes make sure you have [created a VMware GemFire cluster on Kubernetes](/tutorials/get-started-gf4k8s-sbgf/) using the **namespace** and **GemFire cluster** names below.
  
  For this example:
  * Our **namespace** is `notes-app`

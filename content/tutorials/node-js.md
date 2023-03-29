@@ -23,5 +23,5 @@ Using VMware GemFire for storing and accessing data can dramatically improve bot
 
 ## Guides
 
-- [Getting Started Locally](/data/gemfire/guides/get-started-locally-node-js/): A guide to help get your local development environment up and running.
-- [Getting Started with VMware GemFire for TAS](/data/gemfire/guides/get-started-tgf4vms-node-js/): A guide to help set up a VMware GemFire for Tanzu Application Service service instance on the Tanzu Application Service.
+- [Getting Started Locally](/tutorials/get-started-locally-node-js/): A guide to help get your local development environment up and running.
+- [Getting Started with VMware GemFire for TAS](/tutorials/get-started-tgf4vms-node-js/): A guide to help set up a VMware GemFire for Tanzu Application Service service instance on the Tanzu Application Service.
