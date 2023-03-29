@@ -85,6 +85,7 @@ Let's look at how heap usage is affected by different settings of `SoftMaxHeapSi
 
 #### Insufficient Collection Headroom
 Here's what heap usage looks like during "negative collection headroom" scenario:
+
 ![Insufficient Collection Headroom](images/long-lived-40-smhs-40-heap-usage.gif)
 
 Current usage never strays far from collection usage. This is a sign of insufficient collection headroom. Because current memory usage remains above `SoftMaxHeapSize` during the entire sustained updates phase, ZGC collects garbage continuously.
@@ -93,6 +94,7 @@ Note also that during the sustained updates phase, the ZHeap Collection Used Mem
 
 #### Insufficient Eviction Headroom
 The heap usage pattern is very different when `SoftMaxHeapSize` is set above the eviction threshold, at 70% of max heap size:
+
 ![Insufficient Eviction Headroom](images/long-lived-40-smhs-70-heap-usage.gif)
 
 In this scenario, ZHeap Current Used Memory shows frequent excursions above the eviction threshold. The result is that GemFire evicts entries from memory, which is reflected in the declining ZHeap Collection Used Memory.
@@ -101,6 +103,7 @@ As we will see, collections are far less frequent in this scenario compared to t
 
 #### Sufficient Collection Headroom and Eviction Headroom
 In this scenario, `SoftMaxHeapSize` is set well below the eviction threshold and well above the long-lived heap usage:
+
 ![Sufficient Collection Headroom](images/long-lived-40-smhs-56-heap-usage.gif)
 
 This gives the system sufficient collection headroom below `SoftMaxHeapSize` and sufficient eviction headroom above. Tuned in this way, ZGC keeps heap usage well away from the eviction threshold, allowing the system to avoid eviction. And it is able to do this with relatively infrequent garbage collections.
@@ -109,33 +112,33 @@ Note that the requirements for eviction headroom and collection headroom depend 
 
 ### Throughput
 As `SoftMaxHeapSize` rises, application throughput rises (puts per second):
+
 ![Throughput](images/long-lived-40-throughput.png)
 
-In these scenarios, 16 threads performed fixed-size puts as fast as possible for 2 minutes. Note that these client threads executed in a separate JVM, but on the same GCP instance as the GemFire server. So these client threads competed with both the server and ZGC for the instance's 16 CPUs.
+In these scenarios, 16 client threads performed fixed-size puts as fast as possible for 2 minutes. Note that these client threads executed in a separate JVM, but on the same GCP instance as the GemFire server. So the client threads competed with the server operations and with ZGC for the instance's 16 CPUs.
 
-The throughput curve is subtly S-shaped, with a slightly higher slope in the middle of the graph than at either end. When `SoftMaxHeapSize` is set too low, the garbage collection tasks interfere with performance, keeping throughput slightly flatter on the left side of the graph. The graph also flattens subtly at the right side of the graph, perhaps suggesting that throughput is approaching some unidentified limit.
+The throughput curve is subtly S-shaped, with a slightly higher slope in the middle of the graph than at either end. When `SoftMaxHeapSize` is set too low, the garbage collection tasks interfere with performance, keeping throughput slightly flatter on the left side of the graph. The graph also flattens subtly at the right side of the graph, as collection CPU utilization approaches 0.
 
+To see how garbage collection tasks interfere with throughput, let's first look at the mean number of CPUs occupied by garbage collection during each scenario:
 
-### Collections
+![Mean Worker Count](images/long-lived-40-collection-cpu-utilization.png)
 
-**NOTE:**
-These collection times are clock time, not CPU time.
+When ZGC has insufficient collection headroom, collects garbage more often and assigns more threads to the garbage collection tasks. If collection headroom is low enough, as in the scenarios where `SoftMaxHeapSize` was near or even below long-lived heap usage, ZGC kept 4 CPUs busy at nearly all times.
 
-![Total Collection Time](images/long-lived-40-total-collection-time.png)
+If we subtract the number of CPUs busy doing garbage collection from the total number of CPUs, we get the number of CPUs available for other tasks:
 
-When `SoftMaxHeapSize` is too low, and ZGC does not have enough collection headroom, ZGC triggers garbage collections at the rate of 2 per second.
+![Mean Worker Count](images/long-lived-40-cpu-availability.png)
 
-As `SoftMaxHeapSize` rises, each collection takes more time, but the frequency of collections falls faster than mean collection time rises.
+This graph is essentially the same as the throughput graph. The lesson is clear: To maximize throughput, give ZGC plenty of collection headroom.
+
+On a 16 CPU host, ZGC by default uses a maximum of 4 threads for garbage collection. In the scenarios where `SoftMaxHeapSize` is too low, and ZGC does not have enough collection headroom, garbage collection on average keeps nearly 1/4 of the instance's CPUs busy at all times.
 
 ![Collections](images/long-lived-40-collections.png)
 
-![Mean Collection Time](images/long-lived-40-mean-collection-time.png)
+In the scenarios where `SoftMaxHeapSize` is too low, and ZGC does not have enough collection headroom, ZGC performs garbage collections at the rate of 2 per second.
 
-## ZGC Allocation Rate Quirk
-ZGC's heuristics tend to be pessimistic about both allocation rate and garbage collection duration. They assume that the actual allocation rate will usually be higher than recently measured, and the collection time will usually be longer. This pessimism usually allows ZGC to keep actual heap usage safely below its target maximum.
+When `SoftMaxHeapSize` is too low, and ZGC does not have enough collection headroom, ZGC uses a total 464 CPU seconds for the collections. Given that nearly all of the collections occur during the sustained update phase, which lasts 2 minutes, ZGC is keeping an average of 3.87 CPUs busy at all times.
 
-There is a specific, uncommon circumstance that can fool ZGC into briefly under-performing: A long period of low allocation rate followed by a sudden long period of very high allocation rate. If ZGC samples the allocation rate just as it begins to rise, the Allocation Rate heuristic can significantly under-predict the impending allocation rate. When this happens, ZGC can start a collection that uses too few threads, resulting in a collection task that is too slow to handle the actual, unexpectedly high allocation rate.
+![Collection CPU Time](images/long-lived-40-collection-cpu-time.png)
 
-Even when ZGC's next sample measures the now-higher allocation rate, it will not start a interrupt or adjust the in-progress collection, which will continue with its too few worker threads until it finishes.
-
-The scenarios in my experiments often create this peculiar circumstance.
+As `SoftMaxHeapSize` rises, the average collection CPU time drops off slightly, even as the garbage production rate increases.
