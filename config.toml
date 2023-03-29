@@ -125,33 +125,96 @@ archived_version = false
 #Main Nav Bar Menu Items
 [menu]
   [[menu.main]]
+    identifier = "download"
+    name = "Download"
+    weight = 10
+
+  [[menu.main]]
     identifier = "install"
     name = "Install"
-    weight = 10
+    weight = 20
+
+  [[menu.main]]
+    identifier = "quickstart"
+    name = "Quick Start"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "learn"
+    name = "Learn"
+    weight = 40
 
   [[menu.main]]
     identifier = "documentation"
     name = "Documentation"
+    weight = 50
+
+
+#Quick Start Menu Items
+  [[menu.main]]
+    identifier = "java"
+    name = "Java"
+    parent = "quickstart"
+    weight = 10
+    url = "/quickstart/java"
+
+  [[menu.main]]
+    identifier = "spring"
+    name = "Spring"
+    parent = "quickstart"
     weight = 20
+    url = "/quickstart/spring"
+
+  [[menu.main]]
+    identifier = "nodejs"
+    name = "Node.js"
+    parent = "quickstart"
+    weight = 30
+    url = "/quickstart/nodejs"
+
+  [[menu.main]]
+    identifier = "dotnet"
+    name = ".NET"
+    parent = "quickstart"
+    weight = 40
+    url = "/quickstart/dotnet"
+
+  [[menu.main]]
+    identifier = "cpp"
+    name = "C++"
+    parent = "quickstart"
+    weight = 50
+    url = "/quickstart/cpp"
+
+#Learn Menu Items
+  [[menu.main]]
+    identifier = "tutorials"
+    name = "Tutorials"
+    parent = "learn"
+    weight = 10
+    url = "/tutorials"
+
+  [[menu.main]]
+    identifier = "blogs"
+    name = "Blogs"
+    parent = "learn"
+    weight = 20
+    url = "/blog"
+
+  [[menu.main]]
+    identifier = "videos"
+    name = "Videos"
+    parent = "learn"
+    weight = 30
+    url = "/videos"
 
   [[menu.main]]
     identifier = "examples"
     name = "Examples"
-    Title = 'examples section'
-    weight = 25
-    url = '/examples/'
+    parent = "learn"
+    weight = 40
+    url = "/examples"
 
-  [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    Title = 'blog section'
-    weight = 30
-    url = '/blog/'
-
-  [[menu.main]]
-    identifier = "download"
-    name = "Download"
-    weight = 35
 
 #Install Menu Items
   [[menu.main]]
@@ -267,7 +330,6 @@ archived_version = false
     url = "https://docs.vmware.com/en/VMware-GemFire-Search/1.0/gemfire-search/search_landing.html"
     [menu.main.params]
       topicgroups = "Extensions"
-
 
 #Download Menu Items
   [[menu.main]]
