@@ -378,11 +378,11 @@
   .h1 {
     display: inline-block;
     opacity: 0;
-    font-size: 3.7rem;
+    font-size: 3.3rem;
     animation: fadeIn 1s ease-out 0s forwards;
 
     @media(min-width:992px) {
-      max-width: 500px;
+      max-width: 800px;
     }
   }
   .h1+p {
