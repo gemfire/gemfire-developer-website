@@ -1,4 +1,4 @@
-baseURL = "/gemfire-developer-website"
+baseURL = "https://gemfire.github.io/gemfire-developer-website/"
 title = "VMware Gemfire"
 publishDir = "public"
 contentDir = "content"
