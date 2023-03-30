@@ -6,7 +6,7 @@ lastmod: '2022-08-15'
 link-title: Getting Started with VMware GemFire for Kubernetes
 parent: Spring for VMware GemFire
 title: Getting Started with VMware GemFire for Kubernetes
-type: data-guides
+type: tutorials
 topic: Getting Started with VMware GemFire for Kubernetes
 topicgroups: "Products"
 grouptitle: "Getting Started with VMware GemFire for Kubernetes"

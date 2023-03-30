@@ -11,7 +11,7 @@ topicgroups: "Products"
 grouptitle: "Spring Boot for VMware GemFire"
 layout: topic
 icon: spring
-type: data-guides
+type: tutorials
 weight: 1
 aliases:
     - get-started-locally-sbdg/

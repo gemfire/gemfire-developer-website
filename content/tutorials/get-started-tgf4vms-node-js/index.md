@@ -12,7 +12,7 @@ topicgroups: "Products"
 grouptitle: "Getting Started with VMware GemFire for TAS using Node.js"
 layout: topic
 icon: nodejs
-type: data-guides
+type: tutorials
 weight: 2
 ---
 

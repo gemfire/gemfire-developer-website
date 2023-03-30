@@ -13,7 +13,7 @@ topicgroups: "Clients"
 grouptitle: "Node.js"
 layout: topic
 icon: nodejs
-type: data-guides
+type: tutorials
 weight: 2
 ---
 

@@ -5,7 +5,7 @@ lastmod: '2022-11-17'
 link-title: Session State Caching
 parent: Spring for VMware GemFire
 title: Session State Caching
-type: data-guides
+type: tutorials
 weight: 5
 aliases:
     - session-state-cache-sbdg

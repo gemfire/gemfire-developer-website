@@ -10,7 +10,7 @@ topicgroups: "Clients"
 grouptitle: "Spring for VMware GemFire"
 layout: topic
 icon: spring
-type: data-guides
+type: tutorials
 weight: 1
 aliases:
   - spring-for-apache-geode/
