@@ -1,14 +1,9 @@
 <div class="section-index">
-    <!-- Gather topic groups -->
-    {{ $topicgroups := (slice) }}
-    {{ range (.Site.GetPage "taxonomyTerm" "topicgroups").Pages }}
-        {{ $topicgroups = union $topicgroups ( slice .Title )}}
-    {{ end }}
 
-    {{ $guides := where .Site.Pages "Section" "tutorials" }}
+    {{ $tutorials := where .Site.Pages "Section" "tutorials" }}
 
     {{ $parents := (slice) }}
-    {{ range $guides  }}
+    {{ range $tutorials  }}
         {{ $parents = union $parents ( slice .Params.parent )}}
     {{ end }}
 
@@ -16,8 +11,9 @@
 
     {{ range  $parents }}
         <h2>{{ . }}</h2>
+
         <div class="row mb-5">
-            {{ $pages := where $guides ".Params.parent" . }}
+            {{ $pages := where $tutorials ".Params.parent" . }}
             {{ range $pages }}
                     <div class="flex-315 mr-3 mb-3">
                         <a class="linked-box td-box--gray-dark px-4 py-2" href="{{ .RelPermalink }}">

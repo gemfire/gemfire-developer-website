@@ -24,19 +24,6 @@
 			</li>
 		{{ end }}
 
-		<!-- If the guide has a parent, include in the breadcrumb -->
-		{{ if .Params.parent }}
-			<!-- Lookup section page -->
-			{{ $sspage := index (where .Site.Pages "Params.subsection" .Params.parent) 0 }}
-			<li class="breadcrumb-item active" aria-current="page">
-				<a href="{{ $sspage.RelPermalink }}">{{ $sspage.LinkTitle }}</a>
-			</li>
-
-			<li class="breadcrumb-item active" aria-current="page">
-				<a href="{{ .Parent.RelPermalink }}">{{ .Parent.LinkTitle }}</a>
-			</li>
-		{{ end }}
-
 		<!-- Active page -->
 		<li class="breadcrumb-item active" aria-current="page">
 			<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
