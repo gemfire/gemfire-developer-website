@@ -1,13 +1,11 @@
 ---
-data-featured: false
-date: '2022-10-20'
-description: December 2016 harked the 9.X evolution in GemFire. Now VMware is proud to announce the release of the Beta edition of its next major version – VMware GemFire 10.0.    
-lastmod: '2021-03-21'
 title: VMware GemFire 10.0 - Beta is now open!
+date: '2022-10-20'
+lastmod: '2022-10-20'
 type: videos
-weight: 1
 brighttalk_commid: 571529
 brighttalk_thumbnail: https://cdn.brighttalk.com/ams/california/images/communication/571529/image_896056.png?width=640&height=360
+description: December 2016 harked the 9.X evolution in GemFire. Now VMware is proud to announce the release of the Beta edition of its next major version – VMware GemFire 10.0.    
 ---
 
 With GemFire 10.0, now you get:
