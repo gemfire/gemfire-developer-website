@@ -7,8 +7,6 @@
         {{ $parents = union $parents ( slice .Params.parent )}}
     {{ end }}
 
-    {{ $parents := sort $parents "value" "desc" }}
-
     {{ range  $parents }}
         <h2>{{ . }}</h2>
 
