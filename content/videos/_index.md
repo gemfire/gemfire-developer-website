@@ -1,10 +1,6 @@
 ---
-title: VMware GemFire
-linkTitle: VMware GemFire
+title: Videos
+linkTitle: Videos
 type: videos
-icon: tanzu-gemfire
-dataServiceType: In-memory Data Grid
-description: >
-  Scale your data services on demand to support high-performance, real-time apps.
-  
+description: Videos and Webinars to learn and utilize GemFire
 ---
