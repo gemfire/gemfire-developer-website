@@ -1,7 +1,7 @@
 <div class='d-flex container flex-wrap'>
 
     <div class="section-index flex-1">
-        {{ $pages := (where .Site.Pages "Section" .Section).ByWeight }}
+        {{ $pages := (where .Site.Pages "Section" .Section).ByDate.Reverse }}
         {{ $parent := .Page }}
         {{ if $parent.Params.no_list }}
         {{/* If no_list is true we don't show a list of subpages */}}
