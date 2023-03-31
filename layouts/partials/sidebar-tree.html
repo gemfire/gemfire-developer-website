@@ -29,23 +29,6 @@
 {{ $shouldDelayActive := .delayActive }}
 {{ $show := or (and (not $p.Site.Params.ui.sidebar_menu_compact) ($p.IsAncestor $s)) ($p.IsDescendant $s) }}
 
-{{ if not $ss }} <!-- Top-Level Section -->
-  <ul class="td-sidebar-nav__section">
-  {{ $active := or (eq $p $s) ($p.Params.toppage) }}
-  {{ $l2page := index (where (where $p.Site.Pages "Section" "guides") ".Title" $p.Params.level2) 0 }}
-  {{ $sid := $s.RelPermalink | anchorize }}
-    <li class="td-sidebar-nav__section-title text-wrap" id="{{ $sid }}">
-      <a href="{{ $l2page.RelPermalink }}" class="position-relative align-left flex-nowrap row d-flex align-items-start pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }} td-sidebar-link td-sidebar-link__section"><img alt="" class="position-absolute guide-icon" src='{{ print "images/icons/icon-" ($s.Params.icon | default $s.Title | lower) ".svg" | relURL }}' /><div>{{ $l2page.Title | markdownify }}</div></a>
-    </li>
-{{ else }} <!-- Subsection -->
-  {{ $active := eq $p $c }}
-  {{ $sid := $p.RelPermalink | anchorize }}
-    <li class="td-sidebar-nav__subsection-title" id="{{ $sid }}">
-      {{ $selected := eq $c.Params.parent $p.Params.subsection }}
-      <a href="{{ $p.RelPermalink }}" class="align-left pr-2{{ if not $show }} collapsed{{ end }}{{ if $active}} active{{ end }}{{ if $selected}} selected{{ end }} td-sidebar-link td-sidebar-link__subsection">{{ $p.LinkTitle | markdownify }}</a>
-    </li>
-{{ end }}
-
 {{ $show := or (eq $ss $c.Params.parent) (eq $ss $c.Params.subsection) }}
   <ul class="td-sidebar-nav__{{if ($c)}}sub{{end}}section">
       {{ $pages := where (union $s.Pages $s.Sections) ".Params.toc_hide" "!=" true }}
