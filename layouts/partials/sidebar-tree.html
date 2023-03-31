@@ -8,16 +8,8 @@
       {{if eq .Section "data"}}
       <h5><a href="{{ print .CurrentSection.RelPermalink  }}">{{.CurrentSection.Title}}</a></h5>
       {{else}}
-      <!-- <h5><a href="{{ print .Section | relURL }}">ALL GUIDES</a></h5> -->
-      {{end}}
 
-  <!--
-    {{ if  (gt (len .Site.Home.Translations) 0) }}
-    <div class="nav-item dropdown d-block d-lg-none">
-      {{ partial "navbar-lang-selector.html" . }}
-    </div>
-    {{ end }}
-  -->
+      {{end}}
     {{ template "section-tree-nav-section" (dict "page" . "section" .CurrentSection "delayActive" $shouldDelayActive)  }}
   </nav>
 </div>

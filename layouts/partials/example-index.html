@@ -25,8 +25,7 @@
             </ul>
         {{ else }}
         {{/* Otherwise we show a nice formatted list of subpages with page descriptions */}}
-        <!-- <hr class="panel-line"> -->
-            <!-- <div class="col"> --><div class="row">
+       <div class="row">
             {{ range $pages }}
                 {{ if eq .Parent $parent }}
                 <div class="filter-item flex-305 mr-0 mr-lg-3 mb-3 {{ range .Params.tags }}{{ . | lower | urlize }} {{ end }} ">
@@ -37,7 +36,7 @@
                 </div>
                 {{ end }}
             {{ end }}
-           <!--  </div> --></div>
+          </div>
         {{ end }}
     </div>
 </div>

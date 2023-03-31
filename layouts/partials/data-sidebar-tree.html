@@ -3,18 +3,8 @@
 <div id="td-sidebar-menu" class="td-sidebar__inner{{ if $shouldDelayActive }} d-none{{ end }} nocontent">
     <nav class="collapse td-sidebar-nav pt-2" id="td-section-nav">
 
-
-
         <h5><a href="{{ print .CurrentSection.RelPermalink  }}">{{.CurrentSection.Title}}</a></h5>
 
-
-        <!--
-          {{ if  (gt (len .Site.Home.Translations) 0) }}
-          <div class="nav-item dropdown d-block d-lg-none">
-            {{ partial "navbar-lang-selector.html" . }}
-          </div>
-          {{ end }}
-        -->
         {{ template "data-section-tree-nav-section" (dict "page" . "section" .CurrentSection "delayActive" $shouldDelayActive)  }}
     </nav>
 </div>

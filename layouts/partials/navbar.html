@@ -69,8 +69,6 @@
 
 				<li id="theme-select" class="nav-item ml-lg-2 ml-1 mb-0 position-relative text-nowrap">
 					<div id="theme-square"></div>
-					<!-- <div id="dark-select" class="nav-select"></div>
-					<div id="light-select" class="nav-select"></div> -->
 					<div class="d-flex">
 						<a class="position-relative d-flex justify-content-center align-items-center" id="toggle-dark-mode"><i class="fas fa-moon"></i></a>
 						<a class="position-relative d-flex justify-content-center align-items-center" id="toggle-light-mode"><i class="fas fa-sun mr-0"></i></a>
@@ -129,14 +127,6 @@
 								{{ end }}
 							{{ end }}
 						{{ end }}
-<!--						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Type</p>-->
-<!--						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}-->
-<!--							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>-->
-<!--						{{ end }}-->
-<!--						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Language</p>-->
-<!--						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}-->
-<!--							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>-->
-<!--						{{ end }}-->
 				{{ else }}
 					<li class="mobile-nav-title font-weight-bold mt-4">{{ .Name }}</li>
 					{{ $curtopic := "invalid" }}
