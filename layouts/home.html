@@ -76,11 +76,6 @@
     </div>
 </section>
 
-{{ $blogs := (slice) }}
-{{ range (.Site.GetPage "taxonomyTerm" "blog").Pages }}
-    {{ $blogs = union $blogs ( slice . )}}
-{{ end }}
-{{ $blogs := sort $blogs ".Params.lastmod" }}
 
 <!-- Blogs -->
 <section id="home-blogs" class="pt-2 pb-2 td-box">
@@ -93,7 +88,7 @@
         <div id="blogs-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
             <div class="col-xl-12 w-100">
                 <div id="the-blogs-row" class="row justify-content-between justify-content-center w-100 td-box blogs-row">
-                    {{ range first 3 $blogs }}
+                    {{ range first 3 (where .Site.RegularPages "Section" "blog")  }}
                         <div class="topic-card flex-315 td-box td-box--gray-dark mb-lg-0 mb-3">
                             <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                                 <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
@@ -111,12 +106,6 @@
     </div>
 </section>
 
-{{ $videos := (slice) }}
-{{ range (.Site.GetPage "taxonomyTerm" "videos").Pages }}
-{{ $videos = union $videos ( slice . )}}
-{{ end }}
-
-{{ $videos := sort $videos ".Params.lastmod" }}
 
 <!-- Videos -->
 <section id="home-videos" class="pt-4 pb-2 td-box">
@@ -129,7 +118,7 @@
     <div id="videoss-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
             <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
                 <div id="the-videos-row" class="row justify-content-between justify-content-center w-100 td-box videos-row m-0">
-                    {{ range first 3 $videos }}
+                    {{ range first 3 (where .Site.RegularPages "Section" "videos")  }}
                     <div class="topic-card flex-315 td-box--gray-850 mb-lg-0 mb-3">
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                             <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
@@ -147,13 +136,6 @@
     </div>
 </section>
 
-{{ $examples := (slice) }}
-{{ range (.Site.GetPage "taxonomyTerm" "examples").Pages }}
-    {{ $examples = union $examples ( slice . )}}
-{{ end }}
-
-{{ $examples := sort $examples ".Params.lastmod" }}
-
 <!-- Examples -->
 <section id="home-examples" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
@@ -165,7 +147,7 @@
         <div id="examples-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all m-0">
             <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
                 <div id="the-examples-row" class="row justify-content-between justify-content-center w-100 td-box examples-row m-0">
-                    {{ range first 3 $examples }}
+                    {{ range first 3 (where .Site.RegularPages "Section" "examples")  }}
                     <div class="topic-card flex-315 td-box--gray-dark mb-lg-0 mb-3">
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                             <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
