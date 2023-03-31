@@ -9,7 +9,7 @@ tags:
   - Redis
   - Spring
 type: examples
-weight: 2
+weight: 
 ---
 
 This repo contains examples of converting Spring Session Data Redis applications to use Spring Boot for Apache Geode to store HTTP session state data.   Each example app has its own README, and resides in its own directory within this repository:

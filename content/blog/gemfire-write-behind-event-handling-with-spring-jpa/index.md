@@ -1,12 +1,11 @@
 ---
+title: GemFire Write-Behind Event Handling with Spring JPA
 date: 2020-06-12
-description: A small project to show how VMware GemFire write-behind event handling
-  can be implemented with Spring Data JPA and Spring Boot Data Geode.
 lastmod: '2021-04-22'
 team:
 - Juan Jose Ramos
-title: GemFire Write-Behind Event Handling with Spring JPA
 type: blog
+description: A small project to show how VMware GemFire write-behind event handling can be implemented with Spring Data JPA and Spring Boot for VMware GemFire.
 ---
 
 ## Introduction
@@ -14,7 +13,7 @@ type: blog
 
 [Spring Data JPA](https://spring.io/projects/spring-data-jpa), part of the larger [Spring Data](https://spring.io/projects/spring-data) family, allows the user to easily implement JPA based repositories. The module itself deals with enhanced support for JPA based data access layers and makes it easier to build Spring-powered applications that use data access technologies.
 
-[Spring Boot Data GemFire](https://docs.spring.io/spring-boot-data-geode-build/1.3.x/reference/html5/) provides the convenience of [Spring Boot’s](https://spring.io/projects/spring-boot) convention over configuration approach using auto-configuration with the Spring Framework’s powerful abstractions and highly consistent programming model to truly simplify the development of VMware GemFire applications in a Spring context.
+[Spring Boot For GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html) provides the convenience of [Spring Boot’s](https://spring.io/projects/spring-boot) convention over configuration approach using auto-configuration with the Spring Framework’s powerful abstractions and highly consistent programming model to truly simplify the development of VMware GemFire applications in a Spring context.
 
 ## Why?
 

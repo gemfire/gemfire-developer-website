@@ -1,14 +1,11 @@
 ---
+title: Publishing VMware GemFire Metrics to Wavefront
 date: 2020-03-24
-description: In this particular case, Micrometer provides a simple way to create a
-  Micrometer registry for Wavefront and we’ll plug this registry into an implementation
-  of VMware GemFire’s MetricsPublishingService. This will allow our VMware GemFire Cluster
-  to publish metrics to Wavefront.
 lastmod: '2021-04-22'
 team:
 - Jason Huynh
-title: Publishing VMware GemFire Metrics to Wavefront
 type: blog
+description: Micrometer provides a simple way to create a Micrometer registry for Wavefront. In this article we plug this registry into an implementation of VMware GemFire’s MetricsPublishingService. 
 ---
 
 ## Overview

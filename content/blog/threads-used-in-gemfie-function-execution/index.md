@@ -1,12 +1,11 @@
 ---
-date: 2020-07-31
-description: This article describes several common Function execution use cases and
-  which threads processes those requests.
+title: Threads Used in VMware GemFire Function Execution
 lastmod: '2021-04-22'
+date: 2020-07-31
 team:
 - Barry Oglesby
-title: Threads Used in VMware GemFire Function Execution
 type: blog
+description: This article describes several common Function execution use cases and which threads processes those requests.
 ---
 
 ## Introduction

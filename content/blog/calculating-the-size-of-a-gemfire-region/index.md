@@ -1,12 +1,12 @@
 ---
+title: Calculating the Size of a VMware GemFire Region
 date: 2020-06-24
-description: This article describes how to use ObjectGraphSizer to calculate the size
-  of a Region.
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Calculating the Size of a VMware GemFire Region
 type: blog
+description: This article describes how to use ObjectGraphSizer to calculate the size
+  of a Region.
 ---
 
 ## Introduction

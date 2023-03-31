@@ -13,7 +13,7 @@ tags:
   - Redis
   - Spring
 type: examples
-weight: 5
+weight: 
 ---
 
 The projects in this directory illustrate a Spring Boot application that creates a publish and subscribe channel with either Redis or VMware GemFire. In this guide, we will highlight the changes necessary for switching from Spring Data Redis to Spring Boot for Apache Geode using a publish/subscribe application.

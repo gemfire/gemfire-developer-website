@@ -1,13 +1,11 @@
 ---
+title: Ingest, Store and Search JSON data with Apache Kafka and GemFire
 date: 2020-03-03
-description: We’ll be ingesting JSON data from a rest endpoint into a Kafka topic.
-  We will sink the data into an GemFire region using the geode-kafka-connector
-  and execute queries against the data.
 lastmod: '2021-04-22'
 team:
 - Jason Huynh
-title: Ingest, Store and Search JSON data with Apache Kafka and GemFire
 type: blog
+description: We’ll be ingesting JSON data from a rest endpoint into a Kafka topic.  We will sink the data into an GemFire region using the geode-kafka-connector and execute queries against the data.
 ---
 
 ## Introduction

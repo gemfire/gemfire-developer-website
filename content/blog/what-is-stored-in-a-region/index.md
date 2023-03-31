@@ -1,14 +1,12 @@
 ---
 title: "What is Stored in a Region"
-description: >
-    This article describes the different RegionEntry and CachedDeserializable types and when they are used.
 date: 2021-05-27
-type: blog
-
-# Author(s)
+lastmod: 2021-05-27
 team:
 - Barry Oglesby
- 
+  
+type: blog
+description: This article describes the different RegionEntry and CachedDeserializable types and when they are used.
 ---
 
 ## Introduction

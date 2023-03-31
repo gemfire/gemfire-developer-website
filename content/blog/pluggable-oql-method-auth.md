@@ -1,17 +1,12 @@
 ---
+title: Pluggable OQL Method Authorization
 date: 2020-02-07
-description: 'VMware GemFire provides a SQL-like query language called OQL that allows
-  users to access data stored within the regions.'
 lastmod: '2021-04-22'
-topic: Pluggable OQL Method Authorization
-topicgroups: "Products"
-grouptitle: "Pluggable OQL Method Authorization"
-layout: topic
-icon: data
 team:
 - Juan Jose Ramos
-title: Pluggable OQL Method Authorization
 type: blog
+description: 'VMware GemFire provides a SQL-like query language called OQL that allows
+  users to access data stored within the regions.'
 ---
 
 ## Introduction

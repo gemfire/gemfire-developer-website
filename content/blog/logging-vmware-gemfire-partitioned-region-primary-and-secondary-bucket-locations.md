@@ -1,14 +1,12 @@
 ---
-data-featured: false
+title: Logging VMware GemFire PartitionedRegion Primary and Secondary Bucket Locations
 date: 2021-09-12
-description: This article provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone.
 lastmod: '2021-09-12'
 team:
 - Barry Oglesby
-title: Logging VMware GemFire PartitionedRegion Primary and Secondary Bucket Locations
-grouptitle: "Logging VMware GemFire PartitionedRegion Primary and Secondary Bucket Locations"
-
 type: blog
+description: This article provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone.
+
 ---
 
 ## Introduction

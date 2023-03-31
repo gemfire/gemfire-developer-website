@@ -1,11 +1,11 @@
 ---
-date: 2020-09-15
-description: This article shows how to get details for each BucketRegion in the PartitionedRegion.
+title: Logging VMware GemFire PartitionedRegion Entry Details Per Bucket
 lastmod: '2021-04-22'
+date: 2020-09-15
 team:
 - Barry Oglesby
-title: Logging Apache Geode PartitionedRegion Entry Details Per Bucket
 type: blog
+description: This article shows how to get details for each BucketRegion in the PartitionedRegion.
 ---
 
 ## Introduction

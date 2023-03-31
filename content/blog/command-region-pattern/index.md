@@ -1,13 +1,13 @@
 ---
+title: The Command Region Pattern
 date: 2020-04-15
-description: The Command Pattern is a behavioral design pattern in which an object
-  is used to encapsulate all information needed to perform an action or trigger an
-  event.
 lastmod: '2021-04-22'
 team:
 - Juan Jose Ramos
-title: The Command Region Pattern
 type: blog
+description: The Command Pattern is a behavioral design pattern in which an object
+  is used to encapsulate all information needed to perform an action or trigger an
+  event.
 ---
 
 ## Introduction

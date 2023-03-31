@@ -1,13 +1,11 @@
 ---
 title: "Transmitting Deltas Between Different Apache Geode Distributed Systems"
-description: >
-    This article describes a way to send the delta bytes between the DistributedSystems instead of sending the entire object bytes.
 date: 2021-03-23
-type: blog
-
-# Author(s)
+lastmod: 2021-03-23
 team:
 - Barry Oglesby
+type: blog
+description: This article describes a way to send the delta bytes between the DistributedSystems instead of sending the entire object bytes.
  
 ---
 ## Introduction

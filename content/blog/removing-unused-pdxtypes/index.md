@@ -1,11 +1,11 @@
 ---
-date: 2020-04-28
-description: A short description of the blog post
+title: Removing Unused PdxTypes from a VMware GemFire Distributed System
 lastmod: '2021-04-22'
+date: 2020-04-28
 team:
 - Barry Oglesby
-title: Removing Unused PdxTypes from a VMware GemFire Distributed System
 type: blog
+description: This article describes a way to remove unused PdxTypes from the Distributed System. 
 ---
 
 ## Introduction

@@ -9,7 +9,7 @@ title: Node.js - SSL
 tags:
   - Node.js
 type: examples
-weight: 3
+weight: 
 ---
 
 This Node.js example demonstrates basic SSL connection of a client with a GemFire Cache cluster. This application leverages the CRUD-ops example, which should be reviewed prior starting. The example works with either a local Apache Geode or VMware GemFire cluster.

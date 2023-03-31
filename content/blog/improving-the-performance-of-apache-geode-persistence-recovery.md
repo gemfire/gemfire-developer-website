@@ -1,11 +1,11 @@
 ---
+title: Improving the Performance of Apache Geode Persistence Recovery
 date: 2020-07-20
-description: This is our journey into how we improved the system recovery performance.
 lastmod: '2021-04-22'
 team:
 - Jianxia Chen
-title: Improving the Performance of Apache Geode Persistence Recovery
 type: blog
+description: This is our journey into how we improved the system recovery performance.
 ---
 
 ## Introduction

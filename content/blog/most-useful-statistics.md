@@ -1,13 +1,11 @@
 ---
 title: "The Most Useful Statistics for Troubleshooting VMware GemFire Deployments"
-description: >
-    This article describes the most useful statistics for troubleshooting VMware GemFire Deployments.
 date: 2021-07-01
-type: blog
-
-# Author(s)
+lastmod: 2021-03-31
 team:
 - Barry Oglesby
+type: blog
+description: This article describes the most useful statistics for troubleshooting VMware GemFire Deployments.
  
 ---
 

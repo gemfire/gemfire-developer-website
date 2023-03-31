@@ -1,14 +1,11 @@
 ---
+title: VMware Gemfire as a Remote Gradle Build Cache
 date: 2020-02-06
-description: VMware Gemfire as a remote cache for Gradle to share commonly built task
-  outputs across remote builds to improve build times
 lastmod: '2021-04-22'
 team:
 - Jason Huynh
-tags:
-- Use Cases
-title: VMware Gemfire as a Remote Gradle Build Cache
 type: blog
+description: VMware Gemfire as a remote cache for Gradle to share commonly built task outputs across remote builds to improve build times.
 ---
 
 ## Introduction

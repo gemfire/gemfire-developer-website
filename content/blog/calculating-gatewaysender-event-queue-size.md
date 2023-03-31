@@ -1,12 +1,10 @@
 ---
-data-featured: false
+title: Calculating the Size of a GemFire GatewaySender Queue
 date: 2021-01-19
-description: This article describes how to use the ObjectGraphSizer to calculate the
-  size of a GatewaySender queue.
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-title: Calculating the Size of a GemFire GatewaySender Queue
+description: This article describes how to use the ObjectGraphSizer to calculate the size of a GatewaySender queue.
 type: blog
 ---
 

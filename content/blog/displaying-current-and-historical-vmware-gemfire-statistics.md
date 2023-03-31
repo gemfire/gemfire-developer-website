@@ -1,11 +1,11 @@
 ---
+title: Displaying Current and Historical VMware GemFire Statistics
 date: 2021-08-09
-description: This article describes how to display historical and current statistics for VMware GemFire.
 lastmod: '2021-08-09'
 team:
 - Barry Oglesby
-title: Displaying Current and Historical VMware GemFire Statistics
 type: blog
+description: This article describes how to display historical and current statistics for VMware GemFire.
 ---
 
 ## Introduction
