@@ -42,11 +42,7 @@
     </div>
 </section>
 
-<!-- Gather topic groups -->
-{{ $topicgroups := (slice) }}
-    {{ range (.Site.GetPage "taxonomyTerm" "topicgroups").Pages }}
-    {{ $topicgroups = union $topicgroups ( slice .Title )}}
-{{ end }}
+
 
 <!-- Tutorials -->
 <section id="home-tutorials" class="pt-2 pb-2 td-box">
@@ -57,11 +53,10 @@
             </div>
         </div>
         <div id="tutorials-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
-            {{ range first 1 $topicgroups }}
             <div class="row justify-content-center transition-all w-100">
                 <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
                     <div id="{{ lower (replace . " " "-")}}-row" class="row justify-content-between w-100 td-box tutorials-row">
-                        {{ range first 3 (where (($.Site.GetPage "taxonomyTerm" "tutorials").Pages) ".Params.topicgroups" .) }}
+                    {{ range first 3 (where .Site.RegularPages "Section" "tutorials") }}
                             <div class="td-box--gray-850 flex-315 mb-lg-0 mb-3">
                                 <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
                                     <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="50" width="50">
@@ -69,15 +64,14 @@
                                         {{ .Params.title | truncate 70 }}
                                     </h3>
                                     <p class="mb-2 mb-lg-4 text-left py-0 px-2" >
-                                        {{ .Description | truncate 70 }}
+                                        {{ .Description | truncate 80 }}
                                     </p>
                                 </a>
                             </div>
-                        {{ end }}
+                        {{end}}
                     </div>
                 </div>
             </div>
-            {{ end }}
         </div>
     </div>
 </section>

@@ -9,9 +9,9 @@ title: Getting Started with VMware GemFire for TAS
 topicgroups: "Products"
 grouptitle: "Getting Started with VMware GemFire for TAS"
 layout: topic
-icon: tanzu
+icon: spring
 type: tutorials
-weight: 2
+weight: 
 aliases:
     - get-started-tgf4vms-sbdg/
 ---

@@ -1,15 +1,10 @@
 ---
-data-featured: true
+title: Spring Boot for GemFire Basics
 date: '2021-04-07'
 description: A guide to help get your local development environment up and running with Spring Boot.
 lastmod: '2021-04-22'
 link-title: Getting Started Locally With Spring Boot
 parent: Spring for VMware GemFire
-title: Getting Started Locally With Spring Boot
-topic: Getting Started Locally With Spring Boot
-topicgroups: "Products"
-grouptitle: "Spring Boot for VMware GemFire"
-layout: topic
 icon: spring
 type: tutorials
 weight: 1

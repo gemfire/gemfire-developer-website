@@ -1,13 +1,14 @@
 ---
-title: Introduction to VMware GemFire
+title: GemFire Basics
 date: '2023-03-30'
 lastmod: '2023-03-30'
-link-title: Introduction to VMware GemFire
+link-title: GemFire Basics
 parent: Java
 type: tutorials
 icon: java
+featured: true
 weight: 1
-description: This tutorial is to introduce GemFire basics, including starting a GemFire development environment, building and connecting a Java based GemFire client application to a cluster and performing basic CRUD operations.
+description: This tutorial introduces GemFire basics, such as building and connecting a Java based GemFire client application to a cluster and performing basic CRUD operations.
 
 ---
 

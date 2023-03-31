@@ -1,18 +1,14 @@
 ---
-data-featured: false
+
+title: Getting Started with VMware GemFire for Kubernetes
 date: '2022-08-15'
 description: How to set up a VMware GemFire instance on Kubernetes.
 lastmod: '2022-08-15'
 link-title: Getting Started with VMware GemFire for Kubernetes
 parent: Spring for VMware GemFire
-title: Getting Started with VMware GemFire for Kubernetes
 type: tutorials
-topic: Getting Started with VMware GemFire for Kubernetes
-topicgroups: "Products"
-grouptitle: "Getting Started with VMware GemFire for Kubernetes"
-layout: topic
-icon: kubernetes
-weight: 3
+icon: spring
+weight: 
 aliases:
     - get-started-tgf4k8s-sbdg/
 ---

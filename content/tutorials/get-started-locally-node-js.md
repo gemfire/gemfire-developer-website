@@ -1,19 +1,13 @@
 ---
-data-featured: false
+title: Getting Started Locally With Node.js
 date: '2021-05-28'
-description: A guide to help get your local development environment up and running
-  with a Node.js client side application.
+description: A guide to help get your local development environment up and running with a Node.js client side application.
 lastmod: '2021-05-28'
 link-title: Getting Started Locally With Node.js
 parent: Node.js
-title: Getting Started Locally With Node.js
-topic: Getting Started Locally With Node.js
-topicgroups: "Products"
-grouptitle: "Getting Started Locally With Node.js"
-layout: topic
 icon: nodejs
 type: tutorials
-weight: 1
+weight: 
 ---
 
 This guide walks you through setting up your local development environment using Apache Geode, the VMware GemFire node.js client, and a `Book Service` example.    

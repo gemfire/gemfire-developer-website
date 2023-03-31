@@ -1,19 +1,15 @@
 ---
-data-featured: false
+title: Getting Started with VMware GemFire for TAS using Node.js
 date: '2021-05-28'
-description: How to set up a VMware GemFire service instance on the Tanzu Application
-  Service and use the node.js client.
+description: How to set up a VMware GemFire service instance on the Tanzu Application Service and use the node.js client.
 lastmod: '2021-05-28'
 link-title: Getting Started with VMware GemFire for TAS
 parent: Node.js
-title: Getting Started with VMware GemFire for TAS using Node.js
-topic: Getting Started with VMware GemFire for TAS using Node.js
-topicgroups: "Products"
-grouptitle: "Getting Started with VMware GemFire for TAS using Node.js"
-layout: topic
 icon: nodejs
 type: tutorials
-weight: 2
+weight: 
+
+
 ---
 
 This guide walks you through creating a VMware GemFire service instance on the Tanzu Application Service using the `Book Service` example to confirm that it is working.
