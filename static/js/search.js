@@ -178,6 +178,22 @@ if (query) {
 		window.location.search = filterLink;
 	}
 
+	// Tutorials Filter
+	var tutorialsLink = document.createElement("div");
+	tutorialsLink.setAttribute("id","tutorials-link");
+	tutorialsLink.setAttribute("class","gsc-tabHeader gsc-inline-block");
+	searchLinks.appendChild(tutorialsLink);
+
+	var tutorialsText = document.createElement("span");
+	tutorialsText.innerHTML = "Tutorials";
+	tutorialsLink.appendChild(tutorialsText);
+
+	tutorialsLink.onclick = tutorialsClick;
+
+	function tutorialsClick() {
+		window.location.search = filterLink + '&tbm=guides';
+	}
+
 	// Blog Filter
 	var blogLink = document.createElement("div");
 	blogLink.setAttribute("id","blog-link");
@@ -192,38 +208,6 @@ if (query) {
 
 	function blogClick() {
 		window.location.search = filterLink + '&tbm=blog';
-	}
-
-	// Guide Filter
-	var guideLink = document.createElement("div");
-	guideLink.setAttribute("id","guides-link");
-	guideLink.setAttribute("class","gsc-tabHeader gsc-inline-block");
-	searchLinks.appendChild(guideLink);	
-
-	var guidesText = document.createElement("span");
-	guidesText.innerHTML = "Guides";
-	guideLink.appendChild(guidesText);	
-
-	guideLink.onclick = guideClick;
-
-	function guideClick() {
-		window.location.search = filterLink + '&tbm=guides';
-	}
-
-	// Tanzu.TV Filter
-	var ttvLink = document.createElement("div");
-	ttvLink.setAttribute("id","ttv-link");
-	ttvLink.setAttribute("class","gsc-tabHeader gsc-inline-block");
-	searchLinks.appendChild(ttvLink);	
-
-	var ttvText = document.createElement("span");
-	ttvText.innerHTML = "Tanzu.TV";
-	ttvLink.appendChild(ttvText);	
-
-	ttvLink.onclick = ttvClick;
-
-	function ttvClick() {
-		window.location.search = filterLink + '&tbm=ttv';
 	}
 
 	// Videos Filter
@@ -242,14 +226,14 @@ if (query) {
 		window.location.search = filterLink + '&tbm=videos';
 	}
 
-	// Samples Filter
+	// Examples Filter
 	var samplesLink = document.createElement("div");
 	samplesLink.setAttribute("id","samples-link");
 	samplesLink.setAttribute("class","gsc-tabHeader gsc-inline-block");
 	searchLinks.appendChild(samplesLink);	
 
 	var samplesText = document.createElement("span");
-	samplesText.innerHTML = "Samples";
+	samplesText.innerHTML = "Examples";
 	samplesLink.appendChild(samplesText);	
 
 	samplesLink.onclick = samplesClick;
@@ -263,14 +247,10 @@ if (query) {
 		document.getElementById("blog-link").classList.add('active-tab');
 		var blogFilter = "&siteSearch=tanzu.vmware.com/developer/blog&siteSearchFilter=i"
 		search(blogFilter);
-	} else if (window.location.search.indexOf('guides') > -1) {
-		document.getElementById("guides-link").classList.add('active-tab');
-		var guidesFilter = "&siteSearch=tanzu.vmware.com/developer/guides&siteSearchFilter=i"
-		search(guidesFilter);
-	} else if (window.location.search.indexOf('ttv') > -1) {
-		document.getElementById("ttv-link").classList.add('active-tab');
-		var ttvFilter = "&siteSearch=tanzu.vmware.com/developer/tv&siteSearchFilter=i"
-		search(ttvFilter);
+	} else if (window.location.search.indexOf('tutorials') > -1) {
+		document.getElementById("tutorials-link").classList.add('active-tab');
+		var tutorialsFilter = "&siteSearch=tanzu.vmware.com/developer/tutorials&siteSearchFilter=i"
+		search(tutorialsFilter);
 	} else if (window.location.search.indexOf('videos') > -1) {
 		document.getElementById("videos-link").classList.add('active-tab');
 		var videosFilter = "&siteSearch=tanzu.vmware.com/developer/videos&siteSearchFilter=i"
