@@ -61,7 +61,7 @@
                     {{ range first 3 (where .Site.RegularPages "Section" "tutorials") }}
                             <div class="td-box--gray-850 flex-315 mb-lg-0 mb-3">
                                 <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
-                                    <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="40" width="40">
+                                    <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="65" width="65">
                                     <h3 class="h4 pt-0 link mt-3 text-white text-center mb-0">
                                         {{ .Params.title | truncate 70 }}
                                     </h3>
