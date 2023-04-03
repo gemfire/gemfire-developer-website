@@ -1,10 +1,10 @@
 ---
 title: Maximizing GemFire Cache Performance with ZGC and Heap LRU Eviction
 description: ZGC works with GemFire's heap LRU eviction to maximize cache performance.
-team: [Dale Emery]
 date: 2023-03-31
 lastmod: 2023-03-31
-draft: true
+team:
+- Dale Emery
 type: blog
 ---
 
