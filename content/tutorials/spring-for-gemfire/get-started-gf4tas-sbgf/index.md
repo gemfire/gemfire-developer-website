@@ -68,22 +68,22 @@ Starting in a terminal
 
 
 2. Click on the **Services** tab.
-    ![Services Link in Apps Manager](content/tutorials/get-started-gf4tas-sbgf/images/Service_Tab_in_Apps_Manager.png)
+    ![Services Link in Apps Manager](images/Service_Tab_in_Apps_Manager.png)
 
 
 
 3.  Click on the **ADD A SERVICE** button.
-    ![Add A Service Button in Apps Manager](content/tutorials/get-started-gf4tas-sbgf/images/add_a_service_button.png)
+    ![Add A Service Button in Apps Manager](images/add_a_service_button.png)
 
 
 
 4.  Click on ***VMware GemFire***.
-    ![Click on VMware GemFire in Apps Manager](content/tutorials/get-started-gf4tas-sbgf/images/gemfire_apps_manager.png)
+    ![Click on VMware GemFire in Apps Manager](images/gemfire_apps_manager.png)
 
 
 
 5. Choose one of the available plans and click ***SELECT PLAN***.
-     ![Select A Plan in Apps Manager](content/tutorials/get-started-gf4tas-sbgf/images/select_a_plan.png)
+     ![Select A Plan in Apps Manager](images/select_a_plan.png)
 
 
 
@@ -91,12 +91,12 @@ Starting in a terminal
     
     Click **CREATE**
     
-    ![Click CREATE in Apps Manager](content/tutorials/get-started-gf4tas-sbgf/images/click_CREATE_button.png)
+    ![Click CREATE in Apps Manager](images/click_CREATE_button.png)
 
 
 7.  After clicking create you will see VMware GemFire service instance provisioning begin and in the **Last Operation** column it will say `create in progress`.
     
-     ![Create in progress in Apps Manager](content/tutorials/get-started-gf4tas-sbgf/images/create_in_progress.png)
+     ![Create in progress in Apps Manager](create_in_progress.png)
 
 
 
@@ -106,7 +106,7 @@ Starting in a terminal
 
 8.  Once complete you will see `create succeeded` under the **Last Operation** column (you may need to refresh the page for the status to update).
 
-    ![Create succeeded in Apps Manager](content/tutorials/get-started-gf4tas-sbgf/images/create_succeeded.png)
+    ![Create succeeded in Apps Manager](images/create_succeeded.png)
 
 ---
 
