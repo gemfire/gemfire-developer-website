@@ -7,9 +7,6 @@ tags:
 - Java
 type: examples
 description: This example demonstrates enabling Compression in a replicated region.
-
-
-
 ---
 
 This is a simple example that demonstrates enabling Compression in a

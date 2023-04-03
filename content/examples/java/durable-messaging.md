@@ -7,9 +7,6 @@ tags:
 - Java
 type: examples
 description: Durable messaging can be used for subscriptions that you need maintained for your clients even when your clients are down or disconnected.
-
-
-
 ---
 
 This example demonstrates VMware GemFire's Durable Messaging feature.

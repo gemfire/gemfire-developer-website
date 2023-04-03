@@ -7,7 +7,6 @@ tags:
 - Java
 type: examples
 description: This is a simple example that demonstrates asynchronous event queues and listeners.
-
 ---
 
 An asynchronous event queue is an ordered collection of events that occurred on a region, e.g., create a new entry, update an existing entry. An asynchronous event listener has its method invoked from time to time with batches of events that have occurred previously. The method invocation occurs inside the JVM of the server and can _not_ affect the operation on the region.

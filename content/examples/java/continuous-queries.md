@@ -7,9 +7,6 @@ tags:
 - Java
 type: examples
 description: Continuous Queries (CQ) allow clients to subscribe to server-side events using a SQL-like query. When a client registers a CQ, the client will receive all events that modify the query results.
-
-
-
 ---
 
 In this example, the client program will first register a CQ with the query

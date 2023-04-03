@@ -7,9 +7,6 @@ tags:
 - Java
 type: examples
 description: This is a simple example that illustrates how to colocate the data of two regions.
-
-
-
 ---
 
 By default, GemFire selects the data locations for a partitioned region independent of the data locations for any other partitioned region using a hashing policy on the key. This example shows how to modify this policy in order to store related data from two regions (`order`and `customer`) in the same member.

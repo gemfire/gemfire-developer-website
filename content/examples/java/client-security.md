@@ -7,7 +7,6 @@ tags:
 - Java
 type: examples
 description: Demonstrates basic command security and user authentication in a client application backed by a secured GemFire cluster. It also demonstrates use of secure sockets (SSL) between all members and between a client and a server.
-
 ---
 
 ## Security Basics
