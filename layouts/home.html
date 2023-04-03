@@ -21,8 +21,8 @@
 <section id="home-quickstart" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
         <div class="row w-100 m-0">
-            <div class="col-sm-12 pt-4 pb-0 mb-lg-3">
-                <img alt="" class="mb-2" src="images/icons/fast-forward-line.svg" height="50" width="50"/>
+            <div class="d-flex align-items-center icon-title mb-4">
+                <img alt="" class="icon mb-0 mr-3" src="images/icons/fast-forward-line.svg" height="40" width="40"/>
                 <a class="h2 text-left text-white">Quick Start</a>
             </div>
         </div>
@@ -49,8 +49,8 @@
 <section id="home-tutorials" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
         <div class="row w-100 m-0">
-            <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
-                <img alt="" class="mb-2" src="images/icons/icon-guides.svg" height="50" width="50"/>
+            <div class="d-flex align-items-center icon-title mb-4">
+                <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-guides.svg" height="40" width="40"/>
                 <a href="{{ "tutorials" | relURL }}" class="h2 text-left">Tutorials</a>
             </div>
         </div>
@@ -61,7 +61,7 @@
                     {{ range first 3 (where .Site.RegularPages "Section" "tutorials") }}
                             <div class="td-box--gray-850 flex-315 mb-lg-0 mb-3">
                                 <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
-                                    <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="50" width="50">
+                                    <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="40" width="40">
                                     <h3 class="h4 pt-0 link mt-3 text-white text-center mb-0">
                                         {{ .Params.title | truncate 70 }}
                                     </h3>
@@ -83,8 +83,8 @@
 <section id="home-blogs" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
         <div class="row w-100 m-0">
-            <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3 w-100">
-                <img alt="" class="mb-2" src="images/icons/icon-blog.svg" height="50" width="50"/>
+            <div class="d-flex align-items-center icon-title mb-4">
+                <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-blog.svg" height="40" width="40"/>
                 <a href="{{ "blog" | relURL }}" class="h2 text-left">Blogs</a>
             </div>
         </div>
@@ -115,8 +115,8 @@
 <section id="home-videos" class="pt-4 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
     <div class="row w-100 m-0">
-        <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
-            <img alt="" class="mb-2" src="images/icons/icon-videos.svg" height="50" width="50"/>
+        <div class="d-flex align-items-center icon-title mb-4">
+            <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-videos.svg" height="40" width="40"/>
             <a href="{{ "videos" | relURL }}" class="h2 text-left">Videos</a>
         </div>
     </div>
@@ -146,8 +146,8 @@
 <section id="home-examples" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
         <div class="row w-100 m-0">
-            <div class="col-sm-12 pt-4 pb-0 mb-lg-5 mb-3">
-                <img alt="" class="mb-2" src="images/icons/icon-code-samples.svg" height="50" width="50"/>
+            <div class="d-flex align-items-center icon-title mb-4">
+                <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-code-samples.svg" height="40" width="40"/>
                 <a href="{{ "examples" | relURL }}" class="h2 text-left">Examples</a>
             </div>
         </div>
