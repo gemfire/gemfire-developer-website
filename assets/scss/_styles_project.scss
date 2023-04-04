@@ -1358,16 +1358,6 @@ body {
     }
   }
 
-  .tv-episode-hero {
-    h5 {
-      font-size: 0.75rem;
-    }
-    p:not(.h5) {
-      font-size: 1.2rem;
-      margin-bottom: 3rem;
-    }
-  }
-
 
   .col-4-thumbnail {
     padding: 0;
@@ -1474,7 +1464,6 @@ body {
     margin-top: 2rem;
   }
 
-  body .data-hero,
   body .tutorials-hero{
     .lead {
       max-width: 920px;

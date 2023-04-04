@@ -92,82 +92,39 @@
         background-color: transparent !important;
         min-height: auto;
       }
-      &.guides-hero {
-        background-image: url('{{ "images/backgrounds/background-guides.svg" | relURL }}');
-      }
+
       &.tutorials-hero {
         background-image: url('{{ "images/backgrounds/background-patterns.svg" | relURL }}');
       }
-      &.samples-hero {
+      &.examples-hero {
         background-image: url('{{ "images/backgrounds/background-samples.svg" | relURL }}');
       }
       &.videos-hero {
         background-image: url('{{ "images/backgrounds/background-video.svg" | relURL }}');
       }
-      &.data-hero,
-      &.install-hero {
-        background-image: url('{{ "images/backgrounds/background-community.svg" | relURL }}');
-      }
-      &.tanzupractices-hero {
-        background-image: url('{{ "images/backgrounds/background-practices.svg" | relURL }}');
-      }
-      &.team-hero,
-      &.advocates-hero {
-        background-color: transparent !important;
-        min-height: 200px;
-        padding-bottom: 0;
-      }
-      &.tanzu-tv-hero {
-        background-color: transparent !important;
-        min-height: 165px;
-        padding-bottom: 0;
-      }
-      &.tv-episode-hero {
-        min-height: 100px;
-      }
-      @media(max-width: 1200px) {
-        &.data-hero,
-        &.tutorials-hero {
-          .lead {
-            max-width: 620px;
-          }
-          background-image: url('{{ "images/backgrounds/header-mobile.svg" | relURL }}') !important;
-          background-position: right -50px bottom;
-          padding-bottom: 220px;
-        }
-      }
+
       @media(max-width: 991px) {
-        &.data-hero,
-        &.tanzupractices-hero,
-        &.guides-hero,
-        &.samples-hero,
+        &.examples-hero,
         &.videos-hero,
-        &.practices-hero,
-        &.install-hero {
+        &.tutorials-hero{
           background-image: url('{{ "images/backgrounds/header-mobile.svg" | relURL }}') !important;
           background-position: right -50px bottom;
           padding-bottom: 160px;
         }
       }
       @media(max-width: 480px) {
-        &.guides-hero,
-        &.patterns-hero,
-        &.samples-hero,
+        &.examples-hero,
         &.videos-hero,
-        &.practices-hero,
-        &.install-hero {
+        &.tutorials-hero{
           background-size: 130%;
         }
       }
       @media(max-width: 390px) {
         padding-top: 60px;
         padding-bottom: 100px;
-        &.guides-hero,
-        &.patterns-hero,
-        &.samples-hero,
+        &.examples-hero,
         &.videos-hero,
-        &.practices-hero,
-        &.install-hero {
+        &.tutorials-hero{
           background-size: 170%;
         }
       }
@@ -814,117 +771,7 @@
     }
   }
 }
-#hero.springone-tour-event-hero {
-  background-color: #1b2a32;
-  &.s1t-index {
-    background-size: 65%;
-    background-position: bottom right;
-    background-image: url('{{ "images/springonetour/hero_skyline.svg" | relURL }}');
-    @media only screen and (min-width: 1900px){
-      background-size: 50%;
-    }
-    @media only screen and (min-width: 2100px){
-      background-size: 35%;
-    }
-    .small-screen-hero {
-      display: none;
-    }
-    .logo {
-      content: url('{{ "images/springonetour/hero_logo_white.svg" | relURL }}');
-      max-width: 20%;
-    }
-    @media(max-width: 991px) {
-      background-size: 75%;
-      background-position: bottom center;
-      padding-top: 2em;
-      min-height: 62vh;
-      .container {
-        padding-left: 0 !important;
-        p {
-          text-align: center;
-        }
-      }
-      .logo {
-        display: none;
-      }
-    }
-    @media(max-width: 767px) {
-      background: none;
-      padding-bottom: 0 !important;
-      min-height: 0;
-      .small-screen-hero {
-        display: block;
-      }
-    }
-  }
-  &.s1t-city {
-    padding-bottom: 0;
-    .container-sm {
-      background-repeat: no-repeat;
-      background-position: bottom right 21%;
-      margin: auto;
-      @media(max-width: 1200px) {
-        background-size: 47%;
-      }
-      @media(max-width: 991px) {
-        background-size: 60% !important;
-        background-position: bottom right !important;
-      }
-      @media(max-width: 500px) {
-        background-image: none !important;
-      }
-    }
-    &.chicago .container-sm {
-      background-size: 50%;
-      background-position: bottom right 25%;
-    }
-    &.newyork .container-sm {
-      background-size: 58%;
-      background-position: bottom right 30%;
-    }
-    &.toronto .container-sm {
-      background-size: 51%;
-      background-position: 75% 100%;
-    }
-    &.seattle .container-sm {
-      background-size: 56%;
-      background-position: bottom right 29%;
-    }
-    &.telaviv .container-sm {
-      background-size: 51%;
-    }
-    &.amsterdam .container-sm {
-      background-size: 57%;
-    }
-    &.atlanta .container-sm {
-      background-position: bottom right 35%;
-    }
-    #hero-content {
-      max-width: 75%;
-      margin: auto;
-      padding-bottom: 80px;
-      @media(max-width: 991px) {
-        max-width: 100% !important;
-      }
-    }
-    @media(max-width: 767px) {
-      padding-bottom: 0 !important;
-      background-image: none;
-      .small-screen-hero {
-        display: block;
-      }
-    }
-    #register-btn {
-      font-weight: 400;
-      background: #80ea6e;
-      color: #1b2a32;
-      &:hover {
-        background: #02bc67;
-        color: #fff;
-      }
-    }
-  }
-}
+
 body#s1t-index #s1t-destinations-2022 {
   .city-tile {
     background-repeat: no-repeat;

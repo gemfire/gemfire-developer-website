@@ -251,21 +251,13 @@ footer a {
   animation: gradient 2.5s ease infinite 2.25s;   
 }
 
-.workshop-hero,
 .card-type-id {
   background: linear-gradient(-45deg, #EC7700, #7932A9, #0091DA, #78BE20);
   background-size: 500% 500%;
   animation: gradient 2s linear infinite;
 
 }
-.steeltoe-banner {
-  background-color: #17242C !important;
-  &:hover {
-    background: linear-gradient(-45deg, #EC7700, #7932A9, #0091DA, #78BE20);
-    background-size: 500% 500%;
-    animation: gradient 2s linear infinite;
-  }
-}
+
 .play-icon.float-left,
 .btn {
   background-color: #17242C !important;
