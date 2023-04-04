@@ -1,13 +1,13 @@
 ---
+title: REST Client in Python
 date: '2023-03-29'
-description: A guide to using the GemFire REST API from a Python client.
 lastmod: '2023-03-29'
 repo: https://github.com/gemfire/gemfire-examples/blob/main/use-cases/restClient.py
-title: REST Client in Python
 tags:
 - Python
 - Rest
 type: examples
+description: A guide to using the GemFire REST API from a Python client.
 ---
 ## GemFire REST Client in Python
 

@@ -1,7 +1,7 @@
 ---
 title: Improving the Performance of Apache Geode Persistence Recovery
 date: 2020-07-20
-lastmod: '2021-04-22'
+lastmod: '2020-04-22'
 team:
 - Jianxia Chen
 type: blog
