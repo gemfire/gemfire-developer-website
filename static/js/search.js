@@ -191,7 +191,7 @@ if (query) {
 	tutorialsLink.onclick = tutorialsClick;
 
 	function tutorialsClick() {
-		window.location.search = filterLink + '&tbm=guides';
+		window.location.search = filterLink + '&tbm=tutorials';
 	}
 
 	// Blog Filter
@@ -227,41 +227,41 @@ if (query) {
 	}
 
 	// Examples Filter
-	var samplesLink = document.createElement("div");
-	samplesLink.setAttribute("id","samples-link");
-	samplesLink.setAttribute("class","gsc-tabHeader gsc-inline-block");
-	searchLinks.appendChild(samplesLink);	
+	var examplesLink = document.createElement("div");
+	examplesLink.setAttribute("id","examples-link");
+	examplesLink.setAttribute("class","gsc-tabHeader gsc-inline-block");
+	searchLinks.appendChild(examplesLink);
 
 	var samplesText = document.createElement("span");
 	samplesText.innerHTML = "Examples";
-	samplesLink.appendChild(samplesText);	
+	examplesLink.appendChild(samplesText);
 
-	samplesLink.onclick = samplesClick;
+	examplesLink.onclick = examplesClick;
 
-	function samplesClick() {
-		window.location.search = filterLink + '&tbm=samples';
+	function examplesClick() {
+		window.location.search = filterLink + '&tbm=examples';
 	}
 
 	// Filter results if one is selected
 	if (window.location.search.indexOf('blog') > -1) {
 		document.getElementById("blog-link").classList.add('active-tab');
-		var blogFilter = "&siteSearch=tanzu.vmware.com/developer/blog&siteSearchFilter=i"
+		var blogFilter = "&siteSearch=gemfire.dev/blog&siteSearchFilter=i"
 		search(blogFilter);
 	} else if (window.location.search.indexOf('tutorials') > -1) {
 		document.getElementById("tutorials-link").classList.add('active-tab');
-		var tutorialsFilter = "&siteSearch=tanzu.vmware.com/developer/tutorials&siteSearchFilter=i"
+		var tutorialsFilter = "&siteSearch=gemfire.dev/tutorials&siteSearchFilter=i"
 		search(tutorialsFilter);
 	} else if (window.location.search.indexOf('videos') > -1) {
 		document.getElementById("videos-link").classList.add('active-tab');
-		var videosFilter = "&siteSearch=tanzu.vmware.com/developer/videos&siteSearchFilter=i"
+		var videosFilter = "&siteSearch=gemfire.dev/videos&siteSearchFilter=i"
 		search(videosFilter);
-	} else if (window.location.search.indexOf('samples') > -1) {
+	} else if (window.location.search.indexOf('examples') > -1) {
 		document.getElementById("samples-link").classList.add('active-tab');
-		var samplesFilter = "&siteSearch=tanzu.vmware.com/developer/samples&siteSearchFilter=i"
+		var samplesFilter = "&siteSearch=gemfire.dev/examples&siteSearchFilter=i"
 		search(samplesFilter);
 	} else {
 		document.getElementById("all-link").classList.add('active-tab');
-		var noFilter = '&siteSearch=tanzu.vmware.com/developer';
+		var noFilter = '&siteSearch=gemfire.dev';
 		search(noFilter);
 	} 
 }//end if query

@@ -199,7 +199,7 @@ limitations under the License.
 
     //Open external links/rss in new tab, tvc links in same tab
     $("a[href^='http']").attr("target", "_blank");
-    $("a[href^='https://tanzu.vmware.com/developer']").attr("target", "_self");
+    $("a[href^='https://gemfire.dev']").attr("target", "_self");
     $("a[href*='rss']").attr("target", "_blank");
 
     //Open youtube links with class 'lightbox' in lightbox

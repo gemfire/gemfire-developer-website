@@ -480,9 +480,5 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
     urls = ['.*']
 
 [outputs]
-  home = ["HTML", "RSS", "_Redirects"]
+  home = ["HTML", "RSS"]
 
-[outputFormats._Redirects]
-  baseName = "_redirects"
-  isPlainText = true
-  notAlternative = true
