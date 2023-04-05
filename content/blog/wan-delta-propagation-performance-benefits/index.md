@@ -1,10 +1,10 @@
 ---
-title: "WAN Delta Propagation Performance Benefits"
-date: "2023-04-01"
-lastmod: "2023-04-01"
-description: 'This blog shows the performance benefits of the WAN Delta Propagation feature.'
-team:
-- Barry Oglesby
+title: WAN Delta Propagation Performance Benefits
+description: This blog shows the performance benefits of the WAN Delta Propagation feature.
+team: [Barry Oglesby]
+date: 2023-04-01
+lastmod: 2023-04-01
+type: blog
 ---
 ## Introduction
 The WAN [Delta Propagation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-delta_propagation-how_delta_propagation_works.html) feature introduced in GemFire 10.0 provides the ability to distribute changes to Delta objects between WAN sites. Previous GemFire versions serialized and distributed the entire Delta object for every update. The main purpose of this feature is to reduce the amount of data sent between WAN sites. A secondary purpose is to improve the performance of event distribution for Delta objects.
