@@ -232,9 +232,9 @@ if (query) {
 	examplesLink.setAttribute("class","gsc-tabHeader gsc-inline-block");
 	searchLinks.appendChild(examplesLink);
 
-	var samplesText = document.createElement("span");
-	samplesText.innerHTML = "Examples";
-	examplesLink.appendChild(samplesText);
+	var examplesText = document.createElement("span");
+	examplesText.innerHTML = "Examples";
+	examplesLink.appendChild(examplesText);
 
 	examplesLink.onclick = examplesClick;
 
@@ -256,9 +256,9 @@ if (query) {
 		var videosFilter = "&siteSearch=gemfire.dev/videos&siteSearchFilter=i"
 		search(videosFilter);
 	} else if (window.location.search.indexOf('examples') > -1) {
-		document.getElementById("samples-link").classList.add('active-tab');
-		var samplesFilter = "&siteSearch=gemfire.dev/examples&siteSearchFilter=i"
-		search(samplesFilter);
+		document.getElementById("examples-link").classList.add('active-tab');
+		var examplesFilter = "&siteSearch=gemfire.dev/examples&siteSearchFilter=i"
+		search(examplesFilter);
 	} else {
 		document.getElementById("all-link").classList.add('active-tab');
 		var noFilter = '&siteSearch=gemfire.dev';
