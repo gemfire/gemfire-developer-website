@@ -159,28 +159,28 @@ archived_version = false
     name = "Spring"
     parent = "quickstart"
     weight = 20
-    url = "/quickstart/spring"
+    url = "/quickstart/spring/"
 
   [[menu.main]]
     identifier = "nodejs"
     name = "Node.js"
     parent = "quickstart"
     weight = 30
-    url = "/quickstart/nodejs"
+    url = "/quickstart/nodejs/"
 
   [[menu.main]]
     identifier = "dotnet"
     name = ".NET"
     parent = "quickstart"
     weight = 40
-    url = "/quickstart/dotnet"
+    url = "/quickstart/dotnet/"
 
   [[menu.main]]
     identifier = "cpp"
     name = "C++"
     parent = "quickstart"
     weight = 50
-    url = "/quickstart/cpp"
+    url = "/quickstart/cpp/"
 
 #Learn Menu Items
   [[menu.main]]
@@ -188,28 +188,28 @@ archived_version = false
     name = "Tutorials"
     parent = "learn"
     weight = 10
-    url = "/tutorials"
+    url = "/tutorials/"
 
   [[menu.main]]
     identifier = "blogs"
     name = "Blogs"
     parent = "learn"
     weight = 20
-    url = "/blog"
+    url = "/blog/"
 
   [[menu.main]]
     identifier = "videos"
     name = "Videos"
     parent = "learn"
     weight = 30
-    url = "/videos"
+    url = "/videos/"
 
   [[menu.main]]
     identifier = "examples"
     name = "Examples"
     parent = "learn"
     weight = 40
-    url = "/examples"
+    url = "/examples/"
 
 
 #Install Menu Items
