@@ -14,7 +14,7 @@
 {{ partialCached "favicons.html" . }}
 <title>{{ with .Params.name }}{{ . }} | {{ else }}{{ with .Params.metaTitle }}{{ . }} | {{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ end }}{{ .Site.Title }}</title>
 <meta name="description" content="{{ with .Description }}{{ . | chomp }}{{ else }}{{if .IsPage}}{{ .Summary | chomp }}{{ else }}{{ with .Site.Params.description | chomp }}{{ . }}{{ end }}{{ end }}{{ end }}"/>
-{{ $ogImage := "images/og/TAN-DevSite-OG.png" }}
+{{ $ogImage := "images/og/GEM-DevSite.png" }}
 {{ if .Params.og_image }}
 {{ $ogImage = trim .Params.og_image "/" }}
 {{ else if eq .Type "tv-episode" }}
