@@ -1,5 +1,5 @@
 {
-  "name": "tanzu-gemfire-developer-website",
+  "name": "gemfire-developer-website",
   "version": "0.1.0",
   "description": "VMware Gemfire Developer Site",
   "main": "index.js",

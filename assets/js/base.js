@@ -361,9 +361,9 @@ limitations under the License.
       });
     });
 
-    // Link Clicks (Guides, Tanzu.TV, Blog, Patterns, Videos)
+    // Link Clicks (Tutorials, Blog,Videos)
     $(
-      "body.guide a, body.guides a, body.tanzu-tv a, body.tv-show a, body.tv-episode a, body.blog a, body.pattern a, a.youtube-container"
+      "body.guide a, body.guides a, body.blog a, body.pattern a, a.youtube-container"
     ).click(function () {
       var linkTitle = this.innerHTML;
       if (linkTitle.includes("navbar-logo")) linkTitle = "Home";

@@ -17,10 +17,6 @@
 {{ $ogImage := "images/og/GEM-DevSite.png" }}
 {{ if .Params.og_image }}
 {{ $ogImage = trim .Params.og_image "/" }}
-{{ else if eq .Type "tv-episode" }}
-{{ $ogImage = (partial "tv-image-src" .) }}
-{{ else if eq .Section "tv" }}
-{{ $ogImage = "images/og/TanzuTV.png" }}
 {{ end }}
 <meta content='{{ $ogImage | absURL }}' property='og:image'>
 <meta content='{{ $ogImage | absURL }}' name='twitter:image'>
