@@ -11,7 +11,7 @@ description: 'VMware GemFire provides a SQL-like query language called OQL that 
 
 ## Introduction
 
-[VMware GemFire](https://tanzu.vmware.com/gemfire) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Between its many features, VMware GemFire provides a SQL-like query language called OQL that allows users to access data stored within the regions.
+[VMware GemFire](https://www.vmware.com/products/gemfire.html) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Between its many features, VMware GemFire provides a SQL-like query language called OQL that allows users to access data stored within the regions.
 
 ## Why?
 
@@ -61,7 +61,7 @@ gfsh alter query-service --method-authorizer=org.apache.geode.cache.query.securi
 ```
 
 ### *RegExMethodAuthorizer*
-The “flexible” one, allowing only those methods that match a regular expression provided by the user. [VMware GemFire](https://tanzu.vmware.com/gemfire) will still prevent the execution of methods that can mess up your cache and regions, along with [Java reflection](https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/index.html) calls, so you don’t need to worry about mistakenly matching dangerous methods that are already known. Use this one for clusters on which you know exactly what is deployed and when, so you can correctly tweak the RegEx to only allow what you want.
+The “flexible” one, allowing only those methods that match a regular expression provided by the user. [VMware GemFire](https://www.vmware.com/products/gemfire.html) will still prevent the execution of methods that can mess up your cache and regions, along with [Java reflection](https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/index.html) calls, so you don’t need to worry about mistakenly matching dangerous methods that are already known. Use this one for clusters on which you know exactly what is deployed and when, so you can correctly tweak the RegEx to only allow what you want.
 
 To configure this authorizer in your cluster, execute the following command:
 
@@ -72,7 +72,7 @@ gfsh alter query-service --method-authorizer=org.apache.geode.cache.query.securi
 ## Bahhh… None Works For Me 😢
 This all looks good, but none of these authorizers work for my use case… regular expressions are too tricky, not all the methods I need to use in OQL follow the [JavaBean Specification 1.01](https://download.oracle.com/otndocs/jcp/7224-javabeans-1.01-fr-spec-oth-JSpec/) and the other two authorizers are either too restrictive or too permissive, what should I do?
 
-Not to worry, now comes the fun part (some code, finally!), you can easily develop a custom authorizer and instruct [VMware GemFire](https://tanzu.vmware.com/gemfire) to use it whenever a method invocation authorization needs to be executed.
+Not to worry, now comes the fun part (some code, finally!), you can easily develop a custom authorizer and instruct [VMware GemFire](https://www.vmware.com/products/gemfire.html) to use it whenever a method invocation authorization needs to be executed.
 
 How? Easy, you just need to implement the `MethodInvocationAuthorizer` interface and execute `gfsh alter query-service --method-authorizer=my.authorizer.ClassName` to make sure all members use it. You need to keep in mind, though, that the authorizer will be invoked once per query execution (more on this later on), so the authorization logic must be lightning fast!!.
 
@@ -114,10 +114,4 @@ public class AnnotationBasedMethodAuthorizer implements MethodInvocationAuthoriz
 ## What About Performance?
 Considering that the authorization kicks in while the OQL is being executed, performance is certainly a concern and should be taken into consideration, nobody wants the same authorization logic to be invoked for every single object instance traversed by the query engine while building the result set. To optimize this, the query engine remembers whether the method has been already authorized or not for the current query context, basically meaning that the authorization logic will be called once and only once in the lifetime of a query for every new method seen while traversing the objects.
 
-## References
 
-[VMware GemFire Documentation](https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html)
-
-[OQL Method Invocation Security RFC](https://cwiki.apache.org/confluence/display/GEODE/OQL+Method+Invocation+Security#OQLMethodInvocationSecurity-GeodeBasedMethodAuthorizer)
-
-[OQL Method Invocation Security JIRAs](https://issues.apache.org/jira/browse/GEODE-6983)

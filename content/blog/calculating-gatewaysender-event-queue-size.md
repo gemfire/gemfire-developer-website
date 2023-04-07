@@ -30,7 +30,7 @@ The supported types of GatewaySenderQueueEntrySizer are:
 
 - [SerialGatewaySenderQueueEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/SerialGatewaySenderQueueEntrySizer.java) for serial GatewaySenders
 - [ParallelGatewaySenderQueueEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/ParallelGatewaySenderQueueEntrySizer.java) for parallel GatewaySenders
-- [ParallelGatewaySenderQueueByBucketEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/ParallelGatewaySenderQueueByBucketEntrySizer.java****) for parallel GatewaySenders whose entries are to be sized by bucket
+- [ParallelGatewaySenderQueueByBucketEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/ParallelGatewaySenderQueueByBucketEntrySizer.java) for parallel GatewaySenders whose entries are to be sized by bucket
 
 The GatewayQueueEventRegionEntryObjectFilter is used by ObjectGraphSizer to include or exclude specific objects from the entry size.
 

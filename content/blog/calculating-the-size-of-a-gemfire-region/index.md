@@ -11,7 +11,7 @@ description: This article describes how to use ObjectGraphSizer to calculate the
 
 ## Introduction
 
-Calculating the size of an VMware Gem Fire [Region](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-basic_config-data_regions-chapter_overview.html) can be useful for capacity planning. While certain statistics like PartitionedRegionStats dataStoreBytesInUse are helpful in this regard, they are limited. For example, this statistic does not exist for replicated Regions. `ObjectGraphSizer` can be used to calculate the size of any object in bytes and to create a histogram of the object being sized. It does this by recursively traversing each field of the object.
+Calculating the size of an VMware Gem Fire [Region](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/basic_config-data_regions-chapter_overview.html) can be useful for capacity planning. While certain statistics like PartitionedRegionStats dataStoreBytesInUse are helpful in this regard, they are limited. For example, this statistic does not exist for replicated Regions. `ObjectGraphSizer` can be used to calculate the size of any object in bytes and to create a histogram of the object being sized. It does this by recursively traversing each field of the object.
 
 An `ObjectFilter` can be used in conjunction with ObjectGraphSizer to accept or reject each object as it is traversed. Its basic use is to reject objects that shouldn’t be included in the size. Without the appropriate ObjectFilter, ObjectGraphSizer would traverse practically every object in the JVM while sizing a Region since it has a reference to its Cache and DistributedSystem.
 
@@ -23,7 +23,7 @@ There are mainly two different kinds of Regions, namely replicated and partition
 
 ### Replicated Region
 
-A replicated Region is implemented by a [DistributedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-region_options-region_types.html) which contains a map of RegionEntries. Each `RegionEntry` contains the key and data value.
+A replicated Region is implemented by a [DistributedRegion](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-region_options-region_types.html) which contains a map of RegionEntries. Each `RegionEntry` contains the key and data value.
 
 A simplified architecture is shown below:
 
@@ -31,7 +31,7 @@ A simplified architecture is shown below:
 
 ## Partitioned Region
 
-A partitioned Region is implemented by a [PartitionedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-region_options-region_types.html) which contains a collection of BucketRegions. A `BucketRegion` is an extension of DistributedRegion.
+A partitioned Region is implemented by a [PartitionedRegion](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-region_options-region_types.html) which contains a collection of BucketRegions. A `BucketRegion` is an extension of DistributedRegion.
 
 A simplified architecture is shown below:
 

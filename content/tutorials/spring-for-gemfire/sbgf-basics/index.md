@@ -26,7 +26,7 @@ GemFire is used by customers in many real-world applications (e.g., banking, bil
 
 ## Starting VMware GemFire for Local Development
 
-For this getting started locally guide, we will walk through the quickest way to get a GemFire cluster up and running for local development purposes.  For full installation instructions, please refer to the [GemFire Install documentation](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-getting_started-installation-install_intro.html). 
+For this getting started locally guide, we will walk through the quickest way to get a GemFire cluster up and running for local development purposes.  For full installation instructions, please refer to the [GemFire Install documentation](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/getting_started-installation-install_intro.html). 
 
 ### Download the .tgz file from the Tanzu Network 
 
@@ -78,7 +78,7 @@ The following steps will start a small local cluster for the *Hello, World!* app
     ```
     ./gfsh
     ```
-* Start a **locator**.  [Locators](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-configuring-running-running_the_locator.html) provide both discovery and load balancing services. 
+* Start a **locator**.  [Locators](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/configuring-running-running_the_locator.html) provide both discovery and load balancing services. 
 
     ```
     start locator --name=hello-world-locator
@@ -202,8 +202,8 @@ To confirm that your app is connected to your local cluster, in your **gfsh** te
  
  Now that you have successfully set up your local development environment, check out some other guides
   
- * Set up your [VMware GemFire service instance](/tutorials/get-started-gf4tas-sbgf/) on the Tanzu Application Service. 
+ * Set up your [VMware GemFire service instance](/tutorials/spring-for-gemfire/get-started-gf4tas-sbgf/) on the Tanzu Application Service. 
 
- * Set up [VMware GemFire for Kubernetes](/tutorials/get-started-gf4k8s-sbgf/). 
+ * Set up [VMware GemFire for Kubernetes](/tutorials/spring-for-gemfire/get-started-gf4k8s-sbgf/). 
   
- * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/session-state-cache-sbgf/).
+ * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/spring-for-gemfire/session-state-cache-sbgf/).
