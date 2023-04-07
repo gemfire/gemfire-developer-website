@@ -197,4 +197,4 @@ Congratulations! You’re ready to start using VMware GemFire. You will need to 
  
  Now that you have successfully created a running VMware GemFire service instance, check out some other guides.
     
-  * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/session-state-cache-sbgf).
+  * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/spring-for-gemfire/session-state-cache-sbgf).

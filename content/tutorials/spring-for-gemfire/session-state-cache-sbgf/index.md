@@ -326,7 +326,7 @@ When the app is running, open a browser and go to <http://localhost:8080>.
  
  {{% alert title="VMware GemFire Service Instance" color="warning" %}}
   To deploy the application to the Tanzu Application
-   Service (TAS) make sure you have [created a VMware GemFire service instance](/tutorials/get-started-gf4tas-sbgf/).
+   Service (TAS) make sure you have [created a VMware GemFire service instance](/tutorials/spring-for-gemfire/get-started-gf4tas-sbgf/).
  {{% /alert %}} 
  
 
@@ -348,7 +348,7 @@ When the app is running, open a browser and go to <http://localhost:8080>.
  
         
  {{% alert title="VMware GemFire for Kubernetes Cluster" color="warning" %}}
- To deploy the Session State Example application on Kubernetes make sure you have [created a VMware GemFire cluster on Kubernetes](/tutorials/get-started-gf4k8s-sbgf/) using the **namespace** and **GemFire cluster** names below.
+ To deploy the Session State Example application on Kubernetes make sure you have [created a VMware GemFire cluster on Kubernetes](/tutorials/spring-for-gemfire/get-started-gf4k8s-sbgf/) using the **namespace** and **GemFire cluster** names below.
  
  For this example:
  * Our **namespace** is `notes-app`
