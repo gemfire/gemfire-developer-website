@@ -2,18 +2,50 @@
 <h1 class='d-none'>{{ .Title }} Homepage</h1>
 
 <a id="td-block" class="td-offset-anchor"></a>
-<section id="hero" class="td-box td-box--primary position-relative td-box--height-auto overflow-hidden">
-	<div class="container row py-5 px-0">
-		<div class="col-12 mx-auto col-lg-6">
-			<span class="h1 mb-0 ">
-				{{ .Params.tagline }}
-			</span>
-            <p class="h4">{{ .Params.description }}</p>
-		</div>
-        <div id="gradients" class="col-12 mx-auto col-lg-6 position-relative d-none d-md-block">
-            <img id="gradient-one" class="transition-all position-absolute" alt="" src='{{ "images/backgrounds/gradient-one.svg" | relURL }}'>
-            <img id="gradient-two" class="transition-all position-absolute" alt="" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}'>
-		</div>
+<section id="hero" class="td-box td-box--primary position-relative td-box--height-med overflow-hidden pb-0">
+        <div id="heroCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#heroCarousel" data-slide-to="1"></li>
+                <li data-target="#heroCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner center" style="max-height:400px !important;">
+                <div class="carousel-item active">
+                    <a href="/tutorials">
+                        <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 400px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <span class="h1 mb-0 ">
+                                {{ .Params.tagline }}
+                            </span><br>
+                            <span class="h4 center">{{ .Params.description }}</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="/blog">
+                    <img class="d-block m-auto" src="images/icons/icon-blog.svg" alt="Second slide" style="height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Blogs</h5>
+                        <p>These are neat</p>
+                    </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="/videos">
+                    <img class="d-block m-auto" src="images/icons/icon-videos.svg" alt="Third slide" style="height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Videos</h5>
+                        <p>Watch and Learn</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" type="button" href="#heroCarousel" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" type="button" href="#heroCarousel" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
 	</div>
 </section>
 
@@ -42,8 +74,6 @@
         </div>
     </div>
 </section>
-
-
 
 <!-- Tutorials -->
 <section id="home-tutorials" class="pt-2 pb-2 td-box">

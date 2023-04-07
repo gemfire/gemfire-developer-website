@@ -1,6 +1,8 @@
 @import "support/mixins";
 @import "../vendor/bootstrap/scss/bootstrap";
 
+.carousel-inner > .item > img{ margin:auto; }
+
 @keyframes fadeIn {
   0% {
     opacity:0;
