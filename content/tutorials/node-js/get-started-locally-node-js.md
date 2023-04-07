@@ -25,14 +25,14 @@ When developing and testing your application locally, you can use VMware GemFire
      
      **macOS/Unix/Linux**
     ```
-        $ export GEODE_HOME=/Users/MyGemFire
-        $ export PATH=$GEODE_HOME/bin:$PATH
+        $ export GEMFIRE_HOME=/Users/MyGemFire
+        $ export PATH=$GEMFIRE_HOME/bin:$PATH
     ```
     
      **Windows**
     ```
-        C:> set GEODE_HOME=c:\Users\MyGemFire
-        C:> set PATH=%GEODE_HOME%\bin;%PATH%
+        C:> set GEMFIRE_HOME=c:\Users\MyGemFire
+        C:> set PATH=%GEMFIRE_HOME%\bin;%PATH%
     ```
     
 ### Check your installation
