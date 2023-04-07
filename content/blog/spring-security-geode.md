@@ -306,7 +306,7 @@ Looking for other interesting use cases? check the following articles:
 Need help with a complex problem or want to validate your solution? share some details with the [user](https://markmail.org/search/?q=list%3Aorg.apache.geode.user+order%3Adate-backward) list.
 
 ## References
-* [VMware GemFire Documentation](https://docs.vmware.com/en/VMware-Tanzu-GemFire/index.html)
+* [VMware GemFire Documentation](https://docs.vmware.com/en/VMware-GemFire/index.html)
 * [Spring Security Repository](https://github.com/spring-projects/spring-security)
 * [Spring Data GemFire Repository](https://github.com/spring-projects/spring-data-gemfire)
 * [Geode Spring Security Repository](https://github.com/jujoramos/geode-spring-security)

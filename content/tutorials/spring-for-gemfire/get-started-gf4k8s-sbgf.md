@@ -53,7 +53,7 @@ You will also need permission to use `kubectl`.
 
 4. Create your VMware GemFire CRD file. 
     
-    Below is a simple yaml file that will create a VMware GemFire cluster named `hello-world-gemfire-cluster` with 1 [locator](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-configuring-running-running_the_locator.html) and 2 [servers](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/configuring-running-running_the_cacheserver.html), with TLS turned off. Save this as a YAML file in your current working directory.
+    Below is a simple yaml file that will create a VMware GemFire cluster named `hello-world-gemfire-cluster` with 1 [locator](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/configuring-running-running_the_locator.html) and 2 [servers](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/configuring-running-running_the_cacheserver.html), with TLS turned off. Save this as a YAML file in your current working directory.
     
       ```yaml
       apiVersion: gemfire.vmware.com/v1

@@ -52,7 +52,7 @@ Starting in a terminal
 &nbsp;
 
 {{% alert title="Apps Manger" color="info" %}}
-[Apps Manager](https://docs.run.pivotal.io/console/dev-console.html) is a user interface that must be turned on by the operator of the foundation.
+Apps Manager is a user interface that must be turned on by the operator of the foundation.
 {{% /alert %}} 
 
 &nbsp;

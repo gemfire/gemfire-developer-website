@@ -280,7 +280,7 @@ public class SessionControllerTest {
 Navigate to the root of the project  in a command line and run the Spring Boot run command.
 
 ### Start a VMware GemFire cluster
-Follow the instructions in the [Getting Started Locally](/tutorials/spring-for-gemfire/get-started-locally-sbgf/) guide to start a small GemFire cluster on your local machine.
+Follow the instructions in the [Getting Started Locally](/tutorials/spring-for-gemfire/sbgf-basics/) guide to start a small GemFire cluster on your local machine.
 
 ### Build the App
 Once you have a cluster running, in a new terminal, navigate to the root of the project and build the app.  

@@ -13,7 +13,7 @@ The in-memory size of a GemFire [GatewaySender](https://docs.vmware.com/en/VMwar
 
 This article describes how to use the ObjectGraphSizer to calculate the size of a GatewaySender queue.
 
-Note: See the [GatewaySender Queue Implementation](/blog/logging-apache-geode-gatewaysender-queue-events/#gatewaysender-queue-implementation) section of my **Logging GemFire GatewaySender Queue Events** blog for details on the architecture of GatewaySenders.
+Note: See the [GatewaySender Queue Implementation](/blog/logging-vmware-gemfire-gatewaysender-queue-events/#gatewaysender-queue-implementation) section of my **Logging GemFire GatewaySender Queue Events** blog for details on the architecture of GatewaySenders.
 
 ## Implementation
 All source code described in this article as well as an example usage is available [here](https://github.com/boglesby/calculate-gateway-sender-queue-size).

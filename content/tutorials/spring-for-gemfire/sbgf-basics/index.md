@@ -8,9 +8,6 @@ parent: Spring for VMware GemFire
 icon: spring
 type: tutorials
 weight: 1
-aliases:
-    - get-started-locally-sbdg/
-
 ---
 
 This guide walks you through setting up your local development environment using VMware GemFire and a *Hello, World!* client application.    
