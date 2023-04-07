@@ -217,10 +217,10 @@ body.blog #contact .mktoForm select {
 }
 
  #hero.examples-hero {
-   background-image: url({{ "images/backgrounds/background-samples-light.svg" | relURL }}) !important;
+   background-image: url({{ "images/backgrounds/background-examples-light.svg" | relURL }}) !important;
  }
 #hero.tutorials-hero {
-  background-image: url({{ "images/backgrounds/background-patterns-light.svg" | relURL }}) !important;
+  background-image: url({{ "images/backgrounds/background-tutorials-light.svg" | relURL }}) !important;
 }
  #hero.videos-hero {
    background-image: url({{ "images/backgrounds/background-video-light.svg" | relURL }}) !important;

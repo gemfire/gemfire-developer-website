@@ -94,10 +94,10 @@
       }
 
       &.tutorials-hero {
-        background-image: url('{{ "images/backgrounds/background-patterns.svg" | relURL }}');
+        background-image: url('{{ "images/backgrounds/background-tutorials.svg" | relURL }}');
       }
       &.examples-hero {
-        background-image: url('{{ "images/backgrounds/background-samples.svg" | relURL }}');
+        background-image: url('{{ "images/backgrounds/background-examples.svg" | relURL }}');
       }
       &.videos-hero {
         background-image: url('{{ "images/backgrounds/background-video.svg" | relURL }}');
