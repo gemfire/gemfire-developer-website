@@ -15,7 +15,7 @@ In this example, you will go through a basic implementation of a custom `Securit
 > It’s important to note that I am not a security expert. The purpose of this article is to introduce the GemFire `SecurityManager`. This example is not meant for use in a production environment.
 
 ## The Security Manager
-To secure a GemFire cluster, the user needs to deploy a custom implementation of the *[SecurityManager](https://github.com/apache/geode/blob/support/1.14/geode-core/src/main/java/org/apache/geode/security/SecurityManager.java)* interface, so that the authentication logic is entirely encapsulated within the implementation itself.
+To secure a GemFire cluster, the user needs to deploy a custom implementation of the *[SecurityManager](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-security-enable_security.html)* interface, so that the authentication logic is entirely encapsulated within the implementation itself.
 
 This example focuses on a basic authentication example, with the goal of understanding how the `SecurityManager` works on the server and how to connect a Java application to the cluster.
 
@@ -212,4 +212,4 @@ However, now everyone and every app can use the same username, password, AND gai
 - What if you need an operator to be able to create the GemFire clusters but not have access to the data?
 - What if you need an application developer to be able to interact with the data, without accidentally deleting the cluster?
 
-To grant users different permissions and access levels you will need to implement **authentication** and **authorization**. [This next article](/data/gemfire/blog/security-manager-basics-authentication-and-authorization) will walk you through an example of how to implement those two methods for a GemFire cluster and utilize GemFire's `ResourcePermissions` to set user permissions. 
+To grant users different permissions and access levels you will need to implement **authentication** and **authorization**. [GemFire Security Manager Basics: Authentication/Authorization](/blog/gemfire-security-manager-basics-authentication/authorization/) will walk you through an example of how to implement those two methods for a GemFire cluster and utilize GemFire's `ResourcePermissions` to set user permissions. 

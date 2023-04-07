@@ -10,11 +10,11 @@ description: This article provides an example of a compact view of the primary a
 ---
 
 ## Introduction
-An VMware GemFire [PartitionedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-chapter_overview.html) partitions its entries into buckets among all the servers where it is defined. Properties that affect the number and location of the buckets include [`total-num-buckets`](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-configuring_bucket_for_pr.html) and [`redundant-copies`](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-set_pr_redundancy.html). The `total-num-buckets` configures the number of buckets across all the members of the DistributedSystem. The `redundant-copies` configures the number of copies of each bucket. The primary bucket is hosted on one server, and if `redundant-copies` is greater than zero, the secondary buckets are hosted on other servers.
+An VMware GemFire [PartitionedRegion](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-partitioned_regions-chapter_overview.html) partitions its entries into buckets among all the servers where it is defined. Properties that affect the number and location of the buckets include [`total-num-buckets`](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-partitioned_regions-configuring_bucket_for_pr.html) and [`redundant-copies`](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-set_pr_redundancy.html). The `total-num-buckets` configures the number of buckets across all the members of the DistributedSystem. The `redundant-copies` configures the number of copies of each bucket. The primary bucket is hosted on one server, and if `redundant-copies` is greater than zero, the secondary buckets are hosted on other servers.
 
-In addition, the [`redundancy-zone`](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-partitioned_regions-set_redundancy_zones.html) property helps determine where buckets are located. If two redundancy zones are defined and `redundant-copies` is one (meaning 2 copies of each bucket), then the primary bucket will be in a member in one zone, and the secondary bucket will be in a member in the other zone.
+In addition, the [`redundancy-zone`](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-partitioned_regions-set_redundancy_zones.html) property helps determine where buckets are located. If two redundancy zones are defined and `redundant-copies` is one (meaning 2 copies of each bucket), then the primary bucket will be in a member in one zone, and the secondary bucket will be in a member in the other zone.
 
-This article is a companion to my [Logging VMware GemFire PartitionedRegion Entry Details Per Bucket](/data/gemfire/blog/logging-partitionedregion-entry-details-per-bucket) article. It provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone.
+This article is a companion to my [Logging VMware GemFire PartitionedRegion Entry Details Per Bucket](/blog/logging-partitionedregion-entry-details-per-bucket) article. It provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone.
 
 ## Implementation
 
@@ -196,7 +196,7 @@ The 2 redundancy zones contain the following extra bucket ids:
 ```
 
 ## Future
-A [gfsh](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-tools_modules-gfsh-chapter_overview.html) command and Function that provides PartitionedRegion primary and secondary bucket locations per server and redundancy zone like this example would be a useful addition to VMware GemFire.
+A [gfsh](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-chapter_overview.html) command and Function that provides PartitionedRegion primary and secondary bucket locations per server and redundancy zone like this example would be a useful addition to VMware GemFire.
 
 
 

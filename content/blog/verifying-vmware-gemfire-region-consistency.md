@@ -9,7 +9,7 @@ description: This article describes a way to verify that a Region’s data in tw
 ---
 
 ## Introduction
-VMware GemFire provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-topologies_and_comm-multi_site_configuration-chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed.
+VMware GemFire provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-multi_site_configuration-chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed.
 
 If a connection cannot be made to the remote WAN site, the events remain in the GatewaySender’s queue until such time as a connection can be made. At that time, events are batched and sent to the remote site. Once an acknowledgement has been received by the GatewaySender for those events, they are removed from the queue. Whether the events are successfully applied in the remote site is not taken into account. Any exceptions that occur in the remote site are logged in both sites, but once the acknowledgement is received, the events are removed from the queue. This decision was made mainly to prevent issues in the remote site (e.g. memory pressure, partitions offline, etc.) from cascading back to and affecting the local site.
 

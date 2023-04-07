@@ -193,7 +193,7 @@ spring-security-config-5.2.1.RELEASE.jar
 spring-security-core-5.2.1.RELEASE.jar
 ```
 
-Aside from that, we’ll also need to define some extra properties for VMware GemFire to pick up our *SecurityManager* implementation (see [here](https://geode.apache.org/docs/guide/112/managing/security/enable_security.html)), and to allow our servers to authenticate against the running locator.
+Aside from that, we’ll also need to define some extra properties for VMware GemFire to pick up our *SecurityManager* implementation (see [here](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-security-enable_security.html)), and to allow our servers to authenticate against the running locator.
 
 ```
 /workspace/config/locator.properties

@@ -9,7 +9,7 @@ type: blog
 ---
 
 ## Introduction
-The in-memory size of a GemFire [GatewaySender](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-topologies_and_comm-topology_concepts-multisite_overview.html) queue can be used to determine the amount of queue memory to allocate for that GatewaySender. The ObjectGraphSizer can be used to calculate the size of any object in bytes and also to create a histogram of the object being sized. It does this by recursively traversing each field of the object. An ObjectFilter can be used in conjunction with the ObjectGraphSizer to accept or reject each object as it is traversed. Its basic use is to reject objects that shouldn’t be included in the size.
+The in-memory size of a GemFire [GatewaySender](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-topology_concepts-multisite_overview.html) queue can be used to determine the amount of queue memory to allocate for that GatewaySender. The ObjectGraphSizer can be used to calculate the size of any object in bytes and also to create a histogram of the object being sized. It does this by recursively traversing each field of the object. An ObjectFilter can be used in conjunction with the ObjectGraphSizer to accept or reject each object as it is traversed. Its basic use is to reject objects that shouldn’t be included in the size.
 
 This article describes how to use the ObjectGraphSizer to calculate the size of a GatewaySender queue.
 

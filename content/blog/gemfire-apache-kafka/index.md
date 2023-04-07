@@ -11,7 +11,7 @@ description: We’ll be ingesting JSON data from a rest endpoint into a Kafka to
 ## Introduction
 Apache Kafka is a popular solution for ingesting from various data sources and into Kafka topics. For use cases that require key look-ups or querying, traversing the topic for specific keys or devising a strategy for partitioning can be done. However, Kafka also provides the capability to sink, or offload, the data to other systems via Kafka Connect. The [geode-kafka-connector](https://github.com/apache/geode-kafka-connector) implements the Kafka Connect APIs and allows data to be pushed into GemFire, where key look-ups and querying are better suited.
 
-[GemFire](https://tanzu.vmware.com/gemfire/) is a consistent, low latency in memory data store. For use cases where we want fast, consistent key look-ups, sinking data to GemFire makes a lot of sense. GemFire also allows secondary indexes to be built on the data, to be used by queries. The geode-kafka-connector provides a [JsonPdxConverter](https://github.com/apache/geode-kafka-connector/blob/d6651f1ed78c09a533f478ded239a52cd2ffaca3/src/main/java/org/apache/gemfire/kafka/converter/JsonPdxConverter.java#L27) that we will be using. This allows JSON objects to be converted into PDX ([Portable Data eXchange, an GemFire serialization format](https://tanzu.vmware.com/gemfire/docs/guide/111/developing/data_serialization/gemfire_pdx_serialization.html)), so that we can query any field and drill down into nested JSON Objects.
+[GemFire](https://www.vmware.com/products/gemfire.html) is a consistent, low latency in memory data store. For use cases where we want fast, consistent key look-ups, sinking data to GemFire makes a lot of sense. GemFire also allows secondary indexes to be built on the data, to be used by queries. The geode-kafka-connector provides a [JsonPdxConverter](https://github.com/apache/geode-kafka-connector/blob/d6651f1ed78c09a533f478ded239a52cd2ffaca3/src/main/java/org/apache/gemfire/kafka/converter/JsonPdxConverter.java#L27) that we will be using. This allows JSON objects to be converted into PDX ([Portable Data eXchange, a GemFire serialization format](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html)), so that we can query any field and drill down into nested JSON Objects.
 
 
 ## Overview
@@ -154,12 +154,10 @@ query --query=”select * from /Events where payload.action=’opened’”
 We are able to do a nested field lookup and filter for specific results
 
 ### Creating a secondary index
-If there is are fields we plan on querying often or need faster performance on, we can create indexes on those fields. For this example we could create one on payload.action
+If there are fields we plan on querying often or need faster performance on, we can create indexes on those fields. For this example we could create one on payload.action.
 
 ## What next?
-- Learn more about [OQL querying](https://tanzu.vmware.com/gemfire/docs/guide/111/developing/querying_basics/query_basics.html) or [PDX serialization](https://tanzu.vmware.com/gemfire/docs/guide/15/developing/data_serialization/gemfire_pdx_serialization.html) in GemFire
+- Learn more about [OQL querying](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-querying_basics-chapter_overview.html) or [PDX serialization](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html) in GemFire
 
 - Check out the other features in [geode-kafka-connector](https://github.com/apache/geode-kafka-connector)
 
-- [Read how GemFire was used to simplify architecture and operations](https://www.pymma.com/index.php/blogs/data-analytic-gemfire-a-successful-alternative-to-kafka-spark-and-storm)
-Join the [GemFire Community](https://tanzu.vmware.com/gemfire/community/)

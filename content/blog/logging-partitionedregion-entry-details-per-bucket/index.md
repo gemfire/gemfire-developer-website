@@ -27,7 +27,7 @@ This article shows how to get similar details for each BucketRegion in the Parti
 
 ## Accessing Entry Details for the PartitionedRegion
 
-Currently, the details listed above are available for the PartitionedRegion via either [Statistics](https://geode.apache.org/docs/guide/112/managing/statistics/chapter_overview.html) or [gfsh](https://geode.apache.org/docs/guide/112/tools_modules/gfsh/chapter_overview.html).
+Currently, the details listed above are available for the PartitionedRegion via either [Statistics](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-statistics-chapter_overview.html) or [gfsh](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-chapter_overview.html).
 
 ### Via Statistics
 Bucket and entry details are provided by PartitionedRegionStats and DiskRegionStatistics.
@@ -233,4 +233,4 @@ Redundant Buckets:
  
  ## Future
  
- A gfsh command and API that provides these partitioned Region bucket details would be a useful addition to Apache Geode.
+ A gfsh command and API that provides these partitioned Region bucket details would be a useful addition to VMware GemFire.
