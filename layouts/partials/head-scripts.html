@@ -3,23 +3,23 @@
 dataLayer = [];
 </script>
 <!-- OneTrust -->
-<!--{{ if eq (getenv "HUGO_ENV") "production" }}-->
-<!--<meta content='b9242434-9feb-47be-a894-3a9e658fdd50' name='onetrust-data-domain'>-->
-<!--<meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.js' name='microsites-utag'>-->
-<!--{{ else }}-->
-<!--<meta content='b9242434-9feb-47be-a894-3a9e658fdd50-test' name='onetrust-data-domain'>-->
-<!--<meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/qa/utag.js' name='microsites-utag'>-->
-<!--{{ end }}-->
-<!--<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>-->
-<!--<script src='https://www.vmware.com/files/templates/inc/utag_data.js'></script>-->
-<!--{{ if eq (getenv "HUGO_ENV") "production" }}-->
-<!--<script src='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.sync.js'></script>-->
-<!--{{ else }}-->
-<!--<script src='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/qa/utag.sync.js'></script>-->
-<!--{{ end }}-->
-<!--<script>-->
-<!--function OptanonWrapper() { { window.dataLayer.push({ event: 'OneTrustGroupsUpdated' }); } }-->
-<!--</script>-->
+{{ if eq (getenv "HUGO_ENV") "production" }}
+<meta content='688714c5-a2c1-45ed-8486-25d404752d6e' name='onetrust-data-domain'>
+<meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.js' name='microsites-utag'>
+{{ else }}
+<meta content='688714c5-a2c1-45ed-8486-25d404752d6e-test' name='onetrust-data-domain'>
+<meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/qa/utag.js' name='microsites-utag'>
+{{ end }}
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src='https://www.vmware.com/files/templates/inc/utag_data.js'></script>
+{{ if eq (getenv "HUGO_ENV") "production" }}
+<script src='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.sync.js'></script>
+{{ else }}
+<script src='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/qa/utag.sync.js'></script>
+{{ end }}
+<script>
+function OptanonWrapper() { { window.dataLayer.push({ event: 'OneTrustGroupsUpdated' }); } }
+</script>
 <!-- Google Tag Manager -->
 <script>
 // function setGTM(w,d,s,l,i){ w[l]=w[l]||[]; w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'}); var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:''; j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); }
@@ -27,50 +27,50 @@ dataLayer = [];
 </script>
 
 <!-- Sentry SDK-->
-<script
-  src="https://browser.sentry-cdn.com/7.27.0/bundle.tracing.min.js"
-  integrity="sha384-9DbxFQbHqgid8ADllNDRZcmsuQRYnnDVDkw+5/e8VzfpHAiIZM71uGj+p3CVeheW"
-  crossorigin="anonymous"
-></script>
+<!--<script-->
+<!--  src="https://browser.sentry-cdn.com/7.27.0/bundle.tracing.min.js"-->
+<!--  integrity="sha384-9DbxFQbHqgid8ADllNDRZcmsuQRYnnDVDkw+5/e8VzfpHAiIZM71uGj+p3CVeheW"-->
+<!--  crossorigin="anonymous"-->
+<!--&gt;</script>-->
 
 <script>
-Sentry.init({
-  dsn: "https://91138cf7f17842fd8a57d45372bf538c@o448817.ingest.sentry.io/5712977",
-  integrations: [new Sentry.Integrations.BrowserTracing()],
-  release: '{{ getenv "COMMIT_REF" }}',
-  environment: '{{ getenv "CONTEXT" }}',
-  // We recommend adjusting this value in production, or using tracesSampler
-  // for finer control
-  tracesSampleRate: 0.2,
-  beforeSend: function(event, hint) {
-    var gtm = false;
-    try {
-      if (hint.originalException.stack)
-        gtm = hint.originalException.stack.indexOf('www.googletagmanager.com/gtm.js?id=') > -1;
-    } catch (error) {
-      console.error(error);
-    }
-    event.tags = event.tags || {};
-    if (gtm) {
-      event.tags.logger = 'gtm';
-    }
-    event.tags.logger = event.tags.logger || '_default_';
-    event.extra = event.extra || {};
-    if (gtm) {
-      event.tags.logger = 'gtm';
-      event.extra.dataLayer = dataLayer.map(
-        function(i) {
-          try {
-            return JSON.stringify(i, null, ' ');
-          } catch(error) {
-            return '[cannot be serialized]: ' + error.message;
-          }
-        }
-      );
-    }   
-    return event;
-  }
-});
+<!--Sentry.init({-->
+<!--  dsn: "https://91138cf7f17842fd8a57d45372bf538c@o448817.ingest.sentry.io/5712977",-->
+<!--  integrations: [new Sentry.Integrations.BrowserTracing()],-->
+<!--  release: '{{ getenv "COMMIT_REF" }}',-->
+<!--  environment: '{{ getenv "CONTEXT" }}',-->
+<!--  // We recommend adjusting this value in production, or using tracesSampler-->
+<!--  // for finer control-->
+<!--  tracesSampleRate: 0.2,-->
+<!--  beforeSend: function(event, hint) {-->
+<!--    var gtm = false;-->
+<!--    try {-->
+<!--      if (hint.originalException.stack)-->
+<!--        gtm = hint.originalException.stack.indexOf('www.googletagmanager.com/gtm.js?id=') > -1;-->
+<!--    } catch (error) {-->
+<!--      console.error(error);-->
+<!--    }-->
+<!--    event.tags = event.tags || {};-->
+<!--    if (gtm) {-->
+<!--      event.tags.logger = 'gtm';-->
+<!--    }-->
+<!--    event.tags.logger = event.tags.logger || '_default_';-->
+<!--    event.extra = event.extra || {};-->
+<!--    if (gtm) {-->
+<!--      event.tags.logger = 'gtm';-->
+<!--      event.extra.dataLayer = dataLayer.map(-->
+<!--        function(i) {-->
+<!--          try {-->
+<!--            return JSON.stringify(i, null, ' ');-->
+<!--          } catch(error) {-->
+<!--            return '[cannot be serialized]: ' + error.message;-->
+<!--          }-->
+<!--        }-->
+<!--      );-->
+<!--    }   -->
+<!--    return event;-->
+<!--  }-->
+<!--});-->
 // localStorage.clear();
 
 
