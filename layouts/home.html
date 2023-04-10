@@ -48,11 +48,12 @@
 <!-- Tutorials -->
 <section id="home-tutorials" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
-        <div class="row w-100 m-0 pl-3">
+        <div class="d-flex justify-content-between w-100 m-0 pl-3">
             <div class="d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-guides.svg" height="50" width="50"/>
-                <a href="{{ "tutorials" | relURL }}" class="h2 text-left">Tutorials</a>
+                <a class="h2 text-left text-white">Tutorials</a>
             </div>
+            <a class="h3 mr-4" href="{{ "tutorials" | relURL }}" class="h2">See all</a>
         </div>
         <div id="tutorials-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
             <div class="row justify-content-center transition-all w-100">
@@ -82,11 +83,12 @@
 <!-- Blogs -->
 <section id="home-blogs" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
-        <div class="row w-100 m-0 pl-3">
+        <div class="d-flex justify-content-between w-100 m-0 pl-3">
             <div class="d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-blog.svg" height="50" width="50"/>
-                <a href="{{ "blog" | relURL }}" class="h2 text-left">Blogs</a>
+                <a class="h2 text-left text-white">Blogs</a>
             </div>
+            <a class="h3 mr-4" href="{{ "blog" | relURL }}" class="h2">See all</a>
         </div>
         <div id="blogs-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
             <div class="col-xl-12 w-100">
@@ -114,42 +116,44 @@
 <!-- Videos -->
 <section id="home-videos" class="pt-4 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
-    <div class="row w-100 m-0 pl-3">
-        <div class="d-flex align-items-center icon-title mb-4">
-            <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-videos.svg" height="50" width="50"/>
-            <a href="{{ "videos" | relURL }}" class="h2 text-left">Videos</a>
-        </div>
-    </div>
-    <div id="videoss-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
-            <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
-                <div id="the-videos-row" class="row justify-content-between justify-content-center w-100 td-box videos-row m-0">
-                    {{ $videos := where .Site.RegularPages "Section" "==" "videos"}}
-                    {{ range first 3 (sort $videos ".Params.lastmod" "desc")  }}
-                    <div class="topic-card flex-315 td-box--gray-850 mb-lg-0 mb-3">
-                        <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
-                            <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
-                                {{ .Params.title | truncate 70 }}
-                            </h3>
-                            <p class="mb-2 mb-lg-4 text-left py-0 px-2" >
-                                {{ .Description | truncate 70 }}
-                            </p>
-                        </a>
-                    </div>
-                    {{ end }}
-                </div>
+        <div class="d-flex justify-content-between w-100 m-0 pl-3">
+            <div class="d-flex icon-title mb-4">
+                <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-videos.svg" height="50" width="50"/>
+                <a class="h2 text-left text-white">Videos</a>
             </div>
-    </div>
+            <a class="h3 mr-4" href="{{ "videos" | relURL }}" class="h2">See all</a>
+        </div>
+        <div id="videoss-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
+                <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
+                    <div id="the-videos-row" class="row justify-content-between justify-content-center w-100 td-box videos-row m-0">
+                        {{ $videos := where .Site.RegularPages "Section" "==" "videos"}}
+                        {{ range first 3 (sort $videos ".Params.lastmod" "desc")  }}
+                        <div class="topic-card flex-315 td-box--gray-850 mb-lg-0 mb-3">
+                            <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
+                                <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
+                                    {{ .Params.title | truncate 70 }}
+                                </h3>
+                                <p class="mb-2 mb-lg-4 text-left py-0 px-2" >
+                                    {{ .Description | truncate 70 }}
+                                </p>
+                            </a>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+        </div>
     </div>
 </section>
 
 <!-- Examples -->
 <section id="home-examples" class="pt-2 pb-2 td-box">
     <div class="w-75 mx-sm-auto">
-        <div class="row w-100 m-0 pl-3">
+        <div class="d-flex justify-content-between w-100 m-0 pl-3">
             <div class="d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-code-samples.svg" height="50" width="50"/>
-                <a href="{{ "examples" | relURL }}" class="h2 text-left">Examples</a>
+                <a class="h2 text-left text-white">Examples</a>
             </div>
+            <a class="h3 mr-4" href="{{ "examples" | relURL }}" class="h2">See all</a>
         </div>
         <div id="examples-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all m-0">
             <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
