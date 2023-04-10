@@ -5,7 +5,7 @@ lastmod: '2023-03-29'
 repo: https://github.com/gemfire/gemfire-examples/blob/main/use-cases/restClient.py
 tags:
 - Python
-- Rest
+- REST
 type: examples
 description: A guide to using the GemFire REST API from a Python client.
 ---
