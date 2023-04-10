@@ -1,5 +1,5 @@
 ---
-title: "Transmitting Deltas Between Different Apache Geode Distributed Systems"
+title: "Transmitting Deltas Between Different VMware GemFire Distributed Systems"
 date: 2021-03-23
 lastmod: 2021-03-23
 team:
@@ -9,7 +9,7 @@ description: This article describes a way to send the delta bytes between the Di
  
 ---
 ## Introduction
-Apache Geode provides a [Delta](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/Delta.java) interface that facilitates serializing the changes to an object between two JVMs rather than the entire object when changes are made to that object. For large objects, this provides an optimization that is supported from:
+VMware GemFire provides a [Delta](https://github.com/apache/geode/blob/develop/geode-core/src/main/java/org/apache/geode/Delta.java) interface that facilitates serializing the changes to an object between two JVMs rather than the entire object when changes are made to that object. For large objects, this provides an optimization that is supported from:
 
 - clients to servers
 - servers to servers in the same DistributedSystem

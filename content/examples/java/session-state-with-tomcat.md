@@ -40,7 +40,7 @@ and to the file context.xml add the line:
   ```
 
 Specify the root directory of your local GemFire installation. Make sure you have no local GemFire cluster running, as this step will start
-a new local cluster to manage our Session States. This can be done by running gfsh from your geode installation and running a `connect`
+a new local cluster to manage our Session States. This can be done by running gfsh from your GemFire installation and running a `connect`
 command with no parameters. If a cluster is found, use the shutdown command to stop the cluster before continuing.
 
 4. Run the tomcat startup script located at $CATALINA_HOME/bin/startup.sh. You should now be able to reach the example webapp by entering
