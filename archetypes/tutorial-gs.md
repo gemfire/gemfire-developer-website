@@ -3,8 +3,10 @@ title: "Getting Started with {{ replace (replace .Name "-" " " | title) " Gs" ""
 description: 
 date: "{{ now.Format "2006-01-02" }}"
 lastmod: "{{ now.Format "2006-01-02" }}"
-level1:
-level2:
+type: tutorials
+parent: 
+icon: 
+weight: 1
 tags:
 - 
 # Author(s)
