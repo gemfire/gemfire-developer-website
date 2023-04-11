@@ -15,7 +15,7 @@ description: 'VMware GemFire provides a SQL-like query language called OQL that 
 
 ## Why?
 
-Before the release of [Apache Geode 1.3.0](https://archive.apache.org/dist/geode/1.3.0/), the OQL engine used to allow any method invocation on objects present in the Geode member’s classpath, including mutators and, through the usage of [Java Reflection](https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/index.html), internal Geode, JDK or external library methods. This allowed malicious users to do things like the following (ugh!!)
+Before the release of [Apache Geode 1.3.0](https://archive.apache.org/dist/geode/1.3.0/), the OQL engine used to allow any method invocation on objects present in the GemFire member’s classpath, including mutators and, through the usage of [Java Reflection](https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/index.html), internal GemFire, JDK or external library methods. This allowed malicious users to do things like the following (ugh!!)
 
 ```sql
 SELECT * FROM /region.destroyRegion()
@@ -35,7 +35,7 @@ The VMware GemFire team learns from previous errors and iterates to improve the 
 Based on feedback from users, the VMware GemFire team tried to cover the most common use cases and scenarios when designing and implementing these authorizers; the full list with a brief description for each one is shown below.
 
 ### *RestrictedMethodAuthorizer*
-The default “please secure it all” one, it denies everything except for the hard-coded list of known safe methods. Use this if you liked the approach introduced in [Apache Geode 1.3.0](https://archive.apache.org/dist/geode/1.3.0/).
+The default “please secure it all” one, it denies everything except for the hard-coded list of known safe methods.
 
 To configure this authorizer in your cluster, just execute the following command:
 
@@ -81,7 +81,7 @@ Since [Java annotations](https://docs.oracle.com/javase/8/docs/technotes/guides/
 
 The example assumes that you have access to modify the domain model and, more importantly, that you’re willing to do it.
 
-Long story short, the authorize callback will only allow methods annotated with our custom annotation, if and only if the method is not already flagged as dangerous by Geode.
+Long story short, the authorize callback will only allow methods annotated with our custom annotation, if and only if the method is not already flagged as dangerous by GemFire.
 
 ```java
 @Target(ElementType.METHOD)

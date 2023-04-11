@@ -33,7 +33,7 @@ This example assumes you have installed JDK11 and GemFire.
 
    The example fetches the entries twice.  The first retrieval is slow,
    simulating a network call.  Subsequent retrievals are much faster since the
-   values are stored in the cache.  The loader logs requests into the Geode
+   values are stored in the cache.  The loader logs requests into the GemFire
    server logs.  You can find those at `build/server1/server1.log` or
    `build/server2/server2.log`.
 

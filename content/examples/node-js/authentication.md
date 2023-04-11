@@ -11,4 +11,4 @@ description: Demonstrates the basic authentication and authorization mechanism u
 
 This Node.js example demonstrates the basic authentication and authorization mechanism used when an app interacts with a VMware GemFire cluster. The app does a put, a get, and a remove operation to show authorization.
 
-This example works with either a local VMware GemFire cluster or a local Apache Geode cluster.
+This example works with a local VMware GemFire cluster.

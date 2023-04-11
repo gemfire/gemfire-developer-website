@@ -1,16 +1,16 @@
 ---
-title: Converting All Apache Geode Statistics to Micrometer Meters
+title: Converting All VMware GemFire Statistics to Micrometer Meters
 date: 2020-05-12
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
 
 type: blog
-description: This article describes a way to convert all existing Geode Statistics to Micrometer Gauges and to push those Gauges to Wavefront using a Spring Boot Micrometer Wavefront registry.
+description: This article describes a way to convert all existing GemFire Statistics to Micrometer Gauges and to push those Gauges to Wavefront using a Spring Boot Micrometer Wavefront registry.
 ---
 
 ## Introduction
-[Apache Geode](https://geode.apache.org/) provides many Statistics for monitoring the Distributed System including:
+[VMware GemFire](https://www.vmware.com/products/gemfire.html) provides many Statistics for monitoring the Distributed System including:
 * Region Statistics (e.g. entries, creates, gets, updates, destroys)
 * Cache Server Statistics (e.g. currentClientConnections, currentClients, putRequests, getRequests, threadQueueSize)
 * Function Execution Statistics (e.g. functionExecutionCalls, functionExecutionsCompleted)
@@ -19,11 +19,11 @@ description: This article describes a way to convert all existing Geode Statisti
 * Client Proxy Statistics (e.g. messageQueueSize, messagesProcessed)
 * Sampler Statistics (e.g. delayDuration)
 
-The Statistics have been used for both monitoring and troubleshooting a Distributed System. They are available as JMX attributes mainly for monitoring and also are written to files mainly for troubleshooting. Monitoring is done via Geode tools like Pulse or JMX tools like JProfiler. Troubleshooting is done via a tool like [vsd](https://gemtalksystems.com/products/vsd/) that reads and helps analyze the files.
+The Statistics have been used for both monitoring and troubleshooting a Distributed System. They are available as JMX attributes mainly for monitoring and also are written to files mainly for troubleshooting. Monitoring is done via GemFire tools like Pulse or JMX tools like JProfiler. Troubleshooting is done via a tool like [vsd](https://gemtalksystems.com/products/vsd/) that reads and helps analyze the files.
 
 Recently, some of the Statistics have also been made available as [Micrometer Meters](https://micrometer.io/docs/concepts#_meters) so that they can be monitored via tools like [Wavefront](https://www.wavefront.com/). Many Statistics are not currently available as Meters including some that have historically been very valuable especially when troubleshooting issues.
 
-This article describes a way to convert all existing Geode Statistics to Micrometer Gauges and to push those Gauges to Wavefront using a [Spring Boot Micrometer Wavefront registry](https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/production-ready-metrics.html#production-ready-metrics-export-wavefront).
+This article describes a way to convert all existing GemFire Statistics to Micrometer Gauges and to push those Gauges to Wavefront using a [Spring Boot Micrometer Wavefront registry](https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/production-ready-metrics.html#production-ready-metrics-export-wavefront).
 
 ## Implementation
 All source code described in this article is available [here](https://github.com/boglesby/convert-statistics-to-gauges).
@@ -194,7 +194,7 @@ In addition, set the properties below in the application.properties file. The la
 
 
 ### Sample Dashboard
-Once the Spring Boot application containing the Micrometer Wavefront registry is running, the values of all the Geode server statistics are published to Wavefront. An example Wavefront dashboard is shown below. The queries used in this dashboard are all pretty basic, although the [Wavefront Query Language](https://docs.wavefront.com/query_language_reference.html) allows for much more complex queries. The JSON file containing this dashboard is available [here](https://github.com/boglesby/convert-statistics-to-gauges/blob/master/wavefront_dashboard.json).
+Once the Spring Boot application containing the Micrometer Wavefront registry is running, the values of all the GemFire server statistics are published to Wavefront. An example Wavefront dashboard is shown below. The queries used in this dashboard are all pretty basic, although the [Wavefront Query Language](https://docs.wavefront.com/query_language_reference.html) allows for much more complex queries. The JSON file containing this dashboard is available [here](https://github.com/boglesby/convert-statistics-to-gauges/blob/master/wavefront_dashboard.json).
 
 ![img](images/barry_2020_05_wavefront.png)
 </br>General Metrics (CPU, Old Gen Heap and GC, Client Connections, etc.)
@@ -208,4 +208,4 @@ Once the Spring Boot application containing the Micrometer Wavefront registry is
 ## Future
 Creating and publishing all the Gauges from one application is convenient, and the fact that Spring Boot easily supports adding a Micrometer Wavefront registry makes a Spring Boot client application a natural place to do it. But, that adds a process into the flow that isn’t really necessary.
 
-Instead of having a Spring Boot client application that gathers each server’s Statistics, converts them to Gauges and registers them in the MeterRegistry, this behavior could all be done on the server. A mechanism already exists for doing this using a MetricsPublishingService that is described by **Jason Huynh** in his article [Publishing VMware GemFire Metrics to Wavefront](/blog/publishing-vmware-gemfire-metrics-to-wavefront/). It would be nice to expand it to include all Geode Statistics.
+Instead of having a Spring Boot client application that gathers each server’s Statistics, converts them to Gauges and registers them in the MeterRegistry, this behavior could all be done on the server. A mechanism already exists for doing this using a MetricsPublishingService that is described by **Jason Huynh** in his article [Publishing VMware GemFire Metrics to Wavefront](/blog/publishing-vmware-gemfire-metrics-to-wavefront/). It would be nice to expand it to include all GemFire Statistics.

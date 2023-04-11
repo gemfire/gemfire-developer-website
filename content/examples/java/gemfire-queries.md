@@ -44,7 +44,7 @@ This example assumes that JDK11 and GemFire are installed.
 
 `gfsh` can also be used to issue queries.
 
-1.  If you have not already installed Geode,
+1.  If you have not already installed GemFire,
     the build step will have installed a `gfsh` executable for you
     at a path relative to the current working directory
     within a versioned directory:

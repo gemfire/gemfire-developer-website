@@ -7,11 +7,11 @@ tags:
 - Redis
 - Spring
 type: examples
-description: Three examples that show how to convert your Spring Session Data Redis app to use Spring Boot for Apache Geode.
+description: Three examples that show how to convert your Spring Session Data Redis app to use Spring Boot for Vmware GemFire.
    
 ---
 
-This repo contains examples of converting Spring Session Data Redis applications to use Spring Boot for Apache Geode to store HTTP session state data.   Each example app has its own README, and resides in its own directory within this repository:
+This repo contains examples of converting Spring Session Data Redis applications to use Spring Boot for Vmware GemFire to store HTTP session state data.   Each example app has its own README, and resides in its own directory within this repository:
 
   
   `spring-session-boot`
