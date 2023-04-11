@@ -18,7 +18,7 @@ VMware GemFire offers super fast write-ahead-logging (WAL) persistence with a sh
 
 Disk store files include store management files, access control files, and the operation log(oplog) files, consisting of one file for deletions and another for all other operations. For example, in the file system, there are oplog files with crf, drf and krf file extensions. The crf oplog contains create, update, and invalidate operations for region entries. The drf oplog contains delete operations, and the krf oplog contains the key names as well as the offsets for the values within the crf file. The krf oplog improves startup performance by allowing GemFire to load the entry values in the background after the entry keys are loaded. When you start a member with a persistent region, the data is retrieved from disk stores to recreate the member’s persistent region. Entry keys are loaded from the key file in the disk store before considering entry values. Once all keys are loaded, GemFire loads the entry values asynchronously.
 
-If you would like to know more about VMware GemFire disk storage, please refer to the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/9.10/gf/managing-disk_storage-chapter_overview.html).
+If you would like to know more about VMware GemFire disk storage, please refer to the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/managing-disk_storage-chapter_overview.html).
 
 ## Challenges for the Performance of Persistence Recovery
 
