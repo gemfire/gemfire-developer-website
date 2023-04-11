@@ -59,7 +59,7 @@
                     <div id="{{ lower (replace . " " "-")}}-row" class="row justify-content-between w-100 td-box tutorials-row">
                     {{ range first 3 (where .Site.RegularPages "Section" "tutorials") }}
                             <div class="td-box--gray-850 flex-315 mb-lg-0 mb-3">
-                                <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column justify-content-center align-items-center">
+                                <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column align-items-center">
                                     <img alt="" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="65" width="65">
                                     <h3 class="h4 pt-0 link mt-3 text-white text-center mb-0">
                                         {{ .Params.title }}
@@ -93,7 +93,7 @@
                     {{ $blogs := where .Site.RegularPages "Section" "==" "blog"}}
                     {{ range first 3 (sort $blogs ".Params.lastmod" "desc")  }}
                         <div class="topic-card flex-315 td-box td-box--gray-dark mb-lg-0 mb-3">
-                            <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column justify-content-center align-items-center">
+                            <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column align-items-center">
                                 <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
                                     {{ .Params.title }}
                                 </h3>
@@ -125,7 +125,7 @@
                         {{ $videos := where .Site.RegularPages "Section" "==" "videos"}}
                         {{ range first 3 (sort $videos ".Params.lastmod" "desc")  }}
                         <div class="topic-card flex-315 td-box--gray-850 mb-lg-0 mb-3">
-                            <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
+                            <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column align-items-center">
                                 <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
                                     {{ .Params.title }}
                                 </h3>
@@ -157,7 +157,7 @@
                     {{ $examples := where .Site.RegularPages "Section" "==" "examples"}}
                     {{ range first 3 (sort $examples ".Params.lastmod" "desc")  }}
                     <div class="topic-card flex-315 td-box--gray-dark mb-lg-0 mb-3">
-                        <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column justify-content-center align-items-center py-4 py-lg-5 px-3">
+                        <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column align-items-center">
                             <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
                                 {{ .Params.title }}
                             </h3>
