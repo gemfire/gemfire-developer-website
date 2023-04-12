@@ -1,7 +1,7 @@
 ---
 title: "Introducing Gemfire 10"
 date: "2023-04-12"
-lastmod: "2023-04-14"
+lastmod: "2023-04-12"
 team:
 - Anthony Baker
 description: The next major release of GemFire is now available! 
