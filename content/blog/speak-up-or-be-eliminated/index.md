@@ -6,7 +6,6 @@ team:
 date: "2023-04-07"
 lastmod: "2023-04-07"
 type: blog
-draft: true
 ---
 
 ![Ring](images/swirl.jpg)
