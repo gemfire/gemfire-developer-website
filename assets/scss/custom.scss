@@ -20,6 +20,28 @@
 }
 
 
+.header-component .hdr-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 6px;
+  background-image: linear-gradient(to right,#6fbe2e 19%,#00bbd6 43%,#0f61a9 57%,#5a39a0 81%);
+}
+
+.footer-component:before {
+  content: "";
+  position: absolute;
+  margin-top: -48px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 6px;
+  background-image: linear-gradient(to right,#6fbe2e 19%,#00bbd6 43%,#0f61a9 57%,#5a39a0 81%);
+}
+
 .antialiased {
   -webkit-font-smoothing: antialiased;
 }
