@@ -1,6 +1,6 @@
 ---
 title: "Remembering Gideon Low"
-date: "2023-04-12"
+date: "2123-04-12"
 lastmod: "2023-04-12"
 team:
 - Jacque Istok
