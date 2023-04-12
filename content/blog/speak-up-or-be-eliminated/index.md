@@ -105,7 +105,7 @@ The traffic monitoring component of the health monitor raises suspicion when a m
 
 A pair of configuration parameters govern the timing of suspicion in a scenario we have not yet discussed: request-response messaging. In request-response messaging a member sends a request and expects a response later. If no response is received then a warning is logged. `ack-wait-threshold` governs the waiting time. It defaults to 15 seconds.
 
-After the `ack-wait-threshold` has elapsed, if no response has been received, and if `ack-severe-alert-threshold` has a non-default (non-zero) value, then if no response is received for another `ack-sever-alert-threshold` seconds, then suspicion will be raised with the health monitor. That will result in the same sequence of processing we've seen in all other cases where suspicon is raised, starting with the health monitor sending a heartbeat-request message to the member of interest.
+After the `ack-wait-threshold` has elapsed, if no response has been received, and if `ack-severe-alert-threshold` has a non-default (non-zero) value, then if no response is received for another `ack-severe-alert-threshold` seconds, then suspicion will be raised with the health monitor. That will result in the same sequence of processing we've seen in all other cases where suspicon is raised, starting with the health monitor sending a heartbeat-request message to the member of interest.
 
 ## Recovery from Failure
 
@@ -123,7 +123,7 @@ Failure detection starts with suspicion being raised to the health monitor. Susp
 * failure to connect to a member
 * failure to send to a member
 * unexpected disconnection of a connected member
-* failure to receive an expected acknowledgement in time (if `ack-sever-alert-threshold` is set)
+* failure to receive an expected acknowledgement in time (if `ack-severe-alert-threshold` is set)
 * failure (at a monitoring member) to receive network communication (from a monitored member) for a long time
 
 We saw the monitoring topology, a ring, and learned how heartbeat messages are used to detect failures during lulls in application workload.
