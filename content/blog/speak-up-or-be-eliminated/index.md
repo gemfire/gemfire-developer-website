@@ -9,6 +9,8 @@ type: blog
 draft: true
 ---
 
+![Ring](images/swirl.jpg)
+
 ## Introduction
 
 VMWare GemFire achieves high availability through the familiar combination of redundancy and automatic failure detection coupled with timely repair of failed components.
@@ -94,23 +96,38 @@ If member F is able to receive any of this communication it will enter its force
 A number of decision points are visible in the previous diagram. At each point a health monitor (running on the monitoring member M, or on the coordinator C) will stop the escalation process if recent communication has been received from the suspect member. Notice too, that for suspicion to progress all the way to removal, two members, the monitoring member M, and the coordinator C, must have both lost contact with the failed member F. If M loses contact and escalates to C, but C has contact, then F will survive as a member of the cluster.
 
 ## Timing and Tuning
+As noted earlier, the health monitor can be notified of suspicion on a member immedately if a communication attempt to that member fails. The same happens when a connection to a member is closed unexpectedly.
 
-The primary configuration parameter governing the speed of failure detection is `member-timeout` denoted Tm previously. It defaults to 5 seconds (5000 milliseconds).
+The traffic monitoring component of the health monitor raises suspicion when a member hasn't been heard from recently. The primary configuration parameter governing the speed at which suspicion escalates to forced-disconnect is `member-timeout` denoted Tm the previous discussion. It defaults to 5 seconds (5000 milliseconds). `member-timeout` governs:
+* quiet period before heartbeat-request message is sent to monitored member by monitoring one (Tm/2)
+* subsequent quiet period before monitoring member sends suspect message to coordinator (Tm)
+* quiet period coordinator waits after sending heartbeat-request message and performs final check, before removing the member from the view (Tm)
 
-TODO: what else does `member-timeout` govern? What are ramifications, beyond failure detection timing, of changing it?
+A pair of configuration parameters govern the timing of suspicion in a scenario we have not yet discussed: request-response messaging. In request-response messaging a member sends a request and expects a response later. If no response is received then a warning is logged. `ack-wait-threshold` governs the waiting time. It defaults to 15 seconds.
 
-A monitoring member will raise suspicion and send a heartbeat request if it has had no communication from the monitored member for Tm/2 (by default about 2.5 seconds).
-
-
+After the `ack-wait-threshold` has elapsed, if no response has been received, and if `ack-severe-alert-threshold` has a non-default (non-zero) value, then if no response is received for another `ack-sever-alert-threshold` seconds, then suspicion will be raised with the health monitor. That will result in the same sequence of processing we've seen in all other cases where suspicon is raised, starting with the health monitor sending a heartbeat-request message to the member of interest.
 
 ## Recovery from Failure
 
-At the beginning of this article we noted that timely repair of failed components was integral to high availability. What does it mean to repair a failed member?
+At the beginning of this article we noted that timely repair of failed components was integral to high availability. What does it mean to repair a failed member? The answer depends on the environment GemFire is running in and it also depends on the nature of the fault that led to the health monitor deciding the member had "crashed".
 
-verify: well a failed member can be configured for auto-reconnect. In that case after it's failed it'll restart and try to reconnect to the cluster. And if your running (TBD Cloud Foundry product name) a new virtual machine will be started to replace the one shut down due to member failure. Or on (TBD k8s product name) the (TBD operator name) will start a new pod to replace the one shut down due to member failure.
+If the health monitor decides a member has crashed it may not have actually crashed. The failure to communicate may be due to networking problems. A member in this situation will execute a forced-disconnect and then will go into a reconnecting state. If the network problems are resolved, this member will rejoin the cluster.
+
+If the member really crashed, say, due to a hardware failure then recovery depends on the platform. When GemFire is running in the Kubernetes environment under the control of the GemFire Operator, the Operator will spin up a new pod to replace the failed one. That pod will host a cache server that will join the cluster and will take over the responsibilities of the failed one. If GemFire is not running under the control of the Kubernetes operator then it is up to an administrator to use gfsh to replace failed members.
 
 ## Summary
 
-Failure detection plays a critical role in VMWare GemFire's high availability design.
+We've seen how failure detection contributes to high availability. Two scenarios were sketched. In the first, loss of a cache server hosting a primary copy of a partitioned region resulted in failure detection and eventual redesignation of a secondary copy as a new primary copy, allowing service to continue. In the second we saw how failure detection arose during maintenance of redundant copies of a partitioned region.
 
-...
+Failure detection starts with suspicion being raised to the health monitor. Suspicion can arise in a number of circumstances:
+* failure to connect to a member
+* failure to send to a member
+* unexpected disconnection of a connected member
+* failure to receive an expected acknowledgement in time (if `ack-sever-alert-threshold` is set)
+* failure (at a monitoring member) to receive network communication (from a monitored member) for a long time
+
+We saw the monitoring topology, a ring, and learned how heartbeat messages are used to detect failures during lulls in application workload.
+
+Once suspicion has been raised, regardless of the source of suspicion, the escalation process is the same. The member where suspicion is raised issues a heartbeat-request message to the suspect member. If there is still no communication, suspicion is escalated to the coordinator, which in turn probes the suspect member. If those probes go unanswered then the member is deemed crashed and is removed from the view.
+
+To complete the picture we saw that "crashed" members can automatically rejoin the cluster after a network problem is resolved. And we saw that certain kinds of failure can be automatically recovered from in a Kubernetes installation.
