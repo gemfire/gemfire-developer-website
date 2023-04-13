@@ -1,5 +1,5 @@
-# Trail Guide to GemFire OQL: Object Query Language
-## Overview
+# **Trail Guide to GemFire OQL: Object Query Language**
+## **Overview**
 
 VMware GemFire supports a query language known as Object Query Language (OQL).
 OQL was originally developed between 1993 and 2001 by the
@@ -13,18 +13,18 @@ For more information about the particular dialect of OQL used in GemFire, please
 
 [^1]: *The Object Data Standard: ODMG 3.0*. Edited by R.G.G. Cattell and Douglas K. Barry, with contributions by Mark Berler, Jeff Eastman, David Jordan, Craig L. Russell, Olaf Schadow, Torsten Stanienda, and Fernando Velez. Morgan Kaufmann Publishers, Inc., 2000. ISBN 1-55860-647-5.
 
-### Differences between SQL and OQL
+### **Differences between SQL and OQL**
 The basic advantages of OQL are given in the GemFire docs as:
   - You can query on any arbitrary object
   - You can navigate object collections
   - You can invoke methods and access the behavior of objects
   - Data mapping is supported
-  -   You are not required to declare types. Since you do not need type definitions, you can work across multiple languages
+  - You are not required to declare types. Since you do not need type definitions, you can work across multiple languages
   - You are not constrained by a schema
 
 This article will go a little deeper into the aspects of *composable expressions*
 and method invocations.
-#### Composable Expressions
+#### **Composable Expressions**
 A basic difference between OQL and SQL is that OQL consists
 entirely of *expressions*, including the
 `SELECT` expression which is the core expression for querying.
@@ -54,7 +54,7 @@ count(
 ```
 The `ELEMENT` function applies to a collection that is known to have exactly
 one element and extracts the single element from it.
-#### Method invocation on Objects
+#### **Method invocation on Objects**
 The other main difference from SQL is that OQL allows methods and simple attributes to be evaluated on objects. In Java, a simple attribute using dot notation
 like `myObject.x` gets translated to either a public field or a call to a
 getter method such as `myObject.getX()`. Methods that take parameters can also
@@ -67,7 +67,7 @@ evaluation/querying, the methods invoked in the query language should always be 
 functions that return values without causing side effects. Otherwise, you
 could get unexpected results that are difficult to diagnose.
 
-### Evaluating expressions in a REPL
+### **Evaluating queries in a REPL**
 
 Let's look at some query expressions to demonstrate these points. A simple ["REPL" (Read-Evaluate-Print-Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) tool is used here where a OQL expression is entered and the REPL tool will evaluate the expression and print the result. We'll show the prompt
 for this tool as `oql> ` and the printed result immediately after on the
@@ -84,7 +84,7 @@ code for this tool is shown at the end of this article.
 
 Note that this same limitation of using a `SELECT` expression only also applies when querying against partitioned regions, whereas more complex expressions can be used when querying replicated (or local) regions.
 
-#### Set up REPL and example data
+#### **Set up REPL and example data**
 If you would like to follow along with evaluating these example queries, here
 are step-by-step instructions using `gfsh` to start a GemFire cluster and
 populate some example data.
@@ -120,7 +120,7 @@ firstName |  lastName  | emplNumber |            email             | salary | ho
 … etc
 ```
 
-#### Evaluate example queries in the REPL
+#### **Evaluate example queries in the REPL**
 The following are example queries that show some valid OQL queries:
 
 ```sql
@@ -133,9 +133,9 @@ oql> 2 + 2
 oql> ELEMENT(SELECT * FROM /employees WHERE emplNumber = 10006).hoursPerWeek >= 30
 	true
 ```
-## Source Code
+## **Source Code**
 
-### `gfsh` script
+### **`gfsh` script**
 `query.gfsh`
 ```
 connect
@@ -157,7 +157,7 @@ put --region=employees --key=10012 --value="('firstName':'Ryan','lastName':'Redo
 put --region=employees --key=10013 --value="('firstName':'Skyler','lastName':'Skip','emplNumber':10013,'email':'Skyler.Skip@example.com','salary':90000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
 ```
 
-### Example Domain Class
+### **Example Domain Class**
 ```java
 package com.vmware.query.tool;
 
@@ -187,18 +187,17 @@ public class Employee implements Serializable {
 }
 ```
 
-### Query REPL Tool
+### **Query REPL Tool**
 
 Notes:
-  - Make sure `gemfire-dependencies.jar` and domain classes are in the class path
+  - Make sure `gemfire-dependencies.jar` and the domain class are in the class path
   - use a `gemfire.properties` file to specify the locator so `gfsh` can find this server, e.g.:
 
-  #### `gemfire.properties`
-  ```
+#### **GemFire Properties file `gemfire.properties`**
+```
   locators=localhost[10334]
 ```
-
-  #### `QueryRepl.java`
+#### **REPL tool `QueryRepl.java`**
 
 ```java
 package com.vmware.query.tool;
