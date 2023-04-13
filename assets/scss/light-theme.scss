@@ -228,12 +228,16 @@ body.blog #contact .mktoForm select {
  #hero.videos-hero {
    background-image: url({{ "images/backgrounds/background-videos.jpg" | relURL }}) !important;
  }
+#hero.blog-hero {
+  background-image: url({{ "images/backgrounds/background-blog.jpg" | relURL }}) !important;
+}
 
 
 @media(max-width: 991px) {
   body #hero.examples-hero,
   body #hero.videos-hero,
-  body #hero.tutorials-hero{
+  body #hero.tutorials-hero,
+  body #hero.blog-hero{
    background-image: url({{ "images/backgrounds/gradient-two.svg" | relURL }}) !important;
   }
 }

@@ -127,11 +127,16 @@
         background-image: url('{{ "images/backgrounds/background-videos.jpg" | relURL }}');
         background-size: contain;
       }
+    &.blog-hero {
+      background-image: url('{{ "images/backgrounds/background-blog.jpg" | relURL }}');
+      background-size: contain;
+    }
 
       @media(max-width: 991px) {
         &.examples-hero,
         &.videos-hero,
-        &.tutorials-hero{
+        &.tutorials-hero,
+        &.blog-hero{
           background-image: url('{{ "images/backgrounds/gradient-two.svg" | relURL }}') !important;
           background-position: right -50px bottom;
           padding-bottom: 160px;
@@ -140,7 +145,8 @@
       @media(max-width: 480px) {
         &.examples-hero,
         &.videos-hero,
-        &.tutorials-hero{
+        &.tutorials-hero,
+        &.blog-hero{
           background-size: 130%;
         }
       }
@@ -149,7 +155,8 @@
         padding-bottom: 100px;
         &.examples-hero,
         &.videos-hero,
-        &.tutorials-hero{
+        &.tutorials-hero,
+        &.blog-hero{
           background-size: 170%;
         }
       }
