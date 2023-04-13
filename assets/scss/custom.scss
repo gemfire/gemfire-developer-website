@@ -116,20 +116,23 @@
       }
 
       &.tutorials-hero {
-        background-image: url('{{ "images/backgrounds/background-tutorials.svg" | relURL }}');
+        background-image: url('{{ "images/backgrounds/background-tutorials.jpg" | relURL }}');
+        background-size: contain;
       }
       &.examples-hero {
-        background-image: url('{{ "images/backgrounds/background-examples.svg" | relURL }}');
+        background-image: url('{{ "images/backgrounds/background-examples.jpg" | relURL }}');
+        background-size: contain;
       }
       &.videos-hero {
-        background-image: url('{{ "images/backgrounds/background-video.svg" | relURL }}');
+        background-image: url('{{ "images/backgrounds/background-videos.jpg" | relURL }}');
+        background-size: contain;
       }
 
       @media(max-width: 991px) {
         &.examples-hero,
         &.videos-hero,
         &.tutorials-hero{
-          background-image: url('{{ "images/backgrounds/header-mobile.svg" | relURL }}') !important;
+          background-image: url('{{ "images/backgrounds/gradient-two.svg" | relURL }}') !important;
           background-position: right -50px bottom;
           padding-bottom: 160px;
         }

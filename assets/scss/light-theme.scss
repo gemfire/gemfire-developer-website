@@ -217,13 +217,13 @@ body.blog #contact .mktoForm select {
 }
 
  #hero.examples-hero {
-   background-image: url({{ "images/backgrounds/background-examples-light.svg" | relURL }}) !important;
+   background-image: url({{ "images/backgrounds/background-examples.jpg" | relURL }}) !important;
  }
 #hero.tutorials-hero {
-  background-image: url({{ "images/backgrounds/background-tutorials-light.svg" | relURL }}) !important;
+  background-image: url({{ "images/backgrounds/background-tutorials.jpg" | relURL }}) !important;
 }
  #hero.videos-hero {
-   background-image: url({{ "images/backgrounds/background-video-light.svg" | relURL }}) !important;
+   background-image: url({{ "images/backgrounds/background-videos.jpg" | relURL }}) !important;
  }
 
 
@@ -231,7 +231,7 @@ body.blog #contact .mktoForm select {
   body #hero.examples-hero,
   body #hero.videos-hero,
   body #hero.tutorials-hero{
-   background-image: url({{ "images/backgrounds/header-mobile-light.svg" | relURL }}) !important;
+   background-image: url({{ "images/backgrounds/gradient-two.svg" | relURL }}) !important;
   }
 }
 
