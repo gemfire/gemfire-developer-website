@@ -7,7 +7,7 @@
 					<span class="navbar-logo">{{ if .Site.Params.ui.navbar_logo }}
 						  {{ with resources.Get "icons/logo.svg" }}
 						{{ .Content | safeHTML }}{{ end }}{{ end }}</span>
-					<span class="h3" style="float: center; font-size: 1.5rem">GemFire Developer Center</span>
+					<span class="h3" style="float: center; font-size: 1.0rem">GemFire Developer Center</span>
 				</a>
 				<div id="menu-toggle" class="d-block d-lg-none">
 					<span>
@@ -16,7 +16,7 @@
 					</span>
 				</div>
 				<div class="position-relative d-lg-block d-none" id="main_navbar">
-					<ul class="navbar-nav mt-lg-0 align-items-center">
+					<ul class="navbar-nav mt-lg-0 align-items-center w-100">
 						{{ if  .Site.Params.versions }}
 						<li class="nav-item dropdown d-none d-lg-block mr-xl-4 mr-2 mb-0">
 							{{ partial "navbar-version-selector.html" . }}
@@ -30,7 +30,7 @@
 						{{ if .HasChildren }}
 						{{ $curtopic := "invalid" }}
 
-						<div id={{ lower (replace (replace .Name "." "") " " "") }}-navBarItem class="nav-item dropdown d-lg-block mr-4 mb-0">
+						<div id={{ lower (replace (replace .Name "." "") " " "") }}-navBarItem class="nav-item dropdown d-lg-block mr-0 mb-0">
 							<a class="nav-link dropdown-toggle" href="{{.URL}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								{{ .Name }}<span class="nav-arrow" ></span>
 							</a>
@@ -56,7 +56,7 @@
 						{{end}}
 						{{end}}
 
-						<li class="nav-item mr-xl-4 mr-2 mb-0 mobile-search-link" style="display: none;">
+						<li class="nav-item mr-xl-4 mb-0 mobile-search-link" style="display: none;">
 							<a class="nav-link" href="{{ "search" | relURL }}"><span>Search</span></a>
 						</li>
 
