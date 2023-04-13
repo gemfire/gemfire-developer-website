@@ -1,6 +1,6 @@
 {{ $cover := .HasShortcode "blocks/cover" }}
 <nav id="navbar" class="js-navbar-scroll navbar navbar-expand navbar-dark {{ if $cover}} td-navbar-cover {{ end }}flex-column flex-md-row td-navbar">
-	<div class="header-component">
+	<div class="header-component w-100">
 		<div class="hdr-wrapper">
 			<div class="container justify-space-between">
 				<a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}" tabindex="1">
