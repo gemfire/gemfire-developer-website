@@ -1,36 +1,36 @@
 ---
-title: What's new in JSON document
-description: New JSON document enhancement
+title: What's New for JSON Document in GemFire 10
+description: New features for JSON document in GemFire 10
 date: 2023-04-11
 lastmod: 2023-04-11
-team:
-- Jianxia Chen
+author: Jianxia Chen
 type: Blog
 ---
 
-## What are the new features for JSON documents
+## What Are the New Features for JSON Documents
 
-In GemFire 10.0, new interfaces, APIs and underlying storage format are introduced to process JSON documents with improved
-the performance and memory footprint for certain use cases.
+In GemFire 10, new interfaces, APIs and underlying storage formats are introduced to process JSON documents with improved
+the performance and memory footprint for different use cases.
 With a new underlying storage format that uses BSON, the memory footprint for schema-less JSON documents is greatly improved.
-While you can still choose Portable Data eXchange (PDX) storage format to uses cases that don't change JSON schema that
-often and maintain backward compatibility.
-With the new JsonDocument interface, which offers a unified user experience with different storage formats, whether it
-is PDX or BSON. To store JSON document efficiently in GemFire, users can use RegionService.getJsonDocumentFactory() to
-obtain JsonDocumentFactory. Then use its `create` method to convert JSON string into the chosen storage format. 
-Note JSONFormatter is now deprecated.
+While you can still choose Portable Data eXchange (PDX) storage format for uses cases that has well-defined schema 
+and maintain backward compatibility.
+With the new `JsonDocument` interface, which offers a unified user experience with different storage formats, whether it
+is PDX or BSON. To store JSON document efficiently in GemFire, users can use `RegionService.getJsonDocumentFactory()` to
+obtain `JsonDocumentFactory`. Then use its `create()` method to convert a JSON string into the chosen storage format. 
+Note `JSONFormatter` is now deprecated in GemFire 10.
 
-The blog assume you understand the basic concepts of GemFire. You can check out the quick start of GemFire and get
-familiar with it.
-https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-15_minute_quickstart_gfsh.html
+This blog assumes you understand the basic concepts of GemFire. You can check out the 
+[quick start](https://docs.vmware.com/en/VMware-GemFire/10/gf/getting_started-15_minute_quickstart_gfsh.html) of GemFire
+and get familiar with it.
+
   
 ## How to Use the New Features
 
-To store a JSON document in GemFire, it could be as simple as just put the JSON string in GemFire region
+To store a JSON document in GemFire, it could be as simple as putting the JSON string in GemFire region
 and get it from the region when needed. However, this is not convenient nor efficient, when you just need
-to get specific fields from the JSON document or even query the JSON document.
+to get specific fields from a JSON document or even query a JSON document.
 
-The new JSON document features offered in GemFire 10.0 allows you to easily get specific fields without
+The new JSON document features offered in GemFire 10 allow you to easily get specific fields without
 parsing the whole JSON document. 
 It also allows you to query the JSON document with the built-in powerful OQL query engine.
 Internally, it uses two different storage formats for different use cases.
@@ -49,7 +49,7 @@ the example code above converts a JSON string into a `JsonDocument` using `JsonD
 And then put the `JsonDocument` in the region.
 Once the `JsonDocument` is stored in GemFire, you can retrieve it by calling `Region.get()` with a key.
 
-If you only want to retrieve a specific field of the `JsonDocument`, in which case you call `JsonDocument.getField()`
+If you want to retrieve a specific field of the `JsonDocument`, in which case you call `JsonDocument.getField()`
 with a field name. For the above example, calling `jsonDocument.getField("foo")` returns `"bar"`.
 ```java
 JsonDocument jsonDocument = region.get("key");
@@ -66,10 +66,10 @@ For more details about `JsonDocument`, please see the references.
 
 ### Working with JSON Arrays
 
-When calling `JsonDocument.getField()`, for a JSON array, you need to cast it to a `java.util.List` and use the APIs of
+When calling `JsonDocument.getField()` for a JSON array, you need to cast it to a `java.util.List` and use the APIs of
 `List` to retrieve the elements as you need. For example:
 ```java
-String jsonString = "{\"arrays\":[123, 456]}";
+String jsonString = "{\"arrayField\":[123, 456]}";
 region.put("key", cache.getJsonDocumentFactory().create(jsonString));
 JsonDocument jsonDocument = region.get("key");
 Object value = ((List<Object>) jsonDocument.getField("arrayField")).get(0);
@@ -85,7 +85,7 @@ The first element of the JSON array is 123
 For a nested field, cast it to `JsonDocument`, and keep using the `JsonDocument.getField()` to retrieve the nested field.
 For example:
 ```java
-String jsonString = "{\"nestedField\":{\"intField\":456]}";
+String jsonString = "{\"nestedField\":{\"intField\":456}}";
 region.put("key", cache.getJsonDocumentFactory().create(jsonString));
 JsonDocument jsonDocument = region.get("key");
 Object value = ((JsonDocument) jsonDocument.getField("nestedField")).getField("intField");
@@ -96,7 +96,7 @@ You will get
 The value of intField is 456
 ```
 
-### Query the JSON Document
+### Working with Queries
 
 You can also query `JsonDocument`. For example:
 ```java
@@ -114,48 +114,41 @@ Query result:
 ]
 
 ```
-More about the query: https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-querying_basics-chapter_overview.html
+More details about queries can be found [here](https://docs.vmware.com/en/VMware-GemFire/10/gf/developing-querying_basics-chapter_overview.html).
 
 GemFire currently supports two different binary formats.
-The default is based on the `BSON` standard and is the best choice if your data does not have a well-defined schema.
-The other format is `PDX` which is best suited for data that has a well-defined schema.
+The default is based on the [BSON](https://bsonspec.org/) standard 
+and is the best choice if your data does not have a well-defined schema.
+The other format is [PDX](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html) 
+which is best suited for data that has a well-defined schema.
 Storing the schema itself has some extra overhead which is a benefit if the schema is reused often.
-But if it needs to be created for each document it becomes more costly than `BSON`.
-To get a factory that uses `PDX` call `getJsonDocumentFactory(StorageFormat.PDX)` on your GemFire cache.
-To get in-depth introduction of `PDX`, please refer to the official GemFire document
-https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html
-
-## Backward Compatibility
-
-REST clients can both access and store JsonDocuments. 
-Currently, the REST client will always store `JsonDocument`s with the `PDX` format. 
-But they can access `JsonDocument`s that are stored using the `BSON` format.
-`JsonDocument`s using the `PDX` format can be accessed by clients running on an older version of GemFire. 
-But `JsonDocument`s using the `BSON` format can not be accessed in a client running on an older version of GemFire. 
-Attempts to do so will result in a deserialization exception on the client.
-
-`JsonDocument`s using the `BSON` format can not be sent to older versions of GemFire in a cluster 
-or over WAN during rolling upgrade. 
-So it should only be used once all the members have been upgraded to GemFire 10.0.
-
-A few words about backward compatibility, esp. PDX, REST
-`JSONFormatter` is deprecated.
+But if it needs to be created for each document it becomes more costly than BSON.
+To get a factory that uses PDX call `getJsonDocumentFactory(StorageFormat.PDX)` on your GemFire cache.
 
 ## References
 
-https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/json/src/main/java/com/vmware/gemfire/examples/json/Example.java
-GemFire example GitHub repository:
+1. GemFire examples GitHub repository:
 https://github.com/gemfire/gemfire-examples
 
-List of new public interfaces and APIs:
+2. `JsonDocument` examples:
+https://github.com/gemfire/gemfire-examples/tree/main/feature-examples/json
 
-org.apache.geode.cache.Document
-org.apache.geode.json.JsonDocument
-org.apache.geode.json.JsonDocumentFactory
-org.apache.geode.json.SerializableAsJson
-StorageFormat
-JsonUtilities
-JsonParseException
+3. List of the new public interfaces and APIs in GemFire 10:
 
-org.apache.geode.cache.RegionService.getJsonDocumentFactory();
-org.apache.geode.cache.RegionService.getJsonDocumentFactory(StorageFormat storageFormat);
+* org.apache.geode.cache.Document
+
+* org.apache.geode.json.JsonDocument
+
+* org.apache.geode.json.JsonDocumentFactory
+
+* org.apache.geode.json.SerializableAsJson
+
+* org.apache.geode.json.StorageFormat
+
+* org.apache.geode.json.JsonUtilities
+
+* org.apache.geode.json.JsonParseException
+
+* org.apache.geode.cache.RegionService.getJsonDocumentFactory()
+
+* org.apache.geode.cache.RegionService.getJsonDocumentFactory(StorageFormat storageFormat)
