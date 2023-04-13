@@ -2,7 +2,7 @@
 title: Getting Started Locally With Node.js
 date: '2021-05-28'
 description: A guide to help get your local development environment up and running with a Node.js client side application.
-lastmod: '2021-05-28'
+lastmod: '2023-04-07'
 link-title: Getting Started Locally With Node.js
 parent: Node.js
 icon: nodejs
@@ -10,58 +10,29 @@ type: tutorials
 weight: 
 ---
 
-This guide walks you through setting up your local development environment using Apache Geode, the VMware GemFire node.js client, and a `Book Service` example.    
+This guide walks you through setting up your local development environment using VMware GemFire, the VMware GemFire node.js client, and a `Book Service` example.    
 
-## What is Apache Geode?
+## Install VMware GemFire for Local Development
 
-VMware GemFire, an enterprise offering, is powered by Apache Geode and adds additional enterprise functionality and integrations.  Apache Geode is the open source core of VMware GemFire.   This means that you can use Apache Geode on your local machine when developing and testing your VMware GemFire applications.
+When developing and testing your application locally, you can use VMware GemFire.
 
-
-## Install Apache Geode for Local Development
-
-When developing and testing your application locally, you can use Apache Geode.
-
-There are multiple ways to install Apache Geode for local development.  We will highlight two different ways below (brew or the .zip/.tar file below), however you can find [additional installation options here](https://geode.apache.org/docs/guide/13/getting_started/installation/install_standalone.html).
-
- ### Option 1: Using brew
- 
- In a terminal run the following command:
- 
- `brew install apache-geode`
- 
- This will install the most recent version of Apache Geode.
-
-Then configure the Apache Geode environment variables:.
-
-   **macOS/Unix/Linux**
-    ```
-        $ export GEODE_HOME=/Users/MyGemFire
-        $ export PATH=$GEODE_HOME/bin:$PATH
-    ```
-
-   **Windows**
-    ```
-        C:> set GEODE_HOME=c:\Users\MyGemFire
-        C:> set PATH=%GEODE_HOME%\bin;%PATH%
-    ```
-
-### Option 2: Download a .zip or .tar file.
+### Download a .zip or .tar file.
 
 
-1. Download the .zip or .tar file from the [Apache Releases page](https://geode.apache.org/releases/).
+1. Download the .zip or .tar file from the [VMWare GemFire Product Page](https://network.tanzu.vmware.com/products/pivotal-gemfire/).
 2.  Unzip or expand the file.
-3. Configure the Apache Geode environment variables:.
+3. Configure the VMware GemFire environment variables:.
      
      **macOS/Unix/Linux**
     ```
-        $ export GEODE_HOME=/Users/MyGemFire
-        $ export PATH=$GEODE_HOME/bin:$PATH
+        $ export GEMFIRE_HOME=/Users/MyGemFire
+        $ export PATH=$GEMFIRE_HOME/bin:$PATH
     ```
     
      **Windows**
     ```
-        C:> set GEODE_HOME=c:\Users\MyGemFire
-        C:> set PATH=%GEODE_HOME%\bin;%PATH%
+        C:> set GEMFIRE_HOME=c:\Users\MyGemFire
+        C:> set PATH=%GEMFIRE_HOME%\bin;%PATH%
     ```
     
 ### Check your installation
@@ -74,10 +45,10 @@ You should see something similar to
 
 ```
 gfsh version
-1.13.1
+1.10.0
 ```
 
-Apache Geode is now installed on your machine.
+VMware GemFire is now installed on your machine.
 
 ---
 
@@ -93,7 +64,7 @@ This guide uses a `Book Service` example that allows a user to look up books by 
 * The [Book Service](https://github.com/gemfire/node-examples/tree/master/book-service) example
 * Node.js, version 10.16.3 or above
 * The VMware GemFire Node.js client
-* Apache Geode installed on your local machine. 
+* VMware GemFire installed on your local machine. 
 
 ### 1. Clone the Book Service Example
  
@@ -136,10 +107,10 @@ $ export VCAP_SERVICES='{"p-cloudcache":[{"label":"p-cloudcache","provider":null
 C:>set VCAP_SERVICES={"p-cloudcache":[{"label":"p-cloudcache","provider":null,"plan":"dev-plan","name":"pcc-dev","tags":["gemfire","cloudcache","database","pivotal"],"instance_name":"pcc-dev","binding_name":null,"credentials":{"distributed_system_id":"0","gfsh_login_string":"connect --url=https://localhost:7070/gemfire/v1 --user=super-user --password=1234567 --skip-ssl-validation","locators":["localhost[10334]"],"urls":{"gfsh":"https://localhost:7070/gemfire/v1","pulse":"https://localhost:7070/pulse"},"users":[{"password":"1234567","roles":["cluster_operator"],"username":"super-user"},{"password":"1234567","roles":["developer"],"username":"app"}],"wan":{"sender_credentials":{"active":{"password":"no-password","username":"no-user"}}}},"syslog_drain_url":null,"volume_mounts":[]}]}
 ```
 
-### 5. Start Apache Geode on your machine
+### 5. Start VMware GemFire on your machine
 
 {{% alert title="Required" color="info" %}}
-Make sure that you have installed Apache Geode on your machine before proceeding.
+Make sure that you have installed VMware GemFire on your machine before proceeding.
 {{% /alert %}}  
 
 There are shell scripts in the `book-service/scripts` directory. The `startGemFire` script starts up two locators and two cache servers. The locators allow clients to find the cache servers. To simplify local development, the script also creates the single region (analogous to a table in a relational database) that the app uses.
@@ -208,11 +179,11 @@ $ curl -X GET 'http://localhost:8080/book/get?isbn=0525565329'
 ```
 &nbsp;
 
-## Stop the App and Tear Down the Apache Geode Cluster
+## Stop the App and Tear Down the VMware GemFire Cluster
 
 When finished running the example locally, shut down the client and server processes.
  * In the shell running `node`, use `control-C` to stop running the app.
- * Use a script to tear down the Apache Geode cluster. With a current working directory of `node-examples/book-service`
+ * Use a script to tear down the VMware GemFire cluster. With a current working directory of `node-examples/book-service`
  
     **Mac and Linux**
  
