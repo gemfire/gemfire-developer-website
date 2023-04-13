@@ -1,7 +1,8 @@
 ---
 title: "Remembering Gideon Low"
-date: "2123-04-12"
+date: "2023-04-12"
 lastmod: "2023-04-12"
+type: blog
 team:
 - Jacque Istok
 description: Dedicated to the memory of an extraordinary human being.
