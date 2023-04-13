@@ -126,9 +126,16 @@
                         {{ range first 3 (sort $videos ".Params.lastmod" "desc")  }}
                         <div class="topic-card flex-315 td-box--gray-850 mb-lg-0 mb-3">
                             <a href="{{ .RelPermalink }}" class="home-page-inner-content h-100 d-flex flex-column align-items-center">
-                                <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0">
-                                    {{ .Params.title }}
+                                <h3 class="h4 pt-0 link mt-3 text-center text-white mb-0" style="min-height: 48px">
+                                        {{ .Params.title }}
                                 </h3>
+                                <div class="d-flex justify-content-center align-items-center" style="min-height: 300px; background-color: black">
+                                    {{ if .Params.brighttalk_thumbnail }}
+                                        <img src="{{ .Params.brighttalk_thumbnail }}" alt="{{ .Description }}"/>
+                                    {{ else}}
+                                        <img src="https://i3.ytimg.com/vi/{{ .Params.youtube_id }}/hqdefault.jpg" alt="{{ .Description }}"/>
+                                    {{ end }}
+                                </div>
                                 <p class="mb-2 mb-lg-4 text-left py-0 px-2" >
                                     {{ .Description }}
                                 </p>
