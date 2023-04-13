@@ -84,7 +84,7 @@ code for this tool is shown at the end of this article.
 
 Note that this same limitation of using a `SELECT` expression only also applies when querying against partitioned regions, whereas more complex expressions can be used when querying replicated (or local) regions.
 
-#### Set up initial environment for querying
+#### Set up REPL and example data
 If you would like to follow along with evaluating these example queries, here
 are step-by-step instructions using `gfsh` to start a GemFire cluster and
 populate some example data.
