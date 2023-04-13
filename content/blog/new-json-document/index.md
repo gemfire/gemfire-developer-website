@@ -1,10 +1,11 @@
 ---
 title: What's New for JSON Document in GemFire 10
-description: New features for JSON document in GemFire 10
+description: New features for JSON document in GemFire 10.
 date: 2023-04-11
 lastmod: 2023-04-11
-author: Jianxia Chen
-type: Blog
+team: 
+- Jianxia Chen
+type: blog
 ---
 
 ## What Are the New Features for JSON Documents
