@@ -8,7 +8,7 @@ lastmod: "2023-04-07"
 type: blog
 ---
 
-![Ring](images/swirl.jpg)
+{{< figure src="images/swirl.jpg" width="400px">}}
 
 ## Introduction
 
