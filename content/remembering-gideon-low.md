@@ -6,6 +6,9 @@ type: blog
 team:
 - Jacque Istok
 description: Dedicated to the memory of an extraordinary human being.
+
+aliases:
+- blog/remembering-gideon-low
 ---
 
 It is with great sadness that I write this foreword for the latest release of GemFire, version 10, which we have dedicated to the memory of our beloved team member, Gideon Low. Gideon was an exceptional engineer, with over 18 years of continuous service in a variety of roles. He was a gifted problem solver and an expert in his field. He leaves behind a legacy of successful engagements, having assisted in the architecture of some of the most complex and mission-critical systems in the world.
