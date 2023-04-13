@@ -111,16 +111,13 @@ You can test that the data is there with:
 ```shell
 % gfsh -e "connect" -e "query --query='select * from /employees'"
 ```
-You should see output showing the data that looks something like:
+You should see output showing a table with 14 rows of employee data, something
+like:
 ```
-Result : true
-Limit  : 100
-Rows   : 1
-
-firstName | lastName | emplNumber |          email          | salary | hoursPerWeek
---------- | -------- | ---------- | ----------------------- | ------ | ------------
-"Alex"    | "Able"   | 10000      | "Alex.Able@example.com" | 60000  | 40
-…
+firstName |  lastName  | emplNumber |            email             | salary | hoursPerWeek
+--------- | ---------- | ---------- | ---------------------------- | ------ | ------------
+"Jamie"   | "Jive"     | 10005      | "Jamie.Jive@example.com"     | 60000  | 20
+… etc
 ```
 
 #### Evaluate example queries in the REPL
@@ -137,6 +134,28 @@ oql> ELEMENT(SELECT * FROM /employees WHERE emplNumber = 10006).hoursPerWeek >= 
 	true
 ```
 ## Source Code
+
+### `gfsh` script
+`query.gfsh`
+```
+connect
+create region --name=employees --type=REPLICATE --if-not-exists
+
+put --region=employees --key=10000 --value="('firstName':'Alex','lastName':'Able','emplNumber':10000,'email':'Alex.Able@example.com','salary':60000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10001 --value="('firstName':'Bertie','lastName':'Bell','emplNumber':10001,'email':'Bertie.Bell@example.com','salary':80000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10002 --value="('firstName':'Kris','lastName':'Call','emplNumber':10002,'email':'Kris.Call@example.com','salary':75000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10003 --value="('firstName':'Dale','lastName':'Driver','emplNumber':10003,'email':'Dale.Driver@example.com','salary':90000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10004 --value="('firstName':'Frankie','lastName':'Forth','emplNumber':10004,'email':'Frankie.Forth@example.com','salary':100000,'hoursPerWeek':30)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10005 --value="('firstName':'Jamie','lastName':'Jive','emplNumber':10005,'email':'Jamie.Jive@example.com','salary':60000,'hoursPerWeek':20)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10006 --value="('firstName':'Morgan','lastName':'Minnow','emplNumber':10006,'email':'Morgan.Minnow@example.com','salary':80000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10007 --value="('firstName':'Pat','lastName':'Puts','emplNumber':10007,'email':'Pat.Puts@example.com','salary':75000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10008 --value="('firstName':'Ricky','lastName':'Reliable','emplNumber':10008,'email':'Ricky.Reliable@example.com','salary':90000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10009 --value="('firstName':'Taylor','lastName':'Tack','emplNumber':10009,'email':'Taylor.Tack@example.com','salary':100000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10010 --value="('firstName':'Casey','lastName':'Catch','emplNumber':10010,'email':'Casey.Catch@example.com','salary':60000,'hoursPerWeek':30)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10011 --value="('firstName':'Jessie','lastName':'Jam','emplNumber':10011,'email':'Jessie.Jam@example.com','salary':80000,'hoursPerWeek':20)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10012 --value="('firstName':'Ryan','lastName':'Redo','emplNumber':10012,'email':'Ryan.Redo@example.com','salary':75000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+put --region=employees --key=10013 --value="('firstName':'Skyler','lastName':'Skip','emplNumber':10013,'email':'Skyler.Skip@example.com','salary':90000,'hoursPerWeek':40)" --value-class=com.vmware.query.tool.Employee
+```
 
 ### Example Domain Class
 ```java
