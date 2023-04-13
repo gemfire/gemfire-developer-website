@@ -10,7 +10,7 @@ type: Blog
 
 ## What are the new features for JSON documents
 
-In GemFire 10, new interfaces, APIs and underlying storage format are introduced to process JSON documents with improved
+In GemFire 10.0, new interfaces, APIs and underlying storage format are introduced to process JSON documents with improved
 the performance and memory footprint for certain use cases.
 With a new underlying storage format that uses BSON, the memory footprint for schema-less JSON documents is greatly improved.
 While you can still choose Portable Data eXchange (PDX) storage format to uses cases that don't change JSON schema that
@@ -33,10 +33,11 @@ to get specific fields from the JSON document or even query the JSON document.
 The new JSON document features offered in GemFire 10.0 allows you to easily get specific fields without
 parsing the whole JSON document. 
 It also allows you to query the JSON document with the built-in powerful OQL query engine.
-Internally, it uses two different storage formats for different use cases. 
-This minimizes memory footprint and maximizes flexibility and efficiency. 
+Internally, it uses two different storage formats for different use cases.
+This minimizes memory footprint and maximizes flexibility and efficiency.
 
-Let's get started with a simple example with a few lines of code:
+We will cover the storage formats later. 
+First, let's get started with a simple example with a few lines of code:
 
 ```java
 String jsonString = "{\"foo\":\"bar\"}";
@@ -50,16 +51,16 @@ Once the `JsonDocument` is stored in GemFire, you can retrieve it by calling `Re
 
 If you only want to retrieve a specific field of the `JsonDocument`, in which case you call `JsonDocument.getField()`
 with a field name. For the above example, calling `jsonDocument.getField("foo")` returns `"bar"`.
-`JsonDocument` is a new interface which has methods like `hasFiels()`, `getField()` and `getFieldNames()` etc.
-You can use it to get the value of a specific field. For example:
 ```java
 JsonDocument jsonDocument = region.get("key");
 Object value = jsonDocument.getField("foo");
 ```
 For such a tiny JSON document, this might seem like an overkill. However, for more complex JSON documents with multiple
 fields of different types or even nested fields, the `JsonDocument` interface can help get specific fields without
-you parsing the whole JSON document.
-`JsonDocument.toJson()` also allows you to convert the `JsonDocument` back to a JSON string.
+parsing the whole JSON document.
+
+`JsonDocument` is a new interface which has methods like `hasFiels()`, `getField()` and `getFieldNames()` etc.
+`JsonDocument.toJson()` also allows you to convert a `JsonDocument` back to a JSON string.
 
 For more details about `JsonDocument`, please see the references.
 
@@ -68,7 +69,15 @@ For more details about `JsonDocument`, please see the references.
 When calling `JsonDocument.getField()`, for a JSON array, you need to cast it to a `java.util.List` and use the APIs of
 `List` to retrieve the elements as you need. For example:
 ```java
-((List) jsonDocument.getField("arrayField")).get(0);
+String jsonString = "{\"arrays\":[123, 456]}";
+region.put("key", cache.getJsonDocumentFactory().create(jsonString));
+JsonDocument jsonDocument = region.get("key");
+Object value = ((List<Object>) jsonDocument.getField("arrayField")).get(0);
+System.out.println("The first element of the JSON array is " + value);
+```
+You will get
+```
+The first element of the JSON array is 123
 ```
 
 ### Working with Nested JSON Fields
@@ -76,15 +85,34 @@ When calling `JsonDocument.getField()`, for a JSON array, you need to cast it to
 For a nested field, cast it to `JsonDocument`, and keep using the `JsonDocument.getField()` to retrieve the nested field.
 For example:
 ```java
-JsonDocument nestedField = (JsonDocument) jsonDocument.getField("nestedField");
-nestedField.getField("nestField");
+String jsonString = "{\"nestedField\":{\"intField\":456]}";
+region.put("key", cache.getJsonDocumentFactory().create(jsonString));
+JsonDocument jsonDocument = region.get("key");
+Object value = ((JsonDocument) jsonDocument.getField("nestedField")).getField("intField");
+System.out.println("The value of intField is " + value);
+```
+You will get
+```
+The value of intField is 456
 ```
 
 ### Query the JSON Document
 
-You can also query the `JsonDocument`. For example:
+You can also query `JsonDocument`. For example:
 ```java
-cache.getQueryService().newQuery("select * from /example-region where name='name5'").execute()
+region.put("key1", cache.getJsonDocumentFactory().create("{\"arrayField\":[123, 456]}"));
+region.put("key2", cache.getJsonDocumentFactory().create("{\"arrayField\":[\"abc\", \"def\"]}"));
+String queryString = "select * from /example-region where arrayField[0]=123";
+System.out.println("\nQuery result:\n\n" + cache.getQueryService().newQuery(queryString).execute());
+```
+You get:
+```
+Query result:
+
+[
+    {"arrayField": [123, 456]}
+]
+
 ```
 More about the query: https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-querying_basics-chapter_overview.html
 
@@ -115,6 +143,7 @@ A few words about backward compatibility, esp. PDX, REST
 
 ## References
 
+https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/json/src/main/java/com/vmware/gemfire/examples/json/Example.java
 GemFire example GitHub repository:
 https://github.com/gemfire/gemfire-examples
 
