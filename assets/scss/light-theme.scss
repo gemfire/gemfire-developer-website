@@ -256,30 +256,20 @@ body.blog #contact .mktoForm select {
     background-color: white !important;
 }
 
-nav #theme-select {
-  background-color: #ADBBC4 !important;
-  
-  .fa-sun {
-    color: #1B2A32 !important;
+nav {
+  #theme-slider {
+    background-color: #ADBBC4 !important;
+    transition: background-color .2s;
   }
-  #dark-select {
-    background-color: transparent !important;
+  #theme-icon-circle {
+    transform: translateX(12px);
+    background: #1B2A32;
   }
-  #theme-square {
-    transform: translateX(36px);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  #light-theme-icon {
+    display: block;
   }
-  .nav-select {
-    transition: opacity .2s;
-    &:nth-child(1) {
-      display: none;
-    }
-    &:nth-child(2) {
-      display: block;
-    }
-    &:nth-child(3) {
-      display: none;
-    }
+  #dark-theme-icon {
+    display: none;
   }
 }
 #featured-paths,
