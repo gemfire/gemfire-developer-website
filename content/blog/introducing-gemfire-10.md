@@ -2,8 +2,6 @@
 title: "Introducing VMware Gemfire 10"
 date: "2023-04-13"
 lastmod: "2023-04-13"
-aliases:
-- blog/introducing-gemfire-10
 team:
 - Anthony Baker
 description: The next major release of VMware GemFire is now available! 
