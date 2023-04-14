@@ -4,6 +4,8 @@ date: "2023-04-13"
 lastmod: "2023-04-13"
 team:
 - Anthony Baker
+aliases:
+- introducing-gemfire-10
 description: The next major release of VMware GemFire is now available! 
 ---
 
