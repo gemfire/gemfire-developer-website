@@ -17,19 +17,6 @@ limitations under the License.
 (function ($) {
   "use strict";
 
-
-  // Make nav dark after scrolling past hero
-  window.onscroll = function() {scrollFunction()};
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
-      document.querySelector("#navbar").classList.add("darken");
-    }
-    else {
-      document.querySelector("#navbar").classList.remove("darken");
-    }
-  }
-
   // Dim body div when nav is activated
   function dimBody () {
     $("header + .container-fluid").addClass("dim");
@@ -172,28 +159,21 @@ limitations under the License.
       e.stopPropagation();
     });
 
-    //Light toggle
-    $("#toggle-light-mode").click(function () {
-      localStorage.setItem("light-dark-mode-storage", "light");
-      var iframe = document.getElementById("auth-iframe");
-
-      $("html").addClass("light-mode");
-      changeTheme("light");
-    });
-
-    // Dark toggle
-    $("#toggle-dark-mode").click(function () {
-      var iframe = document.getElementById("auth-iframe");
-
-      if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage("dark", "*");
+    // Theme Toggle Section
+    $("#theme-toggle").click(()=>{toggleTheme()})
+    $("#theme-toggle").keyup((e) => {
+      if (e.which == 13 || e.which == 32) {
+        toggleTheme()
+        $("header + .container-fluid").removeClass("dim");
       }
-      changeTheme('dark');
-      localStorage.setItem("light-dark-mode-storage", "dark");
-
-      if ($("html").hasClass("light-mode")) {
-        $("html").removeClass("light-mode");
-        document.getElementById("light-theme").remove();
+    });
+    $("#theme-toggle").keydown(function (e) {
+      if (e.which == 9) {
+        if ($(".promo-nav-banner a[href]").length) {
+          $(".promo-nav-banner a[href]").focus();
+        } else {
+          $("header").nextAll().find("a[href]:not([href*='#'])").first().focus();
+        }
       }
     });
 
@@ -279,6 +259,24 @@ limitations under the License.
     $("#menu-toggle").click(function () {
       $("#mobile-nav, #menu-toggle, body, nav").toggleClass("isOpen");
     });
+    //Capture shift+tab from main content to menu
+    if ($(".promo-nav-banner a[href]").length) {
+      $(".promo-nav-banner a[href]").keydown(function(e){
+        if (e.shiftKey && e.which == "9") {
+          e.preventDefault();
+          $("#theme-select").focus();
+          $("#menu-bars").focus();
+        }
+      });
+    } else {
+      $("header").nextAll().find("a[href]:not([href*='#'])").first().keydown(function(e){
+        if (e.shiftKey && e.which == "9") {
+          e.preventDefault();
+          $("#theme-select").focus();
+          $("#menu-bars").focus();
+        }
+      });
+    }
   });
 
   function bottomPos(element) {
