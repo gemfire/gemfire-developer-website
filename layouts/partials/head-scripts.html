@@ -1,11 +1,20 @@
 <!-- Initialize GTM data layer -->
+import { init, track } from '@amplitude/analytics-node';
+
+
 <script>
 dataLayer = [];
+window.process = { browser: true, env: { ENVIRONMENT: 'BROWSER' } };
 </script>
 <!-- OneTrust -->
 {{ if eq (getenv "HUGO_ENV") "production" }}
 <meta content='688714c5-a2c1-45ed-8486-25d404752d6e' name='onetrust-data-domain'>
 <meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.js' name='microsites-utag'>
+<script>
+    if (process.env.AMPLITUDE_API_KEY) {
+        init(process.env.AMPLITUDE_API_KEY);
+    }
+</script>
 {{ else }}
 <meta content='688714c5-a2c1-45ed-8486-25d404752d6e-test' name='onetrust-data-domain'>
 <meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/qa/utag.js' name='microsites-utag'>
@@ -75,24 +84,26 @@ function OptanonWrapper() { { window.dataLayer.push({ event: 'OneTrustGroupsUpda
 
 
 function sendAmplitudeEventOnLoad(eventType, eventProperties) {
-  // $(window).on('load', function(e){dataLayer.push({'event': 'logEvent', 'eventType': eventType, 'eventProperties': eventProperties});});
+    console.log("onload API key: " + process.env.AMPLITUDE_API_KEY + " hugo: " + process.env.HUGO_ENV);
+    if (process.env.AMPLITUDE_API_KEY) {
+        console.log("sending onload: " + eventType + eventProperties);
+        $(window).on('load', function (e) {
+            dataLayer.push({'event': 'logEvent', 'eventType': eventType, 'eventProperties': eventProperties});
+        });
+    }
 }
 function sendAmplitudeEvent(eventType, eventProperties) {
-  // Clear out persisted properties from previous/onload events
-  // var event = dataLayer.find(element => element["event"] == "logEvent");
-  // if (event != null) {
-  //   var existingProps = Object.keys(event["eventProperties"]);
-  //   var newProps = Object.keys(eventProperties);
-  //   var difference = existingProps.filter(x => !newProps.includes(x));
-  //   var removeProps = {};
-  //   difference.forEach(element => {
-  //     var newObject = {};
-  //     removeProps[element] = undefined;
-  //   });
-  //   Object.assign(eventProperties, removeProps);
-  // }
-  // dataLayer.push({'event': 'logEvent', 'eventType': eventType, 'eventProperties': eventProperties});
+    console.log("event API key: " + process.env.AMPLITUDE_API_KEY + " hugo: " + process.env.HUGO_ENV);
+    if (process.env.AMPLITUDE_API_KEY) {
+        console.log("sending event: " + eventType + eventProperties);
+        track(eventType, eventProperties,
+            {
+                user_id: 'datamonster@gmail.com',
+            },
+        )
+    }
 }
+
 function sendAmplitudeUserPropsOnLoad(userProperties) {
   // $(window).on('load', function(e){dataLayer.push({'event': 'setUserProperties', 'userProperties': userProperties});});
 }
