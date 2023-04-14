@@ -1,7 +1,7 @@
 <script>
     const setTheme = () => {
         const localSetting = localStorage.getItem("tdc-theme-setting")
-        const theme = localSetting === '' ? "dark" : localSetting
+        const theme = localSetting === '' ? "light" : localSetting
         if (theme === "light"){
             setLightMode()
         } else {
