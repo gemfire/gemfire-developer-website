@@ -111,7 +111,12 @@ This code will print:
 Query result:
 
 [
-    {"arrayField": [123, 456]}
+  {
+    "arrayField": [
+      123,
+      456
+    ]
+  }
 ]
 ```
 More details about queries can be found [here](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-querying_basics-chapter_overview.html).
