@@ -210,6 +210,10 @@ body.blog #contact .mktoForm select {
   color: rgb(97, 113, 125) !important;
 }
 
+#sample-gh {
+  color: white !important;
+}
+
 .mktoForm .mktoButtonRow .mktoButtonWrap.mktoSimple .mktoButton,
 .btn:not(.countdown) {
    background: #1d428a !important;
@@ -218,6 +222,7 @@ body.blog #contact .mktoForm select {
    background: #0E2B65 !important;
   }
 }
+
 
  #hero.examples-hero {
    background-image: url({{ "images/backgrounds/background-examples.jpg" | relURL }}) !important;
