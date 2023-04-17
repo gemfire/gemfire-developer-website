@@ -13,7 +13,7 @@ For more information about the particular dialect of OQL used in GemFire, please
 
 [^1]: *The Object Data Standard: ODMG 3.0*. Edited by R.G.G. Cattell and Douglas K. Barry, with contributions by Mark Berler, Jeff Eastman, David Jordan, Craig L. Russell, Olaf Schadow, Torsten Stanienda, and Fernando Velez. Morgan Kaufmann Publishers, Inc., 2000. ISBN 1-55860-647-5.
 
-### **Differences between SQL and OQL**
+## **Differences between SQL and OQL**
 The basic advantages of OQL are given in the GemFire docs as:
   - You can query on any arbitrary object
   - You can navigate object collections
@@ -24,7 +24,7 @@ The basic advantages of OQL are given in the GemFire docs as:
 
 This article will go a little deeper into the aspects of *composable expressions*
 and method invocations.
-#### **Composable Expressions**
+### **Composable Expressions**
 A basic difference between OQL and SQL is that OQL consists
 entirely of *expressions*, including the
 `SELECT` expression which is the core expression for querying.
@@ -42,32 +42,31 @@ that have a `spouseId` property, and considering that a select expression
 can be used anywhere a collection is expected, you could write an OQL query like:
 
 ```sql
-count(
-  select *
+select count(*)
   from /person as p
-  where p.spouse_id != null
+  where p.spouse_id != 0
           and p.age <
             element(select s.age
-                    from person as s
+                    from /person as s
                     where p.spouse_id = s.id
-                            and p.age < s.age))
+                            and p.age < s.age)
 ```
 The `ELEMENT` function applies to a collection that is known to have exactly
 one element and extracts the single element from it.
-#### **Method invocation on Objects**
+### **Method invocation on Objects**
 The other main difference from SQL is that OQL allows methods and simple attributes to be evaluated on objects. In Java, a simple attribute using dot notation
 like `myObject.x` gets translated to either a public field or a call to a
 getter method such as `myObject.getX()`. Methods that take parameters can also
 be invoked in OQL.
 
-Care should be taken here when working with methods implemented
+Care should be taken when working with methods implemented
 in languages like Java where arbitrary methods (and even "getters") can cause
-data mutation and other side effects. Since OQL is all about expressions
-evaluation/querying, the methods invoked in the query language should always be pure
-functions that return values without causing side effects. Otherwise, you
-could get unexpected results that are difficult to diagnose.
+data mutation and other side effects. Since OQL is declarative, the
+order of expression evaluation is not always predictable or prescribed,
+it works best when the methods invoked in the query language are pure "read-only"
+functions, returning values without causing side effects.
 
-### **Evaluating queries in a REPL**
+## **Evaluating queries in a REPL**
 
 Let's look at some query expressions to demonstrate these points. A simple ["REPL" (Read-Evaluate-Print-Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) tool is used here where a OQL expression is entered and the REPL tool will evaluate the expression and print the result. We'll show the prompt
 for this tool as `oql> ` and the printed result immediately after on the
@@ -84,7 +83,7 @@ code for this tool is shown at the end of this article.
 
 Note that this same limitation of using a `SELECT` expression only also applies when querying against partitioned regions, whereas more complex expressions can be used when querying replicated (or local) regions.
 
-#### **Set up REPL and example data**
+### **Set up REPL and example data**
 If you would like to follow along with evaluating these example queries, here
 are step-by-step instructions using `gfsh` to start a GemFire cluster and
 populate some example data.
@@ -94,7 +93,7 @@ populate some example data.
 % gfsh -e "start locator --name=locator"
 ```
 2. Start the Query REPL so it joins the cluster as a peer. \
-(See Source Code for `QueryRepl.java` at end of this article)
+(See Source Code for `QueryRepl.java` and notes at end of this article)
 You should get a prompt at the command line:
 ```
 oql>
@@ -120,7 +119,7 @@ firstName |  lastName  | emplNumber |            email             | salary | ho
 … etc
 ```
 
-#### **Evaluate example queries in the REPL**
+### **Evaluate example queries in the REPL**
 The following are example queries that show some valid OQL queries:
 
 ```sql
@@ -130,10 +129,95 @@ oql> 'Hello World'
 oql> 2 + 2
 	4
 
-oql> ELEMENT(SELECT * FROM /employees WHERE emplNumber = 10006).hoursPerWeek >= 30
+oql> ELEMENT(SELECT * FROM /employees WHERE emplNumber=10006).hoursPerWeek >= 30
 	true
 ```
-## **Source Code**
+
+## **Elements of a SELECT expression**
+
+The SELECT expression has the form:
+
+> `SELECT` *projectionList* `FROM` *fromClause* [`WHERE` *booleanExpression*]
+
+> *projectionList* := (`*` |  *projection* {`,` *projection*}) \
+> *projection* := *attribute* | *expr* | *aggregationExpr* \
+> *aggregationExpr* := *aggOp*`(`*projection*`)` \
+> *aggOp* := `MIN` | `MAX` | `SUM` | `AVG` | `COUNT`
+
+> *fromClause* := *collectionExpr* {`,` *collectionExpr*}
+
+By convention, this grammar definition includes these symbols:
+
+```
+:=  : a grammar production rule showing a breakdown of syntactical parts
+{ } : zero or more repetitions
+( ) : a group of elements
+|   : alternatives.
+```
+
+A *collectionExpr* is any expression that evaluates to a value of type
+collection, and a *booleanExpr* is any expression that evaluates to a value of type boolean.
+
+A Select expression can also be followed by ORDER BY and/or GROUP BY clauses,
+the details of which are not be covered in this article.
+
+### **Subqueries**
+A select expression itself evaluates to a value of type collection, so it
+is possible to nest select expressions within select expressions, as long as types line up. Some examples:
+
+-- TO DO: make these working queries in the REPL
+
+```sql
+-- select expression used in an IN operator, in a WHERE clause
+SELECT firstName, lastName FROM /employees
+  WHERE deptId IN (SELECT id FROM /departments
+                   WHERE location.state = 'OR')
+
+-- select expression used in a FROM clause
+-- gets the average of the department average salaries
+SELECT
+    AVG(average_salary)
+FROM
+    (SELECT AVG(salary) average_salary
+      FROM /employees
+    GROUP BY department_id) department_salary
+
+-- select expression used in a projection
+SELECT
+    employeeId,
+    firstName,
+    lastName,
+    salary,
+    -- calculate average salary
+    (SELECT AVG(salary)
+        FROM /employees) as average_salary,
+    -- calculate the difference between salary and average salary
+    salary - (SELECT AVG(salary)
+        FROM /employees) difference
+FROM
+    /employees
+```
+### **Joins**
+Queries that read from more than one region, or the same region more
+than once (a *self-join*) can often be simplified and evaluated more
+efficiently by using *joins* instead of subqueries. In OQL, a join
+between regions is indicated by referencing more than one region
+in the *FROM* clause.
+
+### **PDX Objects**
+
+## **Optimizing OQL Queries**
+### **Indexing**
+#### **Types of indexes and when to use them**
+#### **Pruning Results**
+
+## **Debugging OQL Queries**
+### **Tracing queries**
+### **Logging in methods**
+### **Query-related Statistics**
+
+---
+## **Appendix: Source Code**
 
 ### **`gfsh` script**
 `query.gfsh`
@@ -171,6 +255,7 @@ public class Employee implements Serializable {
   public String email;
   public int salary;
   public int hoursPerWeek;
+
   public Employee() {}
 
   @Override
@@ -257,39 +342,3 @@ public class QueryRepl {
   }
 }
 ```
-
----
----
-
-# Outline and Time Estimates (to be removed in final version)
-
-
-- OQL is an expressional language (1d)
-    -  Expressions, not statements
-        - Composability
-        - Calling arbitrary methods on objects \
-          (use pure functions)
-
-## Using `gfsh` as a query language REPL (0.5d)
-
-- Overview of OQL Features (1d)
-  - SELECT expressions
-    - Structure of a SELECT expression
-        - Data Types of SELECT expression clauses
-        - Aggregates within SELECT expressions
-    - Subqueries
-    - Joins
-  - Querying with Portable Data eXchange (PDX) Objects
-- History of OQL (0.5d) \
-  (ancestor of JDOQL, part of JDO specification)
-
-# Optimizing GemFire OQL Queries (1d)
-- Indexing
-  - Types of indexes
-  - When to use indexes
-- Pruning results
-
-# Debugging GemFire OQL Queries (1d)
-- Tracing queries
-- Logging
-- Query-related statistics
