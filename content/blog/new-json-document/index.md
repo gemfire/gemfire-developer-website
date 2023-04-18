@@ -36,8 +36,10 @@ or the tutorial [GemFire Basics](https://gemfire.dev/tutorials/java/gemfire_basi
 
 ## How to Store JSON Documents
 
+JSON supported by `JsonDocument` APIs must always represent a JSON object. It must begin and end with curly braces.
 First, let's get started with a simple example with a few lines of code. 
 This code assumes you already have a reference to the GemFire `cache` and the `region`.
+
 
 ```java
 String jsonString = "{\"foo\":\"bar\"}";
@@ -79,12 +81,6 @@ This code will print:
 ```
 The first element of the JSON array is 123
 ```
-
-JSON supported by `JsonDocument` APIs must always represent a JSON object. It must begin and end with curly braces.
-JSON begins with left bracket `[` and ends with right bracket `]` is not supported. 
-For example, `[123, 456]` as a JSON document is not supported. Because it begins with left bracket and ends with right bracket.
-However, if a JSON array is the value of a name/value pair, it is supported. 
-For example, `{\"array\": [123, 456]}` as a JSON document is supported.
 
 ### Working with Nested JSON Documents
 
@@ -131,25 +127,13 @@ More details about queries can be found [here](https://docs.vmware.com/en/VMware
 
 ## How to Choose Storage Format for JSON Documents
 
-[//]: # (Different storage formats for the JSON documents are now supported to optimize different document types.)
-
-[//]: # (For the schema-less JSON documents, the BSON storage format is optimal.)
-
-[//]: # (For the schema-based JSON documents, the PDX storage format is optimal.)
-
-[//]: # (Schema-based JSON documents tend to share the same field names.)
-
-[//]: # (Schema-less JSON documents tend to have different field names.)
-
-[//]: # (`RegionService.getJsonDocumentFactory&#40;StorageFormat.PDX&#41;`)
-
 GemFire currently supports two different binary formats.
 The default is based on the [BSON](https://bsonspec.org/) standard 
 and is the best choice if your data does not have a well-defined schema.
 The other format is [PDX](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html) 
 which is best suited for data that has a well-defined schema.
 PDX has a more compact serialization format and faster field access compared to BSON.
-But if it needs to be created for each document it becomes more costly than BSON.
+But if it needs to create a schema definition for each document it becomes more costly than BSON.
 To get a factory that uses PDX call `getJsonDocumentFactory(StorageFormat.PDX)` on your GemFire cache.
 
 ## References
