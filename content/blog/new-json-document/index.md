@@ -48,13 +48,13 @@ This converts a JSON string `{"foo":"bar"}` into a `JsonDocument` using a `JsonD
 and then puts the `JsonDocument` in the region.
 Once the `JsonDocument` is stored in GemFire, you can retrieve it by calling `Region.get()` with the key.
 
-If you want to retrieve a specific field of the `JsonDocument`, in which case you call `JsonDocument.getField()`
+If you want to retrieve a specific field of the `JsonDocument`, call `JsonDocument.getField()`
 with the field name. For the above example, calling `jsonDocument.getField("foo")` returns `"bar"`.
 ```java
 JsonDocument jsonDocument = region.get("key");
 Object value = jsonDocument.getField("foo");
 ```
-For such a tiny JSON document, this might seem like an overkill. However, for more complex JSON documents with multiple
+For such a tiny JSON document, this might seem like overkill. However, for more complex JSON documents with multiple
 fields of different types or even nested fields, the `JsonDocument` interface can help get specific fields without
 parsing the whole JSON document.
 
@@ -66,18 +66,25 @@ For more details about `JsonDocument`, please see the [Javadocs](https://gemfire
 ### Working with JSON Arrays
 
 When calling `JsonDocument.getField()` for a JSON array, you need to cast the return value to a `java.util.List` and use the APIs of
-`List` to retrieve the elements as you need. For example:
+`List` to retrieve the elements. For example:
 ```java
 String jsonString = "{\"arrayField\":[123, 456]}";
 region.put("key", cache.getJsonDocumentFactory().create(jsonString));
 JsonDocument jsonDocument = region.get("key");
-Object value = ((List<Object>) jsonDocument.getField("arrayField")).get(0);
+List<Object> list = (List<Object>) jsonDocument.getField("arrayField");
+Object value = list.get(0);
 System.out.println("The first element of the JSON array is " + value);
 ```
 This code will print:
 ```
 The first element of the JSON array is 123
 ```
+
+JSON supported by `JsonDocument` APIs must always represent a JSON object. It must begin and end with curly braces.
+JSON begins with left bracket `[` and ends with right bracket `]` is not supported. 
+For example, `[123, 456]` as a JSON document is not supported. Because it begins with left bracket and ends with right bracket.
+However, if a JSON array is the value of a name/value pair, it is supported. 
+For example, `{\"array\": [123, 456]}` as a JSON document is supported.
 
 ### Working with Nested JSON Documents
 
@@ -87,7 +94,8 @@ For example:
 String jsonString = "{\"nestedDocument\":{\"intField\":456}}";
 region.put("key", cache.getJsonDocumentFactory().create(jsonString));
 JsonDocument jsonDocument = region.get("key");
-Object value = ((JsonDocument) jsonDocument.getField("nestedDocument")).getField("intField");
+JsonDocument nestedDocument = (JsonDocument) jsonDocument.getField("nestedDocument");
+Object value = nestedDocument.getField("intField");
 System.out.println("The value of intField is " + value);
 ```
 This code will print:
@@ -140,7 +148,7 @@ The default is based on the [BSON](https://bsonspec.org/) standard
 and is the best choice if your data does not have a well-defined schema.
 The other format is [PDX](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html) 
 which is best suited for data that has a well-defined schema.
-Storing the schema itself has some extra overhead which is a benefit if the schema is reused often.
+PDX has a more compact serialization format and faster field access compared to BSON.
 But if it needs to be created for each document it becomes more costly than BSON.
 To get a factory that uses PDX call `getJsonDocumentFactory(StorageFormat.PDX)` on your GemFire cache.
 
