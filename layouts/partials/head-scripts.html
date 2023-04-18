@@ -13,7 +13,7 @@ window.process = { browser: true, env: { ENVIRONMENT: 'BROWSER' } };
 <meta content='688714c5-a2c1-45ed-8486-25d404752d6e' name='onetrust-data-domain'>
 <meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.js' name='microsites-utag'>
 <script>
-    amplitude.init('the-key', undefined, { defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true }});
+    amplitude.init('d838ffefd1c42b44697f71fbf78e3d50', undefined, { defaultTracking: { sessions: true, pageViews: true, formInteractions: true, fileDownloads: true }});
     console.log("amplitude initialized again");
 </script>
 {{ else }}
@@ -32,8 +32,6 @@ function OptanonWrapper() { { window.dataLayer.push({ event: 'OneTrustGroupsUpda
 </script>
 <!-- Google Tag Manager -->
 <script>
-    amplitude.track('Environment Var', { json: true});
-    console.log("amplitude tracked");
 // function setGTM(w,d,s,l,i){ w[l]=w[l]||[]; w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'}); var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:''; j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); }
 // if (document.cookie.indexOf('OptanonConsent') > -1 && document.cookie.indexOf('groups=') > -1) { setGTM(window,document,'script','dataLayer','GTM-TQ9H33K'); } else{ waitForOnetrustActiveGroups(); } var timer; function waitForOnetrustActiveGroups() { if (document.cookie.indexOf('OptanonConsent') > -1 && document.cookie.indexOf('groups=') > -1) { clearTimeout(timer); setGTM(window,document,'script','dataLayer','GTM-TQ9H33K'); } else{ timer=setTimeout(waitForOnetrustActiveGroups, 250); } }
 </script>
@@ -87,24 +85,20 @@ function OptanonWrapper() { { window.dataLayer.push({ event: 'OneTrustGroupsUpda
 
 
 function sendAmplitudeEventOnLoad(eventType, eventProperties) {
-    console.log("onload API key: " + process.env.AMPLITUDE_API_KEY + " hugo: " + process.env.HUGO_ENV);
-    if (process.env.AMPLITUDE_API_KEY) {
-        console.log("sending onload: " + eventType + eventProperties);
-        $(window).on('load', function (e) {
-            dataLayer.push({'event': 'logEvent', 'eventType': eventType, 'eventProperties': eventProperties});
-        });
-    }
+    console.log("sending onload: " + eventType + eventProperties);
+    amplitude.track(eventType, eventProperties,
+        {
+            user_id: 'datamonster@gmail.com',
+        }
+    )
 }
 function sendAmplitudeEvent(eventType, eventProperties) {
-    console.log("event API key: " + process.env.AMPLITUDE_API_KEY + " hugo: " + process.env.HUGO_ENV);
-    if (process.env.AMPLITUDE_API_KEY) {
-        console.log("sending event: " + eventType + eventProperties);
-        track(eventType, eventProperties,
-            {
-                user_id: 'datamonster@gmail.com',
-            },
-        )
-    }
+    console.log("sending event: " + eventType + eventProperties);
+    track(eventType, eventProperties,
+        {
+            user_id: 'datamonster@gmail.com',
+        }
+    )
 }
 
 function sendAmplitudeUserPropsOnLoad(userProperties) {
