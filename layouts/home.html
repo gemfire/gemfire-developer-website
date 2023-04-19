@@ -22,14 +22,14 @@
     <div class="row">
     <div class="w-100 mx-auto">
         <div class="row w-100 m-0 pl-2">
-            <div class="d-flex align-items-center icon-title mb-4">
+            <div class="d-flex justify-content-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-quickstart.svg" height="40" width="40"/>
                 <a class="h2 text-left text-white">Quick Start</a>
             </div>
         </div>
-        <div id="quickstart-row-outer" class="row td-box td-box--gradient pt-0 pb-4 justify-content-center position-relative transition-all m-0">
+        <div id="quickstart-row-outer" class="row td-box td-box--gradient pt-0 pb-4 position-relative transition-all m-0">
             <div class="col-xl-12 w-100">
-                <div id="the-quickstart-row" class="row flex-315 justify-content-between justify-content-center w-100 td-box">
+                <div id="the-quickstart-row" class="row flex-315 justify-content-between w-100 td-box">
                 {{ $quickstarts := where .Site.Pages "Section" "quickstart" }}
                 {{ range first 5 $quickstarts }}
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-lg-4 px-3 quickstart-card">
