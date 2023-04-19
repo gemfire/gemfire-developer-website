@@ -19,7 +19,6 @@
   }
 }
 
-
 .header-component .hdr-wrapper::before {
   content: "";
   position: absolute;
@@ -31,6 +30,30 @@
   background-image: linear-gradient(to right,#6fbe2e 19%,#00bbd6 43%,#0f61a9 57%,#5a39a0 81%);
 }
 
+.header-bar {
+  @media(max-width: 1200px) {
+    padding-right: 0 !important;
+  }
+  @media(max-width: 1034px) {
+    padding-left: 0 !important;
+  }
+}
+
+.navbar-brand {
+  @media(max-width: 1019px) {
+    margin-right: 0 !important;
+  }
+  font-size: 1.0rem;
+}
+
+#navbar-title {
+  @media(max-width:1160px) {
+    font-size: 1.0rem !important;
+  }
+  @media(max-width:450px) {
+    font-size: 0.85rem !important;
+  }
+}
 .footer-component:before {
   content: "";
   position: absolute;
@@ -459,6 +482,7 @@
     }
   }
 }
+
 .product-icon {
   bottom: 0;
   top: 0;

@@ -258,6 +258,12 @@ nav {
             display: none !important;
         }
     }
+    @media(max-width: 1004px){
+        #theme-slider {
+            margin-left: 0 !important;
+            margin-right: 0;
+        }
+    }
     .nav-arrow {
         transform: rotate(45deg) translateY(-6px);
         -webkit-transform: rotate(45deg) translateY(-6px);
@@ -296,13 +302,13 @@ nav {
         } 
             
     }
-    #downloads {
-        right: -73px;
+    #download {
+        right: -200px;
         width: 345px;
 
         .drop-menu {
             width: 327px;
-            left: 0px;
+            right: -200px;
             
             .menu-split-left {
                 width: 325px;
@@ -433,12 +439,5 @@ nav {
         position: static;
         width: 100%;
         padding: 0 !important;
-    }
-}
-
-@media(max-width: 1599px){
-    #download-drop-menu{
-        right:0;
-        left:initial;
     }
 }
