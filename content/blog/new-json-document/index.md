@@ -10,25 +10,21 @@ type: blog
 
 ## Introduction
 
-Storing a JSON document in GemFire can be as simple as storing a JSON string in a GemFire region.
-However, some GemFire features are not optimal for JSON strings.
-For example, query execution, indexes, function execution, serialization and JSON field access.
+With GemFire 10, its JSON document support is significantly enhanced. 
+We have introduced new APIs and storage formats for improved flexibility and efficiency.
+GemFire now supports two different binary formats for JSON documents: BSON and PDX.
+The default BSON format is based on [BSON standard](https://bsonspec.org/).
+It is simple, flexible for JSON documents with highly flexible structures.
+It offers highest performance, especially on small documents.
+Another storage format [PDX](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html) 
+is space efficient storage for JSON documents that have a relatively consistent and unchanging structure.
+It is optimized for queries on nested fields, especially when the documents are large with many fields.
 
-The new JSON document feature offered in GemFire 10 allows you to easily get specific fields without
-parsing the whole JSON document.
-It also allows you to query JSON documents with indexes.
-
-Here is a comparison between JSON string and `JsonDocument`, the new interface for JSON documents.
-
-Table: Benefits Comparison
-
-|         Features          | JSON String  |  JsonDocument  |
-|:-------------------------:|:------------:|:--------------:|
-|     Memory Footprint      |     Large    |     Small      |
-|     JSON Field Access     |     Slow     |      Fast      |
-|     Ability to Query      |     Hard     |      Easy      |
-|   OQL Query with Index    |      No      |      Yes       |
-| Function Execution Access |     Slow     |      Fast      |
+Whether you choose BSON or PDX, the new JSON document feature offered in GemFire 10 allows you to easily get specific fields 
+and avoid the cost of re-parsing the whole JSON document.
+It also allows you to query JSON documents with indexes. 
+For querying and indexing, any field contained inside a JSON document can be used, including any nested field within JSON objects or JSON arrays.
+The binary storage formats are optimized for memory footprint and network traffic, as well as fast function execution on GemFire servers.
 
 This blog assumes you understand the basic concepts of GemFire. You can check out the
 [quick start](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-15_minute_quickstart_gfsh.html) of GemFire
