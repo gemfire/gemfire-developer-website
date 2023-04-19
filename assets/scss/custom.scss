@@ -43,8 +43,17 @@
   @media(max-width: 1019px) {
     margin-right: 0 !important;
   }
+  font-size: 1.0rem;
 }
 
+#navbar-title {
+  @media(max-width:1160px) {
+    font-size: 1.0rem !important;
+  }
+  @media(max-width:450px) {
+    font-size: 0.85rem !important;
+  }
+}
 .footer-component:before {
   content: "";
   position: absolute;
@@ -473,6 +482,7 @@
     }
   }
 }
+
 .product-icon {
   bottom: 0;
   top: 0;
