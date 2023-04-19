@@ -31,11 +31,9 @@
                 <div id="the-quickstart-row" class="row justify-content-between justify-content-center w-100 td-box blogs-row">
                 {{ $quickstarts := where .Site.Pages "Section" "quickstart" }}
                 {{ range first 5 $quickstarts }}
-                    <div class="text-center">
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-lg-4 px-3 quickstart-card">
-                            <img alt="{{ .Params.title }}" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="100" width="100">
+                            <img alt="{{ .Params.title }}" class="quickstart-image mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}'>
                         </a>
-                    </div>
                 {{ end }}
                 </div>
             </div>

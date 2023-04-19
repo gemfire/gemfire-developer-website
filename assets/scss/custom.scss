@@ -54,6 +54,20 @@
     font-size: 0.85rem !important;
   }
 }
+.quickstart-image {
+  height: 100px;
+  width: 100px;
+
+  @media (max-width: 1031px) {
+    height: 75px;
+    width: 75px;
+  }
+
+  @media (max-width: 1031px) {
+    height: 100px;
+    width: 500px;
+  }
+}
 .footer-component:before {
   content: "";
   position: absolute;
