@@ -4,12 +4,14 @@
 VMware GemFire supports a query language known as Object Query Language (OQL).
 OQL was originally developed between 1993 and 2001 by the
 [Object Data Management Group (ODMG)](https://en.wikipedia.org/wiki/Object_Data_Management_Group) for object databases. The most recent specification
-for OQL (ODMG 3.0)was published by OMDG in book form¹.
+for OQL (ODMG 3.0) was published by OMDG in book form¹.
 OQL was later used as the basis for the query language
 used in the [Java Data Objects (JDO)](https://en.wikipedia.org/wiki/Java_Data_Objects) specification, known as JDOQL.
 
 For more information about the particular dialect of OQL used in GemFire, please consult the
-[Querying section of the GemFire Documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-querying_basics-chapter_overview.html).
+[Querying section of the GemFire Documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-querying_basics-chapter_overview.html) for the specific version
+of GemFire that you are using. This article assumes GemFire 10.0, but most of
+the information here also applies to earlier versions.
 
 This article is meant as a supplement to the GemFire documentation, to highlight
 some of the unique aspects of OQL and provide some guidance on writing queries
@@ -285,29 +287,145 @@ SELECT emp.firstName, emp.lastName FROM /employees emp, /departments dept \
   ```
 
 ### **Object Serialization in Regions**
-GemFire supports the Portable Data Exchange (PDX) format for storing domain
-objects or JSON documents in a serialized form in a region, and the BSON as
+GemFire supports the `PDX` (Portable Data Exchange) format for storing domain
+objects or JSON documents in a serialized form in a region, and `BSON` as
 another format for JSON objects. These objects can be queried like any other
 objects using OQL, but they have the added advantage that the don't have to be
 fully deserialized in order to be queried.
 
-Using PDX serialization also enables read and querying access for REST clients.
+Using PDX serialization also enables reading and querying access for REST clients.
 
 For more information about PDX Serialization, JSON Documents, and the REST
 API, see the GemFire Documention.
 
 ## **Optimizing OQL Queries**
 ### **Indexing**
+The primary way to speed up the execution of queries is to use indexes. There is
+of course a trade-off in using indexes, as they increase the execution speed
+of queries that use them, but at the expense of increased memory usage and reduced performance of all updates to the associated regions.
+
 #### **Types of indexes and when to use them**
-#### **Pruning Results**
+In general, the best way to determine what indexes are needed is to look at
+the types of comparisons and lookups that are in the queries that you want to optimize.
+
+  * Range Index \
+  Example `gfsh` command to create:
+  ```shell
+  gfsh> create index --name=myIndex --expression=location.coordinates.latitude --region=/exampleRegion
+  ```
+  This is the default type of index, i.e. if you don't specify an index type
+  in `gfsh` it will default to a range index. Range indexes support comparisons,
+  both equality and inequality (`=`, `!=`, `<`, `<=`, `>`, `>=`).
+  These indexes used to be called *functional* indexes because the index is
+  created on an arbitrary OQL expression that is evaluated on the values of the
+  region—the expression defines a function on the region values.
+  The expression is not limited to just one attribute or field, it can
+  be chained dot-notation for a path that drills down into the object,
+  or a map index or a method invocation with specific parameters. It uses
+  the composable expression syntax of OQL to define a function. Generally
+  speaking a query will only use the index if contains precisely the same
+  expression that the index was created with.
+
+  For example, with the index created with the expression `location.coordinates.latitude`,
+  the following query would be supported by the index:
+  ```sql
+  SELECT * FROM /exampleRegion WHERE location.coordinates.latitude >= 42
+  ```
+
+  * Key Index \
+  Example `gfsh` command to create:
+  ```shell
+  gfsh> create index --name=myKeyIndex --expression=orderId --region=region1 --type=key
+  ```
+  A key index maps region values back to region keys, enabling the query
+  engine to recognize when a query is restricting the values to specific
+  region keys (using equality on the key expression).
+  This is useful when querying partitoned regions as it enables
+  the query to be sent only to the partition where the data resides.
+  For example, if the key expression is `orderId`, then the following query
+  could be routed to the specific partition:
+  ```sql
+  SELECT * FROM /Orders WHERE orderId = '12345' AND amount > 1000
+  ```
+
+#### **Using index hints**
+Index hints can be embedded into the query string to give preference to the
+use of one or more specific indexes by name. This can help to optimize query
+evaluation when multiple indexes could be used for a query but the query
+developer knows that some index will prune the results much faster than others.
+A query hint looks like:
+```sql
+<HINT 'IDIndex'> SELECT * FROM /Portfolios p WHERE p.ID > 10 AND p.owner = 'XYZ'
+```
+### **Pruning Results**
+Pruning results refers to the practice of speeding up queries by
+reducing the query result size as quickly as possible by putting the most
+restrictive filtering conditions first so that subsequent processing and
+transport of data is minimized. This usually applies when using multiple
+`AND` conditions.
+
+### **Using Bind Parameters**
+Some performance may be improved for queries that reused multiple times
+by using bind parameters and re-evaluating the same query each time with
+different parameters. Bind parameters can be used *anywhere* in an OQL query
+that a value is expected. The placeholder for a bind parameter starts with
+a dollar sign (`$`) follwed by the sequence number for the parameter starting
+with `$1`. To pass a parameter to a query with bind parameters, you use the
+`Query.execute(Object[])` method, passing in the parameters in order.
 
 ## **Debugging OQL Queries**
 ### **Tracing queries**
+Adding the `<trace>` tag to a query string, some information about the
+query will be logged to `system.log`. This can help in diagnosing why a
+query might be slow or showing how much time a query actually takes to be
+evaluated. Reported information includes the timestamp when the query finished
+being evaluated, how much time it took to evaluate,
+how many rows were in the result, and how many indexes were used in the query evaluation.
+Adding the trace tag to a query looks like:
+```sql
+<TRACE> select * from /exampleRegion
+```
 ### **Logging in methods**
 For debugging purposes, adding logging to methods that are invoked in a query
 could be helpful. Since methods can take parameters, logging named values
-or the result of expression evaluation could help diagnose issues.
+or the result of expression evaluation could provide insight on the what
+values expressions are being evaluated to, whether they are being evaluated
+at all, how many times they are being evaluated, etc.
 ### **Query-related Statistics**
+GemFire collects various statistics on virtually everything happening inside the cluster, and querying is no exception.
+Statistics related to querying could also provide insight that could help with diagnosing issues. These statistics can be viewed
+visually using the `VSD` (Visual Statistics Display) utility that comes with GemFire.
+
+Just to give you an idea, statistics that are specifically related to querying include:
+#### **CachePerfStats**
+  - `queryExecutions`
+  - `queryExecutionTime`
+#### **CacheServerStats**
+  - `processQueryTime`
+  - `queryRequests`
+  - `queryResponses`
+  - `readQueryRequestTime`
+  - `writeQueryResponseTime`
+#### **ClientStats**
+  - `querys`
+  - `queryFailures`
+  - `querySuccesses`
+  - `querysInProgress`
+  - `queryTime`
+  - `queryTimeouts`
+#### **IndexStats**
+  - `numKeys`
+  - `numUpdates`
+  - `numValues`
+  - `updatesInProgress`
+  - `updateTime`
+  - `numUses`
+  - `usesInProgress`
+  - `useTime`
+
+For specific explanations for the meaning of each of these statistics, and
+for more information on using VSD, see the GemFire documentation for the
+version of GemFire that you are using.
 
 ---
 ## **Appendix: Source Code**
@@ -342,7 +460,7 @@ put --region=departments --key=102 --value="('deptId':102,'name':'Engineering','
 ```
 
 ### **Domain Classes**
-The domain classes need to be deployed to the servers in the cluster.
+The domain classes need to be deployed to the servers in the cluster. \
 `Employee.java`
 ```java
 package com.vmware.query.blog;
