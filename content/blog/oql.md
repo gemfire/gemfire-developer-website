@@ -59,6 +59,19 @@ select * from /employees as emp where emp.managerId != 0 and emp.salary > elemen
 
 The `ELEMENT` function applies to a collection that is known to have exactly
 one element and extracts the single element from it.
+
+Here are some other expressions that are valid in OQL, which would *not* be valid
+in SQL:
+```sql
+'Hello World'
+-- evaluates to  Hello World
+
+2 + 2
+-- evaluates to 4
+
+ELEMENT(SELECT * FROM /employees WHERE emplNumber=10006).hoursPerWeek >= 30
+-- evalutes to true (or false)
+```
 ### **Method invocation on Objects**
 The other main difference from SQL is that OQL allows methods and simple attributes to be evaluated on objects. In Java, a simple attribute using dot notation
 like `myObject.x` gets translated to either a public field or a call to a
@@ -74,47 +87,61 @@ functions, returning values without causing side effects.
 
 ## **Evaluating queries in a REPL**
 
-Let's look at some query expressions to demonstrate these points. A simple ["REPL" (Read-Evaluate-Print-Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) tool is used here where a OQL expression is entered and the REPL tool will evaluate the expression and print the result. We'll show the prompt
-for this tool as `oql> ` and the printed result immediately after on the
-next line.
+In this article there will be some sample query expressions for demonstration purposes.
+You can evaluate these queries yourself using the GemFire command-line tool
+`gfsh` as a ["REPL" (Read-Evaluate-Print-Loop)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) tool.
 
-In GemFire, you can use the provide console tool called `gfsh` as a REPL, of sorts, for trying out queries. The syntax within `gfsh` is:
+The syntax for executing a query in `gfsh` is:
 ```
 query --query=<Select_Expression>
 ```
-However, when evaluating OQL expression in `gfsh`, you are currently limited to using only a SELECT Expression. This can be very useful for evaluating queries against a running GemFire cluster for experimental and debugging purposes. However, because of this limitation,
-the queries shown in this article are run instead in a simple REPL tool running in a
-GemFire server (peer member), so it doesn't have this limitation. The source
-code for this tool is shown at the end of this article.
+**Note (1):** When evaluating OQL expressions in `gfsh`, you are currently limited
+to only using SELECT expressions that query on GemFire regions,
+so the query expressions that were given earlier won't work in `gfsh`—but they do
+work when using the `QueryService` API in a server(peer) application. This may
+be improved in a future version of GemFire.
 
-Note that this same limitation of using a `SELECT` expression only also applies when querying against partitioned regions, whereas more complex expressions can be used when querying replicated (or local) regions.
+**Note (2):** This limitation of using a `SELECT` expression also applies when
+querying against partitioned regions, whereas other types of expressions can be
+used when querying replicated (or local) regions.
 
-### **Set up REPL and example data**
+### **Set up example Cluster**
 If you would like to follow along with evaluating these example queries, here
 are step-by-step instructions using `gfsh` to start a GemFire cluster and
-populate some example data.
+populate the example data. After this is done you will be able to
+evaluate the queries in the rest of this article.
 
-1. Start a locator
+1. If you haven't already done so, install GemFire and run `gfsh` to get the `gfsh` prompt:
 ```shell
-% gfsh -e "start locator --name=locator"
+% gfsh
+gfsh>
 ```
-2. Start the Query REPL so it joins the cluster as a peer. \
-(See Source Code for `QueryRepl.java` and notes at end of this article)
-You should get a prompt at the command line:
+2. Start a locator:
+```shell
+gfsh> start locator --name=locator
 ```
-oql>
+3. Start a server:
+```
+gfsh> start server --name=server1
+```
+4. Compile the domain classes (see source code at end of this article)
+into a jar file, say `employees.jar`, then
+deploy the jar to the cluster:
+```shell
+gfsh> deploy --jars=employees.jar
 ```
 
-3. Run the `query.gfsh` script \
+5. Run the `query.gfsh` script
 This source for this script is also given at the end of this article.
-This creates the `employees` region and populates it with sample data.
+This creates the `employees` and `departments` regions and populates them with
+sample data.
 
 ```shell
-% gfsh run --file="query.gfsh"
+gfsh> run --file="query.gfsh"
 ```
 You can test that the data is there with:
 ```shell
-% gfsh -e "connect" -e "query --query='select * from /employees'"
+gfsh> query --query="select * from /employees"
 ```
 You should see output showing a table with 14 rows of employee data, something
 like:
@@ -128,7 +155,7 @@ firstName |  lastName  | emplNumber |            email             | salary | ho
 ```
 Likewise, test that the `/departments` data is there with:
 ```shell
-gfsh -e "connect" -e "query --query='select * from /departments'"
+gfsh> query --query="select * from /departments"
 ```
 You should see a table with 3 department rows:
 ```
@@ -138,21 +165,6 @@ deptId |       name        | location
 100    | "Accounting"      | {"city":"New York","state":"NY"}
 102    | "Engineering"     | {"city":"Beaverton","state":"OR"}
 ```
-
-### **Evaluate example queries in the REPL**
-The following are example queries that show some valid OQL queries:
-
-```sql
-oql> 'Hello World'
---> Hello World
-
-oql> 2 + 2
---> 4
-
-oql> ELEMENT(SELECT * FROM /employees WHERE emplNumber=10006).hoursPerWeek >= 30
---> true
-```
-
 ## **Elements of a SELECT expression**
 
 The SELECT expression has the basic form:
@@ -186,43 +198,58 @@ GemFire documentation under the heading *Query Language Grammar*.
 
 ### **Subqueries**
 A select expression itself evaluates to a value of type collection, so it
-is possible to nest select expressions within select expressions, as long as types line up. Some examples: *(the backslash `\` denotes line continuation in the REPL)*
+is possible to nest select expressions within select expressions, as long as the
+types line up. Some examples: *(the backslash `\` denotes line continuation in `gfsh`)*
 
 ```sql
-oql> -- QUERY (1)
+gfsh> query --query="-- QUERY (1) \
 -- select expression used in an IN operator, in a WHERE clause \
 SELECT firstName, lastName FROM /employees \
   WHERE deptId IN (SELECT dept.deptId FROM /departments dept \
-                   WHERE dept.location.state = 'NY')
-Query returned 5 results.
---> struct(firstName:Morgan,lastName:Minnow)
---> struct(firstName:Taylor,lastName:Tack)
---> struct(firstName:Dale,lastName:Driver)
---> struct(firstName:Alex,lastName:Able)
---> struct(firstName:Ryan,lastName:Redo)
+                  WHERE dept.location.state = 'NY')"
+Result : true
+Limit  : 100
+Rows   : 5
 
-oql> -- QUERY (2)
+firstName | lastName
+--------- | --------
+Morgan    | Minnow
+Taylor    | Tack
+Dale      | Driver
+Alex      | Able
+Ryan      | Redo
+
+gfsh> query --query="-- QUERY (2) \
 -- select expression used in a FROM clause \
 -- gets the average of the department average salaries \
-SELECT AVG(average_salary) \
-FROM \
+SELECT AVG(average_salary) FROM \
     (SELECT AVG(salary) AS average_salary, \
         deptId \
       FROM /employees \
-      GROUP BY deptId)
-Query returned 1 result.
---> 79416.66666666667
+      GROUP BY deptId)"
+Result : true
+Limit  : 100
+Rows   : 1
 
-oql> -- QUERY (3)
+Result
+-----------------
+79416.66666666667
+
+gfsh> query --query="-- QUERY (3) \
 -- select expression used in a projection \
 SELECT emplNumber, firstName, lastName, salary, \
     -- calculate the difference between salary and average salary \
     (salary - ELEMENT(SELECT AVG(e.salary) \
         FROM /employees e)) AS diff \
-FROM /employees \
-Query returned 14 results.
---> struct(emplNumber:10001,firstName:Bertie,lastName:Bell,salary:80000,diff:357.14285714285506)
---> struct(emplNumber:10010,firstName:Casey,lastName:Catch,salary:60000,diff:-19642.857142857145)
+FROM /employees"
+Result : true
+Limit  : 100
+Rows   : 14
+
+emplNumber | firstName | lastName | salary | diff
+---------- | --------- | -------- | ------ | -------------------
+10001      | Bertie    | Bell     | 80000  | 357.14285714285506
+10010      | Casey     | Catch    | 60000  | -19642.857142857145
 (etc.)
 ```
 ### **Joins**
@@ -232,9 +259,28 @@ evaluated more efficiently by using *joins* instead of subqueries.
 In OQL, a join between regions is indicated by referencing more than one region
 in the *FROM* clause.
 
+A basic join between the `employees` and `departments` regions:
+```sql
+gfsh> query --query="SELECT \
+  e.firstName, e.lastName, d.name as deptName, \
+  d.location.city as deptCity, d.location.state as deptState \
+FROM /employees e, /departments d \
+WHERE e.deptId = d.deptId"
+Result : true
+Limit  : 100
+Rows   : 14
+
+firstName | lastName |    deptName     | deptCity  | deptState
+--------- | -------- | --------------- | --------- | ---------
+Ryan      | Redo     | Accounting      | New York  | NY
+Kris      | Call     | Engineering     | Beaverton | OR
+Skyler    | Skip     | Human Resources | Beaverton | OR
+(etc.)
+```
+
 `Query (1)` shown above could be re-written as a join:
 ```sql
-SELECT emp.firstName, emp.lastName FROM /employees emp, /departments dept
+SELECT emp.firstName, emp.lastName FROM /employees emp, /departments dept \
   WHERE emp.deptId = dept.deptId AND dept.location.state = 'NY'
   ```
 
@@ -296,7 +342,7 @@ put --region=departments --key=102 --value="('deptId':102,'name':'Engineering','
 ```
 
 ### **Domain Classes**
-The domain classes need to be in the class path of the REPL tool.\
+The domain classes need to be deployed to the servers in the cluster.
 `Employee.java`
 ```java
 package com.vmware.query.blog;
@@ -372,101 +418,6 @@ public class Location implements Serializable {
         .add(city)
         .add(state)
         .toString();
-  }
-}
-```
-### **Query REPL Tool**
-
-Notes:
-  - Start a locator first and then start this REPL tool so it joins the cluster
-  - Make sure `gemfire-dependencies.jar` and the domain class are in the class path
-  - use a `gemfire.properties` file to specify the locator so it joins a cluster, e.g.:
-
-#### **GemFire Properties file `gemfire.properties`**
-```
-  locators=localhost[10334]
-```
-#### **REPL tool**
-`QueryRepl.java`
-```java
-package com.vmware.query.tool;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import org.apache.geode.cache.Cache;
-import org.apache.geode.cache.CacheFactory;
-import org.apache.geode.cache.query.QueryService;
-import org.apache.geode.cache.query.SelectResults;
-
-public class QueryRepl {
-  public static final String PROMPT = "oql> ";
-  public static final String LINE_CONTINUATION = "\\";
-
-  public static void main(final String[] args) throws IOException {
-    try (final Cache cache = new CacheFactory().create()) {
-      runRepl(cache);
-    }
-  }
-
-  private static void runRepl(final Cache cache) throws IOException {
-    final QueryService queryService = cache.getQueryService();
-    final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    String query;
-    // ctrl-d to quit
-    while ((query = readQuery(in)) != null) {
-      try {
-        if (!query.isEmpty()) {
-          final Object results = queryService.newQuery(query).execute();
-          printResults(results);
-        }
-      } catch (final Exception e) {
-        e.printStackTrace();
-      }
-    }
-  }
-
-  private static String readQuery(final BufferedReader in) throws IOException {
-    final StringBuilder bldr = new StringBuilder();
-    boolean cont;
-    boolean eofEncountered = false;
-    System.out.format("\n%s", PROMPT);
-    do {
-      final String line = in.readLine();
-      if (line == null) {
-        eofEncountered = true;
-        break;
-      }
-      final String trimmed = line.trim();
-      cont = trimmed.endsWith(LINE_CONTINUATION);
-      final String queryLine =
-          cont ?
-              trimmed.substring(0, trimmed.length() - LINE_CONTINUATION.length()) + "\n"
-              : trimmed;
-      bldr.append(queryLine);
-    } while (cont);
-    final String q = bldr.toString();
-    if (q.isEmpty() && eofEncountered) {
-      return null;
-    }
-    return q;
-  }
-
-  private static void printResults(final Object results) {
-    if (results instanceof SelectResults) {
-      printSelectResults((SelectResults<?>) results);
-    } else {
-      System.out.printf("--> %s\n", results);
-    }
-  }
-
-  private static void printSelectResults(final SelectResults<?> results) {
-    final String res = results.size() == 1 ? " result." : " results.";
-    System.out.println("Query returned " + results.size() + res);
-    for (final Object obj : results.asList()) {
-      System.out.printf("--> %s\n", obj);
-    }
   }
 }
 ```
