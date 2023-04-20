@@ -24,7 +24,8 @@ The basic advantages of OQL are given in the GemFire docs as:
   - You can query on any arbitrary object
   - You can navigate object collections
   - You can invoke methods and access the behavior of objects
-  - Data mapping is supported
+  - Data mapping is supported \
+    (i.e. map/dictionary lookups, and mapping from region values to region keys)
   - You are not required to declare types. Since you do not need type definitions, you can work across multiple languages
   - You are not constrained by a schema
 
@@ -57,8 +58,6 @@ select count(*)
                     where emp.managerId = mgr.emplNumber)
 ```
 
-select * from /employees as emp where emp.managerId != 0 and emp.salary > element(select mgr.salary from /employees as mgr where emp.managerId = mgr.emplNumber)
-
 The `ELEMENT` function applies to a collection that is known to have exactly
 one element and extracts the single element from it.
 
@@ -75,7 +74,7 @@ ELEMENT(SELECT * FROM /employees WHERE emplNumber=10006).hoursPerWeek >= 30
 -- evalutes to true (or false)
 ```
 ### **Method invocation on Objects**
-The other main difference from SQL is that OQL allows methods and simple attributes to be evaluated on objects. In Java, a simple attribute using dot notation
+Another difference from SQL is that OQL allows methods, simple attributes (that can map to "getter" methods), and arbitrarily complex chaining of method calls and attributes, to be evaluated on objects. In Java, a simple attribute using dot notation
 like `myObject.x` gets translated to either a public field or a call to a
 getter method such as `myObject.getX()`. Methods that take parameters can also
 be invoked in OQL.
@@ -83,7 +82,7 @@ be invoked in OQL.
 Care should be taken when working with methods implemented
 in languages like Java where arbitrary methods (and even "getters") can cause
 data mutation and other side effects. Since OQL is declarative, the
-order of expression evaluation is not always predictable or prescribed,
+order of expression evaluation is not always predictable or prescribed;
 it works best when the methods invoked in the query language are pure "read-only"
 functions, returning values without causing side effects.
 
@@ -111,7 +110,7 @@ used when querying replicated (or local) regions.
 If you would like to follow along with evaluating these example queries, here
 are step-by-step instructions using `gfsh` to start a GemFire cluster and
 populate the example data. After this is done you will be able to
-evaluate the queries in the rest of this article.
+evaluate the queries shown in the rest of this article.
 
 1. If you haven't already done so, install GemFire and run `gfsh` to get the `gfsh` prompt:
 ```shell
@@ -126,7 +125,7 @@ gfsh> start locator --name=locator
 ```
 gfsh> start server --name=server1
 ```
-4. Compile the domain classes (see source code at end of this article)
+4. Compile the (3) domain classes (see source code at end of this article)
 into a jar file, say `employees.jar`, then
 deploy the jar to the cluster:
 ```shell
@@ -203,11 +202,19 @@ A select expression itself evaluates to a value of type collection, so it
 is possible to nest select expressions within select expressions, as long as the
 types line up. Some examples: *(the backslash `\` denotes line continuation in `gfsh`)*
 
+`QUERY (1)` \
+Select expression used in an IN operator, in a WHERE clause.
 ```sql
-gfsh> query --query="-- QUERY (1) \
--- select expression used in an IN operator, in a WHERE clause \
-SELECT firstName, lastName FROM /employees \
-  WHERE deptId IN (SELECT dept.deptId FROM /departments dept \
+SELECT firstName, lastName FROM /employees
+  WHERE deptId IN (SELECT dept.deptId FROM /departments dept
+                  WHERE dept.location.state = 'NY')
+```
+
+
+```sql
+gfsh> query --query="\
+  SELECT firstName, lastName FROM /employees \
+    WHERE deptId IN (SELECT dept.deptId FROM /departments dept \
                   WHERE dept.location.state = 'NY')"
 Result : true
 Limit  : 100
@@ -220,13 +227,22 @@ Taylor    | Tack
 Dale      | Driver
 Alex      | Able
 Ryan      | Redo
+```
 
-gfsh> query --query="-- QUERY (2) \
--- select expression used in a FROM clause \
--- gets the average of the department average salaries \
-SELECT AVG(average_salary) FROM \
-    (SELECT AVG(salary) AS average_salary, \
-        deptId \
+`Query(2)` \
+Select expression used in a FROM clause. \
+Gets the average of the department average salaries.
+```sql
+SELECT AVG(average_salary) FROM
+    (SELECT AVG(salary) AS average_salary, deptId
+      FROM /employees
+      GROUP BY deptId)
+```
+
+```sql
+gfsh> query --query="\
+  SELECT AVG(average_salary) FROM \
+    (SELECT AVG(salary) AS average_salary, deptId \
       FROM /employees \
       GROUP BY deptId)"
 Result : true
@@ -236,11 +252,19 @@ Rows   : 1
 Result
 -----------------
 79416.66666666667
-
-gfsh> query --query="-- QUERY (3) \
--- select expression used in a projection \
+```
+`Query (3)` \
+Select expression used in a projection. \
+Calculates the difference between salary and average salary.
+```sql
 SELECT emplNumber, firstName, lastName, salary, \
-    -- calculate the difference between salary and average salary \
+    (salary - ELEMENT(SELECT AVG(e.salary) \
+        FROM /employees e)) AS diff \
+FROM /employees
+```
+```sql
+gfsh> query --query=" \
+SELECT emplNumber, firstName, lastName, salary, \
     (salary - ELEMENT(SELECT AVG(e.salary) \
         FROM /employees e)) AS diff \
 FROM /employees"
@@ -263,7 +287,16 @@ in the *FROM* clause.
 
 A basic join between the `employees` and `departments` regions:
 ```sql
-gfsh> query --query="SELECT \
+SELECT
+  e.firstName, e.lastName, d.name as deptName,
+  d.location.city as deptCity, d.location.state as deptState
+FROM /employees e, /departments d
+WHERE e.deptId = d.deptId
+```
+
+```sql
+gfsh> query --query="\
+SELECT \
   e.firstName, e.lastName, d.name as deptName, \
   d.location.city as deptCity, d.location.state as deptState \
 FROM /employees e, /departments d \
@@ -290,8 +323,8 @@ SELECT emp.firstName, emp.lastName FROM /employees emp, /departments dept \
 GemFire supports the `PDX` (Portable Data Exchange) format for storing domain
 objects or JSON documents in a serialized form in a region, and `BSON` as
 another format for JSON objects. These objects can be queried like any other
-objects using OQL, but they have the added advantage that the don't have to be
-fully deserialized in order to be queried.
+objects using OQL, but they have the added advantage that the entire object
+doesn't need to be deserialized in order to be queried—only the fields needed.
 
 Using PDX serialization also enables reading and querying access for REST clients.
 
@@ -305,10 +338,11 @@ of course a trade-off in using indexes, as they increase the execution speed
 of queries that use them, but at the expense of increased memory usage and reduced performance of all updates to the associated regions.
 
 #### **Types of indexes and when to use them**
-In general, the best way to determine what indexes are needed is to look at
-the types of comparisons and lookups that are in the queries that you want to optimize.
+In general, the best way to determine what indexes are needed is to first
+identify the queries that are frequently executed and are too slow, and then
+base the indexes on the of comparisons and lookups that are in those queries.
 
-  * Range Index \
+##### **Range Index**
   Example `gfsh` command to create:
   ```shell
   gfsh> create index --name=myIndex --expression=location.coordinates.latitude --region=/exampleRegion
@@ -326,13 +360,13 @@ the types of comparisons and lookups that are in the queries that you want to op
   speaking a query will only use the index if contains precisely the same
   expression that the index was created with.
 
-  For example, with the index created with the expression `location.coordinates.latitude`,
+  For example, with the index created with the expression `locations['hq'].coordinates.latitude`,
   the following query would be supported by the index:
   ```sql
-  SELECT * FROM /exampleRegion WHERE location.coordinates.latitude >= 42
+  SELECT * FROM /exampleRegion WHERE locations['hq'].coordinates.latitude >= 42
   ```
 
-  * Key Index \
+##### **Key Index**
   Example `gfsh` command to create:
   ```shell
   gfsh> create index --name=myKeyIndex --expression=orderId --region=region1 --type=key
@@ -355,23 +389,40 @@ evaluation when multiple indexes could be used for a query but the query
 developer knows that some index will prune the results much faster than others.
 A query hint looks like:
 ```sql
-<HINT 'IDIndex'> SELECT * FROM /Portfolios p WHERE p.ID > 10 AND p.owner = 'XYZ'
+<HINT 'IdIndex'> SELECT * FROM /Portfolios p WHERE p.ID > 10 AND p.owner = 'XYZ'
 ```
 ### **Pruning Results**
 Pruning results refers to the practice of speeding up queries by
 reducing the query result size as quickly as possible by putting the most
 restrictive filtering conditions first so that subsequent processing and
-transport of data is minimized. This usually applies when using multiple
+transport of data is minimized. This typically applies when using multiple
 `AND` conditions.
 
 ### **Using Bind Parameters**
-Some performance may be improved for queries that reused multiple times
-by using bind parameters and re-evaluating the same query each time with
+Some performance may be improved for queries that are reused multiple times
+by using *bind parameters* and re-evaluating the same query each time with
 different parameters. Bind parameters can be used *anywhere* in an OQL query
 that a value is expected. The placeholder for a bind parameter starts with
 a dollar sign (`$`) follwed by the sequence number for the parameter starting
 with `$1`. To pass a parameter to a query with bind parameters, you use the
 `Query.execute(Object[])` method, passing in the parameters in order.
+
+An example query that uses a bind parameter in the *FROM* clause as well as a
+comparison operand in the *WHERE* clause. This query could be reused for
+multiple regions and different datetime comparisons:
+```sql
+SELECT * FROM $1 WHERE datetime > $2
+```
+When executed, the Region itself and a java.sql.Timestamp for comparison would be
+passed in to the `execute` method:
+```java
+  Region r = ...;
+  java.sql.Timestamp ts = ...;
+  QueryService qs = ...;
+  Query query = qs.newQuery("SELECT * FROM $1 WHERE datetime > $2");
+  query.execute(r, ts);
+```
+
 
 ## **Debugging OQL Queries**
 ### **Tracing queries**
@@ -423,7 +474,7 @@ Just to give you an idea, statistics that are specifically related to querying i
   - `usesInProgress`
   - `useTime`
 
-For specific explanations for the meaning of each of these statistics, and
+For specific explanations for the meaning of these statistics, and
 for more information on using VSD, see the GemFire documentation for the
 version of GemFire that you are using.
 
