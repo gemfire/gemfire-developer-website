@@ -177,8 +177,22 @@ limitations under the License.
       }
     });
 
-    $("#mobile-light-theme").click(()=>{setLightMode()})
-    $("#mobile-dark-theme").click(()=>{setDarkMode()})
+    $("#mobile-theme-toggle").click(()=>{toggleTheme()})
+    $("#mobile-theme-toggle").keyup((e) => {
+      if (e.which == 13 || e.which == 32) {
+        toggleTheme()
+        $("header + .container-fluid").removeClass("dim");
+      }
+    });
+    $("#mobile-theme-toggle").keydown(function (e) {
+      if (e.which == 9) {
+        if ($(".promo-nav-banner a[href]").length) {
+          $(".promo-nav-banner a[href]").focus();
+        } else {
+          $("header").nextAll().find("a[href]:not([href*='#'])").first().focus();
+        }
+      }
+    });
 
     //Open external links/rss in new tab, tvc links in same tab
     $("a[href^='http']").attr("target", "_blank");
