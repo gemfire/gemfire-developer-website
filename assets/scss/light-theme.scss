@@ -276,6 +276,21 @@ nav {
   #dark-theme-icon {
     display: none;
   }
+
+  #mobile-theme-slider {
+    background-color: #ADBBC4 !important;
+    transition: background-color .2s;
+  }
+  #mobile-theme-icon-circle {
+    transform: translateX(12px);
+    background: #1B2A32;
+  }
+  #light-mobile-theme-icon {
+    display: block;
+  }
+  #dark-mobile-theme-icon {
+    display: none;
+  }
 }
 #featured-paths,
 #live-notify .btn {
