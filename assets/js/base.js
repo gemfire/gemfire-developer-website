@@ -177,6 +177,9 @@ limitations under the License.
       }
     });
 
+    $("#mobile-light-theme").click(()=>{setLightMode()})
+    $("#mobile-dark-theme").click(()=>{setDarkMode()})
+
     //Open external links/rss in new tab, tvc links in same tab
     $("a[href^='http']").attr("target", "_blank");
     $("a[href^='https://gemfire.dev']").attr("target", "_self");
