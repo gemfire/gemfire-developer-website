@@ -1,16 +1,9 @@
 ---
 title: Java Quick Start
 weight: -2
-featured: true
-featuredspot: 1
-level1: Java GemFire Client
-layout: intro
 icon: java
-type: quickstarts
 topics:
  - Java
-description: GemFire Clients using Java
-
 ---
 
 Before starting the following example make sure you have GemFire installed.

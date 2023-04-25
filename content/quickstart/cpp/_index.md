@@ -1,15 +1,9 @@
 ---
 title: C++ Quick Start
 weight: 10
-featured: true
-featuredspot: 5
-level1: C++ GemFire Client
-layout: intro
 icon: cpp
 topics:
 - C++
-description: GemFire Clients using C++
-
 ---
 
 ## Install VMware GemFire

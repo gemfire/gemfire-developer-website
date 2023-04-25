@@ -1,14 +1,9 @@
 ---
 title: Node.js Quick Start
 weight: 3
-featured: true
-featuredspot: 3
-level1: Node.js GemFire Client
-layout: intro
 icon: nodejs
 topics:
 - Node.js
-
 ---
 
 
