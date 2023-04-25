@@ -127,10 +127,16 @@ Clone the Hello, World! app from the [examples repo](https://github.com/gemfire/
 $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
 ```
 
-### 2. Edit the `application.properties` File 
+### 2. Edit the `gradle.properties` File
+* Navigate to the `spring-for-gemfire-examples/hello-world` directory.
+* Open the `gradle.properties`
+* Replace the value for `gemfireRepoUsername=` with your Commercial Maven Repo Username
+* Replace the value for `gemfireRepoPassword` with your Commercial Maven Repo Password
+
+### 3. Edit the `application.properties` File 
 
 * Navigate to the `spring-for-gemfire-examples/hello-world` directory. 
-* Open the `application.properties`. 
+* Open the `application.properties` in src/main/resources
 * Uncomment the two listed properties.
 * Replace the value for `spring.data.gemfire.pool.locators:` with your VMware GemFire cluster information, for each locator (in this example we only have one locator).  The information will follow the form:
 
@@ -155,7 +161,7 @@ $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
       spring.data.gemfire.management.http.host: hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster
      ```
       
-### 3. Build a Docker Image with Gradle or Maven
+### 4. Build a Docker Image with Gradle or Maven
 
 Starting with Spring Boot 2.3, you can now customize and create an OCI image using Spring Boot. In this example we're using the [Gradle - packaging OCI images option](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image).  If you are using Maven check out the instructions found [here](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image).
 
@@ -165,7 +171,7 @@ Starting with Spring Boot 2.3, you can now customize and create an OCI image usi
 * Build the image with `./gradlew bootBuildImage`
 
 
-### 4. Push your Docker Image to Docker Hub
+### 5. Push your Docker Image to Docker Hub
 
 For this example, we're using Docker Hub as our registry. This will create a repository on Docker Hub called `hello-world` and push the image we created into that repository.
 
@@ -177,7 +183,7 @@ In a terminal
     docker push docker.io/[YOUR DOCKER USERNAME]/hello-world:0.0.1-SNAPSHOT
     ```
 
-### 5. Create a deployment in your Kubernetes cluster
+### 6. Create a deployment in your Kubernetes cluster
 
 Create a Kubernetes deployment for your *Hello, World!* app. This will create a deployment, replicaset, and pod using the hello-world image we created above.
 
@@ -186,7 +192,7 @@ Create a Kubernetes deployment for your *Hello, World!* app. This will create a 
    ```  
 If successful you should see `deployment.apps/hello-world-deployment created`
 
-### 6. Create a LoadBalancer to access the app
+### 7. Create a LoadBalancer to access the app
 In order to access `Hello, World!` app from a browser, we need to expose the deployment.
 
 ```
@@ -195,7 +201,7 @@ kubectl -n gemfire-cluster expose deployment/hello-world-deployment --type="Load
 
 > If you're trying this locally with MiniKube, you will need to replace `LoadBalancer` with `NodePort`.
 
-### 7.  Access the Hello, World! Application
+### 8.  Access the Hello, World! Application
 
 Once the Load Balancer has been created, you can now access the *Hello, World!* application using the `External IP` on the LoadBalancer service.
 
@@ -234,7 +240,7 @@ You should see something similar to this, which represents an artificial time de
 Note that the ***time to look up*** has been significantly reduced. This represents the app getting the information from the cache, VMware GemFire, instead of querying the database.
 
 
-### 8.  Confirm that the Hello, World! App is connected
+### 9.  Confirm that the Hello, World! App is connected
 If you would like to confirm that your Hello World! app is connected to your VMware GemFire cluster you can connect through the VMware GemFire shell - commonly referred to as *gfsh*
 
 In a terminal
