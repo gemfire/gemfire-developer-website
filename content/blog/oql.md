@@ -1,3 +1,14 @@
+title: A Trail Guide To GemFire OQL: Object Query Language
+date: 2023-04-25
+lastmod: 2023-04-25
+type: tutorial
+# Author(s)
+team:
+- Eric Zoerner
+description: A supplement to the GemFire Querying documentation, highlighing some of the unique aspects of OQL and provide some guidance on writing queries in OQL with GemFire.
+
+---
+
 # **A Trail Guide to GemFire OQL: Object Query Language**
 ## **Overview**
 
@@ -25,7 +36,7 @@ The basic advantages of OQL are given in the GemFire docs as:
   - You can navigate object collections
   - You can invoke methods and access the behavior of objects
   - Data mapping is supported \
-    (i.e. map/dictionary lookups, and mapping from region values to region keys)
+    (i.e. map/dictionary lookups, and mapping from region values to region keys using indexes)
   - You are not required to declare types. Since you do not need type definitions, you can work across multiple languages
   - You are not constrained by a schema
 
