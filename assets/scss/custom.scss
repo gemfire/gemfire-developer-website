@@ -54,6 +54,24 @@
     font-size: 0.85rem !important;
   }
 }
+.quickstart-image {
+  height: 100px;
+  width: 100px;
+
+  @media (max-width: 996px) {
+    height: 100px;
+    width: 500px;
+  }
+}
+
+#the-quickstart-row {
+  justify-content: space-between !important;
+
+  @media (max-width: 996px) {
+    justify-content: center !important;
+  }
+}
+
 .footer-component:before {
   content: "";
   position: absolute;

@@ -19,39 +19,40 @@
 
 <!-- Quick Start -->
 <section id="home-quickstart" class="pt-2 pb-2 td-box">
-    <div class="w-75 mx-sm-auto">
-        <div class="row w-100 m-0 pl-2">
-            <div class="d-flex align-items-center icon-title mb-4">
+    <div class="row">
+    <div class="w-100 mx-auto">
+        <div class="d-flex align-items-center w-100 m-0 pl-3 home-section-header">
+            <div class="flex-grow-1 d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-quickstart.svg" height="40" width="40"/>
-                <a class="h2 text-left text-white">Quick Start</a>
+                <a class="h2 pt-0 mb-0 text-left text-white">Quick Start</a>
             </div>
         </div>
-        <div id="quickstart-row-outer" class="row td-box td-box--gradient pt-0 pb-4 justify-content-center position-relative transition-all m-0">
+        <div id="quickstart-row-outer" class="row td-box td-box--gradient pt-0 pb-4 position-relative transition-all m-0">
             <div class="col-xl-12 w-100">
-                <div id="the-quickstart-row" class="row justify-content-between justify-content-center w-100 td-box blogs-row">
+                <div id="the-quickstart-row" class="row flex-315 justify-content-between w-100 td-box">
                 {{ $quickstarts := where .Site.Pages "Section" "quickstart" }}
                 {{ range first 5 $quickstarts }}
-                    <div class="text-center">
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-lg-4 px-3 quickstart-card">
-                            <img alt="{{ .Params.title }}" class="mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}' height="100" width="100">
+                            <img alt="{{ .Params.title }}" class="quickstart-image mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}'>
                         </a>
-                    </div>
                 {{ end }}
                 </div>
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 <!-- Tutorials -->
 <section id="home-tutorials" class="pt-2 pb-2 td-box">
-    <div class="w-75 mx-sm-auto">
-        <div class="d-flex justify-content-between w-100 m-0 pl-3 home-section-header">
-            <div class="d-flex align-items-center icon-title mb-4">
+    <div class="row">
+        <div class="w-100 mx-auto">
+        <div class="d-flex align-items-center w-100 m-0 pl-3 home-section-header">
+            <div class="flex-grow-1 d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-guides.svg" height="50" width="50"/>
-                <a class="h2 text-left text-white">Tutorials</a>
+                <a class="h2 pt-0 mb-0 text-left text-white">Tutorials</a>
             </div>
-            <a class="h4 mr-3 pt-5" href="{{ "tutorials" | relURL }}">See&nbsp;all</a>
+            <a class="h4 mr-3" href="{{ "tutorials" | relURL }}">See&nbsp;all</a>
         </div>
         <div id="tutorials-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
             <div class="row justify-content-center transition-all w-100">
@@ -74,18 +75,20 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 </section>
 
 <!-- Blog -->
 <section id="home-blogs" class="pt-2 pb-2 td-box">
-    <div class="w-75 mx-sm-auto">
-        <div class="d-flex justify-content-between w-100 m-0 pl-3 home-section-header">
-            <div class="d-flex align-items-center icon-title mb-4">
+    <div class="row">
+    <div class="w-100 mx-auto">
+        <div class="d-flex align-items-center w-100 m-0 pl-3 home-section-header">
+            <div class="flex-grow-1 d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-blog.svg" height="50" width="50"/>
-                <a class="h2 text-left text-white">Blog</a>
+                <a class="h2 pt-0 mb-0 text-left text-white">Blog</a>
             </div>
-            <a class="h4 mr-3 pt-5" href="{{ "blog" | relURL }}">See&nbsp;all</a>
+            <a class="h4 mr-3" href="{{ "blog" | relURL }}">See&nbsp;all</a>
         </div>
         <div id="blogs-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
             <div class="col-xl-12 w-100">
@@ -107,17 +110,19 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 <!-- Videos -->
 <section id="home-videos" class="pt-2 pb-2 td-box">
-    <div class="w-75 mx-sm-auto">
-        <div class="d-flex justify-content-between w-100 m-0 pl-3 home-section-header">
-            <div class="d-flex icon-title mb-4">
+    <div class="row">
+    <div class="w-100 mx-auto">
+        <div class="d-flex align-items-center w-100 m-0 pl-3 home-section-header">
+            <div class="flex-grow-1 d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-videos.svg" height="50" width="50"/>
-                <a class="h2 text-left text-white">Videos</a>
+                <a class="h2 pt-0 mb-0 text-left text-white">Videos</a>
             </div>
-            <a class="h4 mr-3 pt-5" href="{{ "videos" | relURL }}">See&nbsp;all</a>
+            <a class="h4 mr-3" href="{{ "videos" | relURL }}">See&nbsp;all</a>
         </div>
         <div id="videoss-row-outer" class="row td-box td-box--gradient td-box--height-auto pt-0 pb-4 justify-content-center position-relative transition-all m-0">
                 <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
@@ -146,17 +151,19 @@
                 </div>
         </div>
     </div>
+    </div>
 </section>
 
 <!-- Examples -->
 <section id="home-examples" class="pt-2 pb-2 td-box">
-    <div class="w-75 mx-sm-auto">
-        <div class="d-flex justify-content-between w-100 m-0 pl-3 home-section-header">
-            <div class="d-flex align-items-center icon-title mb-4">
+    <div class="row">
+    <div class="w-100 mx-auto">
+        <div class="d-flex align-items-center w-100 m-0 pl-3 home-section-header">
+            <div class="flex-grow-1 d-flex align-items-center icon-title mb-4">
                 <img alt="" class="icon mb-0 mr-3" src="images/icons/icon-code-samples.svg" height="50" width="50"/>
-                <a class="h2 text-left text-white">Examples</a>
+                <a class="h2 pt-0 mb-0 text-left text-white">Examples</a>
             </div>
-            <a class="h4 mr-3 pt-5" href="{{ "examples" | relURL }}">See&nbsp;all</a>
+            <a class="h4 mr-3" href="{{ "examples" | relURL }}">See&nbsp;all</a>
         </div>
         <div id="examples-row-outer" class="row td-box td-box--gradient justify-content-center td-box--height-auto pt-0 position-relative transition-all m-0">
             <div class="col-xl-12 mb-xl-0 mb-lg-4 mb-2">
@@ -177,6 +184,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 
