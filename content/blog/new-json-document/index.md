@@ -2,7 +2,7 @@
 title:  Optimize Your Productivity on JSON Documents in GemFire 10
 description: Optimize Your Productivity on JSON Documents in GemFire 10
 date: 2023-04-11
-lastmod: 2023-04-11
+lastmod: 2023-04-25
 team: 
 - Jianxia Chen
 type: blog
@@ -10,21 +10,19 @@ type: blog
 
 ## Introduction
 
-With GemFire 10, its JSON document support is significantly enhanced. 
-We have introduced new APIs and storage formats for improved flexibility and efficiency.
-GemFire now supports two different binary formats for JSON documents: BSON and PDX.
-The default BSON format is based on [BSON standard](https://bsonspec.org/).
-It is simple, flexible for JSON documents with highly flexible structures.
-It offers highest performance, especially on small documents.
-Another storage format [PDX](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-gemfire_pdx_serialization.html) 
-is space efficient storage for JSON documents that have a relatively consistent and unchanging structure.
-It is optimized for queries on nested fields, especially when the documents are large with many fields.
+GemFire 10 has significantly enhanced its support for JSON documents, making it easier for developers to work with complex JSON data. 
+The latest version introduces new APIs and storage formats that provide improved flexibility and efficiency.
 
-Whether you choose BSON or PDX, the new JSON document feature offered in GemFire 10 allows you to easily get specific fields 
-and avoid the cost of re-parsing the whole JSON document.
-It also allows you to query JSON documents with indexes. 
-For querying and indexing, any field contained inside a JSON document can be used, including any nested field within JSON objects or JSON arrays.
-The binary storage formats are optimized for memory footprint and network traffic, as well as fast function execution on GemFire servers.
+GemFire now offers two different binary formats for JSON documents: BSON and PDX. 
+The default BSON format is simple, flexible and highly performant, especially on small documents. 
+On the other hand, PDX is optimized for nested fields, making it the perfect choice for larger documents with a consistent structure.
+
+Regardless of your choice, GemFire 10's new JSON document feature allows you to easily extract specific fields without having to re-parse the entire document. 
+You can also take advantage of query capabilities on any field within a JSON document, including nested fields within objects or arrays. 
+This feature enables fast function execution and optimized memory footprint and network traffic on GemFire servers.
+
+With these new features, developers can now efficiently handle complex JSON data, which was previously a time-consuming and error-prone task. 
+GemFire 10 makes it easier for developers to extract specific data, run queries, and optimize their applications' performance.
 
 This blog assumes you understand the basic concepts of GemFire. You can check out the
 [quick start](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-15_minute_quickstart_gfsh.html) of GemFire
