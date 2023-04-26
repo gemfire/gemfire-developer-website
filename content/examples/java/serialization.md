@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/ser
 tags:
 - Java
 type: examples
-description: This example demonstrates reflection-based auto-serialization to put objects into and get objects out of regions without relying on Java, PDX, or data serialization.
+description: This example demonstrates reflection-based auto-serialization to put objects into and get objects out of VMware GemFire regions without relying on Java, PDX, or data serialization.
 ---
 
 This is a simple example that demonstrates auto-serialization of objects of classes that do *not*

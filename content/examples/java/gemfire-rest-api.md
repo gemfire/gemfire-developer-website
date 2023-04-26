@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/res
 tags:
 - Java
 type: examples
-description: This example demonstrates putting values into a replicated region and retrieving the values using the GemFire REST API.
+description: This example demonstrates putting values into a VMware GemFire replicated region and retrieving the values using the GemFire REST API.
 ---
 
 This is a simple example that demonstrates putting values into a

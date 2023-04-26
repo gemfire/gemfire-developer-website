@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/ses
 tags:
 - Java
 type: examples
-description: This example demonstrates how to set-up and use the Session Management Module for Tomcat.
+description: This example demonstrates how to set-up and use VMware GemFire's Session Management Module for Tomcat.
 ---
 
 This example assumes you have GemFire and Java installed. It also assumes you have local copy of Tomcat Downloaded.

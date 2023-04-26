@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/tra
 tags:
 - Java
 type: examples
-description: This example demonstrates the use of transactions to protect consistency during concurrent access and modification of data.
+description: This example demonstrates the use of VMware GemFire transactions to protect consistency during concurrent access and modification of data.
 ---
 
 This is a simple example that demonstrates the use of [transactions](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-transactions-chapter_overview.html)

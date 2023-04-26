@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/par
 tags:
 - Java
 type: examples
-description: This example demonstrates the basic property of partitioning where the data entries are distributed across all servers that host a region. The distribution is like database sharding, except that the distribution occurs automatically. 
+description: This example demonstrates the basic property of partitioning where the data entries are distributed across all VMware GemFire servers that host a region. The distribution is like database sharding, except that the distribution occurs automatically. 
 ---
 
 This example demonstrates the basic property of partitioning.  The basic

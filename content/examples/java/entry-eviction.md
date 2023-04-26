@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/evi
 tags:
 - Java
 type: examples
-description: Eviction of entries from a region allows control over the system resources consumed by any given region.
+description: Eviction of entries from a VMware GemFire region allows control over the system resources consumed by any given region.
 ---
 
 This is a simple example that demonstrates eviction of entries from a region. This allows control

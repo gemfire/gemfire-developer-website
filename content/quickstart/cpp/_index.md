@@ -1,5 +1,6 @@
 ---
 title: C++ Quick Start
+description: Quick start guide for using a C++ client with VMware GemFire.
 weight: 10
 icon: cpp
 topics:

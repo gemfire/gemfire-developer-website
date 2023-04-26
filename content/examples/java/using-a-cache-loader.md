@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/loa
 tags:
 - Java
 type: examples
-description: This is a simple example that demonstrates loading values using a CacheLoader.
+description: This is a simple example that demonstrates loading values using a VMware GemFire CacheLoader.
 ---
 
 This is a simple example that demonstrates loading values using a
