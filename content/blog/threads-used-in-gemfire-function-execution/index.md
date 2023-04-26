@@ -5,7 +5,7 @@ date: 2020-07-31
 team:
 - Barry Oglesby
 type: blog
-description: This article describes several common Function execution use cases and which threads processes those requests.
+description: This article describes several common GemFire Function execution use cases and which threads process those requests.
 ---
 
 ## Introduction

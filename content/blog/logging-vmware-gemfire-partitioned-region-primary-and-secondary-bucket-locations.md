@@ -5,7 +5,7 @@ lastmod: '2021-09-12'
 team:
 - Barry Oglesby
 type: blog
-description: This article provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone.
+description: This article provides an example of a compact view of the primary and secondary bucket locations per server and redundancy zone in VMware GemFire.
 
 ---
 

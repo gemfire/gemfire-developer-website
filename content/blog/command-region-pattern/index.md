@@ -7,7 +7,7 @@ team:
 type: blog
 description: The Command Pattern is a behavioral design pattern in which an object
   is used to encapsulate all information needed to perform an action or trigger an
-  event.
+  event on a VMware GemFire region.
 ---
 
 ## Introduction

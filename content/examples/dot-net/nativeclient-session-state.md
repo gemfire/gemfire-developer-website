@@ -6,7 +6,7 @@ repo: https://github.com/dkhopade/gemfire-dotnet-nc
 tags:
 - .Net Client
 type: examples
-description: This is a sample code that stores a session state for an ASP.NET app (basically .NET Web App). It's a simple command line program that connects to a region using a cache factory object and does not involve any dependency on Java.
+description: This is VMware GemFire sample code that stores a session state for an ASP.NET app (basically .NET Web App). It's a simple command line program that connects to a region using a cache factory object and does not involve any dependency on Java.
  
 ---
 

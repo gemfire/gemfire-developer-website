@@ -5,7 +5,7 @@ lastmod: '2021-04-22'
 team:
 - Jason Huynh
 type: blog
-description: VMware Gemfire as a remote cache for Gradle to share commonly built task outputs across remote builds to improve build times.
+description: VMware GemFire as a remote cache for Gradle to share commonly built task outputs across remote builds to improve build times.
 ---
 
 ## Introduction
