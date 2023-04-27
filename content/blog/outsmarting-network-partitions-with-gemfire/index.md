@@ -14,7 +14,7 @@ In today's fast-paced world, where we rely heavily on technology to keep our bus
 
 ## What is Network Partitioning and Why Should We Care?
 
-Network partitioning is a situation in a distributed system where a network failure or network latency causes the nodes in the system to be divided into multiple subgroups, such that nodes in one subgroup cannot communicate with nodes in another subgroup. When this happens, each partition may start processing its own transactions independently, assuming it is the only valid partition in the system. This situation is known as a split-brain, and it can have severe consequences for the system's integrity and consistency.
+Network partitioning is a situation in a distributed system where a network failure or network latency causes the nodes in the system to be divided into multiple subgroups, such that nodes in one subgroup cannot communicate with nodes in another subgroup. When this happens, each subgroup, known as a "partition", may start processing its own transactions independently, assuming it is the only valid partition in the system. This situation is known as a split-brain, and it can have severe consequences for the system's integrity and consistency.
 
 In a split-brain scenario, each partition may independently update data without coordination or synchronization with other partitions, potentially leading to lost updates and data conflicts. Furthermore, clients may communicate with servers from multiple subgroups or have access to one subgroup of servers, while another set of clients may only access another. These conflicts may lead to data corruption or other inconsistencies requiring manual intervention.
 
