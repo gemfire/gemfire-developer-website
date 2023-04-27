@@ -109,14 +109,14 @@ This section will guide you through testing a *Hello, World!* client application
 
 ### What You'll Need
 
-* The [Hello, World!](https://github.com/gemfire/spring-for-gemfire-examples/tree/main/hello-world) example.
+* The [Hello, World!](https://github.com/gemfire/spring-for-gemfire-examples/tree/main/hello-world) example
 * JDK 8 or 11
 * Spring Boot 2.6 or above
 * [Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html) 
 * VMware GemFire for Kubernetes 2.0+
 * [Docker](https://docs.docker.com/get-docker/)
 * [A Pivotal Commercial Maven Repo account (free)](https://commercial-repo.pivotal.io/login/auth)
-* An image repository to push the `Hello, World!` image that is created in the guide.
+* An image repository to push the `Hello, World!` image that is created in the guide
 
 
 ###  1. Download the Hello, World! Example
@@ -128,16 +128,16 @@ $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
 ```
 
 ### 2. Edit the `gradle.properties` File
-* Navigate to the `spring-for-gemfire-examples/hello-world` directory.
+* Navigate to the `spring-for-gemfire-examples/hello-world` directory
 * Open the `gradle.properties`
 * Replace the value for `gemfireRepoUsername=` with your Commercial Maven Repo Username
 * Replace the value for `gemfireRepoPassword` with your Commercial Maven Repo Password
 
 ### 3. Edit the `application.properties` File 
 
-* Navigate to the `spring-for-gemfire-examples/hello-world` directory. 
+* Navigate to the `spring-for-gemfire-examples/hello-world` directory
 * Open the `application.properties` in src/main/resources
-* Uncomment the two listed properties.
+* Uncomment the two listed properties
 * Replace the value for `spring.data.gemfire.pool.locators:` with your VMware GemFire cluster information, for each locator (in this example we only have one locator).  The information will follow the form:
 
    ```
@@ -165,7 +165,7 @@ $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
 
 Starting with Spring Boot 2.3, you can now customize and create an OCI image using Spring Boot. In this example we're using the [Gradle - packaging OCI images option](https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/htmlsingle/#build-image).  If you are using Maven check out the instructions found [here](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image).
 
-* In a terminal, navigate to the `hello-world` directory.
+* In a terminal, navigate to the `hello-world` directory
 * Build the application with `./gradlew clean build`
 * Open the `build.gradle` file and update the `bootBuildImage` section, with your Docker repository information. This will build an image with the name `docker.io/[docker username]/hello-world:0.0.1-SNAPSHOT`.  
 * Build the image with `./gradlew bootBuildImage`
