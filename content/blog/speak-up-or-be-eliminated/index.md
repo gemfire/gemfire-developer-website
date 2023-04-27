@@ -1,6 +1,6 @@
 ---
 title: "Speak Up Or Be Eliminated"
-description: Automatic failure detection is foundational to VMWare GemFire's high availability. This post explains what failure detection is, why you need it, and how it works.
+description: Automatic failure detection is foundational to VMware GemFire's high availability. This post explains what failure detection is, why you need it, and how it works.
 team:
 - Bill Burcham
 date: "2023-04-07"
@@ -12,7 +12,7 @@ type: blog
 
 ## Introduction
 
-VMWare GemFire achieves high availability through the familiar combination of redundancy and automatic failure detection coupled with timely repair of failed components.
+VMware GemFire achieves high availability through the familiar combination of redundancy and automatic failure detection coupled with timely repair of failed components.
 
 Failure detection is the responsibility of the health monitor subsystem. The health monitor is always watching the processes in your distributed system. If a process stops communicating, the health monitor is ready to take action!
 
@@ -20,13 +20,13 @@ This post shines a light on failure detection, what it is, and why it's so criti
 
 ## A First Example
 
-As a first step in understanding the importance of failure detection and the way it fits into the architecture, let's look at the role of failure detection in what is perhaps the defining component of VMWare GemFire, the partitioned region.
+As a first step in understanding the importance of failure detection and the way it fits into the architecture, let's look at the role of failure detection in what is perhaps the defining component of VMware GemFire, the partitioned region.
 
 When a partitioned region is configured for high availability, each bucket has a primary copy, and one or more secondary copies. Each of these copies (primary and secondary ones) is hosted on a different cache server. When the cache server hosting the primary copy fails, a secondary copy can be reclassified from secondary to primary copy. Processing can return to normal quickly, and the failed cache server can be repaired or replaced later in order to regain the original redundancy level.
 
-But what does it mean for a cache server to fail? Well, a cache server is a process interacting with other processes via the network. If a process is unable to communicate with a cache server, then the process can raise suspicion against that cache server. If other processes confirm the suspicion then the noncommunicative cache server is deemed failed and is shut down. The health monitor is the subsystem responsible for carrying out this suspect processing.
+But what does it mean for a cache server to fail? Well, a cache server is one of many GemFire processes communicating via the network. If some GemFire process is unable to communicate with a cache server, then that process can raise suspicion against that cache server. If other processes confirm the suspicion then the noncommunicative cache server is deemed failed and is shut down. The health monitor is the subsystem responsible for carrying out this suspect processing.
 
-The health monitor is part of the membership system. The membership system's primary responsibility is to keep track of the cluster of cache servers and locators comprising the distributed system. From the perspective of the membership system, those cache servers and locators are each members. The membership system provides mechanisms for forming a new distributed system and for adding and removing members. The membership system ensures that each member has an (eventually) consistent view of the identities and network coordinates of all the members in the distributed system.
+The health monitor is part of the membership system. The membership system's primary responsibility is to keep track of the cluster of cache servers and locators comprising the distributed system. In membership system parlance, those cache servers and locators are called "members". The membership system provides mechanisms for forming a new distributed system and for adding and removing members. The membership system ensures that each member has an (eventually) consistent view of the identities and network coordinates of all the members in the distributed system.
 
 When the health monitor decides that a member has failed, it lets the membership system know, and that member is removed from the view. That removal triggers the partitioned region bucket management logic to redesignate some surviving secondary bucket as the new primary one. After that, application-level updates to the bucket can resume.
 
@@ -60,7 +60,7 @@ The membership system maintains a view of all the members in the distributed sys
     some-host(locator2:24865)<v1>:57034{lead},
     some-host(cacheserver1:24873)<v1>:51496, some-host(cacheserver2:24880)<v1>:56394, some-host(cacheserver3:24891)<v1>:42993]
 
-For readability, I have added some line breaks to what would be a single log line. See TBD for a detailed description of the view log format. For our purposes it is enough to note that the view has these five members, in this order:
+For readability, I have added some line breaks to what would be a single log line. See [Failure Detection and Membership Views](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/managing-network_partitioning-failure_detection.html) for a detailed description of the view log format. For our purposes it is enough to note that this view has these five members, in this order:
 
     locator1, locator2, cacheserver1, cacheserver2, cacheserver3
 
@@ -68,7 +68,7 @@ The member listed first (in this case, `locator1`) is always the membership coor
 
 As we said earlier, each member's communication is monitored by one other member. You can think of the monitoring relationships forming a ring of members. It so happens that each member is monitored by the member to its left in the view. The left-most member is monitored by the right-most one, thereby completing the ring. In this example `locator1` (the coordinator) monitors communication from `locator2`. If `locator1` has no communication from `locator2` for a long time, then `locator1` will raise suspicion against `locator2`.
 
-![Suspicion Escalation Swimlanes](images/monitoring-topology.jpg)
+![Monitoring Topology](images/monitoring-topology.jpg)
 
 Heartbeat messages are generated in the opposite direction. Each member generates heartbeat messages to the member to its left. `locator2` will periodically generate heartbeat messages to `locator1`. Under normal conditions, this will keep the traffic monitor in `locator1` satisfied that `locator2` is functioning properly, even if there are no application-level (put/get) requests being processed by the cluster.
 
@@ -112,7 +112,7 @@ At the beginning of this article we noted that timely repair of failed component
 
 If the health monitor decides a member has crashed it may not have actually crashed. The failure to communicate may be due to networking problems. A member in this situation will execute a forced-disconnect and then will go into a reconnecting state. If the network problems are resolved, this member will rejoin the cluster.
 
-If the member really crashed, say, due to a hardware failure then recovery depends on the platform. When GemFire is running in the Kubernetes environment under the control of the GemFire Operator, the Operator will spin up a new pod to replace the failed one. That pod will host a cache server that will join the cluster and will take over the responsibilities of the failed one. If GemFire is not running under the control of the Kubernetes operator then it is up to an administrator to use gfsh to replace failed members.
+If the member really crashed, say, due to a hardware failure then recovery depends on the platform. When using GemFire for Kubernetes, the GemFire Operator will automatically spin up a new pod to replace the failed one. That pod will host a cache server that will join the cluster and will take over the responsibilities of the failed one. When running GemFire without the assistance of the GemFire Operator, then it is up to an administrator to use gfsh to replace failed members.
 
 ## Summary
 
