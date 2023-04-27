@@ -5,7 +5,7 @@ lastmod: '2021-04-22'
 team:
 - Barry Oglesby
 type: blog
-description: This article describes a Spring Boot JMX Notification listener application.
+description: This article describes a Spring Boot JMX Notification listener application for VMware GemFire.
 ---
 ## Introduction
 VMware GemFire issues JMX Notifications for specific [system events](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-management-list_of_mbean_notifications.html) and system alerts (e.g. warning and severe messages).

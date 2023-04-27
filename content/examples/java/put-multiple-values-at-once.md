@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/put
 tags:
 - Java
 type: examples
-description: This is example demonstrates putting a map of values into a region, checking the size, and retrieving the values.
+description: This is example demonstrates putting a map of values into a VMware GemFire region, checking the size, and retrieving the values.
 ---
 
 This example assumes you have installed JDK11 and GemFire.

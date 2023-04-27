@@ -5,7 +5,7 @@ lastmod: '2020-04-22'
 team:
 - Jianxia Chen
 type: blog
-description: This is our journey into how we improved the system recovery performance.
+description: This is our journey into how we improved the VMware GemFire system recovery performance.
 ---
 
 ## Introduction

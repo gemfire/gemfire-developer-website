@@ -5,7 +5,7 @@ lastmod: '2021-04-22'
 team:
 - Juan Jose Ramos
 type: blog
-description: A sequence, also known as a counter, is a feature supported by some database systems to produce unique values on demand.Use the Gemfire Sequence Generator and invoke the service to retrieve a set of counters to work on.
+description: A sequence, also known as a counter, is a feature supported by some database systems to produce unique values on demand. Use the GemFire Sequence Generator and invoke the service to retrieve a set of counters to work on.
 ---
 
 ## Introduction

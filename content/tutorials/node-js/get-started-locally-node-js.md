@@ -1,7 +1,7 @@
 ---
 title: Getting Started Locally With Node.js
 date: '2021-05-28'
-description: A guide to help get your local development environment up and running with a Node.js client side application.
+description: A guide to help get your local VMware GemFire development environment up and running with a Node.js client side application.
 lastmod: '2023-04-07'
 link-title: Getting Started Locally With Node.js
 parent: Node.js

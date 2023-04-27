@@ -1,5 +1,6 @@
 ---
 title: Node.js Quick Start
+description: Quick start guide for using a Node.js client with VMware GemFire.
 weight: 3
 icon: nodejs
 topics:

@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/per
 tags:
 - Java
 type: examples
-description: This example demonstrates persistent regions.
+description: This example demonstrates VMware GemFire persistent regions.
 ---
 
 The data for a region resides in memory in the JVM for the server. When a region is persistent, the data for that region is also preserved in a disk store. The disk store uses a directory in a file system to save the operations on regions. Unlike non-persistent regions, the data for a persistent region is available even after a period where no servers for that region are running.

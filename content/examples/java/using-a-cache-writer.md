@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/wri
 tags:
 - Java
 type: examples
-description: In this example, a cache writer is installed that vets the creation events for the region for proper formatting of Social Security numbers.
+description: In this example, a VMware GemFire cache writer is installed that vets the creation events for the region for proper formatting of Social Security numbers.
 ---
 
 This is a simple example that demonstrates the use of a cache writer to validate modifications to a region.

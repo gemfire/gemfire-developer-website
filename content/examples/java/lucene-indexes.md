@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/luc
 tags:
 - Java
 type: examples
-description: In this example, two servers host a single partitioned region with entries that represent employee information. The example indexes the first and last names of employees.
+description: In this example, two VMware GemFire servers host a single partitioned region with entries that represent employee information. The example indexes the first and last names of employees.
 ---
 
 This example demonstrates the use of a simple Lucene index. Lucene provides

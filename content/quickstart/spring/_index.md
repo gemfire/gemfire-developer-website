@@ -1,5 +1,6 @@
 ---
 title: Spring
+description: Quick start guide for using Spring as a client for VMware GemFire.
 weight: 1
 icon: spring
 topics:
