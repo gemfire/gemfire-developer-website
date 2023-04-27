@@ -54,9 +54,9 @@ In the event of a network partition, the "surviving side" that still has a quoru
 
 ![GemFire cluster during network partition](images/gemfire-network-partition.jpg)
 
-*In this scenario, the partition on the left is the surviving side, as its total weight loss is less than half of the total weight of the cluster. The other subcluster lost the quorum, and its members will eventually disconnect.*
+*In this scenario, the partition on the left is the surviving side, as its total weight loss is less than half of the total weight of the cluster. The other partition lost the quorum, and its members will eventually disconnect.*
 
-Without a quorum of members, the cluster cannot guarantee data consistency and may lead to data loss or corruption. Therefore, shutting down the partition that lost the quorum is a necessary step to ensure data integrity and prevent further issues in the system. Additionally, shutting down the losing side allows the surviving members to continue operating without interference from the lost members.
+In summary, the concept of quorum is crucial in preventing split-brain scenarios in GemFire. The quorum constraint ensures that a GemFire cluster cannot split into two independent clusters. This prevents data inconsistencies and data loss. Shutting down any partition that has lost quorum ensures that all remaining nodes in the cluster can continue to operate as a single entity. In this way, data consistency is maintained.
 
 ## Automatic Recovery
 
