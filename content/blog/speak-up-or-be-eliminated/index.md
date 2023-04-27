@@ -86,7 +86,7 @@ In this case, in the first (top) segment on the M line we see that F sent its fi
 
 The first thing that happens after suspicion is raised is that the health monitor running on M sends a heartbeat-request message to F. If F is working properly, this will cause it to immediately send a heartbeat back to M. But if F doesn't do that in time (Tm) then suspicion processing will move to its next phase.
 
-After receiving no communication from F after the "heartbeat-request" message, M sends a "suspect" message to the coordinator, C. Upon receipt of that message, the coordinator does two things. It sends its own heartbeat-request message to F, and it attempts to make a new connection to F on F's dedicated failure detection port. If the new connection attempt fails, or if no response is received to the request on that connection, and no other network communication is received by C from F in time (Tm) then coordinator C deems F failed.
+After receiving no communication from F after the "heartbeat-request" message, M sends a "suspect" message to the coordinator, C. Upon receipt of that message, the coordinator does two things. It sends its own heartbeat-request message to F, and it makes a "final check" request on F. The final check request is made over a new connection to F on F's dedicated failure detection port. If the new connection attempt fails, or if no response is received to the request on that connection, and no other network communication is received by C from F in time (Tm) then coordinator C deems F failed.
 
 When the coordinator C deems member F failed, F is removed from the view. A "remove-member" message is sent to all remaining members and a new view, a view no longer containing member F, is distributed to all the remaining members.
 
