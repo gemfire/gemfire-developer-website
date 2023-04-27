@@ -1,7 +1,7 @@
 ---
 title: Session State Caching
 date: '2021-04-22'
-description: Session state cache using VMware GemFire and Spring Boot.
+description: How to implement a session state cache using VMware GemFire and Spring Boot.
 lastmod: '2022-11-17'
 link-title: Session State Caching
 parent: Spring for VMware GemFire

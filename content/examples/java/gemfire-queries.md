@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/que
 tags:
 - Java
 type: examples
-description: This example demonstrates simple queries on a region.
+description: This example demonstrates simple queries on a VMware GemFire region.
 
 ---
 

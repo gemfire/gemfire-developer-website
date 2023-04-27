@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/node-examples/tree/develop/nextjs-page-counter
 tags:
 - Node.js
 type: examples
-description: This example demonstrates use of the Node.js client with a simple Next.js web app by displaying a count of page renderings.
+description: This example demonstrates use of the Node.js VMware GemFire client with a simple Next.js web app by displaying a count of page renderings.
 ---
 
 This example demonstrates use of the Node.js client with a simple Next.js web app.

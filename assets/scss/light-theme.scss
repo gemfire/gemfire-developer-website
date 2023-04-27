@@ -45,7 +45,6 @@ body .border-bottom {
 
 .td-home .darken .dropdown-item:hover, .td-home .darken .dropdown-item:focus,
 nav .dropdown-item:hover, nav .dropdown-item:focus,
-#hero:not(.workshops-hero),
 .topic-card,
 .col-4-thumbnail,
 .video-description,
@@ -121,7 +120,15 @@ footer li.list-inline-item .text-white {
   color: #798893 !important;
 }
 
- body .border-top {
+#footer-id {
+  background-color: white !important;
+}
+
+#hero {
+  background-color: white !important;
+}
+
+body .border-top {
    border-color: #d9e4ea !important;
 }
 body .footer-logo svg .cls-1 {

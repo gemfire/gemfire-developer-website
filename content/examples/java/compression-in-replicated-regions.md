@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/com
 tags:
 - Java
 type: examples
-description: This example demonstrates enabling Compression in a replicated region.
+description: This example demonstrates enabling Compression in a VMware GemFire replicated region.
 ---
 
 This is a simple example that demonstrates enabling Compression in a

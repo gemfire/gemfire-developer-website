@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/ove
 tags:
 - Java
 type: examples
-description: In this example, a server hosts a partitioned region that stores strings. The example shows entry values being overflowed to disk and removed from memory.
+description: In this example, a VMware GemFire server hosts a partitioned region that stores strings. The example shows entry values being overflowed to disk and removed from memory.
 ---
 
 This examples demonstrates how to use GemFire's Overflow to disk.

@@ -5,7 +5,7 @@ lastmod: '2021-04-22'
 team:
 - Barry Oglesby
 type: blog
-description: This article shows how to route events directly to a parallel AsyncEventQueue using Functions.
+description: This article shows how to route events directly to a parallel AsyncEventQueue using GemFire Functions.
 ---
 
 ## Introduction

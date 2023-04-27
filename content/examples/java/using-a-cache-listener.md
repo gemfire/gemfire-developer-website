@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/lis
 tags:
 - Java
 type: examples
-description: In this example, a cache listener is installed and notified of each entry creation and then adds it to a queue of events.
+description: In this example, a VMware GemFire cache listener is installed and notified of each entry creation and then adds it to a queue of events.
 ---
 
 This is a simple example that demonstrates the use of a cache listener to capture modifications to a region.

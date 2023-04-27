@@ -1,6 +1,6 @@
 ---
 title: WAN Delta Propagation Performance Benefits
-description: This blog shows the performance benefits of the WAN Delta Propagation feature.
+description: This blog shows the performance benefits of VMware GemFire's WAN Delta Propagation feature.
 team: [Barry Oglesby]
 date: 2023-04-01
 lastmod: 2023-04-01

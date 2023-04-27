@@ -7,7 +7,7 @@ tags:
 - Redis
 - Spring
 type: examples
-description: This example highlights the changes necessary for switching to SBDG for a Spring Data Redis publish/subscribe app.
+description: This example highlights the changes necessary for switching to Spring Boot Data GemFire for a Spring Data Redis publish/subscribe app.
 
 ---
 

@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/node-examples/tree/develop/book-service
 tags:
 - Node.js
 type: examples
-description: Provides a simple book-serving app which uses the data service as a system of record.
+description: Provides a simple book-serving app which uses the VMware GemFire data service as a system of record.
 ---
 
 This Node.js example provides a simple book-serving app which uses the data service as a system of record. REST endpoints allow an app user to look up books by ISBN or put new books into the service.

@@ -4,7 +4,7 @@ date: 2021-01-19
 lastmod: '2021-04-22'
 team:
 - Barry Oglesby
-description: This article describes how to use the ObjectGraphSizer to calculate the size of a GatewaySender queue.
+description: This article describes how to use VMware GemFire's ObjectGraphSizer to calculate the size of a GatewaySender queue.
 type: blog
 ---
 

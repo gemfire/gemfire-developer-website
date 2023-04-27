@@ -5,7 +5,7 @@ lastmod: '2021-04-22'
 team:
 - Juan Jose Ramos
 type: blog
-description: Spring Security is an extremely powerful and highly customizable framework that provides authentication, authorization, and protection against common attacks, it is the de-facto standard for securing Spring-based applications.
+description: Spring Security is an extremely powerful and highly customizable framework that provides authentication, authorization, and protection against common attacks, it is the de-facto standard for securing Spring-based applications. VMware GemFire supports this framework.
 ---
 
 ## Introduction

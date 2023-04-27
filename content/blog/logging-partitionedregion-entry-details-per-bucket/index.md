@@ -5,7 +5,7 @@ date: 2020-09-15
 team:
 - Barry Oglesby
 type: blog
-description: This article shows how to get details for each BucketRegion in the PartitionedRegion.
+description: This article shows how to get details for each BucketRegion in the PartitionedRegion of a VMware GemFire instance.
 ---
 
 ## Introduction

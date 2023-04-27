@@ -5,7 +5,7 @@ lastmod: '2021-04-22'
 team:
 - Barry Oglesby
 type: blog
-description: This article describes a way to verify that a Region’s data in two WAN sites is consistent.
+description: This article describes a way to verify that a VMware GemFire Region’s data in two WAN sites is consistent.
 ---
 
 ## Introduction

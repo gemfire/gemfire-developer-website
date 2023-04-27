@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/ind
 tags:
 - Java
 type: examples
-description: This example demonstrates an index for OQL queries on a region.
+description: This example demonstrates an index for OQL queries on a VMware GemFire region.
 ---
 
 A region can contain objects of arbitrary complexity, including objects that contain other objects.

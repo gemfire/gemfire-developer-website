@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/rep
 tags:
 - Java
 type: examples
-description: This is a simple example that demonstrates putting values into a replicated region, checking the size, and retrieving the values.
+description: This is a simple example that demonstrates putting values into a VMware GemFire replicated region, checking the size, and retrieving the values.
 ---
 
 This example assumes you have installed JDK11 and GemFire.

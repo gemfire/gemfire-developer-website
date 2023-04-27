@@ -5,7 +5,7 @@ date: 2020-04-28
 team:
 - Barry Oglesby
 type: blog
-description: This article describes a way to remove unused PdxTypes from the Distributed System. 
+description: This article describes a way to remove unused PdxTypes from the GemFire Distributed System. 
 ---
 
 ## Introduction

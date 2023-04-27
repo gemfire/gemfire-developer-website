@@ -6,7 +6,7 @@ repo: https://github.com/dkhopade/gemfire-dotnet-nc
 tags:
 - .Net Client
 type: examples
-description: This is a sample code that uses client.properties file along with client.xml file.
+description: This is VMware GemFire sample code that uses client.properties file along with client.xml file.
  
 ---
 

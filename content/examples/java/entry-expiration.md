@@ -6,7 +6,7 @@ repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/exp
 tags:
 - Java
 type: examples
-description: Expiration of entries from a region can be used to prevent stale entries from lingering in a region.
+description: Expiration of entries from a VMware GemFire region can be used to prevent stale entries from lingering in a region.
 ---
 
 This is a simple example that demonstrates expiration of entries from a region. This can be used to
