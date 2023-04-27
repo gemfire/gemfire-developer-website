@@ -3,8 +3,8 @@ title: "Speak Up Or Be Eliminated"
 description: Automatic failure detection is foundational to VMware GemFire's high availability. This post explains what failure detection is, why you need it, and how it works.
 team:
 - Bill Burcham
-date: "2023-04-07"
-lastmod: "2023-04-07"
+date: "2023-04-27"
+lastmod: "2023-04-27"
 type: blog
 ---
 
