@@ -2,7 +2,7 @@
 title: Publish Micrometer Metrics
 date: '2023-04-03'
 lastmod: '2023-04-03'
-repo: https://raw.githubusercontent.com/gemfire/gemfire-examples/main/feature-examples/micrometerMetrics
+repo: https://github.com/gemfire/gemfire-examples/tree/main/feature-examples/micrometerMetrics
 tags:
 - Java
 type: examples

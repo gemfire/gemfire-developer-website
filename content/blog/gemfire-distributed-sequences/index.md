@@ -18,7 +18,7 @@ A sequence, also known as a counter, is a feature supported by some database sys
 In order to move a step closer to cloud-native applications and a little away from legacy RDBMS, it would be nice to have distributed sequences/counters directly managed by [VMware GemFire](https://tanzu.vmware.com/gemfire).
 
 ## How?
-The first thing we have to keep in mind is that, even though we can generate unique sequential distributed sequences with Geode, **we have to loosen the restriction about having no-gaps between the sequences.** If we don’t, there will always be a potential contention point (either while computing sequences or while sequentially executing the application work using the sequences) and, thus, fully parallel processing can not be truly achieved.
+The first thing we have to keep in mind is that, even though we can generate unique sequential distributed sequences with GemFire, **we have to loosen the restriction about having no-gaps between the sequences.** If we don’t, there will always be a potential contention point (either while computing sequences or while sequentially executing the application work using the sequences) and, thus, fully parallel processing can not be truly achieved.
 If you are willing to allow gaps, continue reading further, if you don’t… well, this tool is not for you, don’t waste any more of your time :-).
 
 ## The Solution
@@ -81,9 +81,8 @@ public class TestClient {
 
 ## What next?
 Currently the tool must be downloaded and installed separately, the region is manually created and can be manually modified by client applications, which is a potential risk.
-Write an [RFC](https://cwiki.apache.org/confluence/display/GEODE/Lightweight+RFC+Process) and discuss with the community to see whether it makes sense to have Distributed Sequences available in [VMware GemFire](https://tanzu.vmware.com/gemfire) out of the box.
 
 ## References
-[VMware GemFire Repository](https://github.com/apache/geode)
+[VMware GemFire](https://github.com/apache/geode)
 
 [Geode Sequence Generator Repository](https://github.com/jujoramos/geode-sequence-generator)

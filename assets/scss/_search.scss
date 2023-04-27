@@ -11,6 +11,10 @@
     cursor: pointer;
     z-index: 100;
     margin-left: 15px;
+
+  @media (max-width: 1200px) {
+    margin-left: 0;
+  }
 }
   
 .search .search-icon svg:nth-child(2) {

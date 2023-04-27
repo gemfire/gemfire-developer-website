@@ -124,6 +124,9 @@ footer li.list-inline-item .text-white {
  body .border-top {
    border-color: #d9e4ea !important;
 }
+body .footer-logo svg .cls-1 {
+  fill: #717074 !important;
+}
 // body a:hover, body a:focus,
 .language-hero .lead a,
 body a code,
@@ -207,6 +210,10 @@ body.blog #contact .mktoForm select {
   color: rgb(97, 113, 125) !important;
 }
 
+#sample-gh {
+  color: white !important;
+}
+
 .mktoForm .mktoButtonRow .mktoButtonWrap.mktoSimple .mktoButton,
 .btn:not(.countdown) {
    background: #1d428a !important;
@@ -216,22 +223,27 @@ body.blog #contact .mktoForm select {
   }
 }
 
+
  #hero.examples-hero {
-   background-image: url({{ "images/backgrounds/background-samples-light.svg" | relURL }}) !important;
+   background-image: url({{ "images/backgrounds/background-examples.jpg" | relURL }}) !important;
  }
 #hero.tutorials-hero {
-  background-image: url({{ "images/backgrounds/background-patterns-light.svg" | relURL }}) !important;
+  background-image: url({{ "images/backgrounds/background-tutorials.jpg" | relURL }}) !important;
 }
  #hero.videos-hero {
-   background-image: url({{ "images/backgrounds/background-video-light.svg" | relURL }}) !important;
+   background-image: url({{ "images/backgrounds/background-videos.jpg" | relURL }}) !important;
  }
+#hero.blog-hero {
+  background-image: url({{ "images/backgrounds/background-blog.jpg" | relURL }}) !important;
+}
 
 
 @media(max-width: 991px) {
   body #hero.examples-hero,
   body #hero.videos-hero,
-  body #hero.tutorials-hero{
-   background-image: url({{ "images/backgrounds/header-mobile-light.svg" | relURL }}) !important;
+  body #hero.tutorials-hero,
+  body #hero.blog-hero{
+   background-image: url({{ "images/backgrounds/gradient-two.svg" | relURL }}) !important;
   }
 }
 
@@ -249,30 +261,35 @@ body.blog #contact .mktoForm select {
     background-color: white !important;
 }
 
-nav #theme-select {
-  background-color: #ADBBC4 !important;
-  
-  .fa-sun {
-    color: #1B2A32 !important;
+nav {
+  #theme-slider {
+    background-color: #ADBBC4 !important;
+    transition: background-color .2s;
   }
-  #dark-select {
-    background-color: transparent !important;
+  #theme-icon-circle {
+    transform: translateX(12px);
+    background: #1B2A32;
   }
-  #theme-square {
-    transform: translateX(36px);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  #light-theme-icon {
+    display: block;
   }
-  .nav-select {
-    transition: opacity .2s;
-    &:nth-child(1) {
-      display: none;
-    }
-    &:nth-child(2) {
-      display: block;
-    }
-    &:nth-child(3) {
-      display: none;
-    }
+  #dark-theme-icon {
+    display: none;
+  }
+
+  #mobile-theme-slider {
+    background-color: #ADBBC4 !important;
+    transition: background-color .2s;
+  }
+  #mobile-theme-icon-circle {
+    transform: translateX(12px);
+    background: #1B2A32;
+  }
+  #light-mobile-theme-icon {
+    display: block;
+  }
+  #dark-mobile-theme-icon {
+    display: none;
   }
 }
 #featured-paths,

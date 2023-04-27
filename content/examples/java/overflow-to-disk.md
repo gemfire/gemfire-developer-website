@@ -9,7 +9,7 @@ type: examples
 description: In this example, a server hosts a partitioned region that stores strings. The example shows entry values being overflowed to disk and removed from memory.
 ---
 
-This examples demonstrates how to use Geode's Overflow to disk.
+This examples demonstrates how to use GemFire's Overflow to disk.
 
 In this example, a server hosts a partitioned region that stores strings.
 The example shows entry values being overflowed to disk and removed from memory.

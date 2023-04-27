@@ -9,11 +9,11 @@ type: blog
 ---
 
 ## Introduction
-The in-memory size of a GemFire [GatewaySender](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-topologies_and_comm-topology_concepts-multisite_overview.html) queue can be used to determine the amount of queue memory to allocate for that GatewaySender. The ObjectGraphSizer can be used to calculate the size of any object in bytes and also to create a histogram of the object being sized. It does this by recursively traversing each field of the object. An ObjectFilter can be used in conjunction with the ObjectGraphSizer to accept or reject each object as it is traversed. Its basic use is to reject objects that shouldn’t be included in the size.
+The in-memory size of a GemFire [GatewaySender](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-topology_concepts-multisite_overview.html) queue can be used to determine the amount of queue memory to allocate for that GatewaySender. The ObjectGraphSizer can be used to calculate the size of any object in bytes and also to create a histogram of the object being sized. It does this by recursively traversing each field of the object. An ObjectFilter can be used in conjunction with the ObjectGraphSizer to accept or reject each object as it is traversed. Its basic use is to reject objects that shouldn’t be included in the size.
 
 This article describes how to use the ObjectGraphSizer to calculate the size of a GatewaySender queue.
 
-Note: See the [GatewaySender Queue Implementation](/blog/logging-apache-geode-gatewaysender-queue-events/#gatewaysender-queue-implementation) section of my **Logging GemFire GatewaySender Queue Events** blog for details on the architecture of GatewaySenders.
+Note: See the [GatewaySender Queue Implementation](/blog/logging-vmware-gemfire-gatewaysender-queue-events/#gatewaysender-queue-implementation) section of my **Logging GemFire GatewaySender Queue Events** blog for details on the architecture of GatewaySenders.
 
 ## Implementation
 All source code described in this article as well as an example usage is available [here](https://github.com/boglesby/calculate-gateway-sender-queue-size).
@@ -30,7 +30,7 @@ The supported types of GatewaySenderQueueEntrySizer are:
 
 - [SerialGatewaySenderQueueEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/SerialGatewaySenderQueueEntrySizer.java) for serial GatewaySenders
 - [ParallelGatewaySenderQueueEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/ParallelGatewaySenderQueueEntrySizer.java) for parallel GatewaySenders
-- [ParallelGatewaySenderQueueByBucketEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/ParallelGatewaySenderQueueByBucketEntrySizer.java****) for parallel GatewaySenders whose entries are to be sized by bucket
+- [ParallelGatewaySenderQueueByBucketEntrySizer](https://github.com/boglesby/calculate-gateway-sender-queue-size/blob/master/server/src/main/java/example/server/function/ParallelGatewaySenderQueueByBucketEntrySizer.java) for parallel GatewaySenders whose entries are to be sized by bucket
 
 The GatewayQueueEventRegionEntryObjectFilter is used by ObjectGraphSizer to include or exclude specific objects from the entry size.
 

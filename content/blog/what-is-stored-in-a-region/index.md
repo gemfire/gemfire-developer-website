@@ -17,14 +17,14 @@ This article describes the different RegionEntry and `CachedDeserializable` type
 There are mainly two different kinds of Regions, namely replicated and partitioned.
 
 ### Replicated Region
-A replicated Region is implemented by [DistributedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-distributed_regions-chapter_overview.html).
+A replicated Region is implemented by [DistributedRegion](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-distributed_regions-chapter_overview.html).
 
 The architecture diagram below shows the relationship between DistributedRegions and RegionEntries.
 
 ![DistributedRegion Architecture Diagram](images/barry_05_27_2021_distributedregion_architecture.png#diagram)
 
 ### Partitioned Region
-A partitioned Region is implemented by [PartitionedRegion](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-developing-partitioned_regions-chapter_overview.html) which contains a collection of BucketRegions. A `BucketRegion` is an extension of DistributedRegion.
+A partitioned Region is implemented by [PartitionedRegion](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-partitioned_regions-chapter_overview.html) which contains a collection of BucketRegions. A `BucketRegion` is an extension of DistributedRegion.
 
 The architecture diagram below shows the relationship between `PartitionedRegions` and RegionEntries.
 

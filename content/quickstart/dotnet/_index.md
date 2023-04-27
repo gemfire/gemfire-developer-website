@@ -1,15 +1,9 @@
 ---
 title: .Net Quick Start
 weight: 5
-featured: true
-featuredspot: 4
-level1: .NET GemFire Client
-layout: intro
 icon: dotnet
 topics:
 - .NET
-description: GemFire Clients using .NET
-
 ---
 To begin using the VMware GemFire .NET Framework Native Client, first download the .NET Framework Client library from the [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire/#/releases/1157686).
 

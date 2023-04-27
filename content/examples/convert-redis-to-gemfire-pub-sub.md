@@ -11,6 +11,6 @@ description: This example highlights the changes necessary for switching to SBDG
 
 ---
 
-The projects in this directory illustrate a Spring Boot application that creates a publish and subscribe channel with either Redis or VMware GemFire. In this guide, we will highlight the changes necessary for switching from Spring Data Redis to Spring Boot for Apache Geode using a publish/subscribe application.
+The projects in this directory illustrate a Spring Boot application that creates a publish and subscribe channel with either Redis or VMware GemFire. In this guide, we will highlight the changes necessary for switching from Spring Data Redis to Spring Boot for GemFire using a publish/subscribe application.
 
 In the VMware GemFire example, a `Region` will represent the equivalent of a `PatternTopic` as defined in the Redis example.

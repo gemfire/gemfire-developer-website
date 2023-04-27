@@ -8,7 +8,7 @@ type: blog
 description: This article describes a Spring Boot JMX Notification listener application.
 ---
 ## Introduction
-VMware GemFire issues JMX Notifications for specific [system events](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-management-list_of_mbean_notifications.html) and system alerts (e.g. warning and severe messages).
+VMware GemFire issues JMX Notifications for specific [system events](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-management-list_of_mbean_notifications.html) and system alerts (e.g. warning and severe messages).
 
 JMX Notifications include but are not limited to:
  * when members join and leave the DistributedSystem

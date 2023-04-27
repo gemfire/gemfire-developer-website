@@ -9,4 +9,4 @@ type: examples
 description: A simple JavaScript application that demonstrates basic object usage with a local VMware GemFire cluster.
 ---
 
-This Node.js example provides a simple JavaScript application that demonstrates basic object usage with a local VMware GemFire cluster. This app also can be run with a local Apache Geode cluster.
+This Node.js example provides a simple JavaScript application that demonstrates basic object usage with a local VMware GemFire cluster.

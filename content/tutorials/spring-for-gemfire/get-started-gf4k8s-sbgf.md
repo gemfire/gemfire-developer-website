@@ -17,9 +17,9 @@ This guide walks you through creating and testing a VMware GemFire cluster on Ku
 
 
 ## Before you start!
-This guide assumes that the [VMware GemFire Operator](https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.0/tgf-k8s/GUID-install.html) and a **cert-manager** have been installed in your Kubernetes cluster. 
+This guide assumes that the [VMware GemFire Operator](https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.0/gf-k8s/install.html) and a **cert-manager** have been installed in your Kubernetes cluster. 
 
-In order to create a GemFire cluster, you will need a [Tanzu Net](https://network.pivotal.io/products/tanzu-gemfire-for-kubernetes/) account, in order to pull the GemFire image from the registry. 
+In order to create a GemFire cluster, you will need a [Tanzu Net](https://network.tanzu.vmware.com/products/tanzu-gemfire-for-kubernetes/) account, in order to pull the GemFire image from the registry. 
 
 You will also need permission to use `kubectl`. 
  
@@ -53,7 +53,7 @@ You will also need permission to use `kubectl`.
 
 4. Create your VMware GemFire CRD file. 
     
-    Below is a simple yaml file that will create a VMware GemFire cluster named `hello-world-gemfire-cluster` with 1 [locator](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-configuring-running-running_the_locator.html) and 2 [servers](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-configuring-running-running_the_cacheserver.html), with TLS turned off. Save this as a YAML file in your current working directory.
+    Below is a simple yaml file that will create a VMware GemFire cluster named `hello-world-gemfire-cluster` with 1 [locator](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/configuring-running-running_the_locator.html) and 2 [servers](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/configuring-running-running_the_cacheserver.html), with TLS turned off. Save this as a YAML file in your current working directory.
     
       ```yaml
       apiVersion: gemfire.vmware.com/v1
@@ -67,7 +67,7 @@ You will also need permission to use `kubectl`.
       ```
    
         
-> For the full list of GemFire CRD configuration options and explanations check out the VMware GemFire [Customer Resource Definition template](https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-Kubernetes/2.0/tgf-k8s/GUID-crd.html).
+> For the full list of GemFire CRD configuration options and explanations check out the VMware GemFire [Customer Resource Definition template](https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.0/gf-k8s/crd.html).
     
    
 5. Apply your VMware GemFire CRD YAML from *Step 4* to create the VMware GemFire cluster
@@ -346,4 +346,4 @@ To delete all the persistent volume claim listed, run the following command
  
  Now that you have successfully created a running VMware GemFire cluster on Kubernetes, check out some other guides.
   
- * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/session-state-cache-sbgf).
+ * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/spring-for-gemfire/session-state-cache-sbgf).

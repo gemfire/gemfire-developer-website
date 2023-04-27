@@ -58,7 +58,7 @@ Starting in a terminal
 
 
 {{% alert title="Apps Manger" color="info" %}}
-[Apps Manager](https://docs.run.pivotal.io/console/dev-console.html) is a user interface that must be turned on by the operator of the foundation.
+**Apps Manager** is a user interface that must be turned on by the operator of the foundation.
 {{% /alert %}} 
 
 
@@ -96,7 +96,7 @@ Starting in a terminal
 
 7.  After clicking create you will see VMware GemFire service instance provisioning begin and in the **Last Operation** column it will say `create in progress`.
     
-     ![Create in progress in Apps Manager](create_in_progress.png)
+     ![Create in progress in Apps Manager](images/create_in_progress.png)
 
 
 
@@ -197,4 +197,4 @@ Congratulations! You’re ready to start using VMware GemFire. You will need to 
  
  Now that you have successfully created a running VMware GemFire service instance, check out some other guides.
     
-  * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/session-state-cache-sbgf).
+  * Create an application that utilizes Spring Boot for VMware GemFire and Spring Session for [session state caching](/tutorials/spring-for-gemfire/session-state-cache-sbgf).

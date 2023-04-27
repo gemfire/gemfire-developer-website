@@ -28,7 +28,7 @@ Sometimes we want to replicate more than that, specifically (but not limited to)
 I’ve seen this pattern successfully and widely applied in a lot of projects over the years but haven’t found a single point of reference about it, now is a good time to share some examples and reasoning behind the pattern itself.
 
 ## How?
-The idea is pretty straightforward: a custom *distributedCommand* region will be used for distribution purposes, which will have a *DistributedCommandCacheWriter* attached so we can execute the commands locally. The *DistributedCommand Region* itself will exist on all clusters and the commands will be sent across the wire through Geode gateway-senders so remote clusters can receive them through Geode gateway-receivers and execute the unit of work as well.
+The idea is pretty straightforward: a custom *distributedCommand* region will be used for distribution purposes, which will have a *DistributedCommandCacheWriter* attached so we can execute the commands locally. The *DistributedCommand Region* itself will exist on all clusters and the commands will be sent across the wire through GemFire gateway-senders so remote clusters can receive them through GemFire gateway-receivers and execute the unit of work as well.
 ![img](images/command-region-pattern-diagram.jpeg#diagram)
 
 1. The client application creates a DistributedCommand instance and executes a put operation through the PROXY region.

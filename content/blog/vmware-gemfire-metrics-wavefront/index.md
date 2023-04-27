@@ -216,4 +216,4 @@ Also available is a [video walkthrough](https://www.youtube.com/watch?v=BDZh-FLk
 
 [How to add more metrics to a VMware GemFire implementation](https://cwiki.apache.org/confluence/display/GEODE/How+to+add+a+Meter)
 
-[Ingest, Store and Search JSON data with Apache Kafka and VMware GemFire](/data/gemfire/blog/gemfire-apache-kafka)
+[Ingest, Store and Search JSON data with Apache Kafka and VMware GemFire](/blog/ingest-store-and-search-json-data-with-apache-kafka-and-gemfire/)

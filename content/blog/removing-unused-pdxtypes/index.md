@@ -15,7 +15,7 @@ description: This article describes a way to remove unused PdxTypes from the Dis
    
    This article describes a way to remove unused PdxTypes from the Distributed System.
    
-   For additional information regarding PDX serialization, see the VMware GemFire documentation [here](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-data_serialization-gemfire_pdx_serialization.html).
+   For additional information regarding PDX serialization, see the VMware GemFire documentation [here](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-gemfire_pdx_serialization.html).
 
 
 ## PdxType Examples

@@ -9,7 +9,7 @@ description: This article shows how to get details for each BucketRegion in the 
 ---
 
 ## Introduction
-An Apache Geode [PartitionedRegion](https://geode.apache.org/docs/guide/112/developing/partitioned_regions/chapter_overview.html) is a Region that partitions its entries among all the servers that define it. The entries are stored in BucketRegions. Properties that affect the number and location of the BucketRegions include the [total number of buckets](https://geode.apache.org/docs/guide/112/developing/partitioned_regions/configuring_bucket_for_pr.html#configuring_total_buckets) and the [number of redundant copies](https://geode.apache.org/docs/guide/112/developing/partitioned_regions/set_pr_redundancy.html#set_pr_redundancy). The primary BucketRegion is hosted on one server, and if the number of redundant copies is greater than zero, the redundant BucketRegions are hosted on other servers. In addition, if [eviction](https://geode.apache.org/docs/guide/112/developing/eviction/chapter_overview.html) with overflow is configured, entry values are evicted to disk once the JVM’s used heap memory reaches a configured percentage of maximum.
+A VMware GemFire [PartitionedRegion](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-partitioned_regions-chapter_overview.html) is a Region that partitions its entries among all the servers that define it. The entries are stored in BucketRegions. Properties that affect the number and location of the BucketRegions include the [total number of buckets](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-partitioned_regions-configuring_bucket_for_pr.html) and the [number of redundant copies](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-partitioned_regions-set_pr_redundancy.html). The primary BucketRegion is hosted on one server, and if the number of redundant copies is greater than zero, the redundant BucketRegions are hosted on other servers. In addition, if [eviction](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-eviction-chapter_overview.html) with overflow is configured, entry values are evicted to disk once the JVM’s used heap memory reaches a configured percentage of maximum.
 
 Bucket and entry details available for the entire PartitionedRegion per member or across the DistributedSystem include:
 
@@ -27,7 +27,7 @@ This article shows how to get similar details for each BucketRegion in the Parti
 
 ## Accessing Entry Details for the PartitionedRegion
 
-Currently, the details listed above are available for the PartitionedRegion via either [Statistics](https://geode.apache.org/docs/guide/112/managing/statistics/chapter_overview.html) or [gfsh](https://geode.apache.org/docs/guide/112/tools_modules/gfsh/chapter_overview.html).
+Currently, the details listed above are available for the PartitionedRegion via either [Statistics](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-statistics-chapter_overview.html) or [gfsh](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-chapter_overview.html).
 
 ### Via Statistics
 Bucket and entry details are provided by PartitionedRegionStats and DiskRegionStatistics.
@@ -233,4 +233,4 @@ Redundant Buckets:
  
  ## Future
  
- A gfsh command and API that provides these partitioned Region bucket details would be a useful addition to Apache Geode.
+ A gfsh command and API that provides these partitioned Region bucket details would be a useful addition to VMware GemFire.

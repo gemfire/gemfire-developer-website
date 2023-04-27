@@ -41,7 +41,7 @@ preview-ip: npm
 
 #build: @ build site into `public` directory
 build: hugo-check npm
-	hugo -b http://localhost:1313/developer
+	hugo -b http://localhost:1313/
 
 #test: @ runs act to simulate a github pull request test suite
 test: npm

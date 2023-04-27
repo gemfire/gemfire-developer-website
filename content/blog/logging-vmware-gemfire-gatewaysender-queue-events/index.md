@@ -9,7 +9,7 @@ description: This is a how-to article that describes a way to log all the events
 ---
 
 ## Introduction
- VMware GemFire provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.10/tgf/GUID-topologies_and_comm-multi_site_configuration-chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed. For troubleshooting purposes, it is sometimes necessary to see the events in the queue, but there is no OOTB way to do this.
+ VMware GemFire provides a mechanism to asynchronously distribute batches of events between two disparate DistributedSystems called a [WAN topology](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/topologies_and_comm-multi_site_configuration-chapter_overview.html). The events are stored in queues in the local DistributedSystem before being batched and distributed. For troubleshooting purposes, it is sometimes necessary to see the events in the queue, but there is no OOTB way to do this.
  
  This is a how-to article that describes a way to log all the events in a GatewaySender queue.
  

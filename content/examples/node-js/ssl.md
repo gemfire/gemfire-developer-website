@@ -10,4 +10,4 @@ description: Demonstrates basic SSL connection of a client with a GemFire Cache 
  
 ---
 
-This Node.js example demonstrates basic SSL connection of a client with a GemFire Cache cluster. This application leverages the CRUD-ops example, which should be reviewed prior starting. The example works with either a local Apache Geode or VMware GemFire cluster.
+This Node.js example demonstrates basic SSL connection of a client with a GemFire Cache cluster. This application leverages the CRUD-ops example, which should be reviewed prior starting. The example works with a local VMware GemFire cluster.
