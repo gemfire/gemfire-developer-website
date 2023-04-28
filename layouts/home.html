@@ -9,21 +9,23 @@
                 <li data-target="#heroCarousel" data-slide-to="1"></li>
                 <li data-target="#heroCarousel" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner center" style="max-height:400px !important;">
+            <div class="carousel-inner center" style="max-height:480px !important;">
                 <div class="carousel-item active">
                     <a href="/tutorials">
-                        <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 400px;">
-                        <div class="carousel-caption d-none d-md-block">
-                            <span class="h1 mb-0 ">
-                                {{ .Params.tagline }}
-                            </span><br>
-                            <span class="h4 center">{{ .Params.description }}</span>
+                        <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 480px;">
+                        <div class="carousel-caption flex-column justify-content-center h-100" style="top: 0">
+                                <div style="margin: 0; position: absolute; top: 50%;transform: translateY(-50%);">
+                                     <span class="h1 mb-0">
+                                    {{ .Params.tagline }}
+                                    </span><br>
+                                    <span class="h4 center">{{ .Params.description }}</span>
+                                </div>
                         </div>
                     </a>
                 </div>
                 <div class="carousel-item">
                     <a href="/blog">
-                    <img class="d-block m-auto" src="images/icons/icon-blog.svg" alt="Second slide" style="height: 400px;">
+                    <img class="d-block m-auto" src="images/icons/icon-blog.svg" alt="Second slide" style="height: 480px;">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Blogs</h5>
                         <p>These are neat</p>
@@ -31,14 +33,20 @@
                     </a>
                 </div>
                 <div class="carousel-item">
-                    <a href="/videos">
-                    <img class="d-block m-auto" src="images/icons/icon-videos.svg" alt="Third slide" style="height: 400px;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Videos</h5>
-                        <p>Watch and Learn</p>
-                    </div>
+                    <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 480px;">
+                    <a href="/videos/the-world-of-gemfire/">
+                        <div class="carousel-caption d-none d-md-block">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="flex text-left">
+                                    <h2>The World of VMware GemFire</h2>
+                                    <p>In this detailed video, Anthony Baker takes us through the world of VMware GemFire.</p>
+                                </div>
+                                <div class="flex">
+                                    <img class="d-block m-auto" src='{{ "images/carousel/GemFireWiggity.png" | relURL }}' alt="First slide" style="height: 400px;">
+                                </div>
+                            </div>
+                        </div>
                     </a>
-                </div>
             </div>
             <a class="carousel-control-prev" type="button" href="#heroCarousel" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
