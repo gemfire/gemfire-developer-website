@@ -14,7 +14,7 @@
                     <a href="/tutorials">
                         <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 480px;">
                         <div class="carousel-caption flex-column justify-content-center h-100" style="top: 0">
-                                <div style="margin: 0; position: absolute; top: 50%;transform: translateY(-50%);">
+                                <div class="flex w-100" style="margin: 0; position: absolute; top: 50%;transform: translateY(-50%);">
                                      <span class="h1 mb-0">
                                     {{ .Params.tagline }}
                                     </span><br>
@@ -25,11 +25,11 @@
                 </div>
                 <div class="carousel-item">
                     <a href="/blog">
-                    <img class="d-block m-auto" src="images/icons/icon-blog.svg" alt="Second slide" style="height: 480px;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Blogs</h5>
-                        <p>These are neat</p>
-                    </div>
+                        <img class="d-block m-auto" src="images/icons/icon-blog.svg" alt="Second slide" style="height: 480px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Blogs</h5>
+                            <p>These are neat</p>
+                        </div>
                     </a>
                 </div>
                 <div class="carousel-item">
@@ -47,14 +47,14 @@
                             </div>
                         </div>
                     </a>
-            </div>
+                </div>
             <a class="carousel-control-prev" type="button" href="#heroCarousel" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
             <a class="carousel-control-next" type="button" href="#heroCarousel" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
-	</div>
+	    </div>
 </section>
 
 <!-- Quick Start -->
