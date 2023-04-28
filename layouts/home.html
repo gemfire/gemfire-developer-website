@@ -9,7 +9,7 @@
                 <li data-target="#heroCarousel" data-slide-to="1"></li>
                 <li data-target="#heroCarousel" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner center" style="max-height:480px !important;">
+            <div class="carousel-inner center" style="height:480px !important;">
                 <div class="carousel-item active">
                     <a href="/tutorials">
                         <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 480px;">
@@ -25,10 +25,9 @@
                 </div>
                 <div class="carousel-item">
                     <a href="/blog">
-                        <img class="d-block m-auto" src="images/icons/icon-blog.svg" alt="Second slide" style="height: 480px;">
+                        <img class="d-block m-auto" src='{{ "images/carousel/Gemfire_10.png" | relURL }}' alt="Second slide" style="height: 480px;">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Blogs</h5>
-                            <p>These are neat</p>
+                            <a href="/blog/introducing-vmware-gemfire-10/" title="Get Stared with Gemfire 10" id="sample-gh" class="btn">Get Stared with Gemfire 10</a>
                         </div>
                     </a>
                 </div>
@@ -41,8 +40,8 @@
                                     <h2>The World of VMware GemFire</h2>
                                     <p>In this detailed video, Anthony Baker takes us through the world of VMware GemFire.</p>
                                 </div>
-                                <div class="flex">
-                                    <img class="d-block m-auto" src='{{ "images/carousel/GemFireWiggity.png" | relURL }}' alt="First slide" style="height: 400px;">
+                                <div class="flex" style="height: 400px;">
+                                    <img class="d-block m-auto aspect-ratio--object" src='{{ "images/carousel/GemFireWiggity.png" | relURL }}' alt="First slide">
                                 </div>
                             </div>
                         </div>
