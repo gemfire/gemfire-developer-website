@@ -1,8 +1,10 @@
 @import "support/mixins";
 @import "../vendor/bootstrap/scss/bootstrap";
 
-.carousel .carousel-indicators li {background-color: darkgray;}
-.carousel .carousel-indicators li.active {background-color: lawngreen;}
+
+.carousel .carousel-indicators li {border:1px solid #444;}
+.carousel .carousel-indicators li.active {background-color: #0e2b65;border:1px solid #444;}
+
 
 @keyframes fadeIn {
   0% {
