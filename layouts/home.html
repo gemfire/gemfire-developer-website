@@ -2,12 +2,20 @@
 <h1 class='d-none'>{{ .Title }} Homepage</h1>
 
 <a id="td-block" class="td-offset-anchor"></a>
-<section id="hero" class="td-box td-box--primary position-relative td-box--height-med overflow-hidden pb-0">
+<section id="hero" class="td-box td-box--primary position-relative overflow-hidden pb-0" style="min-height: 480px;">
         <div id="heroCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#heroCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#heroCarousel" data-slide-to="1"></li>
                 <li data-target="#heroCarousel" data-slide-to="2"></li>
+                <a class="carousel-control-prev" type="button" href="#heroCarousel" data-slide="prev">
+                    <span class="fas fa-arrow-alt-circle-left text-white" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" type="button" href="#heroCarousel" data-slide="next">
+                    <span class="fas fa-arrow-alt-circle-right text-white" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </ol>
             <div class="carousel-inner center" style="height:480px !important;">
                 <div class="carousel-item active">
@@ -49,12 +57,7 @@
                         </div>
                     </a>
                 </div>
-            <a class="carousel-control-prev" type="button" href="#heroCarousel" data-slide="prev">
-                <span class="fas fa-arrow-alt-circle-left text-white" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" type="button" href="#heroCarousel" data-slide="next">
-                <span class="fas fa-arrow-alt-circle-right text-white" aria-hidden="true"></span>
-            </a>
+	        </div>
 	    </div>
 </section>
 
