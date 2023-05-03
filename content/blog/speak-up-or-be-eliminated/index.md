@@ -112,7 +112,7 @@ At the beginning of this article we noted that timely repair of failed component
 
 If the health monitor decides a member has crashed it may not have actually crashed. The failure to communicate may be due to networking problems. A member in this situation will execute a forced-disconnect and then will go into a reconnecting state. If the network problems are resolved, this member will rejoin the cluster.
 
-If the member really crashed, say, due to a hardware failure then recovery depends on the platform. When using GemFire for Kubernetes, the GemFire Operator will automatically spin up a new pod to replace the failed one. That pod will host a cache server that will join the cluster and will take over the responsibilities of the failed one. When running GemFire without the assistance of the GemFire Operator, then it is up to an administrator to use gfsh to replace failed members.
+If the member really crashed, say, due to a hardware failure then recovery depends on the platform. When using GemFire for Kubernetes, the GemFire operator will automatically spin up a new pod to replace the failed one. That pod will host a cache server that will join the cluster and will take over the responsibilities of the failed one. When running GemFire without the assistance of the GemFire operator, then it is up to an administrator to use gfsh to replace failed members.
 
 ## Summary
 
