@@ -5,6 +5,8 @@
 .carousel .carousel-indicators li {background-color: #0e2b65;border:1px solid #444;}
 .carousel .carousel-indicators li.active {background-color: lightgray;border:1px solid #444;}
 
+.carousel .carousel-control-prev {background-image: none;}
+.carousel .carousel-control-next {background-image: none;}
 
 #hero {
   height: 480px !important;
