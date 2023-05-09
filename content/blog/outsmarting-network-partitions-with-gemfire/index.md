@@ -20,7 +20,7 @@ In a split-brain scenario, each partition may independently update data without 
 
 
 
-![Split-brain example](images/split-brain-example.jpg)
+![Split-brain example; clients are connected to two distinct subsets of the cluster, separated by a network failure](images/split-brain-example.jpg)
 
 *In this example, network partition divided the cluster into two partitions that can't communicate with each other. Each partition consists of servers that can contact other servers within the same partition. Client 1 can only communicate with the servers from Partition 1, while Client 3 can only communicate with the servers from Partition 2. Client 2 has access to all five servers.*
 
@@ -52,7 +52,7 @@ When the coordinator detects a membership change, it initiates the preparation o
 
 In the event of a network partition, the "surviving side" that still has a quorum of members will continue to operate, while all the members of the partition that lost the quorum, known as the "losing side", will be disconnected. The surviving members will then work to recover and restore data consistency in the cluster.
 
-![GemFire cluster during network partition](images/gemfire-network-partition.jpg)
+![GemFire cluster during network partition, illustrating the weights of the different cluster subsets](images/gemfire-network-partition.jpg)
 
 *In this scenario, the partition on the left is the surviving side, as its total weight loss is less than half of the total weight of the cluster. The other partition lost the quorum, and its members will eventually disconnect.*
 

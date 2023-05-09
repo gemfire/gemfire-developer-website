@@ -20,13 +20,13 @@ description: This is a how-to article that describes a way to log all the events
  The serial GatewaySender queue is implemented by a collection of DistributedRegions, one per dispatcher thread.
  
  A simplified architecture is shown below:
-![img](images/barry_06_03_diagram.png#diagram)
+![Multiple SerialGatewaySenderEventProcessors connected to a ConcurrentSerialGatewaySenderEventProcessor inheriting from SerialGatewaySenderImpl](images/barry_06_03_diagram.png#diagram)
 
 ### Parallel GatewaySender Queue
 The parallel GatewaySender queue is implemented by a single PartitionedRegion colocated with the data Region attached to it. Each dispatcher thread processes a subset of the PartitionedRegion buckets.
 
 A simplified architecture is shown below:
-![img](images/barry_06_03_diagram1.png#diagram)
+![Multiple ParallelGatewaySenderEventProcessors connected to a ConcurrentParallelGatewaySenderEventProcessor inheriting from ParallelGatewaySenderImpl](images/barry_06_03_diagram1.png#diagram)
 
 ### Queue Region Entries
 The queue Region entries are keyed by continuously-increasing longs and valued by instances of `GatewaySenderEventImpl`, each of which defines several fields including:

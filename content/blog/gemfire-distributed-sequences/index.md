@@ -37,7 +37,7 @@ All right, time to write some code, finally!.
 ### Compile and Deploy
 The first step is to download the tool, build it and deploy it to a running VMware GemFire cluster. We list the functions at the very end just to verify that they have been correctly registered through the gfsh deploy command.
 
-![img](images/geode-distributed-sequences-gfsh-deploy.png)
+![Screenshot illustrating gfsh output](images/geode-distributed-sequences-gfsh-deploy.png)
 
 ### Compute Sequences
 Add the jar file to your application’s class path, initialize the `ClientCache`, initialize the `DistributedSequenceFactory` and start retrieving/computing the distributed counters!.

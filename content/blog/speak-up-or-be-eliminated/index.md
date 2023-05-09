@@ -8,7 +8,7 @@ lastmod: "2023-04-27"
 type: blog
 ---
 
-{{< figure src="images/swirl.jpg" width="400px">}}
+{{< figure src="images/swirl.jpg" width="400px" alt="Abstract swirling arrows">}}
 
 ## Introduction
 
@@ -68,7 +68,7 @@ The member listed first (in this case, `locator1`) is always the membership coor
 
 As we said earlier, each member's communication is monitored by one other member. You can think of the monitoring relationships forming a ring of members. It so happens that each member is monitored by the member to its left in the view. The left-most member is monitored by the right-most one, thereby completing the ring. In this example `locator1` (the coordinator) monitors communication from `locator2`. If `locator1` has no communication from `locator2` for a long time, then `locator1` will raise suspicion against `locator2`.
 
-![Monitoring Topology](images/monitoring-topology.jpg)
+![Monitoring Topology; heartbeat messages flowing in one direction, traffic monitoring flowing the in opposite direction](images/monitoring-topology.jpg)
 
 Heartbeat messages are generated in the opposite direction. Each member generates heartbeat messages to the member to its left. `locator2` will periodically generate heartbeat messages to `locator1`. Under normal conditions, this will keep the traffic monitor in `locator1` satisfied that `locator2` is functioning properly, even if there are no application-level (put/get) requests being processed by the cluster.
 
@@ -76,7 +76,7 @@ Heartbeat messages are generated in the opposite direction. Each member generate
 
 Here's a swimlane diagram showing three members involved in an escalation:
 
-![Suspicion Escalation Swimlanes](images/traffic-monitor-raises-suspicion.jpg)
+![Suspicion Escalation Swimlanes; failed member, monitoring member, membership coordinator exchanging messages](images/traffic-monitor-raises-suspicion.jpg)
 
 M is the member monitoring communication from F, the member that has ostensibly failed. C is the coordinator. In this picture we see suspicion raised by a traffic monitor.
 

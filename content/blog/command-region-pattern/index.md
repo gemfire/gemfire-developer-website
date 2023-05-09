@@ -29,7 +29,7 @@ I’ve seen this pattern successfully and widely applied in a lot of projects ov
 
 ## How?
 The idea is pretty straightforward: a custom *distributedCommand* region will be used for distribution purposes, which will have a *DistributedCommandCacheWriter* attached so we can execute the commands locally. The *DistributedCommand Region* itself will exist on all clusters and the commands will be sent across the wire through GemFire gateway-senders so remote clusters can receive them through GemFire gateway-receivers and execute the unit of work as well.
-![img](images/command-region-pattern-diagram.jpeg#diagram)
+![distributedCommand transmitted to a DistributedSystem, which relays the command to other DistributedSystems via gateway senders and receivers](images/command-region-pattern-diagram.jpeg#diagram)
 
 1. The client application creates a DistributedCommand instance and executes a put operation through the PROXY region.
 2. The CacheWriter is invoked and the DistributedCommand is executed locally.

@@ -33,7 +33,7 @@ The fastest and easiest way to set up a *Spring Application* from scratch is to 
 
 This example needs the *H2 Database*, *Spring Data JPA*, and *Spring for VMware GemFire dependencies*. The following image shows the *Initializr* set up for the sample project:
 
-![img](images/initializr-screenshot.png)
+![Screenshot of Spring Initializr illustrating dependency selections](images/initializr-screenshot.png)
 
 ### Defining the Entity
 

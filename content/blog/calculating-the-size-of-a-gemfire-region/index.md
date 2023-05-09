@@ -26,7 +26,7 @@ A replicated Region is implemented by a [DistributedRegion](https://docs.vmware.
 
 A simplified architecture is shown below:
 
-![Class Diagram For Distributed Region](images/barry_06_24_diagram1.png#diagram)
+![Class Diagram For Distributed Region; CustomEntryConcurrentHashMap inherits from VMRegionMap which inherits from DistributedRegion](images/barry_06_24_diagram1.png#diagram)
 
 ## Partitioned Region
 
@@ -34,7 +34,7 @@ A partitioned Region is implemented by a [PartitionedRegion](https://docs.vmware
 
 A simplified architecture is shown below:
 
-![class diagram for PartitionedRegion](images/barry_06_24_diagram2.png#diagram)
+![Class diagram for PartitionedRegion; PartitionedRegion contains RegionAdvisor which contains ProxyBucketRegions](images/barry_06_24_diagram2.png#diagram)
 
 ## Implementation
 All source code described in this article as well as an example usage is available [here](https://github.com/boglesby/calculate-region-size).
