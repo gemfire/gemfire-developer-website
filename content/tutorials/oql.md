@@ -321,9 +321,10 @@ SELECT lastName , firstName, hourlyWage(0.91) AS hourlyWageInEuros
 		ORDER BY lastName
 ```
 ```sql
-gfsh> query --query="select lastName , firstName, \
-hourlyWage(0.91) AS hourlyWageInEuros \
-from /employees order by lastName"
+gfsh> query --query="\
+  select lastName , firstName, \
+    hourlyWage(0.91) AS hourlyWageInEuros \
+  from /employees order by lastName"
 
 Result : true
 Limit  : 100
