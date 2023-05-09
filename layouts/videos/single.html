@@ -1,7 +1,5 @@
 {{ define "main" }}
 
-{{ partial "amplitude.html" (dict "context" . "event" "video viewed") }}
-
 {{ $class := replace .Page.Section "." "-" | lower }}
 
 
