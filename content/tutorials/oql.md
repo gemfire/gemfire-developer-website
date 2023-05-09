@@ -589,7 +589,7 @@ public class Employee implements Serializable {
   public String email;
   public int salary;
   public int hoursPerWeek;
-  public int  managerId;
+  public int managerId;
   public int deptId;
 
   public Employee() {}
@@ -606,6 +606,22 @@ public class Employee implements Serializable {
         .add("managerId=" + managerId)
         .add("deptId=" + deptId)
         .toString();
+  }
+
+  /** @return hourlyWage in USD rounded to the nearest cent. */
+  public double hourlyWage() {
+    return hourlyWage(1.0);
+  }
+
+  /**
+   * Return hourlyWage given a currency conversion factor, rounded to nearest 0.01.
+   * @param usdCurrencyConversion factor for target currency relative to USD
+   * @return hourlyWage in target currency
+   */
+  public double hourlyWage(final double usdCurrencyConversion) {
+    final double fullTimeEquivalent = (double)hoursPerWeek / 40;
+    return Math.round(salary / 52.0 / (40.0 * fullTimeEquivalent) * usdCurrencyConversion * 100.0)
+        / 100.0;
   }
 }
 ```
