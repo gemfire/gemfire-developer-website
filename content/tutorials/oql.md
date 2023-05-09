@@ -300,8 +300,9 @@ SELECT lastName, firstName, hourlyWage \
 		ORDER BY lastName
 ```
 ```sql
-gfsh>query --query="select lastName , firstName, hourlyWage \
-	from /employees order by lastName"
+gfsh>query --query="\
+  select lastName , firstName, hourlyWage \
+	  from /employees order by lastName"
 Result : true
 Limit  : 100
 Rows   : 14
