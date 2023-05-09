@@ -1,8 +1,7 @@
 title: A Trail Guide To GemFire OQL: Object Query Language
 date: 2023-04-25
 lastmod: 2023-04-25
-type: tutorial
-# Author(s)
+type: tutorials
 team:
 - Eric Zoerner
 description: A supplement to the GemFire Querying documentation, highlighing some of the unique aspects of OQL and provide some guidance on writing queries in OQL with GemFire.
@@ -214,7 +213,8 @@ is possible to nest select expressions within select expressions, as long as the
 types line up. Some examples: *(the backslash `\` denotes line continuation in `gfsh`)*
 
 `QUERY (1)` \
-Select expression used in an IN operator, in a WHERE clause.
+Select expression used in an IN operator, in a WHERE clause. \
+Gets the names of the employees that in departments located in the State of New York.
 ```sql
 SELECT firstName, lastName FROM /employees
   WHERE deptId IN (SELECT dept.deptId FROM /departments dept
@@ -289,6 +289,52 @@ emplNumber | firstName | lastName | salary | diff
 10010      | Casey     | Catch    | 60000  | -19642.857142857145
 (etc.)
 ```
+`Query (4)` \
+Method invocation without arguments. \
+Shows hourly wage in USD by calling the hourlyWage() method on Employee and returns name and hourly wage ordered by last name.
+
+Note that a method call without any arguments can be written as an attribute without parentheses.
+```sql
+SELECT lastName, firstName, hourlyWage \
+	FROM /employees
+		ORDER BY lastName
+```
+```sql
+gfsh>query --query="select lastName , firstName, hourlyWage \
+	from /employees order by lastName"
+Result : true
+Limit  : 100
+Rows   : 14
+
+lastName | firstName | hourlyWage
+-------- | --------- | ----------
+Able     | Alex      | 28.85
+Bell     | Bertie    | 38.46
+(etc.)
+```
+`Query (5)` \
+Method invocation with argument. \
+Shows hourly wage in EUR by calling hourlyWage(double) method with currency conversion factor on Employee returning name and hourly wage in EUR ordered by last name.
+```sql
+SELECT lastName , firstName, hourlyWage(0.91) AS hourlyWageInEuros
+	FROM /employees
+		ORDER BY lastName
+```
+```sql
+gfsh> query --query="select lastName , firstName, \
+					 hourlyWage(0.91) AS hourlyWageInEuros \
+	from /employees order by lastName"
+
+Result : true
+Limit  : 100
+Rows   : 14
+
+lastName | firstName | hourlyWageInEuros
+-------- | --------- | -----------------
+Able     | Alex      | 26.25
+Bell     | Bertie    | 35.0
+(etc.)
+```
 ### **Joins**
 Queries that read from more than one region, or the same region more
 than once (a *self-join*) can often be simplified and in some cases
@@ -343,6 +389,10 @@ For more information about PDX Serialization, JSON Documents, and the REST
 API, see the GemFire Documention.
 
 ## **Optimizing OQL Queries**
+
+From here on, examples are given of OQL queries and various `gfsh` commands, but they are illustrative only and in require additional
+data or commands to execute without error.
+
 ### **Indexing**
 The primary way to speed up the execution of queries is to use indexes. There is
 of course a trade-off in using indexes, as they increase the execution speed
