@@ -5,18 +5,10 @@ dataLayer = [];
 <!-- OneTrust -->
 {{ if eq (getenv "HUGO_ENV") "production" }}
 <meta content='688714c5-a2c1-45ed-8486-25d404752d6e' name='onetrust-data-domain'>
-<meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.js' name='microsites-utag'>
 {{ else }}
 <meta content='688714c5-a2c1-45ed-8486-25d404752d6e-test' name='onetrust-data-domain'>
-<meta content='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/qa/utag.js' name='microsites-utag'>
 {{ end }}
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script src='https://www.vmware.com/files/templates/inc/utag_data.js'></script>
-{{ if eq (getenv "HUGO_ENV") "production" }}
-<script src='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/prod/utag.sync.js'></script>
-{{ else }}
-<script src='https://tags.tiqcdn.com/utag/vmware/microsites-privacy/qa/utag.sync.js'></script>
-{{ end }}
 <script>
 function OptanonWrapper() { { window.dataLayer.push({ event: 'OneTrustGroupsUpdated' }); } }
 </script>
