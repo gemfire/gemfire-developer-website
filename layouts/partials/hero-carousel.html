@@ -8,7 +8,7 @@
         {{ range $index, $element := . }}
             {{ if eq .Params.carouselType "text" }}
                 <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
-                    <a href="/tutorials">
+                    <a href="{{ .RelPermalink}}">
                         <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 480px;">
                         <div class="carousel-caption flex-column justify-content-center h-100" style="top: 0">
                             <div class="flex w-100" style="margin: 0; position: absolute; top: 50%;transform: translateY(-50%);">
@@ -24,7 +24,7 @@
             {{ else }}
                 <div class="carousel-item {{ if eq $index 0 }}active{{ end }}">
                     <img class="d-block m-auto" src='{{ "images/backgrounds/gradient-two.svg" | relURL }}' alt="First slide" style="height: 480px;">
-                    <a href="{{ . | relURL }}">
+                    <a href="{{ .RelPermalink}}">
                         <div class="carousel-caption d-none d-md-block mb-5">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="flex text-left pr-4">
