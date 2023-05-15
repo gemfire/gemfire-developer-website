@@ -3,7 +3,7 @@ date: 2023-04-25
 lastmod: 2023-05-15
 link-title: trailguide-oql
 parent: Java
-type: tutorials
+type: tutorial
 icon: java
 featured: false
 weight:
