@@ -16,7 +16,7 @@ Apache Kafka is a popular solution for ingesting from various data sources and i
 
 ## Overview
 We’ll be ingesting JSON data from a rest endpoint into a Kafka topic. We will sink the data into an GemFire region using the geode-kafka-connector and execute queries against the data. Secondary indexes will also be created to allow faster and more efficient query lookups.
-![img](images/gemfire-kafka.png#diagram)
+![Diagram illustrating flow of data through Kafka to GemFire](images/gemfire-kafka.png#diagram)
 
 (1) Ingest JSON, (2) Connector pulls JSON data from topic, (3) geode-kafka-connector converts to PDX and pushes to GemFire, (4) Query is executed in GFSH, (5) Results are returned
 
@@ -36,7 +36,7 @@ Execute gfsh from your GemFire Installation and start a locator and a server:
  start server --name=server1
 ```
 
-![img](images/gemfire-kafka-gfsh.png)
+![Screenshot of gfsh terminal displaying gfsh output](images/gemfire-kafka-gfsh.png)
 
 gfsh output after creating locator and server
 
@@ -47,7 +47,7 @@ Create the region we want the data to end up in:
 create region --name=’Events’ --type=PARTITION`
 ```
 
-![img](images/gemfire-kafka-gfsh-createregion.png)
+![gfsh create region command and output](images/gemfire-kafka-gfsh-createregion.png)
 
 gfsh output after creating region
 
@@ -138,7 +138,7 @@ Now we will query the events region. We’ll first display all the events we ing
 query --query=”select * from /Events”
 ```
 
-![img](images/gemfire-kafka-region-events.png)
+![Screeshot listing events via gfsh command](images/gemfire-kafka-region-events.png)
 
 Events made it into the region and we are able to query for them!
 
@@ -149,7 +149,7 @@ We can also issue a query on any of the JSON fields and nested fields as well. I
 query --query=”select * from /Events where payload.action=’opened’”
 ```
 
-![img](images/gemfire-kafka-field-lookup.png)
+![Screeshot listing events via gfsh command filtered by payload](images/gemfire-kafka-field-lookup.png)
 
 We are able to do a nested field lookup and filter for specific results
 

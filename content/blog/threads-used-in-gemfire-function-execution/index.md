@@ -126,7 +126,7 @@ Since the Function execution request is executed by a **ServerConnection**, the 
 
 A simplified sequence diagram of this use case is:
 
-![Image for post](images/barry_07_31_arch_diagram1.png#diagram)
+![Client communicationg with server that sends updates to a P2P message reader before function execution returns to the client](images/barry_07_31_arch_diagram1.png#diagram)
 
 Below is logging (mainly from a `DistributionMessageObserver`) on each server that shows the behavior.
 

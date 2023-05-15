@@ -34,7 +34,7 @@ Note: The `GatewaySender` and `GatewayReceiver` in these steps actually encompas
 
 This diagram shows the architecture of this implementation with one server in each DistributedSystem for simplicity:
 
-![Sequence Diagram for Sending Deltas Between DistributedSystems](images/barry_2021_03_23_architecture_diagram.png#diagram)
+![Sequence Diagram for Sending Deltas Between DistributedSystems; client put() eventually passes through a proxyRegion and a Gateway Sender to a secondary server](images/barry_2021_03_23_architecture_diagram.png#diagram)
 ## Region Configuration
 The Region configuration of the above architecture looks like this in XML:
 
