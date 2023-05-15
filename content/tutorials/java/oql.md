@@ -1,4 +1,5 @@
-title: A Trail Guide To GemFire OQL: Object Query Language
+--
+title: "A Trail Guide To GemFire OQL: Object Query Language"
 date: 2023-04-25
 lastmod: 2023-05-15
 link-title: trailguide-oql
