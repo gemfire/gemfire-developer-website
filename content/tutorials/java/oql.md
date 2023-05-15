@@ -11,8 +11,6 @@ weight:
 description: A supplement to the GemFire Querying documentation, highlighing some of the unique aspects of OQL and provide some guidance on writing queries in OQL with GemFire.
 
 ---
-
-# **A Trail Guide to GemFire OQL: Object Query Language**
 ## **Overview**
 
 VMware GemFire supports a query language known as Object Query Language (OQL).
