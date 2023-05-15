@@ -1,9 +1,12 @@
 title: A Trail Guide To GemFire OQL: Object Query Language
 date: 2023-04-25
-lastmod: 2023-04-25
+lastmod: 2023-05-15
+link-title: trailguide-oql
+parent: Java
 type: tutorials
-team:
-- Eric Zoerner
+icon: java
+featured: false
+weight:
 description: A supplement to the GemFire Querying documentation, highlighing some of the unique aspects of OQL and provide some guidance on writing queries in OQL with GemFire.
 
 ---
