@@ -1,6 +1,17 @@
 @import "support/mixins";
 @import "../vendor/bootstrap/scss/bootstrap";
 
+
+.carousel .carousel-indicators li {background-color: #0e2b65;border:1px solid #444;}
+.carousel .carousel-indicators li.active {background-color: lightgray;border:1px solid #444;}
+
+.carousel-control-prev {background-image: none !important;}
+.carousel-control-next {background-image: none !important;}
+
+#hero {
+  height: 480px !important;
+}
+
 @keyframes fadeIn {
   0% {
     opacity:0;
@@ -547,7 +558,7 @@
   }
 
   100% {
-    transform: translate(-600px, 600px);
+  transform: translate(-600px, 600px);
     opacity: 0;
   }
 }
