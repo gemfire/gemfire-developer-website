@@ -1,5 +1,5 @@
 ---
-title: Using A Cache Listener
+title: Using A Cache Loader
 date: '2023-04-03'
 lastmod: '2023-04-03'
 repo: https://github.com/gemfire/gemfire-examples/blob/main/feature-examples/loader
