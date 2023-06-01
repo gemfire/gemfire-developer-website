@@ -65,13 +65,13 @@ To get a local copy of the GemFire Developer Center up and running, follow these
      git clone --recurse-submodules https://github.com/gemfire/gemfire-developer-website
      ```
 
-2. (option 1) Build a preview of the website with the Makefile. The website will be available at [`http://localhost:1313/developer`](http://localhost:1313/developer).
+2. (option 1 mandatory for first time install) Build a preview of the website with the Makefile. The website will be available at [`http://localhost:1313/developer`](http://localhost:1313/developer).
     
      ```sh
      make preview
      ```
 
-2. (option 2) Build a preview of the website using Hugo's build command. The website will be available at [`http://localhost:1313/developer`](http://localhost:1313/developer).
+2. (option 2 only after option 1 succeeds) Build a preview of the website using Hugo's build command. The website will be available at [`http://localhost:1313/developer`](http://localhost:1313/developer).
 
   ```sh
     hugo -b http://localhost:1313/
