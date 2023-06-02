@@ -261,15 +261,15 @@ The AsyncEventListener and CacheLoader work together.
 
 ## Cleanup
 
-#### Gemfire
+### Gemfire
 From GemFire Shell (`gfsh`), to stop the locator and server:
 
     shutdown --include-locators=true
 
-#### Spring Boot web service
+### Spring Boot web service
 In the window that is running the `./gradlew bootRun` command, send a break interrupt (`ctrl+c`)
 
-#### Postgres
+### Postgres
 The databases created via pg_bench can be cleaned up with:
 
     pgbench -i -I d postgres
