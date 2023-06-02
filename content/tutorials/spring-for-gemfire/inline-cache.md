@@ -2,16 +2,14 @@
 title: "Inline Cache"
 date: "2023-06-01"
 lastmod: "2023-06-01"
-description: Configure GemFire as an Inline Cache with Postgres
-link-title: Configure GemFire as an Inline Cache with Postgres
+linktitle: Configure GemFire as an Inline Cache with Postgres
 parent: Spring for VMware GemFire
+icon: spring
 type: tutorials
-team:
-repo: https://github.com/gemfire/spring-for-gemfire-examples/tree/main/inline-caching
-tags:
-- Spring
-- Inline Cache
+description: Configure GemFire as an Inline Cache with Postgres
 ---
+
+There is a [GitHub Repository](https://github.com/gemfire/spring-for-gemfire-examples/tree/main/inline-caching) that compliments this tutorial. Please clone before you start.  
 
 Inline caching involves caching query results or frequently accessed data directly within the application code
 or within a caching layer, such as a memory cache like GemFire. Instead of repeatedly querying the database
