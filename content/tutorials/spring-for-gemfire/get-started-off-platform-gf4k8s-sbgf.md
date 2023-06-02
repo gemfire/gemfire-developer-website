@@ -292,7 +292,7 @@ In a terminal
 * Once you see that `GFSH` has started, connect to your cluster with the `connect` command
 
     ```
-    connect --locator=hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster[10334] --security-properties-file=/security/gfsecurity.properties
+    connect --locator=hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster.svc.cluster.local[10334] --security-properties-file=/security/gfsecurity.properties
     ``` 
 * Once connected run the `list regions` command
 
