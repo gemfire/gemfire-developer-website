@@ -141,24 +141,24 @@ $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
 * Replace the value for `spring.data.gemfire.pool.locators:` with your VMware GemFire cluster information, for each locator (in this example we only have one locator).  The information will follow the form:
 
    ```
-   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME][10334]
+   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME].svc.cluster.local[10334]
    ```
     For our example the value looks like this:
 
     ```
-    spring.data.gemfire.pool.locators: hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster[10334]
+    spring.data.gemfire.pool.locators: hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster.svc.cluster.local[10334]
     ```
 
   
 * Replace the value for `spring.data.gemfire.management.http.host:` with your VMware GemFire cluster information.  This will allow Spring Boot for VMware GemFire to push your initial cluster configuration to GemFire.  The information follows a similar form as above:
 
    ```
-   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME]
+   [GEMFIRE-CLUSTER-NAME]-locator-[LOCATOR-NUMBER].[GEMFIRE-CLUSTER-NAME]-locator.[NAMESPACE-NAME].svc.cluster.local
    ```
     For our example the value looks like this:
     
      ```
-      spring.data.gemfire.management.http.host: hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster
+      spring.data.gemfire.management.http.host: hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster.svc.cluster.local
      ```
       
 ### 4. Build a Docker Image with Gradle or Maven
@@ -256,7 +256,7 @@ In a terminal
 * Once you see that `GFSH` has started, connect to your cluster with the `connect` command
 
     ```
-    connect --locator=hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster[10334]
+    connect --locator=hello-world-gemfire-cluster-locator-0.hello-world-gemfire-cluster-locator.gemfire-cluster.svc.cluster.local[10334]
     ``` 
 * Once connected run the `list regions` command
 
