@@ -228,9 +228,9 @@ Now that you have your `BasicSecurityManager` implementation, you need to includ
 2. Start GemFire’s shell (gfsh) by running the `gfsh` command in a console / terminal.
 3. Start a locator and include the path to the jar file and class name of the `BasicSecurityManager`. The start locator command will look something like this:
       ```
-        start locator --name=locator1 --J=-Dgemfire.securitymanager=BasicSecurityManager --classpath=[path to your jar file]/BasicSecurityManager-1.0-SNAPSHOT.jar
+        start locator --name=locator1 --J=-Dgemfire.security-manager=BasicSecurityManager --classpath=[path to your jar file]/BasicSecurityManager-1.0-SNAPSHOT.jar
       ```
-    - **`--J=-Dgemfire.securitymanager=BasicSecurityManager`** - Defines the package and class for your security manager and allows GemFire to find the class when starting up.
+    - **`--J=-Dgemfire.security-manager=BasicSecurityManager`** - Defines the package and class for your security manager and allows GemFire to find the class when starting up.
     - **`--classpath=[path to your jar file]/BasicSecurityManager-1.0-SNAPSHOT.jar`** - Defines the path to the jar file that GemFire should use as the security manager.
 
 4. Once the locator has started, you will see an output similar to this:
