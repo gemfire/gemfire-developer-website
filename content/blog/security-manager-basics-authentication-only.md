@@ -102,7 +102,7 @@ Once the security manager is included to start the cluster, it is immediately us
 In `gfsh`, the command would look similar to the following:
 
 ```text
-    connect --locator= [IP Address that GemFire is running on] [10334] --user=default --password=reallyBadPassword
+    connect --locator= [IP Address that GemFire is running on][10334] --user=default --password=reallyBadPassword
 ```
 
 You should now be connected to the locator. Next, you will start a server. This will be very similar to starting the locator. In `gfsh`, use the `start server` command, which will include the path to the same `BasicSecurityManager` `.jar` file used when starting the locator.
