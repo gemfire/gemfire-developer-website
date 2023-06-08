@@ -107,7 +107,7 @@ In `gfsh`, the command would look similar to the following:
 
 You should now be connected to the locator. Next, you will start a server. This will be very similar to starting the locator. In `gfsh`, use the `start server` command, which will include the path to the same `BasicSecurityManager` `.jar` file used when starting the locator.
 ```text 
-    start server --name=server1 --locators=localhost [10334] --classpath=[path to your security mnanager]/BasicSecurityManager-1.0-SNAPSHOT.jar --user=default --password=reallyBadPassword
+    start server --name=server1 --locators=localhost[10334] --classpath=[path to your security manager]/BasicSecurityManager-1.0-SNAPSHOT.jar --user=default --password=reallyBadPassword
 ```
 - Repeat this step for each server you need to start, but make sure you change the `--name=` parameter to be unique for each server.
 
