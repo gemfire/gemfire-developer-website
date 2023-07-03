@@ -6,7 +6,13 @@ if (searchresultscontainermain != null) {
 
 	var searchresultscontainer = document.createElement("div");
 	searchresultscontainer.setAttribute("class","searchresultscontainer");
-	searchresultscontainermain.appendChild(searchresultscontainer);	
+	searchresultscontainermain.appendChild(searchresultscontainer);
+
+	var searchResultsHeader = document.createElement("h1");
+	searchResultsHeader.textContent = "Results";
+	searchResultsHeader.classList.add("searchheaderclass");
+	searchResultsHeader.setAttribute("id","searchResultsHeader");
+	searchresultscontainer.appendChild(searchResultsHeader);
 
 	var searchResults = document.createElement("div");
 	searchResults.setAttribute("id","searchResults");
@@ -133,6 +139,12 @@ if (query) {
 		document.body.appendChild(jsElm);	
 	}
 
+	var filterHeader = document.createElement("h1");
+	filterHeader.textContent = "Filter";
+	filterHeader.classList.add("searchheaderclass");
+	filterHeader.setAttribute("id","filterHeader");
+	searchLinks.appendChild(filterHeader);
+
 	var allLink = document.createElement("div");
 	allLink.setAttribute("id","all-link");
 	allLink.setAttribute("class","gsc-tabHeader gsc-inline-block active-tab");
@@ -166,7 +178,7 @@ if (query) {
 	}
 
 	// ------ FILTER LINKS ------
-	
+
 	// All Results
 	var allText = document.createElement("span");
 	allText.innerHTML = "All Results";
