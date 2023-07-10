@@ -1,28 +1,38 @@
 ---
-title: Improved Integration Testing with GemFire and Testcontainers
-description: Improved Integration Testing with GemFire and Testcontainers
+title: Fast and Easy Testing with GemFire and Testcontainers
+description: Fast and Easy Testing with GemFire and Testcontainers
 date: 2023-06-29
 lastmod: 2023-06-29
 team: 
 - Jens Deppe
 type: blog
 ---
-# Improved Integration Testing with GemFire and Testcontainers
 
 ## Introduction
 
-Testing your application against real-world, heavy-weight test fixtures such as databases or web
-servers can be a daunting task; often resulting in spending more time creating infrastructure and
-managing processes than actually writing tests. Testcontainers eases this burden by managing and
-exposing these services wrapped in Docker containers.
+Testing your application against real-world, heavy-weight test fixtures such as
+databases or web servers can be a daunting task; often resulting in spending
+more time creating infrastructure and managing processes than actually writing
+tests. Testcontainers[^1] eases this burden by managing and exposing these
+services wrapped in Docker containers.
 
-GemFire, being a distributed system comprised of multiple components, can be difficult to use as an
-integration test resource. This post introduces `gemfire-testcontainers` which allows a developer
-to use the Testcontainers framework to start a GemFire cluster and write tests against it.
-Testcontainers handles the full lifecycle and infrastructure requirements for running a GemFire
-cluster freeing the developer to focus on writing their tests.
+This post introduces `gemfire-testcontainers`[^2] which allows a developer to use
+the Testcontainers framework to easily and quickly start a complete GemFire
+cluster and write tests against it. Testcontainers handles the full lifecycle
+and infrastructure requirements for running a GemFire cluster; freeing the
+developer to focus on writing their tests.
+
+## What You'll Need
+
+- The ability to run Docker on your system
+- Access to VMware's commercial Maven repository[^3]. Since you're using
+  GemFire you should already have this.
 
 ## Getting Started
+
+You will need access to VMware's commercial Maven repository[^3]. Since you're
+using GemFire you should already have access, but if not, please follow the
+instructions on the GemFire Developer Center[^4].
 
 In order to use `gemfire-testcontainers` you should add the following dependency to your Maven `pom.xml`:
 
@@ -30,17 +40,20 @@ In order to use `gemfire-testcontainers` you should add the following dependency
 <dependency>
   <groupId>com.vmware.gemfire</groupId>
   <artifactId>gemfire-testontainers</artifactId>
-  <version>1.0.0</version>
+  <version>1.0</version>
 </dependency>
 ```
 
 Or, if using Gradle, you would add this to your `build.gradle` file:
 
 ```groovy
-api('com.vmware.gemfire:testcontainers:1.0.0')
+api('com.vmware.gemfire:testcontainers:1.0')
 ```
 
-At this point you are ready to write your first test. Here is an example:
+You will also need to ensure that you have Docker[^5] installed on your system.
+
+At this point you are ready to write your first test. Here is an example taken
+from the `gemfire-testcontainers` test suite[^6]:
 
 ```java
 @Test
@@ -164,3 +177,12 @@ responsible for ensuring proper cleanup of all started containers.
 Hopefully `gemfire-testcontainers` will make it easier to perform block-box testing with GemFire.
 If you find any bugs or have suggestions for improvements, please do open an issue on the
 project's Github page https://github.com/gemfire/gemfire-testcontainers.
+
+## References
+
+[^1]:[Testcontainers](https://testcontainers.com/)
+[^2]:[gemfire-testcontainers](https://github.com/gemfire/gemfire-testcontainers)
+[^3]:[VMware / Pivotal commercial maven repository](https://commercial-repo.pivotal.io)
+[^4]:[GemFire Developer Center](https://gemfire.dev/quickstart/java/)
+[^5]:[Docker Install](https://docs.docker.com/engine/install/)
+[^6]:[gemfire-testcontainers tests](https://github.com/gemfire/gemfire-testcontainers/blob/main/src/test/java/com/vmware/gemfire/testcontainers/GemFireTestcontainersTest.java)
