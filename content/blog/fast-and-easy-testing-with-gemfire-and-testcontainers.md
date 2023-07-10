@@ -13,33 +13,36 @@ type: blog
 Testing your application against real-world, heavy-weight test fixtures such as
 databases or web servers can be a daunting task; often resulting in spending
 more time creating infrastructure and managing processes than actually writing
-tests. Testcontainers[^1] eases this burden by managing and exposing these
-services wrapped in Docker containers.
+tests. [Testcontainers]((https://testcontainers.com/)[^1] eases this burden by
+managing and exposing these services wrapped in Docker containers.
 
-This post introduces `gemfire-testcontainers`[^2] which allows a developer to use
-the Testcontainers framework to easily and quickly start a complete GemFire
-cluster and write tests against it. Testcontainers handles the full lifecycle
+This post introduces
+[`gemfire-testcontainers`](https://github.com/gemfire/gemfire-testcontainers)[^2]
+which allows a developer to use the Testcontainers framework to easily and
+quickly start a complete
+[GemFire](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html)[^3]
+cluster and write tests against it.  Testcontainers handles the full lifecycle
 and infrastructure requirements for running a GemFire cluster; freeing the
 developer to focus on writing their tests.
 
 ## What You'll Need
 
 - The ability to run Docker on your system
-- Access to VMware's commercial Maven repository[^3]. Since you're using
-  GemFire you should already have this.
+- Access to VMware's commercial Maven repository.
 
 ## Getting Started
 
-You will need access to VMware's commercial Maven repository[^3]. Since you're
-using GemFire you should already have access, but if not, please follow the
-instructions on the GemFire Developer Center[^4].
+You will need access to VMware's [commercial Maven
+repository](https://commercial-repo.pivotal.io). Since you're using GemFire you
+should already have access, but if not, please follow the instructions on the
+[GemFire Developer Center](https://gemfire.dev/quickstart/java/).
 
 In order to use `gemfire-testcontainers` you should add the following dependency to your Maven `pom.xml`:
 
 ```xml
 <dependency>
   <groupId>com.vmware.gemfire</groupId>
-  <artifactId>gemfire-testontainers</artifactId>
+  <artifactId>gemfire-testcontainers</artifactId>
   <version>1.0</version>
 </dependency>
 ```
@@ -47,13 +50,14 @@ In order to use `gemfire-testcontainers` you should add the following dependency
 Or, if using Gradle, you would add this to your `build.gradle` file:
 
 ```groovy
-api('com.vmware.gemfire:testcontainers:1.0')
+api 'com.vmware.gemfire:testcontainers:1.0'
 ```
 
-You will also need to ensure that you have Docker[^5] installed on your system.
+You will also need to ensure that you have [Docker](https://docs.docker.com/engine/install/)[^4] installed on your system.
 
 At this point you are ready to write your first test. Here is an example taken
-from the `gemfire-testcontainers` test suite[^6]:
+from the `gemfire-testcontainers` [test
+suite](https://github.com/gemfire/gemfire-testcontainers/blob/main/src/test/java/com/vmware/gemfire/testcontainers/GemFireTestcontainersTest.java):
 
 ```java
 @Test
@@ -108,6 +112,14 @@ Breaking this down step by step:
    there is no need to worry about port conflicts since everything is ephemeral and dynamic.
 6. Since the cluster is wrapped in a try-resource block cleanup is automatic. Testcontainers will
    ensure that all containers are shut down once the test ends.
+
+> __Note__: If this is your first time using Testcontainers you may notice a
+> lot of DEBUG log messages. These can be suppressed by adding an appropriate
+> `logback` configuration file as described in the Testcontainer's [recommended
+> logback
+> configuration](https://java.testcontainers.org/supported_docker_environment/logging_config/)
+> section.
+
 
 ## Testing with Rules
 
@@ -174,7 +186,7 @@ responsible for ensuring proper cleanup of all started containers.
 
 ## Summary
 
-Hopefully `gemfire-testcontainers` will make it easier to perform block-box testing with GemFire.
+Hopefully `gemfire-testcontainers` will make it easier to perform black-box testing with GemFire.
 If you find any bugs or have suggestions for improvements, please do open an issue on the
 project's Github page https://github.com/gemfire/gemfire-testcontainers.
 
@@ -182,7 +194,6 @@ project's Github page https://github.com/gemfire/gemfire-testcontainers.
 
 [^1]:[Testcontainers](https://testcontainers.com/)
 [^2]:[gemfire-testcontainers](https://github.com/gemfire/gemfire-testcontainers)
-[^3]:[VMware / Pivotal commercial maven repository](https://commercial-repo.pivotal.io)
-[^4]:[GemFire Developer Center](https://gemfire.dev/quickstart/java/)
-[^5]:[Docker Install](https://docs.docker.com/engine/install/)
-[^6]:[gemfire-testcontainers tests](https://github.com/gemfire/gemfire-testcontainers/blob/main/src/test/java/com/vmware/gemfire/testcontainers/GemFireTestcontainersTest.java)
+[^3]:[GemFire](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html)
+[^4]:[Docker](https://docs.docker.com)
+[^5]:[gemfire-testcontainers tests](https://github.com/gemfire/gemfire-testcontainers/blob/main/src/test/java/com/vmware/gemfire/testcontainers/GemFireTestcontainersTest.java)
