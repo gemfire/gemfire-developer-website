@@ -13,7 +13,7 @@ type: blog
 Testing your application against real-world, heavy-weight test fixtures such as
 databases or web servers can be a daunting task; often resulting in spending
 more time creating infrastructure and managing processes than actually writing
-tests. [Testcontainers]((https://testcontainers.com/)[^1] eases this burden by
+tests. [Testcontainers](https://testcontainers.com/)[^1] eases this burden by
 managing and exposing these services wrapped in Docker containers.
 
 This post introduces
