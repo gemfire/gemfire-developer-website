@@ -4,12 +4,12 @@
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }} blog">
-    <header>
+    <header role="banner">
       {{ partial "navbar.html" . }}
     </header>
     <div class="container-fluid td-outer">
 
-      <div class="td-main">
+      <div class="td-main" role="main">
         
         {{ block "main" . }}{{ end }}
 
