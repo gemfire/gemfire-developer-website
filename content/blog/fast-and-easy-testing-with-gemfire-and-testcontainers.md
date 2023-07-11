@@ -47,7 +47,7 @@ In order to use `gemfire-testcontainers` you should add the following dependency
 Or, if using Gradle, you would add this to your `build.gradle` file:
 
 ```groovy
-api 'com.vmware.gemfire:testcontainers:1.0'
+testImplementation 'com.vmware.gemfire:testcontainers:1.0'
 ```
 
 You will also need to ensure that you have [Docker](https://docs.docker.com/engine/install/)[^4]
