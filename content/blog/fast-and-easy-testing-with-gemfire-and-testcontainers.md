@@ -1,8 +1,8 @@
 ---
 title: Fast and Easy Testing with GemFire and Testcontainers
 description: Fast and Easy Testing with GemFire and Testcontainers
-date: 2023-06-29
-lastmod: 2023-06-29
+date: 2023-07-10
+lastmod: 2023-07-10
 team: 
 - Jens Deppe
 type: blog
@@ -10,20 +10,18 @@ type: blog
 
 ## Introduction
 
-Testing your application against real-world, heavy-weight test fixtures such as
-databases or web servers can be a daunting task; often resulting in spending
-more time creating infrastructure and managing processes than actually writing
-tests. [Testcontainers](https://testcontainers.com/)[^1] eases this burden by
-managing and exposing these services wrapped in Docker containers.
+Testing your application against real-world, heavy-weight test fixtures such as databases or web
+servers can be a daunting task; often resulting in spending more time creating infrastructure and
+managing processes than actually writing tests. [Testcontainers](https://testcontainers.com/)[^1]
+eases this burden by managing and exposing these services wrapped in Docker containers.
 
 This post introduces
-[`gemfire-testcontainers`](https://github.com/gemfire/gemfire-testcontainers)[^2]
-which allows a developer to use the Testcontainers framework to easily and
-quickly start a complete
-[GemFire](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html)[^3]
-cluster and write tests against it.  Testcontainers handles the full lifecycle
-and infrastructure requirements for running a GemFire cluster; freeing the
-developer to focus on writing their tests.
+[`gemfire-testcontainers`](https://github.com/gemfire/gemfire-testcontainers)[^2] which allows a
+developer to use the Testcontainers framework to easily and quickly start a complete
+[GemFire](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html)[^3] cluster, uing
+the [GemFire Docker image](https://hub.docker.com/r/gemfire/gemfire), and write tests against it.
+Testcontainers handles the full lifecycle and infrastructure requirements for running a GemFire
+cluster; freeing the developer to focus on writing their tests.
 
 ## What You'll Need
 
@@ -32,10 +30,9 @@ developer to focus on writing their tests.
 
 ## Getting Started
 
-You will need access to VMware's [commercial Maven
-repository](https://commercial-repo.pivotal.io). Since you're using GemFire you
-should already have access, but if not, please follow the instructions on the
-[GemFire Developer Center](https://gemfire.dev/quickstart/java/).
+You will need access to VMware's [commercial Maven repository](https://commercial-repo.pivotal.io).
+Since you're using GemFire you should already have access, but if not, please follow the
+instructions on the [GemFire Developer Center](https://gemfire.dev/quickstart/java/).
 
 In order to use `gemfire-testcontainers` you should add the following dependency to your Maven `pom.xml`:
 
@@ -53,10 +50,11 @@ Or, if using Gradle, you would add this to your `build.gradle` file:
 api 'com.vmware.gemfire:testcontainers:1.0'
 ```
 
-You will also need to ensure that you have [Docker](https://docs.docker.com/engine/install/)[^4] installed on your system.
+You will also need to ensure that you have [Docker](https://docs.docker.com/engine/install/)[^4]
+installed on your system.
 
-At this point you are ready to write your first test. Here is an example taken
-from the `gemfire-testcontainers` [test
+At this point you are ready to write your first test. Here is an example taken from the
+`gemfire-testcontainers` [test
 suite](https://github.com/gemfire/gemfire-testcontainers/blob/main/src/test/java/com/vmware/gemfire/testcontainers/GemFireTestcontainersTest.java):
 
 ```java
@@ -98,25 +96,25 @@ public void testBasicSetup() {
 
 Breaking this down step by step:
 
-1. Here we're defining a new GemFire cluster. By default, this consists of one locator and 2 servers.
-   As of this writing, the default GemFire version is `9.15.6`. The API also allows to specify a
-   different GemFire image as well as additional servers.
-2. Since GemFire is a commercial product it is required to have a license. This method call
-   implies that the user has accepted the license and is aware of any restrictions in the use of GemFire.
+1. Here we're defining a new GemFire cluster. By default, this consists of one locator and 2
+   servers.  As of this writing, the default GemFire version is `9.15.6`. The API also allows to
+   specify a different GemFire image as well as additional servers.
+2. Since GemFire is a commercial product it is required to have a license. This method call implies
+   that the user has accepted the license and is aware of any restrictions in the use of GemFire.
 3. Now we can start the cluster. This will launch the actual Docker containers.
 4. The `GemFireClusterContainer` provides a way to run arbitrary `gfsh` commands, optionally logging
    their output.
-5. Now we're ready to interact with GemFire. In this case the client is connecting using the locator's
-   port. Notice that we haven't needed to specify which ports GemFire is using. One of the big
-   advantages of Testcontainers is that it provides independence from most infrastructure configuration - 
-   there is no need to worry about port conflicts since everything is ephemeral and dynamic.
-6. Since the cluster is wrapped in a try-resource block cleanup is automatic. Testcontainers will
+5. Now we're ready to interact with GemFire. In this case the client is connecting using the
+   locator's port. Notice that we haven't needed to specify which ports GemFire is using. One of the
+   big advantages of Testcontainers is that it provides independence from most infrastructure
+   configuration - there is no need to worry about port conflicts since everything is ephemeral and
+   dynamic.
+6. Since the cluster is wrapped in a try-resource block, cleanup is automatic. Testcontainers will
    ensure that all containers are shut down once the test ends.
 
-> __Note__: If this is your first time using Testcontainers you may notice a
-> lot of DEBUG log messages. These can be suppressed by adding an appropriate
-> `logback` configuration file as described in the Testcontainer's [recommended
-> logback
+> __Note__: If this is your first time using Testcontainers you may notice a lot of DEBUG log
+> messages. These can be suppressed by adding an appropriate `logback` configuration file as
+> described in the Testcontainer's [recommended logback
 > configuration](https://java.testcontainers.org/supported_docker_environment/logging_config/)
 > section.
 
