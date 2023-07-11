@@ -18,7 +18,7 @@ eases this burden by managing and exposing these services wrapped in Docker cont
 This post introduces
 [`gemfire-testcontainers`](https://github.com/gemfire/gemfire-testcontainers)[^2] which allows a
 developer to use the Testcontainers framework to easily and quickly start a complete
-[GemFire](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html)[^3] cluster, uing
+[GemFire](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html)[^3] cluster, using
 the [GemFire Docker image](https://hub.docker.com/r/gemfire/gemfire), and write tests against it.
 Testcontainers handles the full lifecycle and infrastructure requirements for running a GemFire
 cluster; freeing the developer to focus on writing their tests.
