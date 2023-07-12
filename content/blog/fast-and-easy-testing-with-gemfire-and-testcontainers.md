@@ -1,7 +1,6 @@
 ---
 title: Fast and Easy Testing with GemFire and Testcontainers
 description: Make testing with GemFire clusters a breeze by leveraging the power of Testcontainers.
-description: Fast and Easy Testing with GemFire and Testcontainers
 date: 2023-07-10
 lastmod: 2023-07-10
 team: 
