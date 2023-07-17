@@ -118,6 +118,12 @@ limitations under the License.
     $("#searchheaderform input").focus();
   });
 
+  $(".search-hide").keypress(function () {
+    $("#search-nav").slideToggle();
+    $(this).toggleClass("close");
+    $("#searchheaderform input").focus();
+  });
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
