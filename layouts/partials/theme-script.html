@@ -17,13 +17,15 @@
         lightModeElement.setAttribute("href", "{{ .cssLight.RelPermalink }}");
         lightModeElement.setAttribute("id", "light-theme");
         document.head.append(lightModeElement);
-        $("html").addClass("light-mode")
+        $("html").addClass("light-mode");
+        alertNewTheme("Light theme")
     }
 
     const setDarkMode = () => {
         localStorage.setItem('tdc-theme-setting', 'dark')
         $("html").removeClass("light-mode");
-        $("#light-theme").remove()
+        $("#light-theme").remove();
+        alertNewTheme("Dark theme")
     }
 
     const toggleTheme = () => {
@@ -40,6 +42,12 @@
         } else {
             setDarkMode()
         }
+    }
+
+    const alertNewTheme = (msg) => {
+        document.getElementById("hiddenAlertContainer").innerHTML = "";
+        document.getElementById("hiddenAlertContainer").innerHTML =
+            msg;
     }
 
     setTheme();
