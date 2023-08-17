@@ -1,10 +1,9 @@
 ---
-
-title: Autoscaling GemFire for Kubernetes: From Stats to Pods
+title: 'Autoscaling GemFire for Kubernetes: From Stats to Pods'
 date: '2023-08-17'
-description: How to configure the GF4K8S autoscaler using custom metrics derived from GemFire statistics.
+description: How to set up a GemFire for Kubernetes autoscaler driven by custom metrics from GemFire statistics.
 lastmod: '2023-08-17'
-link-title: Autoscaling GemFire for Kubernetes: From Stats to Pods
+link-title: 'Autoscaling GemFire for Kubernetes: From Stats to Pods'
 parent: VMware GemFire for Kubernetes
 type: tutorials
 weight: 
@@ -27,7 +26,7 @@ Integrating GemFire with Kubernetes simplifies deployment and offers more robust
 # Step by Step Guide
 
 Ensure you have access to an environment that satisfies GF4K8S prerequisites.
-* [GF4K8S Prerequisites and Supported Platforms](https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.2/gf-k8s/supported-configurations.html)
+* [GF4K8S Prerequisites and Supported Platforms](https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.3/gf-k8s/supported-configurations.html)
 
 ## Install Prometheus server
 
