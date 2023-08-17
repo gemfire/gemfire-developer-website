@@ -3,11 +3,10 @@
 title: Autoscaling GemFire for Kubernetes: From Stats to Pods
 date: '2023-08-17'
 description: How to configure the GF4K8S autoscaler using custom metrics derived from GemFire statistics.
-lastmod: '2022-08-15'
+lastmod: '2023-08-17'
 link-title: Autoscaling GemFire for Kubernetes: From Stats to Pods
 parent: VMware GemFire for Kubernetes
 type: tutorials
-icon: gemfire
 weight: 
 aliases:
     - autoscaling-gf4k8s-custom-metrics/
