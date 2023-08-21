@@ -16,17 +16,17 @@ In this guide, you'll learn how to set up a VMware GemFire cluster on Kubernetes
 
 # Introduction
 
-Integrating GemFire with Kubernetes simplifies deployment and offers more robust availability with self-healing, automated data redundancy, and data rebalancing. Since the release of VMware GemFire for Kubernetes (GF4K8S) 2.3, we've added automated cluster scaling using a [HorizontalPodScaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA). This allows a hands-off way to automatically scale the number of servers in your GemFire cluster based on their average CPU utilization or other custom-defined metrics. For example, GemFire can properly scale to handle peaks and valleys in throughput, network, disk space, and more. So long as one can describe their scenario using available [GemFire statistics](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/reference-statistics_list.html), then the HPA can scale the cluster without human intervention.
+Integrating GemFire with Kubernetes simplifies deployment and offers more robust availability with self-healing, automated data redundancy, and data rebalancing. With the release of VMware GemFire for Kubernetes 2.3, we've added automated cluster scaling using a [HorizontalPodScaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA). This allows a hands-off way to automatically scale the number of servers in your GemFire cluster based on their average CPU utilization or other custom-defined metrics. For example, GemFire can properly scale to handle peaks and valleys in throughput, network, disk space, and more. So long as one can describe their scenario using available [GemFire statistics](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/reference-statistics_list.html), then the HPA can scale the cluster without human intervention.
 
- Our out-of-the-box HPA can scale by monitoring the CPU utilization on all the servers in the GemFire for Kubernetes cluster. In this writeup, we'll go step-by-step in defining a custom metric from the many available GemFire statistics for the HPA to use. We'll start with preparing our Kubernetes cluster with [Prometheus](https://prometheus.io/), and [Prometheus Adapter](https://github.com/kubernetes-sigs/prometheus-adapter), configure the adapter with a custom metric definition, and finally start and configure a GemFire for Kubernetes cluster and demo the HPA. Our contrived GemFire cluster will have a single region configured to write entries to disk when the number of region entries is above 2. The HPA will monitor a GemFire statistic counting the number of entries on disk and scale the cluster in response to adding or deleting region data.
+ Our out-of-the-box HPA can scale by monitoring the CPU utilization on all the servers in the GemFire for Kubernetes cluster. In this guide, we'll go step-by-step in defining a custom metric from the many available GemFire statistics for the HPA to use. We'll start with preparing our Kubernetes cluster with [Prometheus](https://prometheus.io/), and [Prometheus Adapter](https://github.com/kubernetes-sigs/prometheus-adapter), configure the adapter with a custom metric definition, and finally start and configure a GemFire for Kubernetes cluster and demo the HPA. Our contrived GemFire cluster will have a single region configured to write entries to disk when the number of region entries is above 2. The HPA will monitor a GemFire statistic counting the number of entries on disk and scale the cluster in response to adding or deleting region data.
 
 ![Overflow to disk eviction policy](images/image.png)
 *GemFire configured to offload data to disk*
 
 # Step by Step Guide
 
-Ensure you have access to an environment that satisfies GF4K8S prerequisites.
-* [GF4K8S Prerequisites and Supported Platforms](https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.3/gf-k8s/supported-configurations.html)
+Ensure you have access to an environment that satisfies GemFire for Kubernetes prerequisites.
+* [GemFire for Kubernetes Prerequisites and Supported Platforms](https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.3/gf-k8s/supported-configurations.html)
 
 ## Install Prometheus server
 
@@ -266,4 +266,4 @@ $ kubectl get hpa gemfire-cluster-horizontal-pod-autoscaler
 
 # Conclusion
 
-Since GFK48S 2.3, automatically scaling a GemFire for Kubernetes cluster using CPU utilization and/or custom metrics is possible. GFK8S built-in HorizontalPodScaler allows a hands-off way to respond to a throughput spikes, disk space and memory utilization, and more using many existing GemFire metrics. This writeup covers the basics of configuration, but more complex queries and configuration that involve multiple metrics at once could be implemented to handle a variety of scenarios.
+With VMware GemFire for Kubernetes 2.3, users now have the ability to autoscale GemFire clusters based on CPU utilization and custom metrics. The integrated HorizontalPodScaler can respond to throughput spikes, disk space and memory utilization, and more by leveraging GemFire's extensive statistics. While this guide covers the fundamentals of configuration, more advanced setups using multiple metrics at once could be created to address a variety of scenarios.
