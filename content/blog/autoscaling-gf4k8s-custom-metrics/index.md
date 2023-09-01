@@ -1,14 +1,11 @@
 ---
 title: 'Autoscaling GemFire for Kubernetes: From Stats to Pods'
 date: '2023-08-17'
-description: How to set up a GemFire for Kubernetes autoscaler driven by custom metrics from GemFire statistics.
 lastmod: '2023-08-17'
-link-title: 'Autoscaling GemFire for Kubernetes: From Stats to Pods'
-parent: VMware GemFire for Kubernetes
-type: tutorials
-weight: 
-aliases:
-    - autoscaling-gf4k8s-custom-metrics/
+description: How to set up a GemFire for Kubernetes autoscaler driven by custom metrics from GemFire statistics.
+type: blog
+team:
+  - Louis Jacome
 ---
 
 In this guide, you'll learn how to set up a VMware GemFire cluster on Kubernetes, utilizing an autoscaler driven by custom metrics from GemFire statistics
