@@ -12,7 +12,7 @@ Spring Boot for VMware GemFire provides the convenience of Spring Boot's convent
 
 Spring Boot for VMware GemFire provides developers with a consistent experience whether building and running Spring Boot VMware GemFire applications locally or in a managed environment, such as with [VMware Tanzu Application Service](https://tanzu.vmware.com/application-service) (TAS) or on Kubernetes.
 
-This reference guide explains how to add the Spring Boot for VMware GemFire dependency to your project. Once the dependency has been added, refer to the [Spring Boot for Apache Geode Reference Guide](https://docs.spring.io/spring-boot-data-geode-build/current/reference/html5/) for in-depth information about on using the dependency.
+This reference guide explains how to add the Spring Boot for VMware GemFire dependency to your project. Once the dependency has been added, refer to the [Spring Boot for VMware GemFire Reference Guide](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/index.html) for in-depth information about on using the dependency.
 
 ## Add Spring Boot for VMware GemFire to a Project
 
@@ -98,18 +98,18 @@ To add Spring Boot for VMware GemFire to a project:
         <dependencies>
             <dependency>
                 <groupId>com.vmware.gemfire</groupId>
-                <artifactId>spring-boot-2.7-gemfire-9.15</artifactId>
+                <artifactId>spring-boot-3.1-gemfire-10.0</artifactId>
                 <version>VERSION</version>
             </dependency>
             <dependency>
                 <groupId>com.vmware.gemfire</groupId>
-                <artifactId>geode-core</artifactId>
+                <artifactId>gemfire-core</artifactId>
                 <version>GEMFIRE_VERSION</version>
             </dependency>
             <!--if using continuous queries-->
             <dependency>
                 <groupId>com.vmware.gemfire</groupId>
-                <artifactId>geode-cq</artifactId>
+                <artifactId>gemfire-cq</artifactId>
                 <version>GEMFIRE_VERSION</version>
             </dependency>
         </dependencies>
@@ -119,10 +119,10 @@ To add Spring Boot for VMware GemFire to a project:
 
         ```
         dependencies {
-            implementation "com.vmware.gemfire:spring-boot-2.7-gemfire-9.15:VERSION"
-            implementation "com.vmware.gemfire:geode-core:GEMFIRE_VERSION"
+            implementation "com.vmware.gemfire:spring-boot-3.1-gemfire-10.0:VERSION"
+            implementation "com.vmware.gemfire:gemfire-core:GEMFIRE_VERSION"
             // if using continuous queries
-            implementation "com.vmware.gemfire:geode-cq:GEMFIRE_VERSION"
+            implementation "com.vmware.gemfire:gemfire-cq:GEMFIRE_VERSION"
         }
         ```
 
@@ -135,17 +135,17 @@ To add Spring Boot for VMware GemFire to a project:
         ```
         <dependency>
             <groupId>com.vmware.gemfire</groupId>
-            <artifactId>spring-boot-2.7-gemfire-9.15</artifactId>
+            <artifactId>spring-boot-3.1-gemfire-10.0</artifactId>
             <version>VERSION</version>
         </dependency>
         <dependency>
             <groupId>com.vmware.gemfire</groupId>
-            <artifactId>geode-server-all</artifactId>
+            <artifactId>gemfire-server-all</artifactId>
             <version>GEMFIRE_VERSION</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.vmware.gemfire</groupId>
-                    <artifactId>geode-log4j</artifactId>
+                    <artifactId>gemfire-log4j</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -155,9 +155,9 @@ To add Spring Boot for VMware GemFire to a project:
 
         ```
         dependencies {
-            implementation "com.vmware.gemfire:spring-boot-2.7-gemfire-9.15:VERSION"
-            implementation ("com.vmware.gemfire:geode-server-all:GEMFIRE_VERSION"){
-                exclude group: 'com.vmware.gemfire', module: 'geode-log4j'
+            implementation "com.vmware.gemfire:spring-boot-3.1-gemfire-10.0:VERSION"
+            implementation ("com.vmware.gemfire:gemfire-server-all:GEMFIRE_VERSION"){
+                exclude group: 'com.vmware.gemfire', module: 'gemfire-log4j'
             }
         }
         ```
@@ -170,7 +170,7 @@ To add Spring Boot for VMware GemFire to a project:
         <dependencies>
             <dependency>
                 <groupId>com.vmware.gemfire</groupId>
-                <artifactId>spring-boot-2.7-gemfire-9.15</artifactId>
+                <artifactId>spring-boot-3.1-gemfire-10.0</artifactId>
                 <version>VERSION</version>
             </dependency>
         </dependencies>
@@ -180,7 +180,7 @@ To add Spring Boot for VMware GemFire to a project:
 
         ```
         dependencies {
-            implementation "com.vmware.gemfire:spring-boot-2.7-gemfire-9.15:VERSION"
+            implementation "com.vmware.gemfire:spring-boot-3.1-gemfire-10.0:VERSION"
         }
         ```
 
@@ -190,10 +190,10 @@ Your application is now ready to connect with your GemFire instance.
 
 To enable additional functionality, such as Spring Boot Actuator or Spring Session, declare any of the following modules in your `.pom` or `.gradle` file (in addition to the `spring-gemfire-starter  dependency)`:
 
-* `spring-boot-actuator-2.7-gemfire-9.15:1.1.0`
-* `spring-boot-logging-2.7-gemfire-9.15:1.1.0`
-* `spring-boot-session-2.7-gemfire-9.15:1.1.0`
+* `spring-boot-actuator-3.1-gemfire-10.0:1.0.0`
+* `spring-boot-logging-3.1-gemfire-10.0:1.0.0`
+* `spring-boot-session-3.1-gemfire-10.0:1.0.0`
 
 ## Reference Guide
 
-For further information, refer to the Spring Boot for [Apache Geode Reference Guide](https://docs.spring.io/spring-boot-data-geode-build/current/reference/html5/).
+For further information, refer to the [Spring Boot for VMware GemFire Reference Guide](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/index.html).

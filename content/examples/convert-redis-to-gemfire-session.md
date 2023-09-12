@@ -2,7 +2,7 @@
 title: Spring - Convert Redis HTTP Session State to VMware GemFire
 date: '2021-05-28'
 lastmod: '2021-05-28'
-repo: https://github.com/gemfire/spring-for-apache-geode-examples
+repo: https://github.com/gemfire/spring-for-gemfire-examples
 tags:
 - Redis
 - Spring

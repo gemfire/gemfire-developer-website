@@ -37,8 +37,8 @@ The session UUID is used as a key in a data store holding information associated
 To complete this guide you need:
 
 * The [Session State example](https://github.com/gemfire/spring-for-gemfire-examples/tree/main/session-state)
-* JDK 8 or 11
-* Spring Boot 2.6 or above
+* JDK 8, 11, or 17. JDK 17 is required to use Spring Boot 3.0 or higher.
+* Spring Boot 2.7 or above
 * [Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html)
 * [A Pivotal Commercial Maven Repo account (free)](https://commercial-repo.pivotal.io/login/auth)
 * GemFire 9.15.3+
@@ -138,8 +138,8 @@ Spring Boot for VMware GemFire requires users to add the GemFire repository to t
     **Gradle**
     ```groovy
     dependencies {
-        implementation "com.vmware.gemfire:spring-boot-2.7-gemfire-9.15:1.0.0"
-        implementation "com.vmware.gemfire:spring-boot-session2.7-gemfire-9.15:1.0.0"
+        implementation "com.vmware.gemfire:spring-boot-3.1-gemfire-10.0:1.0.0"
+        implementation "com.vmware.gemfire:spring-boot-session3.1-gemfire-10.0:1.0.0"
       ...
     }
     
@@ -150,12 +150,12 @@ Spring Boot for VMware GemFire requires users to add the GemFire repository to t
     <dependencies>
         <dependency>
             <groupId>com.vmware.gemfire</groupId>
-            <artifactId>spring-boot-2.7-gemfire-9.15</artifactId>
+            <artifactId>spring-boot-3.1-gemfire-10.0</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.vmware.gemfire</groupId>
-            <artifactId>spring-boot-session-2.7-gemfire-9.15</artifactId>
+            <artifactId>spring-boot-session-3.1-gemfire-10.0</artifactId>
             <version>1.0.0</version>
         </dependency>
     ...
@@ -178,9 +178,9 @@ public class SessionStateApplication {
   }
 }
 ```
-- [@EnableClusterAware](https://docs.spring.io/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware)
+- [@EnableClusterAware](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/configuration-declarative.html)
 Allows the application to seamlessly switch between local-only (application running on local machine) and client/server (in a managed environment such as Tanzu Application Service). 
-- This annotation transitively includes the [@EnableClusterConfiguration](https://docs.spring.io/spring-boot-data-geode-build/current/reference/html5/#geode-configuration-declarative-annotations-productivity-enableclusteraware) annotation, which dynamically creates regions if they do not exist already. Note that the `@EnableClusterConfiguration` annotation will **only create Regions**, it will not delete or update existing regions.
+- This annotation transitively includes the [@EnableClusterConfiguration](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/configuration-declarative.html) annotation, which dynamically creates regions if they do not exist already. Note that the `@EnableClusterConfiguration` annotation will **only create Regions**, it will not delete or update existing regions.
 
 The example Spring Boot application uses a [`@RestController`](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-controller) that allows the front end application to interact with a REST API to read, update, and destroy session data (notes in this example application).
 

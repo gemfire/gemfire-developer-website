@@ -34,16 +34,12 @@ We have received feedback from customers that need support for multiple Spring a
 
 ***What versions of Spring and GemFire are compatible?***
 
-The first release of the Spring for GemFire dependencies is compatible with
+The current releases of the Spring for GemFire dependencies are compatible with
 
-- Spring Boot 2.6 and 2.7
-- Spring Data 2.6 and 2.7
-- Spring Session 2.6 and 2.7
-- GemFire 9.15.3
-
-***Will Spring Boot/Data/Session 3 be supported?***
-
-Yes, we will be supporting Spring Boot/Data/Session 3, but no release date is set.
+- Spring Boot 2.7, 3.0, and 3.1
+- Spring Data 2.7, 3.0, and 3.1
+- Spring Session 2.7, 3.0, and 3.1
+- GemFire 9.15 and 10.0
 
 ***How do I migrate to the new dependencies?***
 
