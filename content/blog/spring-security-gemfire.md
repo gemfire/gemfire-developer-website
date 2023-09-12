@@ -308,5 +308,5 @@ Need help with a complex problem or want to validate your solution? share some d
 ## References
 * [VMware GemFire Documentation](https://docs.vmware.com/en/VMware-GemFire/index.html)
 * [Spring Security Repository](https://github.com/spring-projects/spring-security)
-* [Spring Data GemFire Repository](https://github.com/spring-projects/spring-data-gemfire)
+* [Spring Data for VMware GemFire Repository](https://github.com/gemfire/spring-data-for-vmware-gemfire)
 * [Geode Spring Security Repository](https://github.com/jujoramos/geode-spring-security)

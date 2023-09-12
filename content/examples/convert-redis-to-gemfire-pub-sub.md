@@ -2,12 +2,12 @@
 title: Spring - Convert Spring Data Redis Pub-Sub to VMware GemFire
 date: '2021-05-28'
 lastmod: '2021-05-28'
-repo: https://github.com/gemfire/spring-for-apache-geode-examples
+repo: https://github.com/gemfire/spring-for-gemfire-examples
 tags:
 - Redis
 - Spring
 type: examples
-description: This example highlights the changes necessary for switching to Spring Boot Data GemFire for a Spring Data Redis publish/subscribe app.
+description: This example highlights the changes necessary for switching to Spring Boot for VMware GemFire for a Spring Data Redis publish/subscribe app.
 
 ---
 

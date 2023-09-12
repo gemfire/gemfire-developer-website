@@ -19,9 +19,9 @@ description: A small project to show how VMware GemFire write-behind event handl
 
 Implementing a data access layer of an application is a cumbersome task, a lot of boilerplate code needs to be written and tested to execute simple queries, perform pagination, auditing, etc. Spring Data JPA allows the user to significantly improve the implementation of data access layers by reducing the effort to the amount that’s actually needed.
 
-An `AsyncEventListener` is a simple VMware GemFire callback that asynchronously processes batches of events after they have been applied to a VMware GemFire *Region*. It’s widely used to implement a write-behind cache event handler to synchronize region updates with an external database. It’s, however, cumbersome to configure the *asynchronous-event-queue* and the region itself using plain VMware GemFire configuration files or Java API. Spring Boot Data Geode makes the process easier, faster, and less error-prone, simplifying the configuration, development, testing, and deployment of the application.
+An `AsyncEventListener` is a simple VMware GemFire callback that asynchronously processes batches of events after they have been applied to a VMware GemFire *Region*. It’s widely used to implement a write-behind cache event handler to synchronize region updates with an external database. It’s, however, cumbersome to configure the *asynchronous-event-queue* and the region itself using plain VMware GemFire configuration files or Java API. Spring Boot for VMware GemFire makes the process easier, faster, and less error-prone, simplifying the configuration, development, testing, and deployment of the application.
 
-Having those technologies out there in the open, why would we want to spend hours and resources in developing and testing the parts on our own?… Guess what, we don’t!; instead, we’re gonna build a small and simple project to show how a VMware GemFire write-behind event handling can be easily implemented with the help of Spring Data JPA and Spring Boot Data Geode.
+Having those technologies out there in the open, why would we want to spend hours and resources in developing and testing the parts on our own?… Guess what, we don’t!; instead, we’re gonna build a small and simple project to show how a VMware GemFire write-behind event handling can be easily implemented with the help of Spring Data JPA and Spring Boot for VMware GemFire.
 
 ## How?
 
@@ -259,11 +259,11 @@ The `SpringBootApplication` annotation is for convenience, it adds all of the fo
    
    - *EnableAutoConfiguration:* Tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings.
    
-We also added some Spring Boot Data Geode annotations to customize the behavior of our VMware GemFire *Cache*.
+We also added some Spring Boot for VMware GemFire annotations to customize the behavior of our VMware GemFire *Cache*.
    
-   - *EnableLogging:* Tells Spring Boot Data Geode to configure and enable VMware GemFire system logging.
+   - *EnableLogging:* Tells Spring Boot for VMware GemFire to configure and enable VMware GemFire system logging.
    
-   - *CacheServerApplication:* Tells Spring Boot Data Geode to enable an embedded VMware GemFire *CacheServer* instance. Moreover, this also implies an embedded peer *Cache* must exist and, therefore, will be configured, constructed, and initialized as a Spring bean in the application context.
+   - *CacheServerApplication:* Tells Spring Boot for VMware GemFire to enable an embedded VMware GemFire *CacheServer* instance. Moreover, this also implies an embedded peer *Cache* must exist and, therefore, will be configured, constructed, and initialized as a Spring bean in the application context.
    
 ### Running the Application
 
@@ -321,7 +321,7 @@ public class JPAAsyncListenerApplicationTest {
     logger.info("-------------------------------");
     logger.info("");
 
-    // Insert some employees into the Geode Region
+    // Insert some employees into the GemFire Region
     employees.forEach(employee -> employeesRegion.put(employee.getId(), employee));
 
     // Wait for queues to drain (AsyncEventListener invoked).
@@ -347,4 +347,4 @@ The test is straightforward and simple: we check that the database is empty, ins
 
 ## What's next?
 
-Check out [Spring Boot for VMware GemFire](https://docs.spring.io/spring-boot-data-geode-build/1.3.x/reference/html5/), you can do way more things more easily and quickly, with just some extra annotations!
+Check out [Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html), you can do way more things more easily and quickly, with just some extra annotations!

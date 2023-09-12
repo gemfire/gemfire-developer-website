@@ -47,8 +47,8 @@ This section will guide you through testing a *Hello, World!* client app on your
 
 ### What You'll Need
 * The [Hello, World!](https://github.com/gemfire/spring-for-gemfire-examples/tree/main/hello-world) example.
-* JDK 8 or 11
-* Spring Boot 2.6 or above
+* JDK 8, 11, or 17. JDK 17 is required to use Spring Boot 3.0 or higher.. JDK 17 is required to use Spring Boot 3.0 or higher.
+* Spring Boot 2.7 or above
 * [Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html)
 * GemFire 9.15+ 
 * [A Pivotal Commercial Maven Repo account (free)](https://commercial-repo.pivotal.io/login/auth)
