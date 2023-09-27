@@ -1,7 +1,7 @@
 ---
-title: "GemFire Management Console Version 1.1: Elevating GemFire Cluster Management"
-date: "2023-09-20"
-lastmod: "2023-09-20"
+title: "GemFire Management Console 1.1: Your Key to Data Value"
+date: "2023-09-27"
+lastmod: "2023-09-27"
 type: blog
 
 # Author(s)
@@ -42,7 +42,7 @@ The Data Explorer feature in GemFire Management Console 1.1 offers a powerful to
 
 ![Data Browsing with example data](images/data_explorer_browse.png)
 
-**Data Browsing** simplifies data access and exploration within the GemFire cluster. Users can easily select a specific region, define result limits, and swiftly retrieve data. This streamlined process is especially beneficial for managing large datasets, with the results presented in a table format. Users can export this data in CSV or JSON formats, enhancing its usability for various purposes.
+**Data Browsing** simplifies data access and exploration within the GemFire cluster. Users can easily select a specific region, define result limits, and swiftly retrieve data. This streamlined process is especially beneficial for managing large datasets, with the results presented in a table format. Users can export this data in CSV or JSON formats, enhancing its usability for offline analysis..
 
 
 
@@ -54,11 +54,11 @@ The Data Explorer feature in GemFire Management Console 1.1 offers a powerful to
 
 The Data Explorer feature simplifies data retrieval and exploration, enabling users to swiftly access critical information within their GemFire clusters. Whether it's gaining insights into customer behavior, identifying growth opportunities, or making data-driven decisions, this feature empowers organizations to harness the full potential of their GemFire data, providing a vital resource in today's data-driven landscape.
 
-## Download Logs and Stats
-Users can now easily download logs and stats from their GemFire clusters. This feature simplifies the data collection process, offers customization options, and enhances issue diagnosis and resolution, ultimately improving the overall management of GemFire clusters.
+## Download Logs and Statistics
+Users can now easily download logs and statistics from their GemFire clusters. This feature simplifies the data collection process, offers customization options, and enhances issue diagnosis and resolution, ultimately improving the overall management of GemFire clusters.
 
 
-{{< figure src="images/download_logs_and_stats.png" width="475px" alt="Download Logs and Stats form">}}
+{{< figure src="images/download_logs_and_stats.png" width="475px" alt="Download Logs and Statistics form">}}
 
 In traditional scenarios, when diagnosing issues in complex cluster environments, users often have to sift through extensive logs and statistics, potentially containing vast amounts of data that may not be directly relevant to the problem at hand.
 
