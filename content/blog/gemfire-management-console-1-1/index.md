@@ -1,7 +1,7 @@
 ---
 title: "GemFire Management Console 1.1: Your Key to Data Value"
-date: "2023-09-27"
-lastmod: "2023-09-27"
+date: "2023-10-11"
+lastmod: "2023-10-11"
 type: blog
 
 # Author(s)
@@ -97,6 +97,6 @@ GemFire Management Console version 1.1 is a game-changer for developers and oper
 
 **Download:** Available now from the [Tanzu Newtwork](https://network.tanzu.vmware.com/products/gemfire-management-console/).
 
-**Documentation:** 
+**Documentation:** [GemFire Management Console 1.1 Documentation] (https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/index.html)
 
-**Release Notes:** 
+**Release Notes:** [GemFire Management Console 1.1 Release Notes] (https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/release_notes.html)
