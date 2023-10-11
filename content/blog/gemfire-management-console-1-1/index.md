@@ -97,6 +97,6 @@ GemFire Management Console version 1.1 is a game-changer for developers and oper
 
 **Download:** Available now from the [Tanzu Newtwork](https://network.tanzu.vmware.com/products/gemfire-management-console/).
 
-**Documentation:** [GemFire Management Console 1.1 Documentation] (https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/index.html)
+**Documentation:** [GemFire Management Console 1.1 Documentation](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/index.html)
 
-**Release Notes:** [GemFire Management Console 1.1 Release Notes] (https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/release_notes.html)
+**Release Notes:** [GemFire Management Console 1.1 Release Notes](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/release_notes.html)
