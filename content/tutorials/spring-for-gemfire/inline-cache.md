@@ -128,7 +128,7 @@ GemFire's CacheLoader is used to fetch data from external systems and load it in
 Our CacheLoader implementation also uses JOOQ for connecting to Postgres and Java system properties to retrieve Postgres' username and password.
 
 ### AsyncEventListener
-Gemfire's AsyncEventListener is used to listen for events to the cache, and then perform a batch update to the backing Postgres database.
+GemFire's AsyncEventListener is used to listen for events to the cache, and then perform a batch update to the backing Postgres database.
 HikariCP, a popular connection pooling library for Java applications, is being used here to help handle our Postgres connections. We also
 are using a singleton pattern in order to load only one connection pool in our cache.
 
@@ -259,7 +259,7 @@ The AsyncEventListener and CacheLoader work together.
 
 ## Cleanup
 
-### Gemfire
+### GemFire
 From GemFire Shell (`gfsh`), to stop the locator and server:
 
     shutdown --include-locators=true

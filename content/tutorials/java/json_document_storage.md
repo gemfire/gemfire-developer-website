@@ -34,7 +34,7 @@ Clone the [GemFire examples repository](https://github.com/gemfire/gemfire-examp
 $ git clone git@github.com:gemfire/gemfire-examples.git
 ```
 
-Set Gemfire home environment variable to top of GemFire install directory. Note for this example Gemfire is installed in the home directory of the user - adjust as nessagery for local environment and install directory location.
+Set GemFire home environment variable to top of GemFire install directory. Note for this example GemFire is installed in the home directory of the user - adjust as nessagery for local environment and install directory location.
 
 ```text
 $ export GEMFIRE_HOME=${HOME}/gemfire

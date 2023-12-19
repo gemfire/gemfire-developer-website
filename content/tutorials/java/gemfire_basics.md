@@ -29,7 +29,7 @@ Clone the [GemFire examples repository](https://github.com/gemfire/gemfire-examp
 $ git clone git@github.com:gemfire/gemfire-examples.git
 ```
 
-Set GEMFIRE_HOME environment variable to the top of GemFire install directory. Note for this example Gemfire is installed in the home directory of the user - adjust as necessary for local environment and install directory location.
+Set GEMFIRE_HOME environment variable to the top of GemFire install directory. Note for this example GemFire is installed in the home directory of the user - adjust as necessary for local environment and install directory location.
 
 ```text
 $ export GEMFIRE_HOME=${HOME}/gemfire
@@ -83,7 +83,7 @@ The `pom.xml` file provided with the examples is already configured with a point
 
 ## Introduction to GFSH
 
-VMware GemFire provides the command line tool "gfsh" for managing Gemfire clusters.  Gfsh can be used to start and stop members of the cluster along with configure additional features of the product.
+VMware GemFire provides the command line tool "gfsh" for managing GemFire clusters.  Gfsh can be used to start and stop members of the cluster along with configure additional features of the product.
 
 Start interactive gfsh shell in a terminal or console window.
 
