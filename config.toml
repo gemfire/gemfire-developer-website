@@ -91,7 +91,7 @@ time_format_default = "January 2, 2006"
 rss_sections = ["blog","tv-episode"]
 
 
-copyright = "VMware, Inc"
+copyright = "Broadcom"
 privacy_policy = "https://www.vmware.com/help/privacy.html"
 terms_of_use = "https://www.vmware.com/help/legal.html"
 california_privacy_rights = "https://www.vmware.com/help/privacy/california-privacy-rights.html"

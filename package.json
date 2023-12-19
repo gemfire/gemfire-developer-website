@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/gemfire/gemfire-developer-website.git"
   },
-  "author": "VMware, Inc.",
+  "author": "VMware LLC",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gemfire/gemfire-developer-website/issues"
