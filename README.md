@@ -46,6 +46,7 @@ _Note: The instructions below are primarily designed for Mac users. While you sh
 
      ```sh
      brew install node@16
+     brew link node@16
      ```
 
 * **Install Docker** — Docker builds images for local automated tests. You can download [Docker Desktop](https://www.docker.com/products/docker-desktop/) or use `brew`:
@@ -119,7 +120,7 @@ On Windows, you may need to use `hugo server -D` to start the application. The s
 
 ## Contributing Content
 
-The content contribution process is documented fully on our [Confluence Page] (https://confluence.eng.vmware.com/display/TGF/Contributing+to+gemfire.dev).
+The content contribution process is documented fully on our [Confluence Page] (https://confluence.eng.vmware.com/display/TGF/GemFire+Microsite#GemFireMicrosite-#ContributingContent).
 
 ## Code of Conduct
 

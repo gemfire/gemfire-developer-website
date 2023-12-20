@@ -1,5 +1,5 @@
 ---
-title: VMware Gemfire as a Remote Gradle Build Cache
+title: VMware GemFire as a Remote Gradle Build Cache
 date: 2020-02-06
 lastmod: '2021-04-22'
 team:
@@ -9,18 +9,18 @@ description: VMware GemFire as a remote cache for Gradle to share commonly built
 ---
 
 ## Introduction
-Gradle task output can be cached locally but also remotely. The idea of a remote cache is to share commonly built task outputs across remote builds to improve build times. With a few steps, we can use VMware Gemfire as a remote cache for Gradle.
+Gradle task output can be cached locally but also remotely. The idea of a remote cache is to share commonly built task outputs across remote builds to improve build times. With a few steps, we can use VMware GemFire as a remote cache for Gradle.
 
-## What’s VMware Gemfire?
-[VMware Gemfire](https://www.vmware.com/products/gemfire.html) is a fault tolerant, highly concurrent and scalable in-memory data grid that can be used in many ways, including as a cache. A *region* is a data structure, similar to a distributed map, that we will use to store the task output. Regions provide extra features such as LRU eviction, that can be used to improve our solution in the future. As data grows, we can add more nodes to the cluster and with a simple rebalance command, the data will be evenly distributed across all the nodes.
+## What’s VMware GemFire?
+[VMware GemFire](https://www.vmware.com/products/gemfire.html) is a fault tolerant, highly concurrent and scalable in-memory data grid that can be used in many ways, including as a cache. A *region* is a data structure, similar to a distributed map, that we will use to store the task output. Regions provide extra features such as LRU eviction, that can be used to improve our solution in the future. As data grows, we can add more nodes to the cluster and with a simple rebalance command, the data will be evenly distributed across all the nodes.
 
 ## How?
 
 ### Prerequisites
 
-Assuming you have VMware Gemfire installed. For help, see the [User Guide](https://docs.vmware.com/en/VMware-GemFire/index.html).
+Assuming you have VMware GemFire installed. For help, see the [User Guide](https://docs.vmware.com/en/VMware-GemFire/index.html).
 
-### Start VMware Gemfire Cluster
+### Start VMware GemFire Cluster
 
 First we start a one locator and one server cluster.
 
@@ -93,6 +93,6 @@ The code for the Geode Gradle Build Cache can be found [here](https://github.com
 
    * Maybe we have remote teams that span WAN sites, we could replicate the region across a wan and have multiples sites and teams sharing artifacts.
 
-## Want to learn more about VMware Gemfire?
+## Want to learn more about VMware GemFire?
 
 More [tutorials/examples](https://github.com/gemfire/gemfire-examples) of Apache Geode </br>

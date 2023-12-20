@@ -1,7 +1,7 @@
 {
   "name": "gemfire-developer-website",
   "version": "0.1.0",
-  "description": "VMware Gemfire Developer Site",
+  "description": "VMware GemFire Developer Site",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/gemfire/gemfire-developer-website.git"
   },
-  "author": "VMware, Inc.",
+  "author": "VMware LLC",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gemfire/gemfire-developer-website/issues"

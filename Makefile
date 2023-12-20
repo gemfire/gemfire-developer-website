@@ -27,7 +27,7 @@ ifeq ($(hugo_local),$(hugo_prod))
 	@echo hugo $(hugo_local) validated
 else
 	@echo $@ failure: Your hugo version \($(hugo_local)\) does not match production \($(hugo_prod)\) 
-	@echo run \'brew upgrade hugo\' or download and install the extended version from the releases page (https://github.com/gohugoio/hugo/releases/tag/v0.107.0).
+	@echo run \'brew upgrade hugo\' or download and install the extended version from the releases page \(https://github.com/gohugoio/hugo/releases/tag/v$(hugo_prod)\).
 	@exit 1
 endif
 

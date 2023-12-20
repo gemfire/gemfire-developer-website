@@ -1,5 +1,5 @@
 baseURL = "https://gemfire.github.io/gemfire-developer-website/"
-title = "VMware Gemfire"
+title = "VMware GemFire"
 publishDir = "public"
 contentDir = "content"
 canonifyURLs = false
@@ -91,7 +91,7 @@ time_format_default = "January 2, 2006"
 rss_sections = ["blog","tv-episode"]
 
 
-copyright = "VMware, Inc"
+copyright = "Broadcom"
 privacy_policy = "https://www.vmware.com/help/privacy.html"
 terms_of_use = "https://www.vmware.com/help/legal.html"
 california_privacy_rights = "https://www.vmware.com/help/privacy/california-privacy-rights.html"
@@ -375,7 +375,7 @@ archived_version = false
 
   [[menu.main]]
     identifier = "nodejsdl"
-    Name = "Node.js for Gemfire"
+    Name = "Node.js for GemFire"
     parent = "download"
     weight = 50
     url = "https://network.pivotal.io/products/pivotal-gemfire/#/releases/765264"

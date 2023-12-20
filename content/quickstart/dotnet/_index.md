@@ -15,7 +15,7 @@ Download and install VMware GemFire from [Tanzu Network](https://network.tanzu.v
 
 ## Introduction to GFSH
 
-VMware GemFire provides the command line tool "gfsh" for managing Gemfire clusters.  Gfsh can be used to start and stop members of the cluster along with configure additional features of the product.
+VMware GemFire provides the command line tool "gfsh" for managing GemFire clusters.  Gfsh can be used to start and stop members of the cluster along with configure additional features of the product.
 
 Start interactive gfsh shell in a terminal or console window.
 

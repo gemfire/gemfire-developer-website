@@ -50,11 +50,11 @@
 
         svg {
             display: inline-block;
-            margin: 0;
-            height: 30px;
+            margin: 1em;
+            height: 38px;
 
             @media(max-width:991px) {
-                margin: 0 10px;
+                margin: 10px 10px;
             }
         }
     }
@@ -97,7 +97,7 @@
         .navbar-brand {
             padding-left: 5px;
             svg {
-                height: 30px;
+                height: 38px;
                 @media(max-width: 450px) {
                     height: 15px;
                 }

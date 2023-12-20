@@ -1,5 +1,5 @@
 ---
-title: "Introducing VMware Gemfire 10"
+title: "Introducing VMware GemFire 10"
 date: "2023-04-13"
 lastmod: "2023-04-13"
 team:
@@ -8,7 +8,7 @@ aliases:
 - introducing-gemfire-10
 description: The next major release of VMware GemFire is now available!
 carouselType: image
-carouselImage: images/Gemfire_10.png
+carouselImage: images/GemFire_10.png
 ---
 
 ## The next major release of GemFire is now available! 
