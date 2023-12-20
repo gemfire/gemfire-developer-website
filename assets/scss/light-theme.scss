@@ -5,8 +5,11 @@ body {
    background-color: white !important;
    color: #61717d !important;
 }
- body .navbar-dark .navbar-brand .navbar-logo svg .cls-1 {
-   fill: #717074 !important;
+.navbar-logo svg .cls-3, .footer-logo svg .cls-3 {
+   fill: #727175 !important;
+}
+.navbar-logo svg .cls-1, .footer-logo svg .cls-1 {
+   fill: #28333c !important;
 }
 nav .drop-menu{
     background-color: white !important;
