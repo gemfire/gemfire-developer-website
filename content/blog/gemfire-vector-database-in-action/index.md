@@ -5,14 +5,10 @@ lastmod: "2024-01-18"
 team:
 - Charlie Black
 - John Martin
-aliases:
-- gemfire-vector-database-in-action
-description: Bring the power of GemFire to the Vector Database space.
+description: Unleash the Fusion of Speed and Intelligence - Discover How GemFire Vector Database Seamlessly Integrates the Robust Performance of GemFire with the Cutting-Edge Realms of AI.  GemFire Vector Database removes any complexities of how to set up AI use cases with GemFire and packages it up in a simple easy to use extension.  So now creating an index, loading data, and querying are simple rest commands.
 carouselType: image
 carouselImage: images/gemfire-vectordb-logo.png
 --- 
-
-# Tanzu GemFire Vector Database in Action
 
 Unleash the Fusion of Speed and Intelligence: Discover How GemFire Vector Database Seamlessly Integrates the Robust Performance of GemFire with the Cutting-Edge Realms of AI.  GemFire Vector Database removes any complexities of how to set up AI use cases with GemFire and packages it up in a simple easy to use extension.  So now creating an index, loading data, and querying are simple rest commands.  
 
