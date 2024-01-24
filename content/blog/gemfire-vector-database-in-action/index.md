@@ -5,7 +5,7 @@ lastmod: "2024-01-18"
 team:
 - Charlie Black
 - John Martin
-description: Unleash the Fusion of Speed and Intelligence - Discover How GemFire Vector Database Seamlessly Integrates the Robust Performance of GemFire with the Cutting-Edge Realms of AI.  GemFire Vector Database removes any complexities of how to set up AI use cases with GemFire and packages it up in a simple easy to use extension.  So now creating an index, loading data, and querying are simple rest commands.
+description: Discover How GemFire Vector Database Seamlessly Integrates the Robust Performance of GemFire with the Cutting-Edge Realms of AI.  
 carouselType: image
 carouselImage: images/gemfire-vectordb-logo.png
 --- 
