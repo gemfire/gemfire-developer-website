@@ -17,12 +17,12 @@ Download the extension from the Tanzu Network: [GemFire Vector Database extensio
 ## Using the Application
 
 1. Click "Create Index"
-2. Click "Load Embeddings" the application will then
-    3. Determine if the `/static/images` directory exists in the `backend` directory and if there are any files in that directory.
-        2. If the directory **DOES NOT** exist, the application will create the directory, download the images dataset (~1.9 GB), unzip the file, and extract the images to the directory (~25,000 images)
-        3. If the directory **DOES** exist, then it will skip the above step.
-    2. Determine if the precomputed embeddings file exists. If it does not, then it will download the file.
-    3. The precomputed embeddings are then loaded into GemFire.
+2. Click "Load Embeddings" the application will then 
+   - Determine if the `/static/images` directory exists in the `backend` directory and if there are any files in that directory.
+     - If the directory **DOES NOT** exist, the application will create the directory, download the images dataset (~1.9 GB), unzip the file, and extract the images to the directory (~25,000 images)
+     - If the directory **DOES** exist, then it will skip the above step. 
+   - Determine if the precomputed embeddings file exists. If it does not, then it will download the file. 
+   - The precomputed embeddings are then loaded into GemFire.
 
 3. Now that the index has been created, images are available, and the embeddings have been loaded into GemFire, you can search for images.
 
