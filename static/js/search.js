@@ -133,7 +133,7 @@ if (query) {
 		jsElm.type = "application/javascript";
 
 		// make the script element load file
-		jsElm.src = "https://www.googleapis.com/customsearch/v1?key=AIzaSyDa0J4aNKr4dBopDXH5BJdMkjn5nDVSsRg&cx="+searchEngineID+"&start="+start+"&q=" +query +"&callback=hndlr" + filter;
+		jsElm.src = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCXndq6Vllj8WPJx7zHRBVvoqSb_xQNDgk&cx="+searchEngineID+"&start="+start+"&q=" +query +"&callback=hndlr" + filter;
 
 		// finally insert the element to the body element in order to load the script
 		document.body.appendChild(jsElm);	
