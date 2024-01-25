@@ -1,7 +1,7 @@
 ---
 title: Java Quick Start
 description: Quick start guide for using a Java client with VMware GemFire.
-weight: -2
+weight: 1
 icon: java
 topics:
  - Java

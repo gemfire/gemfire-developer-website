@@ -1,7 +1,7 @@
 ---
 title: .Net Quick Start
 description: Quick start guide for using a .NET client with VMware GemFire.
-weight: 5
+weight: 3
 icon: dotnet
 topics:
 - .NET

@@ -37,7 +37,7 @@ With version 10, developers can look forward to:
 
 - **Updated defaults** – We’re tweaking the out-of-the-box tuning parameters to reduce the initial configuration and setup time.
 
-GemFire applications can be developed in Java, C#, C++, node.js, or REST. GemFire 10 will be available across cloud, on-premises, and hybrid environments. It can also seamlessly integrate into Kubernetes and [VMware Tanzu Application Service](https://tanzu.vmware.com/application-service) platforms for simplicity of deployment and Day 2 operations.
+GemFire applications can be developed in Java, C#, C++, or REST. GemFire 10 will be available across cloud, on-premises, and hybrid environments. It can also seamlessly integrate into Kubernetes and [VMware Tanzu Application Service](https://tanzu.vmware.com/application-service) platforms for simplicity of deployment and Day 2 operations.
 
 This beta release will give you an option to try GemFire 10 before the official release of the general availability (GA) version. Register your interest for GemFire 10 beta [here](https://tanzu.vmware.com/gemfire/beta). As you preview the new interface and features, send us your feedback to help us create an exceptional experience for GemFire users.
 

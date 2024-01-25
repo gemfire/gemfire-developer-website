@@ -161,12 +161,6 @@ archived_version = false
     weight = 20
     url = "/quickstart/spring/"
 
-  [[menu.main]]
-    identifier = "nodejs"
-    name = "Node.js"
-    parent = "quickstart"
-    weight = 30
-    url = "/quickstart/nodejs/"
 
   [[menu.main]]
     identifier = "dotnet"
@@ -303,15 +297,6 @@ archived_version = false
     [menu.main.params]
       topicgroups = "Clients"
 
-  [[menu.main]]
-    name = "Node.js for GemFire"
-    parent = "documentation"
-    weight = 70
-    url = "https://docs.vmware.com/en/Node.js-Client-for-VMware-GemFire/2.0/gf-nodeclient/about-client-users-guide.html"
-    [menu.main.params]
-      topicgroups = "Clients"
-
-
 
   [[menu.main]]
     Name = "GemFire Search"
@@ -384,16 +369,6 @@ archived_version = false
     url = "https://network.tanzu.vmware.com/products/pivotal-gemfire/#/releases/1157686"
     [menu.main.params]
       topicgroups = "Clients"
-
-  [[menu.main]]
-    identifier = "nodejsdl"
-    Name = "Node.js for GemFire"
-    parent = "download"
-    weight = 50
-    url = "https://network.tanzu.vmware.com/products/pivotal-gemfire/#/releases/765264"
-    [menu.main.params]
-      topicgroups = "Clients"
-
 
   [[menu.main]]
     identifier = "gfsearchdownload"

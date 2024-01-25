@@ -26,7 +26,7 @@
             <div class="col-xl-12 w-100">
                 <div id="the-quickstart-row" class="row flex-315 justify-content-between w-100 td-box">
                 {{ $quickstarts := where .Site.Pages "Section" "quickstart" }}
-                {{ range first 5 $quickstarts }}
+                {{ range first 4 $quickstarts }}
                         <a href="{{ .RelPermalink }}" class="h-100 d-flex flex-column justify-content-center align-items-center py-lg-4 px-3 quickstart-card">
                             <img alt="{{ .Params.title }}" class="quickstart-image mb-2" src='{{ printf "%s%s%s" "images/icons/icon-" .Params.icon ".svg" | relURL }}'>
                         </a>
