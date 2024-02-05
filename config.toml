@@ -290,6 +290,14 @@ archived_version = false
       topicgroups = "Clients"
 
   [[menu.main]]
+    name = "Spring Integration for GemFire"
+    parent = "documentation"
+    weight = 51
+    url = "/documentation/spring/spring_cloud_integration_for_gemfire.pdf"
+    [menu.main.params]
+      topicgroups = "Clients"
+
+  [[menu.main]]
     name = "Native Client"
     parent = "documentation"
     weight = 60
