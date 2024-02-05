@@ -8,9 +8,6 @@ type: blog
 team:
 - John Martin
 description: We are thrilled to announce that the GemFire Management Console version 1.1, is now available from the Tanzu Network. This update brings powerful new features to help you manage your GemFire clusters with greater ease and efficiency.
-carouselType: image
-carouselImage: images/monitoring.png
-
 ---
 
 We are thrilled to announce the launch of  [VMware GemFire ® Management Console ™ version 1.1](https://network.tanzu.vmware.com/products/gemfire-management-console/) available now from the Tanzu Network. This update brings powerful new features to help you manage your GemFire clusters with greater ease and efficiency. In this blog post, we'll explore these exciting enhancements and their potential impact on your GemFire experience.

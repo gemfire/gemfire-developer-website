@@ -7,8 +7,6 @@ team:
 aliases:
 - introducing-gemfire-10
 description: The next major release of VMware GemFire is now available!
-carouselType: image
-carouselImage: images/GemFire_10.png
 ---
 
 ## The next major release of GemFire is now available! 
