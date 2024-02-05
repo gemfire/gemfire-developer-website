@@ -2,6 +2,7 @@
 title: "Tanzu GemFire Vector Database in Action"
 date: "2024-01-18"
 lastmod: "2024-01-18"
+type: blog
 team:
 - Charlie Black
 - John Martin
