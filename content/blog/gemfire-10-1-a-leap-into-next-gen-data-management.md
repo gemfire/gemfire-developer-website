@@ -2,6 +2,7 @@
 title: "GemFire 10.1 - A Leap into Next-Gen Data Management "
 date: "2024-02-05"
 lastmod: "2024-02-05"
+type: blog
 team:
 - Charlie Black
 description: Discover the newest advancements and improvements in GemFire technology, highlighting our dedication to enhancing performance, reliability, and scalability.
@@ -18,7 +19,7 @@ If you would like to download GemFire 10.1, check out any examples , or learn mo
 
 In this latest release, the GemFire team has achieved remarkable milestones in performance, especially in optimizing persistent data. GemFire version 10.1 showcases significant enhancements through the increased parallelization of disk storage. By redefining the way GemFire manages data persistence on disk, we have enabled the scaling of IO operations to fully utilize the disk's capacity.
 
-In our performance testing of persistence GemFire version 10.1, we've achieved throughput saturation of disk IO capacity!  With our testing infrastructure we were reaching around 4 GB/sec which is the limit of our controller. The recovery time ultimately depends on available disk throughput and capacity.
+In our performance testing of persistence GemFire version 10.1, we've achieved throughput saturation of disk IO capacity which yielded in a 10X improvement!  With our testing infrastructure we were reaching around 4 GB/sec which is the limit of our controller. The recovery time ultimately depends on available disk throughput and capacity.
 
 ### Recovery Time Improvements (Version 9.15 vs 10.1):
 
