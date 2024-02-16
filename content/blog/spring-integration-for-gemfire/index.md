@@ -1,7 +1,7 @@
 ---
 title: 'Spring Integration for GemFire is Now Available'
-date: '2024-2-15'
-lastmod: '2024-2-14'
+date: '2024-02-15'
+lastmod: '2024-02-15'
 description: Use Spring integration to tie GemFire into your data architecture, combining it with RabbitMQ and Postgres.
 type: blog
 team:
