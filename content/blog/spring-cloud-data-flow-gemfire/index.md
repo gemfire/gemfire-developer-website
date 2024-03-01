@@ -5,7 +5,7 @@ lastmod: '2024-02-16'
 team:
 - Udo Kohlmeyer
 type: blog 
-description: This article announces the release of Spring Cloud Data Flow for GemFire. It also provides simples usage examples demonstrating how it can be used within the Spring Cloud Data Flow environment.
+description: Announcing the release of Spring Cloud Data Flow for GemFire! This article provides basic examples demonstrating how to use the Spring Cloud Data Flow for GemFire libraries with a Spring Cloud Data Flow server.
 ---
 
 The release of [Spring Cloud Data Flow for GemFire](https://github.com/gemfire/spring-cloud-data-flow-for-vmware-gemfire) and [Spring Integration for GemFire](https://github.com/gemfire/spring-integration-for-vmware-gemfire) marks another milestone for [VMware GemFire's](https://tanzu.vmware.com/gemfire) integration with the [Spring](https://spring.io/) ecosystem. Joining the existing projects, [Spring Data for GemFire](https://github.com/gemfire/spring-data-for-vmware-gemfire), [Spring Session for GemFire](https://github.com/gemfire/spring-session-for-vmware-gemfire), and [Spring Boot for GemFire](https://github.com/gemfire/spring-boot-for-vmware-gemfire), to provide seamless integration of GemFire with Spring.
@@ -42,44 +42,44 @@ The following examples showcase both the GemFire Source and GemFire Sink applica
 ## Prerequisite 
 In order to run the examples, a Spring Cloud Data Flow (SCDF) environment and GemFire cluster are required.
 
-### Setup 
+### Setup Spring Cloud Data Flow
 To install an SCDF environment follow the “[Installation Guide](https://dataflow.spring.io/docs/installation/)” for SCDF. For this example RabbitMQ will be used as the messaging connector (as per the [instructions](https://dataflow.spring.io/docs/installation/local/manual/#install-messaging-middleware)).
 
 Once you have started the [server](https://dataflow.spring.io/docs/installation/local/manual/#dataflow), [skipper](https://dataflow.spring.io/docs/installation/local/manual/#skipper) and RabbitMQ, open a browser and navigate to the SCDF application home. http://localhost:9393/dashboard
 
 To run the Spring Cloud Data Flow for GemFire (SCDFGF) examples, one also needs to register the relevant source and sink components for GemFire as described in the “[Getting Started](https://gemfire.dev/documentation/spring/spring_cloud_data_flow_for_gemfire.pdf)” section for GemFire Source Rabbit and GemFire Sink Rabbit.
 
-These examples also require a running GemFire cluster.
 
 ### Setup GemFire environment
 For these examples a GemFire environment is required.
-Download the latest GemFire from [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire)
-Extract the GemFire archive to known location
-Navigate to the installation folder for GemFire
-Run Gfsh in the bin directory, by either running `gfsh.sh` or `gfsh.bat` (depending on Windows or Linux/MacOS)
-Start a Locator by running the following gfsh command: `start locator --name=locator1`
-Start a Server by running the following gfsh command: `start server --name=server1`
 
-## Example
-### Overview
-There are two examples:
-1. GemFire as a Sink. Receiving data from an HTTP REST endpoint and writing to GemFire.  A pipeline will be set up with an “http” source, taking a stock quote and writing the quote into a GemFire region.
-1. GemFire as a Source. Receiving data from GemFire and writing it to a file.  A pipeline will be set up monitoring an “Stocks” region,using GemFire CQ, for any stock over 1000 and writing those orders to a file.
+- Download the latest GemFire from [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire)
+- Extract the GemFire archive to known location
+- Navigate to the installation folder for GemFire
+- Run Gfsh in the bin directory, by either running `gfsh.sh` or `gfsh.bat` (depending on Windows or Linux/MacOS)
+- Start a Locator by running the following gfsh command: `start locator --name=locator1`
+- Start a Server by running the following gfsh command: `start server --name=server1`
 
+## Examples
+
+Below are two examples:
+1. GemFire as a Sink. Receiving data from an HTTP REST endpoint and writing to GemFire. A pipeline will be set up with an “http” source, taking a stock quote and writing the quote into a GemFire region.
+2. GemFire as a Source. Receiving data from GemFire and writing it to a file. A pipeline will be set up monitoring a “Stocks” region, using a GemFire CQ. Any stock orders over 1000 will be written to a file.
 
 The GemFire source and sink should be set up as described:
 
-1. GemFire source
-> * **Name**: gemfire
-> * **Type**: source
-> * **Spring Boot version**: Spring Boot 2.x (default)
-> * **URI**: docker://docker.io/gemfire/gemfire-source-rabbit:1.0.0
+**GemFire source**
+ * **Name**: gemfire
+ * **Type**: source
+ * **Spring Boot version**: Spring Boot 2.x (default)
+ * **URI**: docker://docker.io/gemfire/gemfire-source-rabbit:1.0.0
 
-1. GemFire sink
-> * **Name**: gemfire
-> * **Type**: sink
-> * **Spring Boot version**: Spring Boot 2.x (default)
-> * **URI**: docker://docker.io/gemfire/gemfire-sink-rabbit:1.0.0
+
+**GemFire sink**
+ * **Name**: gemfire
+ * **Type**: sink
+ * **Spring Boot version**: Spring Boot 2.x (default)
+ * **URI**: docker://docker.io/gemfire/gemfire-sink-rabbit:1.0.0
 
 ### GemFire Sink
 This example requires the [Prerequisite](#prerequisite-a-nameprerequisite) section to have been completed.
@@ -87,61 +87,80 @@ This example requires the [Prerequisite](#prerequisite-a-nameprerequisite) secti
 1. First create a GemFire data region, “Stocks” using the gfsh command:
 `create region --name=Stocks --type=REPLICATE`.
 
-1. Create a SCDF stream that will take an HTTP request and put it into the GemFire data Region “Stocks”.
+2. Create a SCDF stream that will take an HTTP request and put it into the GemFire data Region “Stocks”.
 
-In the toolbar on the left, select “Streams”. You should now be able to create a new stream.
+    In the toolbar on the left, select “Streams”. You should now be able to create a new stream.
 
-<img src="images/scdf_create_stream.png">
+   ![Spring Cloud Data Flow - create streams image](images/scdf_create_stream.png)    
+    
 
-3. Click on “Create Stream(s)”. On the “Create Stream(s)” screen, add the following line to the top text box.
+3. Click on “Create Stream(s)” and add the following line to the top text box.
+   ```
+   http --port=9090 | gemfire --region-name=Stocks --key-expression=payload.getField('symbol') --json=true
+   ```
+  
+4. Click on the “Create Stream(s)” button. A popup will now prompt for a name for the stream, “gemfire-stocks”. Once created, the “Streams” screen should now display the newly created stream.  Note that the *Status* is “Undeployed”.
 
-`http --port=9090 | gemfire --region-name=Stocks --key-expression=payload.getField('symbol') --json=true`
+   ![Newly created Stream - gemfire-stocks](images/scdf_http_stream_created.png)
 
-4. Click on the “Create Stream(s)” button. A popup will now prompt for a name for the stream, “gemfire-stocks”. Once created, the “Streams” screen should now display the newly created stream.
-
-<img src="images/scdf_http_stream_created.png">
-
-Note:// that the “Status” is “Undeployed”. 
-
+   
 5. Now the stream needs to be deployed. This can be done by selecting the stream name, and clicking on the button “Deploy Stream”.
 
-1. Once successfully deployed, open a terminal and the run the following curl command: `curl -d '{"symbol":"AVGO","price":1265.23}' -H "Content-Type: application/json" -X POST http://localhost:9090` 
+6. Once successfully deployed, open a terminal and the run the following curl command
+   ```
+   curl -d '{"symbol":"AVGO","price":1265.23}' -H "Content-Type: application/json" -X POST http://localhost:9090
+   ``` 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This will post a json document to the stream deployed http source, hosted on port 9090.
+   This will post a json document to the stream deployed http source, hosted on port 9090.
 
-7. To see if the result was correctly processed, use the following gfsh command to see if the data was put into the GemFire data region “Stocks”: `query --query="select * from /Stocks"`
+7. To see if the result was correctly processed, use the following gfsh command to see if the data was put into the GemFire data region “Stocks” 
 
-<img src="images/gfsh_stocks_query.png">
+   ```
+   query --query="select * from /Stocks"
+   ```
+   
+   ![Terminal window with query and output of query](images/gfsh_stocks_query.png)
+
 
 ### GemFire Source
 This example requires the [Prerequisite](#prerequisite-) and [GemFire Sink](#gemfire-sink) example to have been completed.
 
 1. In the SCDF web dashboard, navigate to the “Streams” screen.
 
-1. On the toolbar on the left, select “Streams”. One should now be able to create a new stream.
+2. On the toolbar on the left, select “Streams”. One should now be able to create a new stream.
 
- <img src="images/scdf_create_stream.png">
-
+   ![Streams screen](images/scdf_create_stream.png)
+ 
 3. Click on “Create Stream(s)”. On the “Create Stream(s)” screen, add the following line to the top text box.
-
-`gemfire --region-name=Stocks --query='SELECT * from /Stocks s where s.price > 999' --cq-event-expression=getNewValue().toString() --subscription-enabled=true --connect-type=locator | file --directory=/tmp --name=gemfirecq.txt`
-
+   ```
+   gemfire --region-name=Stocks --query='SELECT * from /Stocks s where s.price > 999' --cq-event-expression=getNewValue().toString() --subscription-enabled=true --connect-type=locator | file --directory=/tmp --name=gemfirecq.txt
+   ```
+   
 4. Click on the “Create Stream(s)” button. A popup will now prompt for a name for the stream, “gemfire-orders”. Once created, the “Streams” screen should now display the newly created stream.
 
-This will now create a stream which creates a GemFire CQ against the “Stocks” region. The CQ will trigger when the value for a stock exceeds a price of 1000. That stock will then be written to a file, gemfire-cq.txt, in the “/tmp” directory.
+This will now create a stream which creates a GemFire CQ against the “Stocks” region. The CQ will trigger when the value for a stock exceeds a price of 1000. That stock will then be written to a file, `gemfire-cq.txt`, in the `/tmp` directory.
 
-To test this out:
-1. Run `curl -d '{"symbol":"AVGO","price":1265.23}' -H "Content-Type: application/json" -X POST http://localhost:9090`
-1. Check the file “cat /tmp/gemfirecq.txt” for the entry:
+### Run the Examples
+1. Run the following command which should write an entry to the file.
+   ```
+   curl -d '{"symbol":"AVGO","price":1265.23}' -H "Content-Type: application/json" -X POST http://localhost:9090
+   ```
+2. Check the file `cat /tmp/gemfirecq.txt` for the entry:
  
-<img src="images/cat_gemfirecq.png">
+   ![Image of a terminal window the output of the file showing 1 entry](images/cat_gemfirecq.png)
 
-3. Run `curl -d '{"symbol":"AVGO","price":265.23}' -H "Content-Type: application/json" -X POST http://localhost:9090`
-1. Confirm that the entry was NOT written to the file by running the “cat /tmp/gemfirecq.txt” command again.
-1. Run `curl -d '{"symbol":"AVGO","price":1365.23}' -H "Content-Type: application/json" -X POST http://localhost:9090`
-1. Confirm that the file now contains two entries:
+3. Run the following command which should **NOT** write an entry to the file.
+   ```
+   `curl -d '{"symbol":"AVGO","price":265.23}' -H "Content-Type: application/json" -X POST http://localhost:9090
+   ```
+4. Confirm that the entry was NOT written to the file by running the `cat /tmp/gemfirecq.txt` command again.
+5. Now, run the following command again, with a different price, which should write an entry to the file. 
+   ```
+   curl -d '{"symbol":"AVGO","price":1365.23}' -H "Content-Type: application/json" -X POST http://localhost:9090
+   ```
+6. Confirm that the file now contains two entries:
 
-<img src="images/cat_updated_gemfirecq.png">
+   ![Image of a terminal window the output of the file now showing 2 entries](images/cat_updated_gemfirecq.png)
 
 
 ## Conclusion
