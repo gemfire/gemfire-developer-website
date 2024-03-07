@@ -339,6 +339,15 @@ archived_version = false
     [menu.main.params]
       topicgroups = "Extensions"
 
+  [[menu.main]]
+    id = "apidoc"
+    name = "API Documentation"
+    parent = "documentation"
+    weight = 100
+    url = "/api/"
+    [menu.main.params]
+      topicgroups = "APIs"
+
 
 
 #Download Menu Items
