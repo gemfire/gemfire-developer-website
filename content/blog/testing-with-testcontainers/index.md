@@ -105,6 +105,8 @@ on the relevant container.
 
 That's essentially all that's required to use Testcontainers to test your Spring for GemFire apps.
 
+Full examples of Spring Data GemFire and Testcontainers can be viewed [here](https://github.com/gemfire/spring-for-gemfire-examples/tree/main/testcontainers/testcontainer-simple)
+
 For more information on Testcontainers with GemFire,
 check out [this blog post](https://gemfire.dev/blog/fast-and-easy-testing-with-gemfire-and-testcontainers/) by Jens Deppe.
 There have been some changes with the 2.0 release, but there is still lots of valuable information in there.
