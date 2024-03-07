@@ -1,6 +1,6 @@
 ---
 title: API Documentation
-description: Application Programming Interface reference
+description: Application Programming Interface References
 weight: 2
 icon: laptop-code
 topics:
