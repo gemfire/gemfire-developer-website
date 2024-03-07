@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.apache.geode.cache.lucene"},{"l":"org.apache.geode.cache.lucene.management"},{"l":"org.apache.geode.cache.lucene.management.configuration"}]
