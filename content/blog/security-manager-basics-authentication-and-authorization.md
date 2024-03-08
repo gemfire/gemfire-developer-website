@@ -5,7 +5,12 @@ lastmod: '2022-01-21'
 team:
 - John Martin
 type: blog
+slug: security-manager-basics-authentication-and-authorization
+aliases:
+   - /blog/gemfire-security-manager-basics-authentication/authorization/
+
 description: This a basic example of the GemFire security manager for an authentication and authorization system.
+
 ---
 
 [VMware GemFire](https://tanzu.vmware.com/gemfire) is an in-memory data grid that provides real-time, consistent access to data-intensive applications throughout widely distributed cloud architectures. Starting with GemFire 9.0.0, the `SecurityManager` interface was introduced to manage the authentication and authorization mechanisms in a single place, simplifying the implementation and interactions with all components in a consistent manner.
@@ -32,7 +37,7 @@ If you have previously worked through the Authentication example, you will need 
 
 ## Creating a list of approved users
 
-GemFire offers multiple layers of access to a GemFire cluster, which are defined by the [GemFire resource permissions]( https://gemfire.docs.pivotal.io/910/geode/managing/security/implementing_authorization.html ) In this example, we’ll create two users:
+GemFire offers multiple layers of access to a GemFire cluster, which are defined by the [GemFire resource permissions](https://docs.vmware.com/en/VMware-GemFire/10.1/gf/managing-security-implementing_authorization.html#resource-permissions-1) In this example, we’ll create two users:
 
 1. An `Operator` user that can manage the GemFire cluster but has no data access.
 
