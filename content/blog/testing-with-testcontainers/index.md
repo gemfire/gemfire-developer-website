@@ -115,7 +115,8 @@ For more information on Testcontainers with GemFire,
 check out [this blog post](https://gemfire.dev/blog/fast-and-easy-testing-with-gemfire-and-testcontainers/) by Jens Deppe.
 There have been some changes with the 2.0 release, but there is still lots of valuable information in there.
 
-For more information on Spring for GemFire, checkout the documentation for Spring 
-[Data](https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/1.0/sdgf/index.html),
-[Boot](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/index.html),
-[Session](https://docs.vmware.com/en/Spring-Session-for-VMware-GemFire/1.0/ssgf/index.html)
+For more information on Spring for GemFire, checkout the documentation for Spring:
+
+* [Data](https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/1.0/sdgf/index.html)
+* [Boot](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/index.html)
+* [Session](https://docs.vmware.com/en/Spring-Session-for-VMware-GemFire/1.0/ssgf/index.html)
