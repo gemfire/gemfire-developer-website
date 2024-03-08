@@ -49,7 +49,7 @@ The flow of data looks approximately like this:
 *Note: it's possible to complete this guide without Docker if you have GemFire, RabbitMQ, and Postgres installed*
 
 ### Steps
-1. Clone the [Git repository](https://github.com/gemfire/spring-for-gemfire-examples/) and open the gemfire-rabbit-postgres-integration subproject
+1. Clone the [Git repository](https://github.com/gemfire/spring-for-gemfire-examples/) and open the `spring-integration/gemfire-rabbit-postgres-integration` subproject
 2. Ensure that Docker is running on your machine
 3. Start a RabbitMQ server
    1. run `docker run -p 5672:5672 -d rabbitmq` to start a RabbitMQ server
