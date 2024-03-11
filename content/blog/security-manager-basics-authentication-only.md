@@ -118,7 +118,7 @@ Good work! You now have a GemFire cluster running with your `BasicSecurityManage
 
 Before you create the client application, you need to create a Region on the GemFire cluster for the app to interact with.
 
-In the `gfsh` terminal, run the following command to create a region called `helloWorld`. This will create a [partitioned region](https://gemfire.docs.pivotal.io/910/geode/developing/partitioned_regions/chapter_overview.html) in your GemFire cluster that you can `PUT` and `GET` data from.
+In the `gfsh` terminal, run the following command to create a region called `helloWorld`. This will create a partitioned region in your GemFire cluster that you can `PUT` and `GET` data from.
 
 ```
 create region --name=helloWorld --type=PARTITION

@@ -281,7 +281,7 @@ ClientRegionShortcut.PROXY).create("petnames");
 
 ## Create Read Update Delete (CRUD)
 
-At the core of any data driven application is the ability to do CRUD operations with supporting datastore.  All the basic CRUD operations are support are supported from client along with other advance options not covered in this tutorial. All the following code samples use the [Region API](https://gemfire.docs.pivotal.io/apidocs/tgf-915/org/apache/geode/cache/Region.html) and use a String key and value.
+At the core of any data driven application is the ability to do CRUD operations with supporting datastore.  All the basic CRUD operations are support are supported from client along with other advance options not covered in this tutorial. All the following code samples use the [Region API](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/cache/Region) and use a String key and value.
 
 ## Create data in GemFire
 

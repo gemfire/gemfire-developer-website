@@ -20,7 +20,7 @@ Each member of the VMware GemFire `DistributedSystem` produces a variety of stat
 - Client to server requests
 - Cache performance
 
-If the `statistic-sampling-enabled` property is set to true, then the statistics are periodically written to an archive file configured by the `statistic-archive-file` property. The main way to view the file is to use the [Visual Statistics Display](https://gemtalksystems.com/products/vsd/) (vsd) tool. See the documentation [here](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-troubleshooting-producing_troubleshooting_artifacts.html) for additional details on producing the statistics file. See the documentation [here](https://gemfire.docs.pivotal.io/910/gemfire/tools_modules/vsd/chapter_overview.html) for additional details on vsd.
+If the `statistic-sampling-enabled` property is set to true, then the statistics are periodically written to an archive file configured by the `statistic-archive-file` property. The main way to view the file is to use the [Visual Statistics Display](https://gemtalksystems.com/products/vsd/) (vsd) tool. See the documentation [here](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-troubleshooting-producing_troubleshooting_artifacts.html) for additional details on producing the statistics file. See the documentation [here](https://docs.vmware.com/en/VMware-GemFire/10.1/gf/tools_modules-vsd-overview.html) for additional details on vsd.
 
 Some of these statistics are helpful in troubleshooting most issues; some are more obscure and only apply to narrow situations.
 

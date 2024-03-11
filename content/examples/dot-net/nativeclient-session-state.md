@@ -51,7 +51,7 @@ Before you continue, you need to follow these steps for `SessionStateProvider` s
     }
 }
  ```
-Please refer to the [.NET Framework Native Client docs](https://docs.vmware.com/en/Native-Client-for-VMware-GemFire/10.4/gf-nc-dotnet/about-client-users-guide.html) for more details.
+Please refer to the [.NET Framework Native Client docs](https://docs.vmware.com/en/Native-Client-for-VMware-GemFire/10.4/NC-for-GF-v10.4/dotnet-about-client-users-guide.html) for more details.
 
 - In `Global.asax.cs` file and under `Application_Start()` event, add the line that initializes the instance of `BasicAuthInitializeClass` class using its constructor that accepts the credentials.
 - Make sure you have `geode.properties` and `cache.xml` files defined that contain the necessary information to connect to the GemFire cluster and client side properties. Please refer to [this article](https://community.pivotal.io/s/article/How-to-configure-geode-properties-file-for-GemFire-NET-Native-Client-10-2-with-an-ASP-NET-application?language=en_US) for more details. 

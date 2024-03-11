@@ -146,8 +146,8 @@ A JsonDocument can be converted back to a JSON string with the toJson() method. 
 
 For additional details on using JSON with GemFire see [documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-data_serialization-jsonformatter_pdxinstances.html)
 
-For class details see JavaDocs for [JsonDocument](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/JsonDocument.html) and
-[JsonDocumentFactory](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/JsonDocumentFactory.html).
+For class details see JavaDocs for [JsonDocument](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/JsonDocument.html) and
+[JsonDocumentFactory](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/JsonDocumentFactory.html).
 
 See [BSON](https://bsonspec.org) and [JSON](https://www.json.org/json-en.html) specifications for additional information on JSON.
 

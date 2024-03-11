@@ -151,8 +151,3 @@ Looking for other interesting use cases?, check the following articles:
 * [Geode Distributed Sequences](https://medium.com/@jujoramos/geode-distributed-sequences-12626251d5e3)
 * [Publishing Apache Geode Metrics to Wavefront](https://medium.com/@huynhja/publishing-apache-geode-metrics-to-wavefront-6e9a6cf5992b)
 * [Ingest, Store and Search JSON data with Apache Kafka and Apache Geode](https://medium.com/@huynhja/ingest-store-and-search-json-data-with-apache-kafka-and-apache-geode-fc6d0d2f9d9f)
-
-Need help with a complex problem or want to validate your solution?, share some details with the [users](https://markmail.org/search/?q=list%3Aorg.apache.geode.user+order%3Adate-backward) lists.
-
-## References
-* [Asynchronous Event Distribution Internals](https://cwiki.apache.org/confluence/display/GEODE/Asynchronous+Event+Distribution+Internals)

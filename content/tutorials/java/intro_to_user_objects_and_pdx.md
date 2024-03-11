@@ -164,7 +164,7 @@ public Pet() {
 
 The class doesn't have to implement java.io.Serializable but also will not effect its usage if it does. Implementing hashCode and equals is recommended but is not used directly by PDX instances but may be useful once a PDX instance is converted back to its original type.
 
-In this example the instance data will be serialized using the [ReflectionBasedAutoSerializer](https://gemfire.docs.pivotal.io/apidocs/tgf-915/org/apache/geode/pdx/ReflectionBasedAutoSerializer.html) which is configured during cache creation. This serializer uses Java reflection to determine the fields of the class along with a pattern string to determine which class instances are to be serialized via PDX and optionally if any fields will be excluded from serialization.
+In this example the instance data will be serialized using the [ReflectionBasedAutoSerializer](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/pdx/ReflectionBasedAutoSerializer) which is configured during cache creation. This serializer uses Java reflection to determine the fields of the class along with a pattern string to determine which class instances are to be serialized via PDX and optionally if any fields will be excluded from serialization.
 
 For more complex situations GemFire provides extensive documentation on [PDX](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-gemfire_pdx_serialization.html) domain class implementation with custom serialization options.
 

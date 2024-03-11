@@ -11,7 +11,7 @@ description: This article describes how to display historical and current statis
 ## Introduction
 VMware GemFire produces a variety of statistics in each member of the DistributedSystem. See my article [The Most Useful Statistics for Troubleshooting VMware GemFire Deployments](/blog/the-most-useful-statistics-for-troubleshooting-vmware-gemfire-deployments/) for the most useful ones.
 
-There are several ways to display these statistics. The main way to display historical statistics (contained in a gfs archive file) is to use the [Visual Statistics Display](https://gemtalksystems.com/products/vsd/) (vsd) tool. See the documentation [here](https://gemfire.docs.pivotal.io/910/gemfire/tools_modules/vsd/chapter_overview.html) for additional details on vsd.
+There are several ways to display these statistics. The main way to display historical statistics (contained in a gfs archive file) is to use the [Visual Statistics Display](https://gemtalksystems.com/products/vsd/) (vsd) tool. See the documentation [here](https://docs.vmware.com/en/VMware-GemFire/10.1/gf/tools_modules-vsd-overview.html) for additional details on vsd.
 
 The main way to display current statistics (from the members in a running DistributedSystem) is to access the JMX MBeans, although not all statistics are available via JMX. See the documentation [here](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/managing-management-mbean_architecture.html) for additional details on JMX. Any JMX tool (e.g. JConsole or VisualVM) can be used to access the MBeans.
 

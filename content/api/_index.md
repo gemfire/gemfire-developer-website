@@ -18,11 +18,11 @@ topics:
 * Session Management 1.0
 
 ## Native Client
-* [C++](https://code.vmware.com/apis/1669)
-* [.NET](https://code.vmware.com/apis/1678)
+* [C++](https://developer.vmware.com/apis/1669/)
+* [.NET](https://developer.vmware.com/apis/1678/)
 
 ## Spring For GemFire
-* [Spring Boot GemFire](https://code.vmware.com/apis/1731)
-* [Spring Data GemFire](https://code.vmware.com/apis/1737)
-* [Spring Session GemFire](https://code.vmware.com/apis/1742)
+* [Spring Boot GemFire](https://developer.vmware.com/apis/1731/)
+* [Spring Data GemFire](https://developer.vmware.com/apis/1737/)
+* [Spring Session GemFire](https://developer.vmware.com/apis/1742/)
 * Spring Integration

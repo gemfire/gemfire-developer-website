@@ -303,7 +303,6 @@ Looking for other interesting use cases? check the following articles:
 * [Removing Unused PdxTypes from an Apache Geode Distributed System](https://medium.com/@boglesby_2508/remove-unused-pdxtypes-from-an-apache-geode-distributed-system-5a4f0e199e34)
 * [Ingest, Store and Search JSON data with Apache Kafka and Apache Geode](https://medium.com/@huynhja/ingest-store-and-search-json-data-with-apache-kafka-and-apache-geode-fc6d0d2f9d9f)
 
-Need help with a complex problem or want to validate your solution? share some details with the [user](https://markmail.org/search/?q=list%3Aorg.apache.geode.user+order%3Adate-backward) list.
 
 ## References
 * [VMware GemFire Documentation](https://docs.vmware.com/en/VMware-GemFire/index.html)

@@ -21,7 +21,7 @@ description: This article describes a way to convert all existing GemFire Statis
 
 The Statistics have been used for both monitoring and troubleshooting a Distributed System. They are available as JMX attributes mainly for monitoring and also are written to files mainly for troubleshooting. Monitoring is done via GemFire tools like Pulse or JMX tools like JProfiler. Troubleshooting is done via a tool like [vsd](https://gemtalksystems.com/products/vsd/) that reads and helps analyze the files.
 
-Recently, some of the Statistics have also been made available as [Micrometer Meters](https://micrometer.io/docs/concepts#_meters) so that they can be monitored via tools like [Wavefront](https://www.wavefront.com/). Many Statistics are not currently available as Meters including some that have historically been very valuable especially when troubleshooting issues.
+Recently, some of the Statistics have also been made available as [Micrometer Meters](https://docs.micrometer.io/micrometer/reference/1.12-SNAPSHOT/concepts/meters.html#page-title) so that they can be monitored via tools like [Wavefront](https://www.wavefront.com/). Many Statistics are not currently available as Meters including some that have historically been very valuable especially when troubleshooting issues.
 
 This article describes a way to convert all existing GemFire Statistics to Micrometer Gauges and to push those Gauges to Wavefront using a [Spring Boot Micrometer Wavefront registry](https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/production-ready-metrics.html#production-ready-metrics-export-wavefront).
 

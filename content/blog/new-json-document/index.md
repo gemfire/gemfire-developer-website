@@ -57,7 +57,7 @@ parsing the whole JSON document.
 `JsonDocument` interface has methods like `hasFields()`, `getField()` and `getFieldNames()` etc.
 The `toJson()` method allows you to convert a `JsonDocument` back to a JSON string.
 
-For more details about `JsonDocument`, please see the [Javadocs](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/JsonDocument.html).
+For more details about `JsonDocument`, please see the [Javadocs](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/JsonDocument.html).
 
 ### Working with JSON Arrays
 
@@ -138,20 +138,20 @@ To get a factory that uses PDX call `getJsonDocumentFactory(StorageFormat.PDX)` 
 
 3. List of the new public interfaces and APIs in GemFire 10:
 
-* [org.apache.geode.cache.Document](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/cache/Document.html)
+* [org.apache.geode.cache.Document](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/cache/Document.html)
 
-* [org.apache.geode.json.JsonDocument](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/JsonDocument.html)
+* [org.apache.geode.json.JsonDocument](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/JsonDocument.html)
 
-* [org.apache.geode.json.JsonDocumentFactory](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/JsonDocumentFactory.html)
+* [org.apache.geode.json.JsonDocumentFactory](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/JsonDocumentFactory.html)
 
-* [org.apache.geode.json.SerializableAsJson](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/SerializableAsJson.html)
+* [org.apache.geode.json.SerializableAsJson](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/SerializableAsJson.html)
 
-* [org.apache.geode.json.StorageFormat](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/StorageFormat.html)
+* [org.apache.geode.json.StorageFormat](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/StorageFormat.html)
 
-* [org.apache.geode.json.JsonUtilities](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/JsonUtilities.html)
+* [org.apache.geode.json.JsonUtilities](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/JsonUtilities.html)
 
-* [org.apache.geode.json.JsonParseException](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/json/JsonParseException.html)
+* [org.apache.geode.json.JsonParseException](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/json/JsonParseException.html)
 
-* [org.apache.geode.cache.RegionService.getJsonDocumentFactory()](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/cache/RegionService.html#getJsonDocumentFactory--)
+* [org.apache.geode.cache.RegionService.getJsonDocumentFactory()](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/cache/RegionService.html#getJsonDocumentFactory--)
 
-* [org.apache.geode.cache.RegionService.getJsonDocumentFactory(StorageFormat storageFormat)](https://gemfire.docs.pivotal.io/apidocs/gf-100/org/apache/geode/cache/RegionService.html#getJsonDocumentFactory-org.apache.geode.json.StorageFormat-)
+* [org.apache.geode.cache.RegionService.getJsonDocumentFactory(StorageFormat storageFormat)](https://gemfire.dev/api/gemfire/10.1/org/apache/geode/cache/RegionService.html#getJsonDocumentFactory-org.apache.geode.json.StorageFormat-)
