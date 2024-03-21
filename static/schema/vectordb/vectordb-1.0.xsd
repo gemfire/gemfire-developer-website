@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <xsd:schema
-    targetNamespace="http://gemfire.dev/schema/vectordb"
+    targetNamespace="https://gemfire.dev/schema/vectordb"
 	xmlns:gf="http://geode.apache.org/schema/cache"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     elementFormDefault="qualified"
@@ -33,12 +33,12 @@ XML schema for VectorDB Indexes in GemFire.
 
   <cache
     xmlns="http://geode.apache.org/schema/cache"
-    xmlns:vectordb="http://gemfire.dev/schema/vectordb"
+    xmlns:vectordb="https://gemfire.dev/schema/vectordb"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://geode.apache.org/schema/cache
         http://geode.apache.org/schema/cache/cache-1.0.xsd
-        http://gemfire.dev/schema/vectordb
-        http://gemfire.dev/schema/vectordb/vectordb-1.0.xsd"
+        https://gemfire.dev/schema/vectordb
+        https://gemfire.dev/schema/vectordb/vectordb-1.0.xsd"
     version="1.0">
     
     ]]></xsd:documentation>
