@@ -3,7 +3,7 @@ title: VMware GemFire for Kubernetes - Install the operator
 data-featured: false
 date: '2020-07-12'
 lastmod: '2020-07-12'
-youtube_id: vbskafFrJ_I
+youtube_id: Bxnh-EDglfQ
 type: videos
 description: In this video we install the VMware GemFire for Kubernetes operator and create our first cluster.    
 ---
