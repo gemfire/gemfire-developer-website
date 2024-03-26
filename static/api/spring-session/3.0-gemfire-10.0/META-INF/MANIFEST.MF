@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: udo_kohlmeyer
+Title: Spring Session VMware GemFire
+Version: 1.0.4
+Organization: VMware, Inc.
+

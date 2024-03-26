@@ -1,0 +1,6 @@
+org.springframework.integration.gemfire.config.xml
+org.springframework.integration.gemfire.inbound
+org.springframework.integration.gemfire.metadata
+org.springframework.integration.gemfire.outbound
+org.springframework.integration.gemfire.store
+org.springframework.integration.gemfire.util

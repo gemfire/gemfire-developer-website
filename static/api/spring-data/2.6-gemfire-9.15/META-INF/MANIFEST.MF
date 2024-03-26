@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Organization: VMware, Inc.
+Title: Spring Data VMware GemFire
+Version: 1.1.3
+Created-By: udo_kohlmeyer
+
