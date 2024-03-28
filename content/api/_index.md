@@ -31,9 +31,6 @@ topics:
 * [10.2](native-client/cpp/10.2/hierarchy.html)
 * [10.1](native-client/cpp/10.1/hierarchy.html)
 * [10.0](native-client/cpp/10.0/hierarchy.html)
-* [9.2](native-client/cpp/9.2/hierarchy.html)
-* [9.1](native-client/cpp/9.1/hierarchy.html)
-* [9.0](native-client/cpp/9.0/hierarchy.html)
 {{% /expand %}}
 {{% expand "GemFire Native Client .NET Framework API Reference" %}}
 * [10.4](native-client/dotnet/10.4/hierarchy.html)
@@ -41,9 +38,6 @@ topics:
 * [10.2](native-client/dotnet/10.2/hierarchy.html)
 * [10.1](native-client/dotnet/10.1/hierarchy.html)
 * [10.0](native-client/dotnet/10.0/hierarchy.html)
-* [9.2](native-client/dotnet/9.2/hierarchy.html)
-* [9.1](native-client/dotnet/9.1/hierarchy.html)
-* [9.0](native-client/dotnet/9.0/index.html)
 {{% /expand %}}
 
 ### Spring For GemFire
