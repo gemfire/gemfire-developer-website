@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['servergroup_0',['ServerGroup',['../a01077.html#ab434b0a63387fe02c0ebe3a0ab2318f5',1,'Apache::Geode::Client::Pool']]],
+  ['servers_1',['Servers',['../a01077.html#a18fcfaa97a611393394a8371683b1470',1,'Apache::Geode::Client::Pool']]],
+  ['set_2',['Set',['../a01129.html#ace80a417cdad26d1708d488cb7a479bd',1,'Apache::Geode::Client::Struct']]],
+  ['size_3',['Size',['../a01005.html#a35b21368637df33dfa279447e4dc5c52',1,'Apache::Geode::Client::ISelectResults::Size()'],['../a00409.html#a272af4f84fce2c47a83e3ca49330ec69',1,'Apache::Geode::Client::Properties::Size()'],['../a01117.html#ab0df7f67a48af6d2d4e89be4c012541c',1,'Apache::Geode::Client::ResultSet::Size()'],['../a01125.html#a5887bc9f1602fb8ed37b7f3239b5df47',1,'Apache::Geode::Client::StructSet::Size()']]],
+  ['sniproxyhost_4',['SniProxyHost',['../a01077.html#a310c7535d2e72bc7f509729a0b375940',1,'Apache::Geode::Client::Pool']]],
+  ['sniproxyport_5',['SniProxyPort',['../a01077.html#a79a34d04fa37b36c86af91a7a2a91677',1,'Apache::Geode::Client::Pool']]],
+  ['socketbuffersize_6',['SocketBufferSize',['../a01077.html#af5989ba6c7baf9b00f820f95a2527a11',1,'Apache::Geode::Client::Pool']]],
+  ['sslenabled_7',['SSLEnabled',['../a01133.html#a62cb0ba06becb585a9708d04c58ebc73',1,'Apache::Geode::Client::SystemProperties']]],
+  ['sslkeystore_8',['SSLKeyStore',['../a01133.html#a2de5f1854dabc35c0d0546f90c25f2c1',1,'Apache::Geode::Client::SystemProperties']]],
+  ['sslkeystorepassword_9',['SSLKeystorePassword',['../a01133.html#aebebdfd72665c07964e1cd851a46ddfa',1,'Apache::Geode::Client::SystemProperties']]],
+  ['ssltruststore_10',['SSLTrustStore',['../a01133.html#afe3f0b34aeb8c92db57e4ab3925652d5',1,'Apache::Geode::Client::SystemProperties']]],
+  ['statisticinterval_11',['StatisticInterval',['../a01077.html#acf32b2db7003d1adf283d4f14b64bced',1,'Apache::Geode::Client::Pool']]],
+  ['statistics_12',['Statistics',['../a01017.html#afa19705f8a6b1866f20768c4256715ae',1,'Apache::Geode::Client::IRegion::Statistics()'],['../a01009.html#a04068863336b06037ac35f3ab291d815',1,'Apache::Geode::Client::RegionEntry::Statistics()']]],
+  ['statisticsarchivefile_13',['StatisticsArchiveFile',['../a01133.html#af3c3aba98192c32b200e8b0966797db2',1,'Apache::Geode::Client::SystemProperties']]],
+  ['statisticsenabled_14',['StatisticsEnabled',['../a01133.html#ae2a6504017d877c1d5df01fcf6f383e5',1,'Apache::Geode::Client::SystemProperties']]],
+  ['statisticssampleinterval_15',['StatisticsSampleInterval',['../a01133.html#a23a815a6dad231f14cd48da34adfca4f',1,'Apache::Geode::Client::SystemProperties']]],
+  ['statsdiskspacelimit_16',['StatsDiskSpaceLimit',['../a01133.html#af007147b4c113a5ae55d719f8686885e',1,'Apache::Geode::Client::SystemProperties']]],
+  ['statsfilesizelimit_17',['StatsFileSizeLimit',['../a01133.html#a681e4fe631658129ab8870ba5313f24a',1,'Apache::Geode::Client::SystemProperties']]],
+  ['subscriptionackinterval_18',['SubscriptionAckInterval',['../a01077.html#a34fa74bb45a720c4f4f0e040cd6f0fce',1,'Apache::Geode::Client::Pool']]],
+  ['subscriptionenabled_19',['SubscriptionEnabled',['../a01077.html#afd0b523288e817c3757c67505b5e995a',1,'Apache::Geode::Client::Pool']]],
+  ['subscriptionmessagetrackingtimeout_20',['SubscriptionMessageTrackingTimeout',['../a01077.html#ae2c277d5be42d91c83e57a910b42fbd8',1,'Apache::Geode::Client::Pool']]],
+  ['subscriptionredundancy_21',['SubscriptionRedundancy',['../a01077.html#a83563a29b70ad7a5455928f399087540',1,'Apache::Geode::Client::Pool']]],
+  ['suspendedtxtimeout_22',['SuspendedTxTimeout',['../a01133.html#aff0b5437edb8e1243c6e3d9224460708',1,'Apache::Geode::Client::SystemProperties']]],
+  ['systemproperties_23',['SystemProperties',['../a00617.html#a722bbf0de4550abec48afff449f80ba3',1,'Apache::Geode::Client::DistributedSystem']]]
+];
