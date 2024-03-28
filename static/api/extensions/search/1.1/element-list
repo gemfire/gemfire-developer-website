@@ -1,0 +1,3 @@
+org.apache.geode.cache.lucene
+org.apache.geode.cache.lucene.management
+org.apache.geode.cache.lucene.management.configuration
