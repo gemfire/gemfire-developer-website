@@ -43,9 +43,9 @@ topics:
 ### Spring For GemFire
 {{% expand "Spring Boot for GemFire JavaDocs" %}}
 * [3.1 for GemFire 10.1](spring-boot/3.1-gemfire-10.1/)
-* [2.7 for GemFire 10.1](spring-boot/2.7-gemfire-10.0/)
 * [3.1 for GemFire 10.0](spring-boot/3.1-gemfire-10.0/)
 * [3.0 for GemFire 10.0](spring-boot/3.0-gemfire-10.0/)
+* [2.7 for GemFire 10.0](spring-boot/2.7-gemfire-10.0/)
 * [3.0 for GemFire 9.15](spring-boot/3.0-gemfire-9.15/)
 * [2.7 for GemFire 9.15](spring-boot/2.7-gemfire-9.15/)
 * [2.6 for GemFire 9.15](spring-boot/2.6-gemfire-9.15/)
