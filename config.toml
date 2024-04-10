@@ -261,7 +261,7 @@ archived_version = false
     Name = "GemFire Management Console"
     parent = "documentation"
     weight = 35
-    url = "https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/index.html"
+    url = "https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.2/gfmc/index.html"
     [menu.main.params]
       topicgroups = "Products"
 
