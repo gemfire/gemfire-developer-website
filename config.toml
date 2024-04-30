@@ -176,6 +176,13 @@ archived_version = false
     weight = 50
     url = "/quickstart/cpp/"
 
+  [[menu.main]]
+    identifier = "docker"
+    name = "Docker"
+    parent = "quickstart"
+    weight = 60
+    url = "/quickstart/docker/"
+
 #Learn Menu Items
   [[menu.main]]
     identifier = "tutorials"
