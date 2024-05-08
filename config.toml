@@ -301,7 +301,7 @@ archived_version = false
     name = "Spring Cloud Data Flow for GemFire"
     parent = "documentation"
     weight = 51
-    url = "/documentation/spring/spring_cloud_data_flow_for_gemfire.pdf"
+    url = "https://docs.vmware.com/en/Spring-Cloud-Data-Flow-for-VMware-GemFire/1.0/scdf/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -309,7 +309,7 @@ archived_version = false
     name = "Spring Integration for GemFire"
     parent = "documentation"
     weight = 52
-    url = "/documentation/spring/spring_cloud_integration_for_gemfire.pdf"
+    url = "https://docs.vmware.com/en/Spring-Integration-for-VMware-GemFire/1.0/sigf/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
