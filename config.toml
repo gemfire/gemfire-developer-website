@@ -338,13 +338,6 @@ archived_version = false
     [menu.main.params]
       topicgroups = "Extensions"
 
-  [[menu.main]]
-    Name = "GemFire for Redis Apps"
-    parent = "documentation"
-    weight = 90
-    url = "https://docs.vmware.com/en/VMware-GemFire-for-Redis-Apps/index.html"
-    [menu.main.params]
-      topicgroups = "Extensions"
 
   [[menu.main]]
     id = "apidoc"
