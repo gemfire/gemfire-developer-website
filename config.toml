@@ -276,7 +276,7 @@ archived_version = false
     name = "Spring Boot for GemFire"
     parent = "documentation"
     weight = 40
-    url = "https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html"
+    url = "https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/1.0/sbgf/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -284,7 +284,7 @@ archived_version = false
     name = "Spring Data for GemFire"
     parent = "documentation"
     weight = 50
-    url = "https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/index.html"
+    url = "https://docs.vmware.com/en/Spring-Data-for-VMware-GemFire/1.0/sdgf/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -292,7 +292,7 @@ archived_version = false
     name = "Spring Session for GemFire"
     parent = "documentation"
     weight = 50
-    url = "https://docs.vmware.com/en/Spring-Session-for-VMware-GemFire/index.html"
+    url = "https://docs.vmware.com/en/Spring-Session-for-VMware-GemFire/1.0/ssgf/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
