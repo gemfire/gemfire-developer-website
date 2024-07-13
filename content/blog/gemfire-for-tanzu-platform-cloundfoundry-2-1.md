@@ -10,13 +10,13 @@ type: blog
 
 ## Introduction
 
-Tanzu GemFire for Tanzu Platform 2.1 is now available for download from the Tanzu Network.
+Tanzu GemFire for Tanzu Platform 2.1 is now available for download from the Broadcom Support Portal.
 
 >Note: Tanzu Application Service (TAS) is now known as Tanzu Platform for Cloud Foundry
 
 Resources:
 
-- [Download from Tanzu Net](https://network.tanzu.vmware.com/products/tanzu-gemfire-for-vms/)
+- [Download from Broadcom Support Portal](https://support.broadcom.com/)
 - [GemFire for Tanzu Platform for Cloud Foundry Documentation](https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/2.1/gf-tas/content-index.html)
 - [GemFire for Tanzu Platform for Cloud Foundry v2.1 Release notes](https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/2.1/gf-tas/content-release-notes.html)
 

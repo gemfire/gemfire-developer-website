@@ -27,7 +27,7 @@ The goal of this tutorial is to introduce building and using user created object
 
 ## Download Examples and Configure Environment
 
-Download and install VMware GemFire from the [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/index.html).
+Download and install VMware GemFire from the [Broadcom Support Portal](https://support.broadcom.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/index.html).
 
 Clone the [GemFire examples repository](https://github.com/gemfire/gemfire-examples) from GitHub.
 
@@ -69,7 +69,7 @@ In some environments it may be helpful to configure the JAVA_HOME environmental 
 
 ## Configure Access to GemFire Maven Repository
 
-The tutorial requires access to the VMware Commercial Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://commercial-repo.pivotal.io/register>.
+The tutorial requires access to the Broadcom Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://support.broadcom.com>.
 
 Once sign-up is completed, add the following to the settings.xml file in .m2 directory within the home directory. Make sure to replace the email and
 password with those used during sign-up.
@@ -86,7 +86,7 @@ password with those used during sign-up.
 </settings>
 ```
 
-The pom.xml file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.0.0-beta.1 version of the product.
+The pom.xml file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.0.0 version of the product.
 
 ## Start a Developer GemFire Cluster
 

@@ -11,5 +11,5 @@ This "off-platform" access is a new feature in version 2.2 and makes it easy to 
 
 Using this approach you gain the benefit of a managed data service with automated service creation and zero downtime upgrades but have the flexibility to run on-premise, in the cloud, or in a hybrid model as your needs dictate.
 
-Download VMware GemFire for Kubernetes: https://network.pivotal.io/products/tanzu-gemfire-for-kubernetes/
+Download VMware GemFire for Kubernetes: https://support.broadcom.com
 Documentation: https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/index.html

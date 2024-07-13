@@ -21,7 +21,7 @@ The goal of this quick start tutorial is to introduce GemFire basics, including 
 
 ## Download Examples and Configure Environment
 
-Download and install VMware GemFire from [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
+Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
 
 Clone the [GemFire examples repository](https://github.com/gemfire/gemfire-examples) from GitHub.
 
@@ -63,7 +63,7 @@ In some environments it may be helpful to configure the JAVA_HOME environmental 
 
 ## Configure Access to GemFire Maven Repository
 
-The quick start tutorial requires access to the VMware Commercial Maven Repository for the GemFire product jars. Create and account for access to repo at <https://commercial-repo.pivotal.io/register>.
+The quick start tutorial requires access to the Broadcom Maven Repository for the GemFire product jars. Create an account for access to repo at <https://support.broadcom.com>.
 
 Once an account has been created, add the following to the `settings.xml` file in .m2 directory within the home directory. Make sure to replace the email and password with those used during account creation.
 
@@ -79,7 +79,7 @@ Once an account has been created, add the following to the `settings.xml` file i
 </settings>
 ```
 
-The `pom.xml` file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.0.0-beta.1 version of the product.
+The `pom.xml` file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.0.0 version of the product.
 
 ## Introduction to GFSH
 
@@ -93,7 +93,7 @@ $ gfsh
    / _____/ ______/ ______/ /____/ /
   / /  __/ /___  /_____  / _____  /
  / /__/ / ____/  _____/ / /    / /
-/______/_/      /______/_/    /_/    10.0.0-beta.1
+/______/_/      /______/_/    /_/    10.0.0
 
 Monitor and Manage VMware GemFire
 gfsh>
@@ -118,11 +118,11 @@ $ gfsh start locator --name=locator --dir=${HOME}/locator
 Locator in /home/<username>/locator on test-javaclient.localdomain[10334] as locator is currently online.
 Process ID: 532579
 Uptime: 10 seconds
-Geode Version: 10.0.0-beta.1
+Geode Version: 10.0.0
 Java Version: 11.0.17
 Log File: /home/<username>/test/locator/locator.log
 JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
-Class-Path: /home/<username>/vmware-gemfire-10.0.0-beta.1/lib/gemfire-core-10.0.0-beta.1.jar:/home/<username>/vmware-gemfire-10.0.0-beta.1/lib/gemfire-server-all-10.0.0-beta.1.jar
+Class-Path: /home/<username>/vmware-gemfire-10.0.0/lib/gemfire-core-10.0.0.jar:/home/<username>/vmware-gemfire-10.0.0/lib/gemfire-server-all-10.0.0.jar
 
 Successfully connected to: JMX Manager [host=test-javaclient.localdomain, port=1099]
 
@@ -141,7 +141,7 @@ Connecting to Locator at [host=localhost, port=10334] ..
 Connecting to Manager at [host=test-javaclient.localdomain, port=1099] ..
 Successfully connected to: [host=test-javaclient.localdomain, port=1099]
 
-You are connected to a cluster of version 10.0.0-beta.1.
+You are connected to a cluster of version 10.0.0.
 
 
 (2) Executing - start server --dir=test/server --name=server
@@ -150,11 +150,11 @@ You are connected to a cluster of version 10.0.0-beta.1.
 Server in /home/<username>/server on test-javaclient.localdomain[40404] as server is currently online.
 Process ID: 534075
 Uptime: 3 seconds
-Geode Version: 10.0.0-beta.1
+Geode Version: 10.0.0
 Java Version: 11.0.17
 Log File: /home/<username>/test/server/server.log
 JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.default.locators=192.168.0.38[10334] -Dgemfire.start-dev-rest-api=false -Dgemfire.use-cluster-configuration=true -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
-Class-Path: /home/<username>/vmware-gemfire-10.0.0-beta.1/lib/gemfire-core-10.0.0-beta.1.jar:/home/<username>/vmware-gemfire-10.0.0-beta.1/lib/gemfire-server-all-10.0.0-beta.1.jar
+Class-Path: /home/<username>/vmware-gemfire-10.0.0/lib/gemfire-core-10.0.0.jar:/home/<username>/vmware-gemfire-10.0.0/lib/gemfire-server-all-10.0.0.jar
 
 ```
 
@@ -170,7 +170,7 @@ Connecting to Locator at [host=localhost, port=10334] ..
 Connecting to Manager at [host=test-javaclient.localdomain, port=1099] ..
 Successfully connected to: [host=test-javaclient.localdomain, port=1099]
 
-You are connected to a cluster of version 10.0.0-beta.1.
+You are connected to a cluster of version 10.0.0.
 
 ```
 
@@ -354,7 +354,7 @@ Connecting to Locator at [host=localhost, port=10334] ..
 Connecting to Manager at [host=test-javaclient.localdomain, port=1099] ..
 Successfully connected to: [host=test-javaclient.localdomain, port=1099]
 
-You are connected to a cluster of version 10.0.0-beta.1.
+You are connected to a cluster of version 10.0.0.
 
 
 (2) Executing - shutdown --include-locators=true

@@ -9,16 +9,13 @@ topics:
 
 Before starting the following example make sure you have GemFire installed.
 
-To use a Java client with GemFire, you must add the dependencies that are appropriate for your application.  The GemFire dependencies are available from the [Pivotal Commercial Maven Repo](https://commercial-repo.pivotal.io/login/auth).  Access to the Pivotal Commercial Maven Repository requires a one-time registration step to create an account.
+To use a Java client with GemFire, you must add the dependencies that are appropriate for your application.  The GemFire dependencies are available from the [Broadcom Maven Repo](https://support.broadcom.com).  Access to the Broadcom Maven Repository requires a one-time registration step to create an account.
 
 ## Add GemFire to a Project
 To add GemFire to a Maven or Gradle project
-1. In a browser, navigate to the [Pivotal Commercial Maven Repository](https://commercial-repo.pivotal.io/login/auth).
-2. Click the **Create Account** link.
-3. Complete the information in the registration page and accept the EULA.
-4. Click **Register**.
-5. After registering, you will receive a confirmation email. Follow the instruction in this email to activate your account.
-6. Add the GemFire repository to your project:
+1. You will need a [Broadcom Support Portal](https://support.broadcom.com) account.
+1. Select My Downloads. Search by Product Name = VMware Tanzu GemFire. Click on VMware Tanzu GemFire. Click on VMware Tanzu GemFire. Scroll down, Show All Releases, scroll down to Click Green Token for Repository Access and click on the green symbol to the far right. Note your email address.  Copy your access_token (not including any surrounding quotation marks).
+1. Add the GemFire repository to your project:
 
    - **Maven**
      Add the following to the `pom.xml` file:
@@ -26,8 +23,8 @@ To add GemFire to a Maven or Gradle project
        <repositories>
            <repository>
                <id>gemfire-release-repo</id>
-               <name>Pivotal GemFire Release Repository</name>
-               <url>https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire</url>
+               <name>Broadcom GemFire Release Repository</name>
+               <url>https://packages.broadcom.com/artifactory/gemfire/</url>
            </repository>
        </repositories>
        ```
@@ -40,31 +37,31 @@ To add GemFire to a Maven or Gradle project
                    username "$gemfireRepoUsername"
                    password "$gemfireRepoPassword"
                }
-               url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+               url = uri("https://packages.broadcom.com/artifactory/gemfire/")
            }
        }
        ```
-7. Add your Pivotal Commercial Maven Repository credentials.
+1. Add your Broadcom Maven Repository credentials.
    - **Maven**
-     Add the following to the `.m2/settings.xml` file. Replace `MY-USERNAME@example` and `MY-DECRYPTED-PASSWORD` with your Pivotal Commercial Maven Repository credentials.
+     Add the following to the `.m2/settings.xml` file. Replace `MY-USERNAME@example` and `MY-ACCESS-TOKEN` with your Broadcom Maven Repository credentials.
        ```xml
        <settings>
            <servers>
                <server>
                    <id>gemfire-release-repo</id>
                    <username>MY-USERNAME@example.com</username>
-                   <password>MY-DECRYPTED-PASSWORD</password>
+                   <password>MY-ACCESS-TOKEN</password>
                </server>
            </servers>
        </settings>
        ```
    - **Gradle**
-     Add the following to the local `.gradle/gradle.properties` or project `gradle.properties` file. Replace `MY-USERNAME@example` and `MY-DECRYPTED-PASSWORD` with your Pivotal Commercial Maven Repository credentials.
+     Add the following to the local `.gradle/gradle.properties` or project `gradle.properties` file. Replace `MY-USERNAME@example` and `MY-ACCESS-TOKEN` with your Broadcom Maven Repository credentials.
        ```groovy
        gemfireRepoUsername=MY-USERNAME@example.com
-       gemfireRepoPassword=MY-DECRYPTED-PASSWORD
+       gemfireRepoPassword=MY-ACCESS-TOKEN
        ```
-8. Add the dependencies to the project.
+1. Add the dependencies to the project.
    - **Maven**
      Add the following to your `pom.xml` file. Replace VERSION with the version of
      GemFire being used for the project.

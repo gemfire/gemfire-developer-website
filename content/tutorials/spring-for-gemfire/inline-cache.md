@@ -33,7 +33,7 @@ It can also help reduce network latency and improve overall system performance, 
 ## Install and Configure GemFire
 
 The first step is to install and configure GemFire on your system.
-Download and install VMware GemFire from [Tanzu Network](https://network.tanzu.vmware.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
+Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
 
 ## Clone the Spring for GemFire Examples repository from GitHub.
 
@@ -42,15 +42,15 @@ There is a working code examples for how to setup an inline cache here.
 $ git clone git@github.com:gemfire/spring-for-gemfire-examples.git
 ```
 
-## Configure Access to Pivotal Commercial Maven Repository
+## Configure Access to Broadcom Maven Repository
 
-The quickstart tutorial requires access to the VMware Commercial Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://commercial-repo.pivotal.io/register>.
+The quickstart tutorial requires access to the Broadcom Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://support.broadcom.com>.
 
 Create a `gradle.properties` file in the root folder of this project (inline-caching) with the following information:
 
 ```plain
-pivotalCommercialMavenRepoUsername=<your commercial maven repository username>
-pivotalCommercialMavenRepoPassword=<your commercial maven repository password>
+pivotalCommercialMavenRepoUsername=<your Broadcom maven repository email>
+pivotalCommercialMavenRepoPassword=<your Broadcom maven repository access token>
 ```
 
 These properties will be used in the `web` and `cache-loader` gradle projects.

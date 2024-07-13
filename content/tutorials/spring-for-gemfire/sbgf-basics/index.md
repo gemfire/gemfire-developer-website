@@ -25,9 +25,9 @@ GemFire is used by customers in many real-world applications (e.g., banking, bil
 
 For this getting started locally guide, we will walk through the quickest way to get a GemFire cluster up and running for local development purposes.  For full installation instructions, please refer to the [GemFire Install documentation](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/getting_started-installation-install_intro.html). 
 
-### Download the .tgz file from the Tanzu Network 
+### Download the .tgz file from the Broadcom Support Portal 
 
-1. Download VMware GemFire .tgz from the [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire/).
+1. Download VMware GemFire .tgz from the [Broadcom Support Portal](https://support.broadcom.com/).
 2. Unzip or expand the file.
 3. Open a terminal and navigate to the GemFire folder that was unzipped in Step 2.
 4. In the terminal, navigate to the `bin` folder.
@@ -51,7 +51,7 @@ This section will guide you through testing a *Hello, World!* client app on your
 * Spring Boot 2.7 or above
 * [Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html)
 * GemFire 9.15+ 
-* [A Pivotal Commercial Maven Repo account (free)](https://commercial-repo.pivotal.io/login/auth)
+* [A Broadcom Support account](https://support.broadcom.com)
 
 ### 1. Download the Hello, World! Example
 
@@ -60,7 +60,7 @@ This section will guide you through testing a *Hello, World!* client app on your
   ```
   $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
   ```
-* Update the `gradle.properties` file with your Pivotal Commercial Maven Repo username and password. For additional instructions, please review the [Spring Boot for VMware GemFire Quick Start guide](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html).
+* Update the `gradle.properties` file with your Broadcom Maven Repo username and password. For additional instructions, please review the [Spring Boot for VMware GemFire Quick Start guide](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html).
 
 ### 2. Start an VMware GemFire Cluster
 

@@ -2397,7 +2397,6 @@ tanzu-package-repo-global
 tanzu-system-ingress
 Tanzu(Developer|'s)?
 tanzuignore
-TanzuNet
 targetId
 targetPort
 targetType

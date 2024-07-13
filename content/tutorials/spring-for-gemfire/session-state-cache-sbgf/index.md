@@ -40,8 +40,8 @@ To complete this guide you need:
 * JDK 8, 11, or 17. JDK 17 is required to use Spring Boot 3.0 or higher.
 * Spring Boot 2.7 or above
 * [Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html)
-* [A Pivotal Commercial Maven Repo account (free)](https://commercial-repo.pivotal.io/login/auth)
-* GemFire 9.15.3+
+* [A Broadcom Support account](https://support.broadcom.com)
+* GemFire 9.15.12+
 
 
 **If running on Tanzu Application Service**
@@ -73,7 +73,7 @@ $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
 
 
 ### Add the Spring Boot for VMware GemFire Dependency
-The Spring Boot for VMware GemFire dependencies are available from the [Pivotal Commercial Maven Repository](https://commercial-repo.pivotal.io/login/auth). Access to the Pivotal Commercial Maven Repository is free and requires a one-time registration step to create an account.
+The Spring Boot for VMware GemFire dependencies are available from the [Broadcom Support Portal](https://support.broadcom.com). Access to the Broadcom Maven Repository requires a one-time registration step to create an account.
 
 After registering, you will receive a confirmation email. Follow the instruction in this email to activate your account.
 
@@ -91,7 +91,7 @@ Spring Boot for VMware GemFire requires users to add the GemFire repository to t
                 username "$gemfireRepoUsername"
                 password "$gemfireRepoPassword"
             }
-            url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+            url = uri("https://packages.broadcom.com/artifactory/gemfire/")
         }
     }
     ```
@@ -100,23 +100,23 @@ Spring Boot for VMware GemFire requires users to add the GemFire repository to t
     ```xml
     <repository>
         <id>gemfire-release-repo</id>
-        <name>Pivotal GemFire Release Repository</name>
-        <url>https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire</url>
+        <name>Broadcom GemFire Release Repository</name>
+        <url>https://packages.broadcom.com/artifactory/gemfire/</url>
     </repository>
     ```
 
-2. Add your Pivotal Commercial Maven Repository credentials.
+2. Add your Broadcom Maven Repository credentials.
    
     **Gradle**
 
-    Add the following to the local (`.gradle/gradle.properties`) or project `gradle.properties` file. Replace *`YOUR_PIVOTAL_COMMERCIAL_MAVEN_REPO_USERNAME`* and *`YOUR_PIVOTAL_COMMERCIAL_MAVEN_REPO_PASSWORD`* with your Pivotal Commercial Maven Repository credentials.
+    Add the following to the local (`.gradle/gradle.properties`) or project `gradle.properties` file. Replace *`YOUR_BROADCOM_MAVEN_REPO_EMAIL`* and *`YOUR_BROADCOM_MAVEN_REPO_ACCESS_TOKEN`* with your Broadcom Maven Repository credentials.
     
     ```groovy
-    gemfireRepoUsername=YOUR_PIVOTAL_COMMERCIAL_MAVEN_REPO_USERNAME
-    gemfireRepoPassword=YOUR_PIVOTAL_COMMERCIAL_MAVEN_REPO_PASSWORD
+    gemfireRepoUsername=YOUR_BROADCOM_MAVEN_REPO_EMAIL
+    gemfireRepoPassword=YOUR_BROADCOM_MAVEN_REPO_ACCESS_TOKEN
     ```
    **Maven**
-   Add the following to the `.m2/settings.xml` file. Replace `MY-USERNAME@example` and `MY-DECRYPTED-PASSWORD` with your Pivotal Commercial Maven Repository credentials.
+   Add the following to the `.m2/settings.xml` file. Replace `MY-USERNAME@example` and `MY-ACCESS-TOKEN` with your Broadcom Maven Repository credentials.
 
     ```xml
     <settings>
@@ -124,7 +124,7 @@ Spring Boot for VMware GemFire requires users to add the GemFire repository to t
             <server>
                 <id>gemfire-release-repo</id>
                 <username>MY-USERNAME@example.com</username>
-                <password>MY-DECRYPTED-PASSWORD</password>
+                <password>MY-ACCESS-TOKEN</password>
             </server>
         </servers>
     </settings>

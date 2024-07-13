@@ -33,8 +33,8 @@ The entry point for the `maven-compiler-plugin` is specified by the `mainClass` 
 <repositories>
     <repository>
         <id>gemfire-release-repo</id>
-        <name>Pivotal GemFire Release Repository</name>
-        <url>https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire</url>
+        <name>Broadcom GemFire Release Repository</name>
+        <url>https://packages.broadcom.com/artifactory/gemfire/</url>
     </repository>
 </repositories>
 <build>
@@ -250,7 +250,7 @@ kind: GemFireCluster
 metadata:
  name: gemfire-cluster
 spec:
- image: registry.tanzu.vmware.com/pivotal-gemfire/vmware-gemfire:9.15.2
+ image: registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:9.15.12
  antiAffinityPolicy: Cluster
  locators:
    replicas: 1

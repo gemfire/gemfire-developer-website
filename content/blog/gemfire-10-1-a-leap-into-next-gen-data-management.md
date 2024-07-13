@@ -12,7 +12,7 @@ In the ever-evolving landscape of data management, staying ahead of technologica
 
 If you would like to download GemFire 10.1, check out any examples , or learn more about GemFire and all the awesome features check out these links:
 
-* [Download GemFire 10.1](https://network.tanzu.vmware.com/products/pivotal-gemfire/)
+* [Download GemFire 10.1](https://support.broadcom.com/)
 * [GemFire 10.1 Documentation](https://docs.vmware.com/en/VMware-GemFire/10.1/gf/about_gemfire.html)
 * Discover all things GemFire https://gemfire.dev 
 

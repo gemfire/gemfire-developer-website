@@ -15,7 +15,7 @@ Unleash the Fusion of Speed and Intelligence: Discover How GemFire Vector Databa
 
 If you would like to download GemFire VectorDB, check out the example application, or learn more about GemFire and all the awesome features check out these links:
 
-* [Download the GemFire Vector Database Extension](https://network.tanzu.vmware.com/products/gemfire-vectordb/)
+* [Download the GemFire Vector Database Extension](https://support.broadcom.com/)
 * [GemFire Vector Database Documentation](https://docs.vmware.com/en/VMware-GemFire-VectorDB/1.0/gemfire-vectordb/overview.html)
 * [Source Code For GemFire Image Search Demo](https://github.com/gemfire/gemfire-examples/tree/main/extensions/gemfireVectorDatabase/imageSearch) 
 * Discover all things GemFire https://gemfire.dev 

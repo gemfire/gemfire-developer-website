@@ -22,7 +22,7 @@ We’ll be ingesting JSON data from a rest endpoint into a Kafka topic. We will 
 
 
 ## Prerequisites:
-* [GemFire installed](https://network.tanzu.vmware.com/products/pivotal-gemfire/)
+* [GemFire installed](https://support.broadcom.com/)
 * [Apache Kafka installed](https://kafka.apache.org/downloads)
 * Download or build a [geode-kafka-connector jar](https://github.com/apache/geode-kafka-connector)
 * Download the source for an example ingest web service: [https://github.com/jhuynh1/spring-kafka-JSON-ingest](https://github.com/jhuynh1/spring-kafka-JSON-ingest)

@@ -49,8 +49,8 @@ To learn more about GemFire, please visit the new GemFire Developer Center at ht
 
 ## Additional resources
 
-- GemFire 10.0: [documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html), [release notes](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/release_notes.html), and [download](https://network.tanzu.vmware.com/products/pivotal-gemfire/)
-- GemFire Management Console 1.0: [documentation](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/index.html), [release notes](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/release_notes.html), and [download](https://network.tanzu.vmware.com/products/gemfire-management-console/)
+- GemFire 10.0: [documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html), [release notes](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/release_notes.html), and [download](https://support.broadcom.com/)
+- GemFire Management Console 1.0: [documentation](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/index.html), [release notes](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/release_notes.html), and [download](https://support.broadcom.com/)
 - Webinar: [GemFire 10 Features](/videos/gemfire-10.0-beta-open)
 - Video: [GemFire in two minutes](/videos/gemfire-in-two-minutes) / [The World of GemFire](/videos/the-world-of-gemfire)
 

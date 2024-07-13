@@ -19,7 +19,7 @@ This guide walks you through creating and testing a VMware GemFire cluster on Ku
 ## Before you start!
 This guide assumes that the [VMware GemFire Operator](https://docs.vmware.com/en/VMware-GemFire-for-Kubernetes/2.0/gf-k8s/install.html), **contour** and a **cert-manager** have been installed in your Kubernetes cluster. 
 
-In order to create a GemFire cluster, you will need a [Tanzu Net](https://network.tanzu.vmware.com/products/tanzu-gemfire-for-kubernetes/) account, in order to pull the GemFire image from the registry. 
+In order to create a GemFire cluster, you will need a [Broadcom Support Portal](https://support.broadcom.com/) account, in order to pull the GemFire image from the registry. 
 
 You will also need permission to use `kubectl`. 
  
@@ -43,12 +43,12 @@ You will also need permission to use `kubectl`.
 3. Create an image pull secret that will be used to pull down the VMware GemFire images needed to create the cluster
 
     ```
-    $ kubectl create secret docker-registry image-pull-secret --namespace=gemfire-cluster --docker-server=registry.tanzu.vmware.com --docker-username='TANZU NET USERNAME' --docker-password='TANZU NET PASSWD'
+    $ kubectl create secret docker-registry image-pull-secret --namespace=gemfire-cluster --docker-server=registry.tanzu.vmware.com --docker-username='BROADCOM SUPPORT EMAIL' --docker-password='BROADCOM SUPPORT ACCESS TOKEN'
     ```  
      
    * Replace `--namepsace=gemfire-cluster` with the name of your namespace, if different.
-   * Replace `--docker-username='TANZU NET USERNAME'` with your Tanzu Net Username
-   * Replace `--docker-password='TANZU NET PASSWD'` with your Tanzu Net Password
+   * Replace `--docker-username='BROADCOM SUPPORT EMAIL'` with your Broadcom Support Portal Email
+   * Replace `--docker-password='BROADCOM SUPPORT ACCESS TOKEN'` with your Broadcom Support Portal Access Token
      
 4. Create a Gateway and Gateway Class for your VMware GemFire Cluster.  
    ```yaml
@@ -92,7 +92,7 @@ You will also need permission to use `kubectl`.
       metadata:
         name: hello-world-gemfire-cluster
       spec:
-        image: registry.tanzu.vmware.com/pivotal-gemfire/vmware-gemfire:9.15.3
+        image: registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:9.15.12
         ingress:
           gatewayName: hello-world-cluster-gateway
       ```
@@ -126,7 +126,7 @@ You will also need permission to use `kubectl`.
     
     ```
     NAME                          LOCATORS   SERVERS   CLUSTER IMAGE                                                     OPERATOR VERSION
-    hello-world-gemfire-cluster   1/1        2/2       registry.tanzu.vmware.com/pivotal-gemfire/vmware-gemfire:9.15.3   2.0.0-build.73
+    hello-world-gemfire-cluster   1/1        2/2       registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:9.15.12   2.0.0-build.73
     ```
    Where the `NAME` will be the value you have for the `name` entry in your CRD file from *Step 4* . 
         
@@ -157,7 +157,7 @@ This section will guide you through testing a *Hello, World!* client application
 * Spring Boot 2.6 or above
 * [Spring Boot for VMware GemFire](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html) 
 * VMware GemFire for Kubernetes 2.0+
-* [A Pivotal Commercial Maven Repo account (free)](https://commercial-repo.pivotal.io/login/auth)
+* [A Broadcom Support account](https://support.broadcom.com)
 
 
 ###  1. Download the Hello, World! Example

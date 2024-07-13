@@ -26,11 +26,11 @@ cluster; freeing the developer to focus on writing their tests.
 ## What You'll Need
 
 - The ability to run Docker on your system
-- Access to VMware's commercial Maven repository.
+- Access to Broadcom Maven Repository.
 
 ## Getting Started
 
-You will need access to VMware's [commercial Maven repository](https://commercial-repo.pivotal.io).
+You will need access to [Broadcom's Support Portal](https://support.broadcom.com/).
 Since you're using GemFire you should already have access, but if not, please follow the
 instructions on the [GemFire Developer Center](https://gemfire.dev/quickstart/java/).
 

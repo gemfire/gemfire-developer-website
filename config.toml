@@ -356,7 +356,7 @@ archived_version = false
     Name = "GemFire"
     parent = "download"
     weight = 10
-    url = "https://network.tanzu.vmware.com/products/pivotal-gemfire/"
+    url = "https://support.broadcom.com/"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -365,7 +365,7 @@ archived_version = false
     Name = "GemFire for TAS"
     parent = "download"
     weight = 20
-    url = "https://network.tanzu.vmware.com/products/tanzu-gemfire-for-vms/"
+    url = "https://support.broadcom.com/"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -374,7 +374,7 @@ archived_version = false
     Name = "GemFire for Kubernetes"
     parent = "download"
     weight = 30
-    url = "https://network.tanzu.vmware.com/products/tanzu-gemfire-for-kubernetes/"
+    url = "https://support.broadcom.com/"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -383,7 +383,7 @@ archived_version = false
     Name = "GemFire Management Console"
     parent = "download"
     weight = 35
-    url = "https://network.tanzu.vmware.com/products/gemfire-management-console/"
+    url = "https://support.broadcom.com/"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -392,7 +392,7 @@ archived_version = false
     Name = "Native Client"
     parent = "download"
     weight = 40
-    url = "https://network.tanzu.vmware.com/products/pivotal-gemfire/#/releases/1157686"
+    url = "https://support.broadcom.com/"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -401,7 +401,7 @@ archived_version = false
     Name = "GemFire Search"
     parent = "download"
     weight = 60
-    url = "https://network.tanzu.vmware.com/products/gemfire-search/"
+    url = "https://support.broadcom.com/"
     [menu.main.params]
       topicgroups = "Extensions"
 
@@ -410,16 +410,7 @@ archived_version = false
     Name = "GemFire Vector Database"
     parent = "download"
     weight = 65
-    url = "https://network.tanzu.vmware.com/products/gemfire-vectordb"
-    [menu.main.params]
-      topicgroups = "Extensions"
-
-  [[menu.main]]
-    identifier = "gf4radl"
-    Name = "GemFire for Redis Apps"
-    parent = "download"
-    weight = 70
-    url = "https://network.tanzu.vmware.com/products/tanzu-gemfire-for-redis-apps/"
+    url = "https://support.broadcom.com/"
     [menu.main.params]
       topicgroups = "Extensions"
 

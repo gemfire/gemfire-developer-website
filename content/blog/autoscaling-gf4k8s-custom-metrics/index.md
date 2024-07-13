@@ -147,7 +147,7 @@ kind: GemFireCluster
 metadata:
   name: gemfire-cluster
 spec:
-  image: "registry.tanzu.vmware.com/pivotal-gemfire/vmware-gemfire:10.0.0"
+  image: "registry.packages.broadcom.com/pivotal-gemfire/vmware-gemfire:10.0.0"
   servers:
     replicas: 3
   autoscaler:

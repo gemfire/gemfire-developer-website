@@ -26,7 +26,7 @@ The goal of this tutorial is to introduce using and storing JSON documents in Ge
 
 ## Download Examples and Configure Environment
 
-Download and install VMware GemFire from [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/index.html).
+Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/index.html).
 
 Clone the [GemFire examples repository](https://github.com/gemfire/gemfire-examples) from GitHub.
 
@@ -68,7 +68,7 @@ In some environments it may be helpful to configure the JAVA_HOME environmental 
 
 ## Configure Access to GemFire Maven Repository
 
-The tutorial requires access to the VMware Commercial Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://commercial-repo.pivotal.io/register>.
+The tutorial requires access to the Broadcom Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://support.broadcom.com>.
 
 Once sign-up is completed, add the following to the settings.xml file in .m2 directory within the home directory. Make sure to replace the email and
 password with those used during sign-up.

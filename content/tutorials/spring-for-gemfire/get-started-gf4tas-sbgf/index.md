@@ -121,7 +121,7 @@ This section will guide you through testing a `Hello, World!` client application
 * Spring Boot 2.7 or above
 * Spring Boot for VMware GemFire
 * VMware GemFire for TAS 1.14.5+
-* [A Pivotal Commercial Maven Repo account (free)](https://commercial-repo.pivotal.io/login/auth)
+* [A Broadcom Support account](https://support.broadcom.com)
 
 
 ###  1. Download the Hello, World! Example

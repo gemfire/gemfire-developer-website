@@ -35,7 +35,7 @@ Spring Cloud Data Flow for GemFire has released four artifacts compatible with S
 * GemFire Sink Rabbit : 1.0.0
 * GemFire Sink Kafka : 1.0.0
 
-These artifacts are available in both the GemFire Commercial Maven Repository and Docker Hub. Details on how to access and install these artifacts can be found in the [Spring Cloud Data Flow for GemFire](https://gemfire.dev/documentation/spring/spring_cloud_data_flow_for_gemfire.pdf) documentation.
+These artifacts are available in both the Broadcom Maven Repository and Docker Hub. Details on how to access and install these artifacts can be found in the [Spring Cloud Data Flow for GemFire](https://gemfire.dev/documentation/spring/spring_cloud_data_flow_for_gemfire.pdf) documentation.
 
 The following examples showcase both the GemFire Source and GemFire Sink applications for Spring Cloud Data Flow.
 
@@ -57,7 +57,7 @@ In order to run the examples, a Spring Cloud Data Flow (SCDF) environment and ru
 ### Setup GemFire Environment
 For these examples a GemFire environment is required.
 
-- Download the latest GemFire from [Tanzu Network](https://network.tanzu.vmware.com/products/pivotal-gemfire)
+- Download the latest GemFire from [Broadcom Support Portal](https://support.broadcom.com/)
 - Extract the GemFire archive to known location
 - Navigate to the installation folder for GemFire
 - Run Gfsh in the bin directory, by either running `./gfsh.sh` or `gfsh.bat` (depending on Windows or Linux/MacOS)
@@ -102,7 +102,7 @@ Below are two examples:
 ## GemFire Sink
 
 ### Add the GemFire Sink RabbitMQ Application
-There are two methods to deploy the artifacts into the Spring Cloud Dataflow Server: using the images from Docker Hub or download the artifacts from the Pivotal Commercial Maven repository.
+There are two methods to deploy the artifacts into the Spring Cloud Dataflow Server: using the images from Docker Hub or download the artifacts from the Broadcom Maven repository.
 
 Choose <u>one</u> of the following options:
 
@@ -121,18 +121,18 @@ Choose <u>one</u> of the following options:
 
 OR
 
-2. **Commercial Maven Repository Artifacts**
+2. **Broadcom Maven Repository Artifacts**
 
-   1. In a browser, navigate to the [Pivotal Commercial Maven Repository](https://commercial-repo.pivotal.io/login/auth).
+   1. In a browser, navigate to the [Broadcom Support Portal](https://support.broadcom.com).
 
    2. Click the **Create Account** link.
 
    3. Complete the information in the registration page.
 
-   4. Once you have a Pivotal Commercial Maven Repository account created, you can now download the GemFire Sink Rabbit artifact (replace `{commercialMavenRepoUsername}` with your commercial maven repo username/email):
+   4. Once you have a Broadcom Maven Repository account created, you can now download the GemFire Sink Rabbit artifact (replace `{broadcomMavenRepoEmail}` with your Broadcom maven repo email):
 
       ```
-      wget https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire/com/vmware/gemfire/spring/cloud/stream/app/gemfire-sink-rabbit/1.0.0/gemfire-sink-rabbit-1.0.0.jar --user {commercialMavenRepoUsername} --ask-password
+      wget https://packages.broadcom.com/artifactory/gemfire/com/vmware/gemfire/spring/cloud/stream/app/gemfire-sink-rabbit/1.0.0/gemfire-sink-rabbit-1.0.0.jar --user {broadcomMavenRepoEmail} --ask-password
       ```
       
    5. Log in to your Spring Cloud Dataflow Server.
@@ -208,7 +208,7 @@ OR
 
 ### Add the GemFire Source RabbitMQ Application
 
-There are two methods to deploy the artifacts into the Spring Cloud Dataflow Server: using the images from Docker Hub or download the artifacts from the Pivotal Commercial Maven repository.
+There are two methods to deploy the artifacts into the Spring Cloud Dataflow Server: using the images from Docker Hub or download the artifacts from the Broadcom Maven repository.
 
 Choose <u>one</u> of the following options:
 
@@ -227,18 +227,18 @@ Choose <u>one</u> of the following options:
 
 OR
 
-2. **Commercial Maven Repository Artifacts**
+2. **Broadcom Maven Repository Artifacts**
 
-   1. In a browser, navigate to the [Pivotal Commercial Maven Repository](https://commercial-repo.pivotal.io/login/auth).
+   1. In a browser, navigate to the [Broadcom Support Portal](https://support.broadcom.com).
 
    2. Click the **Create Account** link.
 
    3. Complete the information in the registration page.
 
-   4. Once you have a Pivotal Commercial Maven Repository account created, you can now download the GemFire Source Rabbit artifact (replace `{commercialMavenRepoUsername}` with your commercial maven repo username/email):
+   4. Once you have a Broadcom Maven Repository account created, you can now download the GemFire Source Rabbit artifact (replace `{broadcomMavenRepoEmail}` with your Broadcom maven repo email):
 
       ```
-      wget https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire/com/vmware/gemfire/spring/cloud/stream/app/gemfire-source-rabbit/1.0.0/gemfire-source-rabbit-1.0.0.jar --user {commercialMavenRepoUsername} --ask-password
+      wget https://packages.broadcom.com/artifactory/gemfire/com/vmware/gemfire/spring/cloud/stream/app/gemfire-source-rabbit/1.0.0/gemfire-source-rabbit-1.0.0.jar --user {broadcomMavenRepoEmail} --ask-password
       ```   
 
    5. Log in to your Spring Cloud Dataflow Server.
