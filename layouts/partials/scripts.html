@@ -5,7 +5,7 @@
 {{ $jsBase := resources.Get "js/base.js" }}
 {{ $jsAnchor := resources.Get "js/anchor.js" }}
 {{ $js := (slice $jsLightbox $jsBase $jsAnchor) | resources.Concat "js/main.js" }}
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
 <script src="{{ $js.RelPermalink }}"></script>
 {{ else }}
 {{ $opts := dict "minify" true }}
