@@ -19,14 +19,12 @@
 
 The VMware GemFire Developer Center is a site specifically built to be a great resource for GemFire users. 
 
-Our guiding principle is to ensure readers have free, immediate access to all the content on the GemFire Developer Center. No purchase is ever necessary to access content on the GemFire Developer Center because it is either open source or an easily accessible trial.
-
 
 ## Getting Started Building a Local Deployment of the GemFire Developer Center
 
 Before you can build a local copy of the GemFire Developer Center, there are software prerequisites that you’re going to need to install. 
 
-_Note: The instructions below are primarily designed for Mac users. While you should be able to make things work on Windows as well, it may require a few additional steps. (For example, using `make` should work natively on a Mac with Xcode dev tools installed, but requires a [special installation](https://gnuwin32.sourceforge.net/packages/make.htm) for Windows._
+_Note: The instructions below are primarily designed for Mac users. While you should be able to make things work on Windows as well, it may require a few additional steps. For example, using `make` should work natively on a Mac with Xcode dev tools installed, but requires a [special installation](https://gnuwin32.sourceforge.net/packages/make.htm) for Windows._
 
 ### Requirements for Local Development / Build
 
@@ -37,16 +35,16 @@ _Note: The instructions below are primarily designed for Mac users. While you sh
 
 ### Software Installation Prerequisites
 
-* **Install Hugo** — The VMware GemFire Developer Center uses [Hugo](https://gohugo.io/) to build the site from Markdown files. You'll need to [get Hugo](https://gohugo.io/getting-started/installing/) if you want to build and run the site locally. Make sure you install the extended version with support for SCSS/SASS. This site pins `hugo` to a specific version (currently **0.110.0**) to build so if you're using a different version, your experience may vary. To install `hugo`, follow the instructions for your specific environment as detailed in the [hugo documentation](https://gohugo.io/installation/). Ultimately, you have two main options: 
+* **Install Hugo** — The GemFire Developer Center uses [Hugo](https://gohugo.io/) to build the site from Markdown files. You'll need to [get Hugo](https://gohugo.io/getting-started/installing/) if you want to build and run the site locally. Make sure you install the extended version with support for SCSS/SASS. This site currently uses **0.133.0** to build so if you're using a different version, your experience may vary. To install `hugo`, follow the instructions for your specific environment as detailed in the [hugo documentation](https://gohugo.io/installation/). Ultimately, you have two main options: 
 
-   - Download the correct *extended* binary for your OS from [gohugo GitHub releases page for 0.110.0](https://github.com/gohugoio/hugo/releases/tag/v0.110.0) and then move the `hugo` binary to an appropriate location (ie. `sudo cp hugo /usr/local/bin`) and/or add it to your `PATH`.
-   - Use `brew install hugo` and `brew pin hugo` to pin it to the correct version (0.110.0). (MacOS only.)
+   - Use `brew install hugo` (MacOS only.)
+   - Download the correct binary for your OS from [gohugo GitHub releases](https://github.com/gohugoio/hugo/releases) and then move the `hugo` binary to an appropriate location (ie. `sudo cp hugo /usr/local/bin`) and/or add it to your `PATH`.
 
-* **Install Node (and NPM)** — Certain features of the site require Node in order to build (PostCSS, Autoprefixer, etc.), and the Node Package Manager (npm) is also used to manage local packages. If you don’t already have Node installed, you’ll need it in order to build the site. Though it may work with different versions, you should use Node 16+ and npm 8 (the corresponding version that comes with Node 16). You may [download and install Node](https://nodejs.org/en/download/current/) or use `brew` to install it:
+* **Install Node (and NPM)** — Certain features of the site require Node in order to build (PostCSS, Autoprefixer, etc.), and the Node Package Manager (npm) is also used to manage local packages. If you don’t already have Node installed, you’ll need it in order to build the site. Though it may work with different versions, you should use Node 18+ and npm 10+ (the corresponding version that comes with Node 18). You may [download and install Node](https://nodejs.org/en/download/current/) or use `brew` to install it:
 
      ```sh
-     brew install node@16
-     brew link node@16
+     brew install node@18
+     brew link node@10
      ```
 
 * **Install Docker** — Docker builds images for local automated tests. You can download [Docker Desktop](https://www.docker.com/products/docker-desktop/) or use `brew`:
@@ -117,10 +115,6 @@ sudo sysctl -w kern.maxfilesperproc=65535
 
 On Windows, you may need to use `hugo server -D` to start the application. The site will then be available on `http://localhost:1313/`
 
-
-## Contributing Content
-
-The content contribution process is documented fully on our [Confluence Page] (https://confluence.eng.vmware.com/display/TGF/GemFire+Microsite#GemFireMicrosite-#ContributingContent).
 
 ## Code of Conduct
 

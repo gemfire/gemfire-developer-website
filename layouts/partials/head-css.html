@@ -2,7 +2,7 @@
 {{ $scssCustom := "scss/custom.scss" }}
 {{ $scssLight := "scss/light-theme.scss" }}
 
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
 {{/* Note the missing postCSS. This makes it snappier to develop in Chrome, but makes it look sub-optimal in other browsers. */}}
 {{ $css := resources.Get $scssMain | resources.ExecuteAsTemplate "css/main.css" . | toCSS (dict "enableSourceMap" true) }}
 {{ $cssCustom := resources.Get $scssCustom | resources.ExecuteAsTemplate "css/custom.css" . | toCSS (dict "enableSourceMap" true) }}
