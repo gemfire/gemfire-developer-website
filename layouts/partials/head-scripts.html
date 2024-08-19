@@ -1,10 +1,11 @@
-<!-- Initialize GTM data layer -->
-<script>
-    dataLayer = [];
-</script>
-<!-- OneTrust -->
 {{ if eq (getenv "HUGO_ENV") "production" }}
+<!-- OneTrust -->
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-domain-script="018ee307-a49c-7cb6-92e1-310ed080f735"></script>
+<script>
+    function OptanonWrapper() {}
+</script>
+<!--End OneTrust -->
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -14,9 +15,6 @@
 <!-- End Google Tag Manager -->
 {{ end }}
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script>
-    function OptanonWrapper() { { window.dataLayer.push({ event: 'OneTrustGroupsUpdated' }); } }
-</script>
 
 <script>
 
