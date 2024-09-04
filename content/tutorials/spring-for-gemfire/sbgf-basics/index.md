@@ -27,7 +27,7 @@ For this getting started locally guide, we will walk through the quickest way to
 
 ### Download the .tgz file from the Broadcom Support Portal 
 
-1. Download VMware GemFire .tgz from the [Broadcom Support Portal](https://support.broadcom.com/).
+1. Download VMware GemFire .tgz from the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.1.1&os=&servicePk=310413&language=EN).
 2. Unzip or expand the file.
 3. Open a terminal and navigate to the GemFire folder that was unzipped in Step 2.
 4. In the terminal, navigate to the `bin` folder.
@@ -60,7 +60,7 @@ This section will guide you through testing a *Hello, World!* client app on your
   ```
   $ git clone https://github.com/gemfire/spring-for-gemfire-examples.git
   ```
-* Update the `gradle.properties` file with your Broadcom Maven Repo username and password. For additional instructions, please review the [Spring Boot for VMware GemFire Quick Start guide](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html).
+* Update the `gradle.properties` file with your Broadcom Maven Repo username and password(token). For additional instructions, please review the [Spring Boot for VMware GemFire Quick Start guide](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html).
 
 ### 2. Start an VMware GemFire Cluster
 

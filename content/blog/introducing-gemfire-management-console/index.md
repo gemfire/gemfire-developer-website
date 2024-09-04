@@ -11,7 +11,7 @@ description: With the VMware GemFire Management Console, managing a fleet of Gem
 
 ---
 
-We are thrilled to announce the launch of the [VMware GemFire Management Console](https://support.broadcom.com/), a new user interface (UI) for VMware GemFire, the in-memory distributed data store. The GemFire Management Console is an intuitive and easy-to-use tool that simplifies cluster management across all GemFire offerings, including VMware GemFire, VMware GemFire for TAS, and VMware GemFire for Kubernetes.
+We are thrilled to announce the launch of the [VMware GemFire Management Console](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console), a new user interface (UI) for VMware GemFire, the in-memory distributed data store. The GemFire Management Console is an intuitive and easy-to-use tool that simplifies cluster management across all GemFire offerings, including VMware GemFire, VMware GemFire for TAS, and VMware GemFire for Kubernetes.
 
 With the VMware GemFire Management Console, managing a fleet of GemFire clusters has never been easier. The new GemFire Management Console offers capabilities to simplify operations, diagnostics, and other management responsibilities. Whether users are creating and managing regions and disk stores, checking the general health of the clusters, reviewing log files, or deploying and executing functions, the VMware GemFire® Management Console™ makes managing GemFire clusters simpler. 
 
@@ -61,10 +61,10 @@ The GemFire Management Console allows users to view clusters across all GemFire 
 
 With a streamlined user interface, powerful management capabilities, and advanced diagnostic tools, the VMware GemFire Management Console is the perfect tool for anyone looking to simplify their GemFire cluster management. Whether users are managing a single cluster or multiple clusters, the new Management Console makes it easier and more efficient to manage GemFire clusters.
 
-Download the [VMware GemFire Management Console](https://support.broadcom.com/) from the Broadcom Support Portal today and experience the power of streamlined GemFire cluster management. 
+Download the [VMware GemFire Management Console](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console) from the Broadcom Support Portal today and experience the power of streamlined GemFire cluster management. 
 
 To learn more about the GemFire Management Console and GemFire:
-  - GemFire Management Console:  [documentation](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/index.html), [release notes](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/release_notes.html), and [download](https://support.broadcom.com/)
-  - GemFire 10.0: [documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html), [release notes](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/release_notes.html), and [download](https://support.broadcom.com/)
+  - GemFire Management Console:  [documentation](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/index.html), [release notes](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/release_notes.html), and [download](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console)
+  - GemFire 10.0: [documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/about_gemfire.html), [release notes](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/release_notes.html), and [download](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.0.4&os=&servicePk=310412&language=EN)
   - Webinar: [GemFire 10 Features](https://gemfire.dev/videos/gemfire-10.0-beta-open/)
   - Video: [GemFire Management Console Demo](https://gemfire.dev/videos/gemfire-management-console-demo/) / [GemFire in two minutes](https://gemfire.dev/videos/gemfire-in-two-minutes/) / [The World of GemFire](https://gemfire.dev/videos/the-world-of-gemfire/) /  

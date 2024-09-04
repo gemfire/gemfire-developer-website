@@ -33,7 +33,7 @@ It can also help reduce network latency and improve overall system performance, 
 ## Install and Configure GemFire
 
 The first step is to install and configure GemFire on your system.
-Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
+Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.1.1&os=&servicePk=310413&language=EN). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
 
 ## Clone the Spring for GemFire Examples repository from GitHub.
 
@@ -44,7 +44,7 @@ $ git clone git@github.com:gemfire/spring-for-gemfire-examples.git
 
 ## Configure Access to Broadcom Maven Repository
 
-The quickstart tutorial requires access to the Broadcom Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://support.broadcom.com>.
+The quick start tutorial requires access to the Broadcom Maven Repository for the GemFire product jars.  Navigate to the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire).  Login (or register if you have not already). Click Show All Releases and find "Click Green Token For Repository Access" (don't click the blue text; click the green icon to the right of it).
 
 Create a `gradle.properties` file in the root folder of this project (inline-caching) with the following information:
 

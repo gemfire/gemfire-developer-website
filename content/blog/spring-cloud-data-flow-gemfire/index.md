@@ -57,7 +57,7 @@ In order to run the examples, a Spring Cloud Data Flow (SCDF) environment and ru
 ### Setup GemFire Environment
 For these examples a GemFire environment is required.
 
-- Download the latest GemFire from [Broadcom Support Portal](https://support.broadcom.com/)
+- Download the latest GemFire from [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.1.1&os=&servicePk=310413&language=EN)
 - Extract the GemFire archive to known location
 - Navigate to the installation folder for GemFire
 - Run Gfsh in the bin directory, by either running `./gfsh.sh` or `gfsh.bat` (depending on Windows or Linux/MacOS)
@@ -123,11 +123,11 @@ OR
 
 2. **Broadcom Maven Repository Artifacts**
 
-   1. In a browser, navigate to the [Broadcom Support Portal](https://support.broadcom.com).
+   1. In a browser, navigate to the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire).
 
-   2. Click the **Create Account** link.
+   2. Login (or register if you have not already).
 
-   3. Complete the information in the registration page.
+   3. Click Show All Releases and find "Click Green Token For Repository Access" (don't click the blue text; click the green icon to the right of it).
 
    4. Once you have a Broadcom Maven Repository account created, you can now download the GemFire Sink Rabbit artifact (replace `{broadcomMavenRepoEmail}` with your Broadcom maven repo email):
 
@@ -229,11 +229,11 @@ OR
 
 2. **Broadcom Maven Repository Artifacts**
 
-   1. In a browser, navigate to the [Broadcom Support Portal](https://support.broadcom.com).
+   1. In a browser, navigate to the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire).
 
-   2. Click the **Create Account** link.
+   2. Login (or register if you have not already).
 
-   3. Complete the information in the registration page.
+   3. Click Show All Releases and find "Click Green Token For Repository Access" (don't click the blue text; click the green icon to the right of it).
 
    4. Once you have a Broadcom Maven Repository account created, you can now download the GemFire Source Rabbit artifact (replace `{broadcomMavenRepoEmail}` with your Broadcom maven repo email):
 

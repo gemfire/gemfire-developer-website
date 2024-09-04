@@ -12,7 +12,7 @@ description: An example using the GemFire Vector Database extension to perform a
 ---
 # GemFire Image Search
 An image search webapp that uses VMware GemFire and the VMware GemFire Vector Database extension.
-Download the extension from the Broadcom Support Portal: [GemFire Vector Database extension](https://support.broadcom.com/)
+Download the extension from the Broadcom Support Portal: [GemFire Vector Database extension](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Vector%20Database)
 
 ## Using the Application
 
@@ -49,8 +49,8 @@ The application currently expects to find the GemFire `--http-service-port`  at 
 
 ## Requirements
 
-- [GemFire 10.0+](https://support.broadcom.com/)
-- [GemFire Vector Database extension 1.0+](https://support.broadcom.com/)
+- [GemFire 10.0+](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.1.1&os=&servicePk=310413&language=EN)
+- [GemFire Vector Database extension 1.0+](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Vector%20Database)
 - React
 - Flask (python webserver)
 - Python 3.9+

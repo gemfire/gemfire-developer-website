@@ -10,7 +10,7 @@ team:
 description: "Introducing the GemFire Management Console version 1.2! This release features an intuitive Multi-Site Topology view, enhanced query management, seamless security integration, and enhanced data insights."
 ---
 
-Introducing the GemFire Management Console (GMC) version 1.2, where efficiency meets innovation in managing your distributed system. Available now from the [Broadcom Support Portal](https://support.broadcom.com/).
+Introducing the GemFire Management Console (GMC) version 1.2, where efficiency meets innovation in managing your distributed system. Available now from the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console).
 
 Discover the latest features tailored to enhance visibility, security, and data management, empowering you to unlock the full potential of your GemFire clusters.
 
@@ -71,7 +71,7 @@ GemFire Management Console 1.2 redefines distributed system management with its 
 
 ## Additional Resources
 
-**Download:** Available now from the [Broadcom Support Portal](https://support.broadcom.com/).
+**Download:** Available now from the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console).
 
 **Documentation:** [GemFire Management Console 1.2 Documentation](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.2/gfmc/index.html)
 

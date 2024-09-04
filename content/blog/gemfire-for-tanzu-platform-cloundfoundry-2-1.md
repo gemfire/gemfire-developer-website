@@ -16,7 +16,7 @@ Tanzu GemFire for Tanzu Platform 2.1 is now available for download from the Broa
 
 Resources:
 
-- [Download from Broadcom Support Portal](https://support.broadcom.com/)
+- [Download from Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20on%20Cloud%20Foundry)
 - [GemFire for Tanzu Platform for Cloud Foundry Documentation](https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/2.1/gf-tas/content-index.html)
 - [GemFire for Tanzu Platform for Cloud Foundry v2.1 Release notes](https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/2.1/gf-tas/content-release-notes.html)
 

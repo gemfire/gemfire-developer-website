@@ -9,11 +9,11 @@ topics:
 
 Before starting the following example make sure you have GemFire installed.
 
-To use a Java client with GemFire, you must add the dependencies that are appropriate for your application.  The GemFire dependencies are available from the [Broadcom Maven Repo](https://support.broadcom.com).  Access to the Broadcom Maven Repository requires a one-time registration step to create an account.
+To use a Java client with GemFire, you must add the dependencies that are appropriate for your application.  The GemFire dependencies are available from the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire).  Login (or register if you have not already) and click Show All Releases and find "Click Green Token For Repository Access" (don't click the blue text; click the green icon to the right of it).
 
 ## Add GemFire to a Project
 To add GemFire to a Maven or Gradle project
-1. You will need a [Broadcom Support Portal](https://support.broadcom.com) account.
+1. You will need a [Broadcom Support Portal](https://support.broadcom.com) account and a token obtained as described above.
 1. Select My Downloads. Search by Product Name = VMware Tanzu GemFire. Click on VMware Tanzu GemFire. Click on VMware Tanzu GemFire. Scroll down, Show All Releases, scroll down to Click Green Token for Repository Access and click on the green symbol to the far right. Note your email address.  Copy your access_token (not including any surrounding quotation marks).
 1. Add the GemFire repository to your project:
 

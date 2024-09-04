@@ -10,9 +10,9 @@ description: Discover the newest advancements and improvements in GemFire techno
 
 In the ever-evolving landscape of data management, staying ahead of technological advancements is not just an option, its a necessity. As we step into a new era of high-performance computing, GemFire has emerged as a pivotal player in redefining the standards of data processing and reliability. This blog delves into the latest breakthroughs and enhancements in GemFire technology, showcasing our commitment to optimizing performance, reliability, and scalability. From groundbreaking improvements in persistent data handling to revolutionary approaches in connection management and query optimization, we are setting a new benchmark in the world of data management. 
 
-If you would like to download GemFire 10.1, check out any examples , or learn more about GemFire and all the awesome features check out these links:
+If you would like to download GemFire 10.1, check out any examples, or learn more about GemFire and all the awesome features check out these links:
 
-* [Download GemFire 10.1](https://support.broadcom.com/)
+* [Download GemFire 10.1](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.1.1&os=&servicePk=310413&language=EN)
 * [GemFire 10.1 Documentation](https://docs.vmware.com/en/VMware-GemFire/10.1/gf/about_gemfire.html)
 * Discover all things GemFire https://gemfire.dev 
 

@@ -6,12 +6,12 @@ icon: dotnet
 topics:
 - .NET
 ---
-To begin using the VMware GemFire .NET Framework Native Client, first download the .NET Framework Client library from the [Broadcom Support Portal](https://support.broadcom.com/).
+To begin using the VMware GemFire .NET Framework Native Client, first download the .NET Framework Client library from the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=Native%20Client%2010.4.4&os=&servicePk=521899&language=EN).
 
 
 ## Install VMware GemFire
 
-Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
+Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.1.1&os=&servicePk=310413&language=EN). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/getting_started-installation-install_intro.html).
 
 ## Introduction to GFSH
 
@@ -25,7 +25,7 @@ $ gfsh
    / _____/ ______/ ______/ /____/ /
   / /  __/ /___  /_____  / _____  /
  / /__/ / ____/  _____/ / /    / /
-/______/_/      /______/_/    /_/    10.0.0
+/______/_/      /______/_/    /_/    10.1.1
 
 Monitor and Manage VMware GemFire
 gfsh>
@@ -45,11 +45,11 @@ $ gfsh start locator --name=locator --dir=${HOME}/locator
 Locator in /home/<username>/locator on test-javaclient.localdomain[10334] as locator is currently online.
 Process ID: 532579
 Uptime: 10 seconds
-Geode Version: 10.0.0
+Geode Version: 10.1.1
 Java Version: 11.0.17
 Log File: /home/<username>/test/locator/locator.log
 JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
-Class-Path: /home/<username>/vmware-gemfire-10.0.0/lib/gemfire-core-10.0.0.jar:/home/<username>/vmware-gemfire-10.0.0/lib/gemfire-server-all-10.0.0.jar
+Class-Path: /home/<username>/vmware-gemfire-10.1.1/lib/gemfire-core-10.1.1.jar:/home/<username>/vmware-gemfire-10.1.1/lib/gemfire-server-all-10.1.1.jar
 
 Successfully connected to: JMX Manager [host=test-javaclient.localdomain, port=1099]
 
@@ -68,7 +68,7 @@ Connecting to Locator at [host=localhost, port=10334] ..
 Connecting to Manager at [host=test-javaclient.localdomain, port=1099] ..
 Successfully connected to: [host=test-javaclient.localdomain, port=1099]
 
-You are connected to a cluster of version 10.0.0.
+You are connected to a cluster of version 10.1.1.
 
 
 (2) Executing - start server --dir=test/server --name=server
@@ -77,11 +77,11 @@ You are connected to a cluster of version 10.0.0.
 Server in /home/<username>/server on test-javaclient.localdomain[40404] as server is currently online.
 Process ID: 534075
 Uptime: 3 seconds
-Geode Version: 10.0.0
+Geode Version: 10.1.1
 Java Version: 11.0.17
 Log File: /home/<username>/test/server/server.log
 JVM Arguments: --add-exports=java.management/com.sun.jmx.remote.security=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -Dgemfire.default.locators=192.168.0.38[10334] -Dgemfire.start-dev-rest-api=false -Dgemfire.use-cluster-configuration=true -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
-Class-Path: /home/<username>/vmware-gemfire-10.0.0/lib/gemfire-core-10.0.0.jar:/home/<username>/vmware-gemfire-10.0.0/lib/gemfire-server-all-10.0.0.jar
+Class-Path: /home/<username>/vmware-gemfire-10.1.1/lib/gemfire-core-10.1.1.jar:/home/<username>/vmware-gemfire-10.1.1/lib/gemfire-server-all-10.1.1.jar
 
 ```
 
@@ -97,7 +97,7 @@ Connecting to Locator at [host=localhost, port=10334] ..
 Connecting to Manager at [host=test-javaclient.localdomain, port=1099] ..
 Successfully connected to: [host=test-javaclient.localdomain, port=1099]
 
-You are connected to a cluster of version 10.0.0.
+You are connected to a cluster of version 10.1.1.
 
 ```
 
@@ -123,8 +123,8 @@ Cluster configuration for group 'cluster' is updated.
 The region should now be created on server.
 
 ## Download the Native Clients Libraries from the Broadcom Support Portal
-1. In a browser, navigate to the [VMware Tanzu GemFire download](https://support.broadcom.com/) page.
-2. From the **Releases:** drop-down menu, select the most recent version of **VMware Tanzu GemFire Native Client**.
+1. In a browser, navigate to the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=Native%20Client%2010.4.4&os=&servicePk=521899&language=EN) page.
+2. From the **Native Client <version>** drop-down menu, select the most recent version of **VMware Tanzu GemFire Native Client**.
 3. Select the version that best suits your development platform, and download it.
 4. Uncompress the distribution archive, which may be a ZIP archive or a compressed tar file (.tar.gz or .tgz). For example:
     ```

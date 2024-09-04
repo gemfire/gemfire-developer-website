@@ -10,7 +10,7 @@ team:
 description: We are thrilled to announce that the GemFire Management Console version 1.1, is now available from the Broadcom Support Portal. This update brings powerful new features to help you manage your GemFire clusters with greater ease and efficiency.
 ---
 
-We are thrilled to announce the launch of  [VMware GemFire Management Console version 1.1](https://support.broadcom.com/) available now from the Broadcom Support Portal. This update brings powerful new features to help you manage your GemFire clusters with greater ease and efficiency. In this blog post, we'll explore these exciting enhancements and their potential impact on your GemFire experience.
+We are thrilled to announce the launch of  [VMware GemFire Management Console version 1.1](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console) available now from the Broadcom Support Portal. This update brings powerful new features to help you manage your GemFire clusters with greater ease and efficiency. In this blog post, we'll explore these exciting enhancements and their potential impact on your GemFire experience.
 
 ## What's New in GemFire Management Console 1.1
 
@@ -93,7 +93,7 @@ GemFire Management Console version 1.1 is a game-changer for developers and oper
 
 ## Additional Resources
 
-**Download:** Available now from the [Broadcom Support Portal](https://support.broadcom.com/).
+**Download:** Available now from the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console).
 
 **Documentation:** [GemFire Management Console 1.1 Documentation](https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.1/gfmc/index.html)
 

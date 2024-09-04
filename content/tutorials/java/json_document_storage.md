@@ -26,7 +26,7 @@ The goal of this tutorial is to introduce using and storing JSON documents in Ge
 
 ## Download Examples and Configure Environment
 
-Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/index.html).
+Download and install VMware GemFire from [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=10.1.1&os=&servicePk=310413&language=EN). Follow the installation instructions in the [GemFire documentation](https://docs.vmware.com/en/VMware-GemFire/index.html).
 
 Clone the [GemFire examples repository](https://github.com/gemfire/gemfire-examples) from GitHub.
 
@@ -68,7 +68,7 @@ In some environments it may be helpful to configure the JAVA_HOME environmental 
 
 ## Configure Access to GemFire Maven Repository
 
-The tutorial requires access to the Broadcom Maven Repository for the GemFire product jars. Please sign-up for access to repo at <https://support.broadcom.com>.
+The quick start tutorial requires access to the Broadcom Maven Repository for the GemFire product jars.  Navigate to the [Broadcom Support Portal](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire).  Login (or register if you have not already). Click Show All Releases and find "Click Green Token For Repository Access" (don't click the blue text; click the green icon to the right of it).
 
 Once sign-up is completed, add the following to the settings.xml file in .m2 directory within the home directory. Make sure to replace the email and
 password with those used during sign-up.
@@ -79,13 +79,13 @@ password with those used during sign-up.
         <server>
             <id>gemfire-release-repo</id>
             <username> <!-- Email sign-up--> </username>
-            <password> <!-- Replace with your password--> </password>
+            <password> <!-- Replace with your token--> </password>
         </server>
     </servers>
 </settings>
 ```
 
-The pom.xml file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.0.0 beta 1 version of the product.
+The pom.xml file provided with the examples is already configured with a pointer to the VMware GemFire maven repository and makes use of the GemFire 10.1.1 beta 1 version of the product.
 
 ## Start a Developer GemFire Cluster
 

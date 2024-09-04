@@ -9,6 +9,6 @@ description: In this video John Martin and Anthony Baker show how to use the new
 
 Try the new GemFire Management Console today!
 
-Download: https://support.broadcom.com/
+Download: https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Tanzu%20GemFire%20Management%20Console
 
-Documentation: https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.0/gfmc/index.html
+Documentation: https://docs.vmware.com/en/VMware-GemFire-Management-Console/1.2/gfmc/index.html
