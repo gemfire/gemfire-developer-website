@@ -422,6 +422,15 @@ archived_version = false
     [menu.main.params]
       topicgroups = "Extensions"
 
+  [[menu.main]]
+    identifier = "gfsessionmanagement"
+    Name = "GemFire Session Management"
+    parent = "download"
+    weight = 70
+    url = "https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Tanzu%20GemFire&displayGroup=VMware%20Tanzu%20GemFire&release=Session%20Management%201.0.0&os=&servicePk=310328&language=EN"
+    [menu.main.params]
+      topicgroups = "Extensions"
+
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
 #version_menu = "Get Started"
