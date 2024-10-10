@@ -75,6 +75,9 @@ Now that you have a `BasicSecurityManager` implementation, you need to include i
       ```
    - **`--J=-Dgemfire.security-manager=BasicSecurityManager.BasicSecurityManager`** - Defines the package and class for your security manager and allows GemFire to find the class when starting up.
    - **`--classpath=[path to your jar file]/BasicSecurityManager-1.0-SNAPSHOT.jar`** - Defines the path to the jar file that GemFire should use as the security manager.
+  
+
+   
 
 4. Once the locator has started, you will see an output similar to this:
 
@@ -104,6 +107,8 @@ In `gfsh`, the command would look similar to the following:
 ```text
     connect --locator= [IP Address that GemFire is running on][10334] --user=default --password=reallyBadPassword
 ```
+> When starting another locator in a cluster with multiple locators, you must either provide a [security properties file](https://docs.vmware.com/en/VMware-GemFire/10.1/gf/managing-security-implementing_authentication.html?hWord=N4IghgNiBcIOYDMDOBTAxgVwE4EsAuAngHQAOWA9iSlnjikiAL5A#add-settings-to-the-server-properties-file-2) or include the necessary security properties at startup using the following options: `--J=-Dgemfire.security-username=` and `--J=-Dgemfire.security-password=`.
+
 
 You should now be connected to the locator. Next, you will start a server. This will be very similar to starting the locator. In `gfsh`, use the `start server` command, which will include the path to the same `BasicSecurityManager` `.jar` file used when starting the locator.
 ```text 
