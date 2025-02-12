@@ -248,19 +248,19 @@ archived_version = false
 
   [[menu.main]]
     id = "gf4tasdoc"
-    name = "GemFire for TAS"
+    name = "GemFire on Cloud Foundry"
     parent = "documentation"
     weight = 20
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-on-cloud-foundry/2-1/gf-tas-2-1/content-index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-on-cloud-foundry/2-1/gf-cf/content-index.html"
     [menu.main.params]
       topicgroups = "Products"
 
   [[menu.main]]
     id = "gf4k8sdoc"
-    name = "GemFire for Kubernetes"
+    name = "GemFire on Kubernetes"
     parent = "documentation"
     weight = 30
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-on-kubernetes/2-4/gf-k8s-2-4/index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-on-kubernetes/2-4/gf-k8s/index.html"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -268,7 +268,7 @@ archived_version = false
     Name = "GemFire Management Console"
     parent = "documentation"
     weight = 35
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-management-console/1-3/gfmc-1-3/index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-management-console/1-3/gf-mc/index.html"
     [menu.main.params]
       topicgroups = "Products"
 
@@ -276,7 +276,7 @@ archived_version = false
     name = "Spring Boot for GemFire"
     parent = "documentation"
     weight = 40
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-boot-for-tanzu-gemfire/2-0/gf-sb-2-0/index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-boot-for-tanzu-gemfire/2-0/gf-sb/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -284,7 +284,7 @@ archived_version = false
     name = "Spring Data for GemFire"
     parent = "documentation"
     weight = 50
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-data-for-tanzu-gemfire/2-0/gf-sd-2-0/index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-data-for-tanzu-gemfire/2-0/gf-sd/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -292,7 +292,7 @@ archived_version = false
     name = "Spring Session for GemFire"
     parent = "documentation"
     weight = 50
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-session-for-tanzu-gemfire/2-0/gf-ss-2-0/index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-session-for-tanzu-gemfire/2-0/gf-ss/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -301,7 +301,7 @@ archived_version = false
     name = "Spring Cloud Data Flow for GemFire"
     parent = "documentation"
     weight = 51
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-cloud-data-flow-for-tanzu-gemfire/1-0/gf-scd-1-0/index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-cloud-data-flow-for-tanzu-gemfire/1-0/gf-scdf/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -309,7 +309,7 @@ archived_version = false
     name = "Spring Integration for GemFire"
     parent = "documentation"
     weight = 52
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-integration-for-tanzu-gemfire/1-0/gf-si-1-0/index.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/spring-integration-for-tanzu-gemfire/1-0/gf-si/index.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -317,7 +317,7 @@ archived_version = false
     name = "Native Client"
     parent = "documentation"
     weight = 60
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-native-client/10-4/gf-mc-10-4/release-notes.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-native-client/10-4/gf-nc/release-notes.html"
     [menu.main.params]
       topicgroups = "Clients"
 
@@ -334,7 +334,7 @@ archived_version = false
     Name = "GemFire Vector Database"
     parent = "documentation"
     weight = 85
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-vector-database/1-1/gf-vecdb-1-1/overview.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-vector-database/1-1/gf-vector-db/overview.html"
     [menu.main.params]
       topicgroups = "Extensions"
 
@@ -342,7 +342,7 @@ archived_version = false
     Name = "GemFire Session Management"
     parent = "documentation"
     weight = 90
-    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-session-management/1-0/gf-sm-1-0/chapter_overview.html"
+    url = "https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-gemfire-session-management/1-0/gf-sm/chapter_overview.html"
     [menu.main.params]
       topicgroups = "Extensions"
 
