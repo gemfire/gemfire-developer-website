@@ -314,7 +314,7 @@ $(function() {
                 } else if (ui.item.category === catSearchTags) {
                     url += ui.item.u;
                 }
-                if (top !== window) {
+                if (false) {
                     parent.classFrame.location = pathtoroot + url;
                 } else {
                     window.location.href = pathtoroot + url;

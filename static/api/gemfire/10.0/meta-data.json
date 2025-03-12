@@ -1,0 +1,9 @@
+{
+  navigations: [
+    {
+      name: "GemFire",
+      url: ".",
+      hidden: false
+    }
+  ]
+}
